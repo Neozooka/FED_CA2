@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <!-- <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet"> -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Geist+Pixel&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+        <style>
+           
+            :root {
+                --background: #1e1e1e;
+                --text: #FFFFFF;
+                --maingreen: #23D042;
+            }
+
+            body {
+                background-color: var(--background);
+                color: var(--text);
+                font-family: 'Roboto', sans-serif;
+            }
+
+            .action {
+                transition: all 0.5s ease-in-out;
+            }
+
+            .tagline {
+                font-family: 'Geist Pixel', sans-serif;
+            }
+
+
+        </style>
+    </head>
+
+    <body>
+
+        <!-- Navbar -->
+
+        <header>
+            <nav class="container px-6 max-w-full flex justify-between" style="background-color: #1e1e1e">
+                <div class="flex flex-row items-center">
+                    
+                    <img class="w-25 h-20" src="../images/neXuslogo2.png" alt="neXus logo">
+                    <h1 class="ml-4 text-lg text-center font-extrabold">Home</h1>
+
+                </div>
+                
+
+                <div class="flex flex-row justify-between items-center">
+                    <div class="mr-8">
+                        <button class="px-6 py-2 rounded-xl" style="background-color: var(--maingreen)">
+                            <!-- img or svg -->
+                            <img> 
+                            <a class="">Shop</a>
+                        </button>
+                    </div>
+                    <div class="w-8" >
+                        <div class= "h-1 bg-white"></div>
+                        <div class="h-1 mt-2 bg-white"></div>
+                        <div class="h-1 mt-2 bg-white"></div>
+                    </div>
+                    
+                    <!-- idk whats here some sort of dropdown? out of view to left?-->
+                </div>
+            </nav>
+        </header>
+
+        <section>
+            <hr>
+            <div>
+                <img>
+
+                <div>
+                    <h1>About the Creator</h1>
+
+                    <h3></h3>
+                </div>
+            </div>
+            <hr>
+            <div>
+                <h1 class="text-6xl">Have a question for us?</h1>
+
+                <section class="bg-gray-500 px-4 py-4">
+                    <h2>Customer Support Phone Number: 8484 9244</h2>
+                    <h2>Customer Support Email: neXus_support@gmail.com</h2>
+                    <h2>Our Office Location: 8 TEMASEK BOULVERARD #29-02 SUNTEC TOWER THREE</h2>
+                </section>
+            </div>
+        </section>
+
+
+        <!-- Footer Sections -->
+
+        <footer class="flex flex-col items-center">
+
+            <!-- All relevant links -->
+            <img class="w-25 h-20 mb-4" src="../images/neXuslogo2.png" alt="neXus logo">
+
+            <section class="text-2xl pb-4">
+                <ul class="flex flex-row gap-6 items-center">
+                    <li><a href="../html/index.html">Home</a></li>
+                    <li><a href="../html/keyboard-intro.html">Hardware</a></li>
+                    <li><a href="../html/neXos.html">Software</a></li>
+                    <li><a href="../html/contact.html">Contact Us</a></li>
+                    <li><a href="../html/index.html">About Us</a></li>
+                </ul>
+            </section>
+            
+            <!-- Horizontal Line -->
+            <hr class="w-3/4 border-t-2 border-neutral-700 my-2">
+
+            <!-- 1. Terms of Service, Privacy Policy 2. Socials 3. Copyright-->
+
+            <section class="flex flex-row text-2xl pt-4">
+                <div class="mr-20">
+                    <ul>
+                        <li><a href="https://www.youtube.com/watch?v=EE8U7U8syuI" target="_blank">Terms of Service</a></li>
+                        <li><a href="https://www.youtube.com/watch?v=EE8U7U8syuI" target="_blank">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="flex flex-row mr-20">
+                    <p class="pr-3">Socials:</p>
+                    <ul>
+                        <li>
+                            <!-- <img> yt logo -->
+                            <i style="font-size:24px; color:red;"" class="fa">&#xf16a;</i>
+                            <a href="https://www.youtube.com/watch?v=EE8U7U8syuI" target="_blank">
+                                Youtube
+                            </a>
+                        </li>
+                        <li>
+                            <i style="font-size:24px" class="fa">&#xf1e8;</i>
+                            <a href="https://www.youtube.com/watch?v=EE8U7U8syuI" target="_blank">
+                                Twitch
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <p>neXus Corporation &copy; all rights reserved</p>
+                </div>
+            </section>
+        </footer>
+
+
+
+    </body>
+
+</html>
