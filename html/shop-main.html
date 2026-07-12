@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="ie-edge">
+        <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+        <script src="https://cdn.tailwindcss.com"></script>
+        <title> Food Database </title>
+        <link rel="icon" type="image/x-icon" href="static/Diagrams/i-ate-logo.png">
+        <!-- <link href="../css/fooddb.css" rel="stylesheet"> -->
+        <script src="../javascript/keyboard-shop.js" defer></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <style>
+           
+            :root {
+                --background: #1e1e1e;
+                --text: #FFFFFF;
+                --maingreen: #23D042;
+            }
+
+            body {
+                background-color: var(--background);
+                color: var(--text);
+                font-family: 'Roboto', sans-serif;
+            }
+
+            .action {
+                transition: all 0.5s ease-in-out;
+            }
+
+            .tagline {
+                font-family: 'Geist Pixel', sans-serif;
+            }
+
+            .hide {
+                display: none;
+            }
+
+            .show {
+                display: block;
+            }
+
+
+        </style>
+    </head>
+    <body>
+        <header>
+            <nav class="container px-6 max-w-full flex justify-between" style="background-color: #1e1e1e">
+                <div class="flex flex-row items-center">
+                    
+                    <img class="w-25 h-20" src="../images/neXuslogo2.png" alt="neXus logo">
+                    <h1 class="ml-4 text-lg text-center font-extrabold">Home</h1>
+
+                </div>
+                
+
+                <div class="flex flex-row justify-between items-center">
+                    <div class="mr-8">
+                        <button class="px-6 py-2 rounded-xl" style="background-color: var(--maingreen)">
+                            <!-- img or svg -->
+                            <img> 
+                            <a class="">Shop</a>
+                        </button>
+                    </div>
+                    <div class="w-8" >
+                        <div class= "h-1 bg-white"></div>
+                        <div class="h-1 mt-2 bg-white"></div>
+                        <div class="h-1 mt-2 bg-white"></div>
+                    </div>
+                    
+                    <!-- idk whats here some sort of dropdown? out of view to left?-->
+                </div>
+            </nav>
+        </header>
+
+        <section class="flex flex-col items-center">
+            <div class="z-[100] flex h-[1500px] w-full flex-col items-center overflow-y-auto rounded-lg border-[0.01px] border-black p-t-[60px] pt-[60px] shadow-[1px_10px_10px_rgba(0,0,0,0.2)]">
+                
+                <div class="flex flex-row items-center justify-between">
+                    <input id="search" class="min-w-0 flex-1 rounded-l border border-[rgb(192,192,192)] p-2.5 text-[25px] shadow-[inset_1px_2px_3px_rgba(0,0,0,0.05)] outline-none w-[500px]" type="text" placeholder="Search products here! &#128270;" style="background-color: var(--background)">
+                </div>
+
+                <div class="dbdb text-center pt-[50px]">
+                    <section class="grid grid-cols-3 gap-4">
+                        
+                        <div class="w-[350px] bg-gray-700 flex flex-col items-center" id="nexus-60he-magnetic-keyboard-8000hz-polling-adjustable">
+                            <div class="w-[300px] py-8">
+                                <div>
+                                    <img src="../images/eewewe.jpeg" class="w-[300px]  h-[195px]">
+                                </div>
+                                <div class="py-4">
+                                    <h3 class="text-lg">neXus 60HE Magnetic Keyboard 8000Hz Polling Adjustable...</h3>
+                                </div>
+                                <div style="color: var(--text);" class="flex flex-row justify-between">
+                                    <button class="bg-red-500 w-[140px] h-[50px] px-4 py-2 rounded-xl"><p class="text-md" onclick="">Add to Cart</p></button>
+                                    <button class="bg-red-500 w-[140px] h-[50px] px-4 py-2 rounded-xl"><a class="text-md" onclick="">Buy Now</a></button>
+                                </div>
+                            </div>
+                            
+                        </div>
+
+                        <div class="w-[350px] bg-gray-700  flex flex-col items-center" id="nexus-60he-magnetic-keyboard-8000hz-polling-adjustable2">
+                            <div class="w-[300px]">
+                                <div>
+                                    <img src="../images/eewewe.jpeg" class="w-[300px] h-[195px]">
+                                </div>
+                                <div>
+                                    <h3 class="text-lg">neXus 60HE Magnetic Keyboard 8000Hz Polling Adjustable...</h3>
+                                </div>
+                                <div style="color: var(--text);" class="flex flex-row justify-between">
+                                    <button class="bg-red-500 w-[150px] h-[50px] px-4 py-2 rounded-xl"><p class="text-md" onclick="">Add to Cart</p></button>
+                                    <button class="bg-red-500 w-[150px] h-[50px] px-4 py-2 rounded-xl"><a class="text-md" onclick="">Buy Now</a></button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="w-[350px] bg-gray-700  flex flex-col items-center" id="nexus-60he-magnetic-keyboard-8000hz-polling-adjustable3">
+                            <div class="w-[300px]">
+                                <div>
+                                    <img src="../images/eewewe.jpeg" class="w-[300px] h-[195px]">
+                                </div>
+                                <div>
+                                    <h3 class="text-lg">neXus 60HE Magnetic Keyboard 8000Hz Polling Adjustable...</h3>
+                                </div>
+                                <div style="color: var(--text);" class="flex flex-row justify-between">
+                                    <button class="bg-red-500 w-[150px] h-[50px] px-4 py-2 rounded-xl"><p class="text-md" onclick="">Add to Cart</p></button>
+                                    <button class="bg-red-500 w-[150px] h-[50px] px-4 py-2 rounded-xl"><a class="text-md" onclick="">Buy Now</a></button>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </section>
+
+    <!-- Footer Sections -->
+
+    <footer class="flex flex-col items-center">
+
+        <!-- All relevant links -->
+        <img class="w-25 h-20 mb-4" src="../images/neXuslogo2.png" alt="neXus logo">
+
+        <section class="text-2xl pb-4">
+            <ul class="flex flex-row gap-6 items-center">
+                <li><a href="../html/index.html">Home</a></li>
+                <li><a href="../html/keyboard-intro.html">Hardware</a></li>
+                <li><a href="../html/neXos.html">Software</a></li>
+                <li><a href="../html/contact.html">Contact Us</a></li>
+                <li><a href="../html/index.html">About Us</a></li>
+            </ul>
+        </section>
+        
+        <!-- Horizontal Line -->
+        <hr class="w-3/4 border-t-2 border-neutral-700 my-2">
+
+        <!-- 1. Terms of Service, Privacy Policy 2. Socials 3. Copyright-->
+
+        <section class="flex flex-row text-2xl pt-4">
+            <div class="mr-20">
+                <ul>
+                    <li><a href="https://www.youtube.com/watch?v=EE8U7U8syuI" target="_blank">Terms of Service</a></li>
+                    <li><a href="https://www.youtube.com/watch?v=EE8U7U8syuI" target="_blank">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="flex flex-row mr-20">
+                <p class="pr-3">Socials:</p>
+                <ul>
+                    <li>
+                        <!-- <img> yt logo -->
+                        <i style="font-size:24px; color:red;"" class="fa">&#xf16a;</i>
+                        <a href="https://www.youtube.com/watch?v=EE8U7U8syuI" target="_blank">
+                            Youtube
+                        </a>
+                    </li>
+                    <li>
+                        <i style="font-size:24px" class="fa">&#xf1e8;</i>
+                        <a href="https://www.youtube.com/watch?v=EE8U7U8syuI" target="_blank">
+                            Twitch
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <p>neXus Corporation &copy; all rights reserved</p>
+            </div>
+        </section>
+    </footer>
+
+    </body>
+</html>
