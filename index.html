@@ -87,7 +87,8 @@
 
                 <div class="list relative h-[1000px] w-full overflow-hidden"> 
                     
-                    <div style="background-image: url('images/eewewe.jpeg');" class="action ease-in-out w-full h-3/4 bg-cover bg-center bg-no-repeat absolute left-1/2 top-1/2 z-20 -translate-x-1/2 -translate-y-1/2 opacity-0 blur-none transition-all duration-500">
+                    <div style="background-image: url('../images/eewewe.jpeg');" class="action w-full h-3/4 bg-cover bg-center 
+                    bg-no-repeat absolute left-1/2 top-1/2 z-20 -translate-x-1/2 -translate-y-1/2 opacity-0 pointer-events-none">
                         <div class="actionintro pointer-events-auto opacity-100">
 
                             <div class="Title mb-5 flex flex-row items-center text-[20px] font-bold">
@@ -101,7 +102,8 @@
                         </div>
                     </div>
 
-                    <div style="background-image: url('images/neXuslogo.png');" class="action ease-in-out w-full h-3/4 bg-cover bg-center bg-no-repeat absolute left-1/2 top-1/2 z-20 -translate-x-1/2 -translate-y-1/2 opacity-100 blur-none transition-all duration-500">
+                    <div style="background-image: url('../images/neXuslogo.png');" class="action  w-full h-3/4 bg-cover bg-center 
+                    bg-no-repeat absolute left-1/2 top-1/2 z-20 -translate-x-1/2 -translate-y-1/2 opacity-100 pointer-events-none">
                         <div class="actionintro pointer-events-auto opacity-100">
 
                             <div class="Title mb-5 flex flex-row items-center text-[20px] font-bold">
@@ -115,7 +117,8 @@
                         </div>
                     </div>
 
-                    <div style="background-image: url('images/WhatsApp\ Image\ 2026-07-08\ at\ 10.28.12.jpeg');" class="action ease-in-out w-full h-3/4 bg-cover bg-center bg-no-repeat absolute left-1/2 top-1/2 z-20 -translate-x-1/2 -translate-y-1/2 opacity-0 blur-none transition-all duration-500">
+                    <div style="background-image: url('../images/WhatsApp\ Image\ 2026-07-08\ at\ 10.28.12.jpeg');" class="action  w-full h-3/4 bg-cover bg-center 
+                    left-1/2 top-1/2 z-20 -translate-x-1/2 -translate-y-1/2 opacity-0 absolute pointer-events-none">
                         <div class="actionintro pointer-events-auto opacity-100">
 
                             <div class="Title mb-5 flex flex-row items-center text-[20px] font-bold">
@@ -257,22 +260,17 @@
                 let actions = document.querySelectorAll(".action");
                 
                 actions.forEach((card, index) => {
-                    // Remove previous positioning/animation tracking classes cleanly
-                    card.classList.remove(
-                        'left-1/2', '-translate-x-[150%]', 'scale-80', 'opacity-60', 'blur-[5px]', 'pointer-events-none', 'z-10',
-                        '-translate-x-1/2', 'opacity-100', 'blur-none', 'z-20',
-                        'translate-x-[50%]'
-                    );
+                    card.classList.remove("z-10", "z-20","opacity-0","opacity-100")
                     
                     if (index === 0) {
                         // Card 1: Left position (Anchored perfectly to 0% line + centered over it)
-                        card.classList.add('left-[0%]', '-translate-x-1/2', 'scale-80', 'opacity-0', 'blur-[5px]', 'pointer-events-none', 'z-10');
+                        card.classList.add("opacity-0", "z-10");
                     } else if (index === 1) {
                         // Card 2: Center position (Anchored perfectly to 50% midpoint line)
-                        card.classList.add('left-[50%]', '-translate-x-1/2', 'opacity-100', 'blur-none', 'z-20');
+                        card.classList.add("opacity-100","z-20");
                     } else if (index === 2) {
                         // Card 3: Right position (Anchored perfectly to 100% right boundary line)
-                        card.classList.add('left-[100%]', '-translate-x-1/2', 'scale-80', 'opacity-0', 'blur-[5px]', 'pointer-events-none', 'z-10');
+                        card.classList.add("opacity-0", "z-10");
                     }
                 });
             }
@@ -290,20 +288,10 @@
                 let actions = document.querySelectorAll(".action");
                 if (type === "next") {
 
-                    // actions[0].classList.remove('-translate-x-[50%]', 'scale-80', 'opacity-0', 'blur-[5px]', 'pointer-events-none', 'z-10');
-                    // actions[0].classList.add('-translate-x-1/2', 'opacity-100', 'blur-none', 'z-20');
-
-                    actions[1].classList.remove('-translate-x-1/2', 'opacity-100', 'blur-none', 'z-20');
-                    actions[1].classList.add('-translate-x-[150%]', 'scale-80', 'opacity-100', 'blur-[5px]', 'pointer-events-none', 'z-10');
-
-                    actions[2].classList.remove('translate-x-[50%]', 'scale-80', 'opacity-0', 'blur-[5px]', 'pointer-events-none', 'z-10');
-                    actions[2].classList.add('-translate-x-1/2', 'opacity-100', 'blur-none', 'z-20');
-
-                    list.appendChild(actions[0]); 
-                    // setTimeout(() => {
-                    //     list.appendChild(actions[0]);
-                    //     updateCarouselLayout();
-                    // }, 20);
+                    setTimeout(() => {
+                        list.appendChild(actions[0]);
+                        updateCarouselLayout();
+                    }, 20);
                 } else {
                     let lastPos = actions.length - 1;
                     // list.prepend(actions[lastPos]);
