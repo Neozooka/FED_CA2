@@ -84,61 +84,59 @@
 
 
             <section class="actionView relative w-full">
-
                 <div class="list relative h-[1000px] w-full overflow-hidden"> 
-                    
                     <div style="background-image: url('../images/eewewe.jpeg');" class="action w-full h-3/4 bg-cover bg-center 
                     bg-no-repeat absolute left-1/2 top-1/2 z-20 -translate-x-1/2 -translate-y-1/2 opacity-0 pointer-events-none">
                         <div class="actionintro pointer-events-auto opacity-100">
-
                             <div class="Title mb-5 flex flex-row items-center text-[20px] font-bold">
                                 <h1 class="mb-5 mr-2.5 border-r border-current pr-2.5 text-[20px] font-bold text-center">RGTHJMGREW</h1>
                                 <h1></h1>
                             </div>
-
                             <div class="main-info mb-5 text-[20px] leading-1.6">
                                 <p></p>
                             </div>
                         </div>
                     </div>
-
                     <div style="background-image: url('../images/neXuslogo.png');" class="action  w-full h-3/4 bg-cover bg-center 
                     bg-no-repeat absolute left-1/2 top-1/2 z-20 -translate-x-1/2 -translate-y-1/2 opacity-100 pointer-events-none">
                         <div class="actionintro pointer-events-auto opacity-100">
-
                             <div class="Title mb-5 flex flex-row items-center text-[20px] font-bold">
                                 <h1 class="mb-5 mr-2.5 border-r border-current pr-2.5 text-[20px] font-bold text-center">RGTHJMGREW</h1>
                                 <h1></h1>
                             </div>
-
                             <div class="main-info mb-5 text-[20px] leading-1.6">
                                 <p></p>
                             </div>
                         </div>
                     </div>
-
                     <div style="background-image: url('../images/WhatsApp\ Image\ 2026-07-08\ at\ 10.28.12.jpeg');" class="action  w-full h-3/4 bg-cover bg-center 
                     left-1/2 top-1/2 z-20 -translate-x-1/2 -translate-y-1/2 opacity-0 absolute pointer-events-none">
                         <div class="actionintro pointer-events-auto opacity-100">
-
                             <div class="Title mb-5 flex flex-row items-center text-[20px] font-bold">
                                 <h1 class="mb-5 mr-2.5 border-r border-current pr-2.5 text-[20px] font-bold text-center">RGTHJMGREW</h1>
                                 <h1></h1>
                             </div>
-
                             <div class="main-info mb-5 text-[20px] leading-1.6">
                                 <p></p>
                             </div>
                         </div>
                     </div>
-
-                    
                 </div>
 
-                <div class="arrowkeys absolute bottom-2.5 left-1/2 top-[50%] z-[999] flex w-full max-w-full -translate-x-1/2 -translate-y-1/2 items-center justify-between pointer-events-none">
-                    <button id="previous" class="h-[200px] w-[50px] border-[1.5px] border-current bg-white font-mono text-lg font-bold pointer-events-auto transition duration-500 hover:border-black hover:bg-[rgb(33,33,33)] hover:text-white">&#8592;</button>
-                    
-                    <button id="next" class="h-[50px] w-[50px] border-[1.5px] border-current bg-white font-mono text-lg font-bold pointer-events-auto transition duration-500 hover:border-black hover:bg-[rgb(33,33,33)] hover:text-white">&#8594;</button>
+                <div class="arrowkeys absolute bottom-2.5 left-1/2 top-[50%] z-[999] flex w-full max-w-full -translate-x-1/2 
+                -translate-y-1/2 items-center justify-between pointer-events-none">
+                    <button id="previous" class="h-[200px] w-[50px] border-[1.5px] border-current bg-white 
+                    font-mono text-lg font-bold pointer-events-auto transition duration-500 hover:border-black hover:bg-[rgb(33,33,33)] 
+                    hover:text-white">&#8592;</button>
+                    <button id="next" class="h-[50px] w-[50px] border-[1.5px] border-current bg-white font-mono text-lg 
+                    font-bold pointer-events-auto transition duration-500 hover:border-black hover:bg-[rgb(33,33,33)] 
+                    hover:text-white">&#8594;</button>
+                </div>
+
+                <div class="relative flex justify-center items-center gap-2" id="carousel-indicator">
+                    <button class="carouselbutton h-2 w-10 rounded-full bg-gray-700 transition-all duration-300 aria-current" aria-label="Image 1" id="carouselb1"></button>
+                    <button class="carouselbutton h-2 w-10 rounded-full bg-gray-300 hover:bg-gray-400 transition-all duration-300" aria-label="Image 2" id="carouselb2" ></button>
+                    <button class="carouselbutton h-2 w-10 rounded-full bg-gray-300 hover:bg-gray-400 transition-all duration-300" aria-label="Image 3" id="carouselb3"></button>
                 </div>
 
             </section>
@@ -256,20 +254,53 @@
             
             //Calls the function with 1 parameter
 
-            function updateCarouselLayout() {
+            function updateCarouselLayout(count) {
                 let actions = document.querySelectorAll(".action");
+                let carouselbutton = document.querySelectorAll(".carouselbutton")
                 
+                if (count === 1) {
+                    carouselbutton.forEach((button, index) => {
+                        button.classList.remove("bg-gray-700", "bg-gray-300")
+                        if (index === 0) {
+                            button.classList.add("bg-gray-700");
+                        } else if (index === 1) {
+                            button.classList.add("bg-gray-300");
+                        } else if (index === 2) {
+                            button.classList.add("bg-gray-300");
+                        }
+                    })
+                } else if (count == 2) {
+                    carouselbutton.forEach((button, index) => {
+                        button.classList.remove("bg-gray-700", "bg-gray-300")
+                        if (index === 0) {
+                            button.classList.add("bg-gray-300");
+                        } else if (index === 1) {
+                            button.classList.add("bg-gray-700");
+                        } else if (index === 2) {
+                            button.classList.add("bg-gray-300");
+                        }
+                    })
+                } else if (count == 3) {
+                    carouselbutton.forEach((button, index) => {
+                        button.classList.remove("bg-gray-700", "bg-gray-300")
+                        if (index === 0) {
+                            button.classList.add("bg-gray-300");
+                        } else if (index === 1) {
+                            button.classList.add("bg-gray-300");
+                        } else if (index === 2) {
+                            button.classList.add("bg-gray-700");
+                        }
+                    })
+                }
+            
                 actions.forEach((card, index) => {
                     card.classList.remove("z-10", "z-20","opacity-0","opacity-100")
                     
                     if (index === 0) {
-                        // Card 1: Left position (Anchored perfectly to 0% line + centered over it)
                         card.classList.add("opacity-0", "z-10");
                     } else if (index === 1) {
-                        // Card 2: Center position (Anchored perfectly to 50% midpoint line)
                         card.classList.add("opacity-100","z-20");
                     } else if (index === 2) {
-                        // Card 3: Right position (Anchored perfectly to 100% right boundary line)
                         card.classList.add("opacity-0", "z-10");
                     }
                 });
@@ -284,23 +315,35 @@
 
             //Moves the card to the left/right
 
+            let count = 1
+
             function showSlider(type) {
                 let actions = document.querySelectorAll(".action");
-                if (type === "next") {
 
+                
+
+                if (type === "next") {
+                    count += 1
+                    console.log(count)
                     setTimeout(() => {
                         list.appendChild(actions[0]);
-                        updateCarouselLayout();
+                        updateCarouselLayout(count);
                     }, 20);
                 } else {
                     let lastPos = actions.length - 1;
-                    // list.prepend(actions[lastPos]);
+                    count -= 1
                     setTimeout(() => {
                         list.prepend(actions[lastPos]);
-                        updateCarouselLayout();
+                        updateCarouselLayout(count);
                     }, 20);
                     
                 }
+
+                if (count > 3) {
+                    count = 1
+                } else if (count < 1) {
+                    count = 3
+                } 
             }
 
         </script>
