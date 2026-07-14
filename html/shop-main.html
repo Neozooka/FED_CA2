@@ -75,16 +75,22 @@
         </header>
 
         <section class="flex flex-col items-center">
-            <div class="z-[100] flex h-[1500px] w-full flex-col items-center overflow-y-auto rounded-lg border-[0.01px] border-black p-t-[60px] pt-[60px] shadow-[1px_10px_10px_rgba(0,0,0,0.2)]">
+            <div class="z-[100] flex h-[1500px] w-full flex-col items-center overflow-y-auto rounded-lg p-t-[60px] pt-[60px] ">
                 
-                <div class="flex flex-row items-center justify-between">
-                    <input id="search" class="min-w-0 flex-1 rounded-l border border-[rgb(192,192,192)] p-2.5 
-                        text-[25px] shadow-[inset_1px_2px_3px_rgba(0,0,0,0.05)] outline-none w-[500px]" type="text" 
+                <div class="flex flex-row items-center justify-between w-3/4">
+                    <h1 class="text-5xl">Shop Search</h1>
+                    
+                    <input id="search" class="rounded border border-[rgb(192,192,192)] p-2.5 
+                        text-[25px] shadow-[inset_1px_2px_3px_rgba(0,0,0,0.05)] outline-none w-[900px]" type="text" 
                         placeholder="Search products here! &#128270;" style="background-color: var(--background)">
                 </div>
 
-                <div class="dbdb text-center pt-[50px]">
-                    <section class="grid grid-cols-3 gap-4">
+                <h2 class="my-[50px]  ">
+                    <span id="current-count">8</span> out of <span id="max-count">8</span> found
+                </h2>
+
+                <div class="dbdb text-center flex flex-col gap-6 ">
+                    <section class="grid grid-cols-4 gap-4">
                         
                         <div class="w-[350px] bg-gray-700 flex flex-col items-center" id="nexus-60he-magnetic-keyboard-8000hz-polling-adjustable">
                             <div class="w-[300px] py-8">
@@ -102,34 +108,119 @@
                             
                         </div>
 
-                        <div class="w-[350px] bg-gray-700  flex flex-col items-center" id="nexus-60he-magnetic-keyboard-8000hz-polling-adjustable2">
-                            <div class="w-[300px]">
+                        <div class="w-[350px] rounded-lg bg-gray-700 flex flex-col items-center" id="nexus-60he-magnetic-keyboard-8000hz-polling-adjustable2">
+                            <div class="w-[300px] py-8">
                                 <div>
-                                    <img src="../images/eewewe.jpeg" class="w-[300px] h-[195px]">
+                                    <img src="../images/eewewe.jpeg" class="w-[300px]  h-[195px]">
                                 </div>
-                                <div>
+                                <div class="py-4">
                                     <h3 class="text-lg">neXus 60HE Magnetic Keyboard 8000Hz Polling Adjustable...</h3>
                                 </div>
                                 <div style="color: var(--text);" class="flex flex-row justify-between">
-                                    <button class="bg-red-500 w-[150px] h-[50px] px-4 py-2 rounded-xl"><p class="text-md" onclick="">Add to Cart</p></button>
-                                    <button class="bg-red-500 w-[150px] h-[50px] px-4 py-2 rounded-xl"><a class="text-md" onclick="">Buy Now</a></button>
+                                    <button class="bg-red-500 w-[140px] h-[50px] px-4 py-2 rounded-xl"><p class="text-md" onclick="">Add to Cart</p></button>
+                                    <button class="bg-red-500 w-[140px] h-[50px] px-4 py-2 rounded-xl"><a class="text-md" onclick="">Buy Now</a></button>
                                 </div>
                             </div>
+                            
                         </div>
 
-                        <div class="w-[350px] bg-gray-700  flex flex-col items-center" id="nexus-60he-magnetic-keyboard-8000hz-polling-adjustable3">
-                            <div class="w-[300px]">
+                        <div class="w-[350px] bg-gray-700 flex flex-col items-center" id="nexus-60he-magnetic-keyboard-8000hz-polling-adjustable3">
+                            <div class="w-[300px] py-8">
                                 <div>
-                                    <img src="../images/eewewe.jpeg" class="w-[300px] h-[195px]">
+                                    <img src="../images/eewewe.jpeg" class="w-[300px]  h-[195px]">
                                 </div>
-                                <div>
+                                <div class="py-4">
                                     <h3 class="text-lg">neXus 60HE Magnetic Keyboard 8000Hz Polling Adjustable...</h3>
                                 </div>
                                 <div style="color: var(--text);" class="flex flex-row justify-between">
-                                    <button class="bg-red-500 w-[150px] h-[50px] px-4 py-2 rounded-xl"><p class="text-md" onclick="">Add to Cart</p></button>
-                                    <button class="bg-red-500 w-[150px] h-[50px] px-4 py-2 rounded-xl"><a class="text-md" onclick="">Buy Now</a></button>
+                                    <button class="bg-red-500 w-[140px] h-[50px] px-4 py-2 rounded-xl"><p class="text-md" onclick="">Add to Cart</p></button>
+                                    <button class="bg-red-500 w-[140px] h-[50px] px-4 py-2 rounded-xl"><a class="text-md" onclick="">Buy Now</a></button>
                                 </div>
                             </div>
+                            
+                        </div>
+
+                        <div class="w-[350px] bg-gray-700 flex flex-col items-center" id="nexus-60he-magnetic-keyboard-8000hz-polling-adjustable4">
+                            <div class="w-[300px] py-8">
+                                <div>
+                                    <img src="../images/eewewe.jpeg" class="w-[300px]  h-[195px]">
+                                </div>
+                                <div class="py-4">
+                                    <h3 class="text-lg">neXus 60HE Magnetic Keyboard 8000Hz Polling Adjustable...</h3>
+                                </div>
+                                <div style="color: var(--text);" class="flex flex-row justify-between">
+                                    <button class="bg-red-500 w-[140px] h-[50px] px-4 py-2 rounded-xl"><p class="text-md" onclick="">Add to Cart</p></button>
+                                    <button class="bg-red-500 w-[140px] h-[50px] px-4 py-2 rounded-xl"><a class="text-md" onclick="">Buy Now</a></button>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </section>
+
+                    <section class="grid grid-cols-4 gap-4">
+                        
+                        <div class="w-[350px] bg-gray-700 flex flex-col items-center" id="nexus-60he-magnetic-keyboard-8000hz-polling-adjustable5">
+                            <div class="w-[300px] py-8">
+                                <div>
+                                    <img src="../images/eewewe.jpeg" class="w-[300px]  h-[195px]">
+                                </div>
+                                <div class="py-4">
+                                    <h3 class="text-lg">neXus 60HE Magnetic Keyboard 8000Hz Polling Adjustable...</h3>
+                                </div>
+                                <div style="color: var(--text);" class="flex flex-row justify-between">
+                                    <button class="bg-red-500 w-[140px] h-[50px] px-4 py-2 rounded-xl"><p class="text-md" onclick="">Add to Cart</p></button>
+                                    <button class="bg-red-500 w-[140px] h-[50px] px-4 py-2 rounded-xl"><a class="text-md" onclick="">Buy Now</a></button>
+                                </div>
+                            </div>
+                            
+                        </div>
+
+                        <div class="w-[350px] rounded-lg bg-gray-700 flex flex-col items-center" id="nexus-60he-magnetic-keyboard-8000hz-polling-adjustable6">
+                            <div class="w-[300px] py-8">
+                                <div>
+                                    <img src="../images/eewewe.jpeg" class="w-[300px]  h-[195px]">
+                                </div>
+                                <div class="py-4">
+                                    <h3 class="text-lg">neXus 60HE Magnetic Keyboard 8000Hz Polling Adjustable...</h3>
+                                </div>
+                                <div style="color: var(--text);" class="flex flex-row justify-between">
+                                    <button class="bg-red-500 w-[140px] h-[50px] px-4 py-2 rounded-xl"><p class="text-md" onclick="">Add to Cart</p></button>
+                                    <button class="bg-red-500 w-[140px] h-[50px] px-4 py-2 rounded-xl"><a class="text-md" onclick="">Buy Now</a></button>
+                                </div>
+                            </div>
+                            
+                        </div>
+
+                        <div class="w-[350px] bg-gray-700 flex flex-col items-center" id="nexus-60he-magnetic-keyboard-8000hz-polling-adjustable7">
+                            <div class="w-[300px] py-8">
+                                <div>
+                                    <img src="../images/eewewe.jpeg" class="w-[300px]  h-[195px]">
+                                </div>
+                                <div class="py-4">
+                                    <h3 class="text-lg">neXus 60HE Magnetic Keyboard 8000Hz Polling Adjustable...</h3>
+                                </div>
+                                <div style="color: var(--text);" class="flex flex-row justify-between">
+                                    <button class="bg-red-500 w-[140px] h-[50px] px-4 py-2 rounded-xl"><p class="text-md" onclick="">Add to Cart</p></button>
+                                    <button class="bg-red-500 w-[140px] h-[50px] px-4 py-2 rounded-xl"><a class="text-md" onclick="">Buy Now</a></button>
+                                </div>
+                            </div>
+                            
+                        </div>
+
+                        <div class="w-[350px] bg-gray-700 flex flex-col items-center" id="nexus-60he-magnetic-keyboard-8000hz-polling-adjustable8">
+                            <div class="w-[300px] py-8">
+                                <div>
+                                    <img src="../images/eewewe.jpeg" class="w-[300px]  h-[195px]">
+                                </div>
+                                <div class="py-4">
+                                    <h3 class="text-lg">neXus 60HE Magnetic Keyboard 8000Hz Polling Adjustable...</h3>
+                                </div>
+                                <div style="color: var(--text);" class="flex flex-row justify-between">
+                                    <button class="bg-red-500 w-[140px] h-[50px] px-4 py-2 rounded-xl"><p class="text-md" onclick="">Add to Cart</p></button>
+                                    <button class="bg-red-500 w-[140px] h-[50px] px-4 py-2 rounded-xl"><a class="text-md" onclick="">Buy Now</a></button>
+                                </div>
+                            </div>
+                            
                         </div>
                     </section>
                 </div>
