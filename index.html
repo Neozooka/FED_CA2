@@ -121,24 +121,23 @@
                             </div>
                         </div>
                     </div>
+                    <div class="absolute bottom-24 left-1/2 -translate-x-1/2 flex justify-center items-center gap-2 z-30" id="carousel-indicator">
+                        <button class="carouselbutton h-2 w-10 rounded-full bg-gray-700 transition-all duration-300 aria-current" aria-label="Image 1" id="carouselb1"></button>
+                        <button class="carouselbutton h-2 w-10 rounded-full bg-gray-300 hover:bg-gray-400 transition-all duration-300" aria-label="Image 2" id="carouselb2" ></button>
+                        <button class="carouselbutton h-2 w-10 rounded-full bg-gray-300 hover:bg-gray-400 transition-all duration-300" aria-label="Image 3" id="carouselb3"></button>
+                    </div>
+                    
                 </div>
 
                 <div class="arrowkeys absolute bottom-2.5 left-1/2 top-[50%] z-[999] flex w-full max-w-full -translate-x-1/2 
                 -translate-y-1/2 items-center justify-between pointer-events-none">
                     <button id="previous" class="h-[200px] w-[50px] border-[1.5px] border-current bg-white 
                     font-mono text-lg font-bold pointer-events-auto transition duration-500 hover:border-black hover:bg-[rgb(33,33,33)] 
-                    hover:text-white">&#8592;</button>
+                    hover:text-white" onclick="previous()">&#8592;</button>
                     <button id="next" class="h-[50px] w-[50px] border-[1.5px] border-current bg-white font-mono text-lg 
                     font-bold pointer-events-auto transition duration-500 hover:border-black hover:bg-[rgb(33,33,33)] 
-                    hover:text-white">&#8594;</button>
+                    hover:text-white" onclick="next()">&#8594;</button>
                 </div>
-
-                <div class="relative flex justify-center items-center gap-2" id="carousel-indicator">
-                    <button class="carouselbutton h-2 w-10 rounded-full bg-gray-700 transition-all duration-300 aria-current" aria-label="Image 1" id="carouselb1"></button>
-                    <button class="carouselbutton h-2 w-10 rounded-full bg-gray-300 hover:bg-gray-400 transition-all duration-300" aria-label="Image 2" id="carouselb2" ></button>
-                    <button class="carouselbutton h-2 w-10 rounded-full bg-gray-300 hover:bg-gray-400 transition-all duration-300" aria-label="Image 3" id="carouselb3"></button>
-                </div>
-
             </section>
             
 
@@ -306,10 +305,10 @@
                 });
             }
 
-            NButton.onclick = function() {
+            function next() {
                 showSlider("next");
             }
-            PButton.onclick = function() {
+            function previous() {
                 showSlider("previous");
             }
 
@@ -319,8 +318,6 @@
 
             function showSlider(type) {
                 let actions = document.querySelectorAll(".action");
-
-                
 
                 if (type === "next") {
                     count += 1
@@ -346,6 +343,7 @@
                 } 
             }
 
+            setInterval(next, 4000)
         </script>
 
     </body>
