@@ -82,21 +82,30 @@
             <section class="w-[450px] flex flex-col gap-6 mb-12">
                 <h2 class="text-3xl  tracking-wide mb-2 text-left">Feel free to ask!</h2>
                 
-                <div class="flex flex-row items-center justify-between">
-                    <h3 class="text-xl  w-28">Email</h3>
-                    <input class="w-[300px] h-8 bg-gray-300 text-black px-2 outline-none rounded-sm" type="email">
-                </div>
-                
-                <div class="flex flex-row items-center justify-between">
-                    <h3 class="text-xl  w-28">Subject</h3>
-                    <div class="relative w-[300px]">
-                        <input class="w-[300px] h-8 bg-gray-300 text-black px-2 outline-none rounded-sm" type="subject">
+                <div>
+                    <div class="flex flex-row items-center justify-between">
+                        <h3 class="text-xl  w-28">Email</h3>
+                        <input id="user-email" class="w-[300px] h-8 bg-gray-300 text-black px-2 outline-none rounded-sm" type="email">
                     </div>
+                    <p id="email-alert" class="text-red-400 text-sm text-right mt-1 hidden"></p>
                 </div>
-                
-                <div class="flex flex-row items-start justify-between">
-                    <h3 class="text-xl  w-28 pt-1">Content</h3>
-                    <textarea class="w-[300px] h-40 bg-gray-300 text-black p-2 outline-none rounded-sm resize-none"></textarea>
+
+                <div>
+                    <div class="flex flex-row items-center justify-between">
+                        <h3 class="text-xl  w-28">Subject</h3>
+                        <div class="relative w-[300px]">
+                            <input id="user-subject" class="w-[300px] h-8 bg-gray-300 text-black px-2 outline-none rounded-sm" type="subject">
+                        </div>
+                    </div>
+                    <p id="subject-alert" class="text-red-400 text-sm text-right mt-1 hidden"></p>
+                </div>
+
+                <div>
+                    <div class="flex flex-row items-start justify-between">
+                        <h3 class="text-xl  w-28 pt-1">Content</h3>
+                        <input id="user-content" class="w-[300px] h-40 bg-gray-300 text-black p-2 outline-none rounded-sm resize-none"></input>
+                    </div>
+                    <p id="content-alert" class="text-red-400 text-sm text-right mt-1 hidden"></p>
                 </div>
             </section>
 
@@ -177,7 +186,64 @@
             </section>
         </footer>
 
+        <script>
+            const userEmail = document.getElementById("user-email")
+            const userSubject = document.getElementById("user-subject")
+            const userContent = document.getElementById("user-content")
 
+            let emailList = []
+            let subjectList = []
+            let contentList = []
+            let content = false
+            let subject = false
+
+            function showAlert(inputElement, alertElement, msg, isValid) {
+                if (isValid) {
+                    inputElement.classList.remove("border-red-500")
+                    inputElement.classList.add("border-transparent")
+                    alertElement.classList.add("hidden")
+                    alertElement.innerText = ""
+                } else {
+                    inputElement.classList.remove("border-transparent")
+                    inputElement.classList.add("border-red-500")
+                    alertElement.classList.remove("hidden")
+                    alertElement.innerText = msg
+                }
+            }
+
+            userEmail.addEventListener("input", e => {
+                const value = e.target.value.trim()
+                const emailCheck = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+                const isValid = emailCheck.test(value);
+                const msg = "Please enter a valid email address (e.g., name@domain.com)."
+                
+                showAlert(userEmail, document.getElementById("email-alert"), msg, isValid || value.length === 0)
+            })
+
+            userSubject.addEventListener("input", e => {
+                const value = e.target.value.trim()
+                const isValid = value.length > 0
+                const msg = "Subject cannot be empty."
+                
+                if (isValid) {
+                   subject = true
+                }
+
+                showAlert(userSubject, document.getElementById("subject-alert"), msg, isValid || e.target.value.length === 0)
+            })
+
+            userContent.addEventListener("input", e => {
+                const value = e.target.value.trim()
+                const isValid = value.length > 0
+                const msg = "Content box cannot be empty."
+
+                if (isValid) {
+                   content = true
+                }
+                
+                showAlert(userContent, document.getElementById("content-alert"), msg, isValid || e.target.value.length === 0)
+            })
+        </script>
 
     </body>
 

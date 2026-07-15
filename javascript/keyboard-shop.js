@@ -10,20 +10,20 @@ const shop_list = [
 ];
 //searchbar work function\
 
-
+let cart = []
 
 search.addEventListener("input", e => { //checks for input in the search bar input in the html file
     const value = e.target.value.toLowerCase(); //lowercase so everything can match with database and not show error
     console.log(value) //check for the words so i can see in console
     let in_search = []
-    shop_list.forEach(food => {
-        let foodElement = document.getElementById(food)
-        const show = foodElement.id.toLowerCase().includes(value)
+    shop_list.forEach(item => {
+        let itemElement = document.getElementById(item)
+        const show = itemElement.id.toLowerCase().includes(value)
         if (show) {
-            in_search.push(food)
+            in_search.push(item)
         }
-        foodElement.classList.toggle("hidden", !show) //check in css file
-        console.log("Hidden" +show+ food)
+        itemElement.classList.toggle("hidden", !show) //check in css file
+        console.log("Hidden" +show+ item)
     })
     updateResultCount(in_search)
 })
@@ -34,5 +34,14 @@ const maxCountEl = document.getElementById('max-count')
 function updateResultCount(list) {
   currentCountEl.textContent = list.length
   maxCountEl.textContent = shop_list.length
+}
+
+function addCart(id) {
+    element = document.getElementById(id)
+    cart.push(id)
+}
+
+function remove(id) {
+    cart.remove(cart.indexOf(id))
 }
 
