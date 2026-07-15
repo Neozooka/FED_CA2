@@ -11,14 +11,22 @@
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Geist+Pixel&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Changa:wght@200..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
         <style>
            
             :root {
-                --background: #1e1e1e;
+                --mainblack: #1e1e1e;
                 --text: #FFFFFF;
                 --maingreen: #23D042;
+            }
+            
+            * {
+                border: none;
+                border-radius: 0;
+                padding: 0;
+                margin: 0;
+                transition: 150ms;
             }
 
             body {
@@ -31,10 +39,9 @@
                 transition: all 0.5s ease-in-out;
             }
 
-            .tagline {
-                font-family: 'Geist Pixel', sans-serif;
+            h1 {
+                font-family: 'Changa', 'Roboto', sans-serif;
             }
-
 
         </style>
     </head>
@@ -43,31 +50,39 @@
 
         <!-- Navbar -->
 
-        <header>
-            <nav class="container px-6 max-w-full flex justify-between" style="background-color: #1e1e1e">
+        <header class="relative w-full">
+            <nav class="container px-6 max-w-full flex justify-between items-center" style="background-color: #1e1e1e">
+
                 <div class="flex flex-row items-center">
-                    
                     <img class="w-25 h-20" src="../../images/neXuslogo2.png" alt="neXus logo">
-                    <h1 class="ml-4 text-lg text-center font-extrabold tagline">software</h1>
-
+                    <h1 class="ml-4 text-xl text-center font-black">software</h1>
                 </div>
-                
 
-                <div class="flex flex-row justify-between items-center">
-                    <div class="mr-8">
+                <div class="flex flex-row items-center space-x-6">
+                    <div class="hidden md:flex flex-row items-center space-x-6">
+                        <a class="text-lg font-bold text-white hover:text-neutral-300 cursor-pointer">NexOS</a>
+                        <a class="text-lg font-bold text-white hover:text-neutral-300 cursor-pointer">Computers</a>
+                    </div>
+
+                    <div class="hidden md:block">
                         <button class="px-6 py-2 rounded-xl" style="background-color: var(--maingreen)">
-                            <!-- img or svg -->
-                            <img> 
-                            <a class="">Shop</a>
+                            <a class="tagline font-bold" href="#">Shop</a>
                         </button>
                     </div>
-                    <div class="w-8" >
-                        <div class= "h-1 bg-white"></div>
-                        <div class="h-1 mt-2 bg-white"></div>
-                        <div class="h-1 mt-2 bg-white"></div>
-                    </div>
+
+                    <button id="menu-btn" class="w-8 flex flex-col justify-center cursor-pointer focus:outline-none" aria-label="Menu">
+                        <div class="h-1 w-full bg-white rounded-sm"></div>
+                        <div class="h-1 w-full mt-1.5 bg-white rounded-sm"></div>
+                        <div class="h-1 w-full mt-1.5 bg-white rounded-sm"></div>
+                    </button>
                     
-                    <!-- idk whats here some sort of dropdown? out of view to left?-->
+                    <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-[#1e1e1e] border-t border-white/10 p-6 flex flex-col space-y-4 shadow-xl z-40 md:hidden">
+                        <button class="px-6 py-2 rounded-xl text-black w-full text-center" style="background-color: var(--maingreen)">
+                            <a class="tagline font-bold" href="#">Shop</a>
+                        </button>
+                        <a href="#" class="text-lg font-bold tagline text-white hover:text-neutral-300">NexOS</a>
+                        <a href="#" class="text-lg font-bold tagline text-white hover:text-neutral-300">Computers</a>
+                    </div>
                 </div>
             </nav>
         </header>
@@ -78,121 +93,58 @@
 
         <!-- Main Body -->
 
-        <article class="container mx-auto max-w-full">
+        <article class="container mx-auto max-w-full text-center">
 
-            <section class="my-80 tagline">
-                <!-- Slogan -->
-                <h1 class="text-6xl text-center">Only the <span>best</span> products,</h1>
-                <h1 class="text-6xl text-center" >Made for gamers, by gamers</h1>
-            </section>
-
-
-            <section class="actionView relative w-full">
-
-                <div class="list relative h-[1000px] w-full overflow-hidden"> 
-                    
-                    <div style="background-image: url('images/eewewe.jpeg');" class="action ease-in-out w-full h-3/4 bg-cover bg-center bg-no-repeat absolute left-1/2 top-1/2 z-20 -translate-x-1/2 -translate-y-1/2 opacity-0 blur-none transition-all duration-500">
-                        <div class="actionintro pointer-events-auto opacity-100">
-
-                            <div class="Title mb-5 flex flex-row items-center text-[20px] font-bold">
-                                <h1 class="mb-5 mr-2.5 border-r border-current pr-2.5 text-[20px] font-bold text-center">RGTHJMGREW</h1>
-                                <h1></h1>
-                            </div>
-
-                            <div class="main-info mb-5 text-[20px] leading-1.6">
-                                <p></p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div style="background-image: url('images/neXuslogo.png');" class="action ease-in-out w-full h-3/4 bg-cover bg-center bg-no-repeat absolute left-1/2 top-1/2 z-20 -translate-x-1/2 -translate-y-1/2 opacity-100 blur-none transition-all duration-500">
-                        <div class="actionintro pointer-events-auto opacity-100">
-
-                            <div class="Title mb-5 flex flex-row items-center text-[20px] font-bold">
-                                <h1 class="mb-5 mr-2.5 border-r border-current pr-2.5 text-[20px] font-bold text-center">RGTHJMGREW</h1>
-                                <h1></h1>
-                            </div>
-
-                            <div class="main-info mb-5 text-[20px] leading-1.6">
-                                <p></p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div style="background-image: url('images/WhatsApp\ Image\ 2026-07-08\ at\ 10.28.12.jpeg');" class="action ease-in-out w-full h-3/4 bg-cover bg-center bg-no-repeat absolute left-1/2 top-1/2 z-20 -translate-x-1/2 -translate-y-1/2 opacity-0 blur-none transition-all duration-500">
-                        <div class="actionintro pointer-events-auto opacity-100">
-
-                            <div class="Title mb-5 flex flex-row items-center text-[20px] font-bold">
-                                <h1 class="mb-5 mr-2.5 border-r border-current pr-2.5 text-[20px] font-bold text-center">RGTHJMGREW</h1>
-                                <h1></h1>
-                            </div>
-
-                            <div class="main-info mb-5 text-[20px] leading-1.6">
-                                <p></p>
-                            </div>
-                        </div>
-                    </div>
-
-                    
+            <!-- Hero -->
+            <section id="hero" class="w-full bg-[--mainblack] py-20 flex flex-col items-center">
+                <div class="container mx-auto text-center" style="overflow: visible;">
+                    <h1 class="flex flex-col items-center justify-center text-4xl font-bold tracking-tight md:text-6xl text-white">
+                        <span class="mb-2">YOUR COMPUTER,</span>
+                        <span class="text-[--maingreen] min-h-[1.2em] inline-flex items-center justify-center relative">
+                            <span id="typewriter"></span>
+                            <span class="animate-pulse ml-1 border-r-4 border-[--maingreen] h-[1em]">
+                        </span>
+                    </h1>
                 </div>
 
-                <div class="arrowkeys absolute bottom-2.5 left-1/2 top-[50%] z-[999] flex w-full max-w-full -translate-x-1/2 -translate-y-1/2 items-center justify-between pointer-events-none">
-                    <button id="previous" class="h-[200px] w-[50px] border-[1.5px] border-current bg-white font-mono text-lg font-bold pointer-events-auto transition duration-500 hover:border-black hover:bg-[rgb(33,33,33)] hover:text-white">&#8592;</button>
-                    
-                    <button id="next" class="h-[50px] w-[50px] border-[1.5px] border-current bg-white font-mono text-lg font-bold pointer-events-auto transition duration-500 hover:border-black hover:bg-[rgb(33,33,33)] hover:text-white">&#8594;</button>
+                <p class="text-lg md:text-xl max-w-2xl mx-auto leading-relaxed text-center mt-6">
+                    Say goodbye to OS bloat, forced updates, and input lag.
+                    NexOS is the lightweight, hyper-optimised Linux operating system
+                    built by competitive players, for competitive players.
+                </p>
+
+
+                <button class="mt-6 px-6 py-2 rounded-xl" style="background-color: var(--maingreen)">
+                    <a class="font-bold" href="#">Download NexOS</a>
+                </button>
+
+                <!-- insert image here -->
+
+            </section>
+
+            <!-- User reviews -->
+            <section id="reviews" class="w-full bg-neutral-300 py-20 flex flex-col">
+                <h1 class="text-3xl font-bold tracking-tight md:text-5xl text-[--mainblack]">
+                    SEE WHAT GAMERS ARE SAYING ABOUT NexOS.
+                </h1>
+
+                <div class="relative w-full overflow-hidden cursor-grab active:cursor-grabbing" id="carousel-window">
+                    <blockquote class="bg-white p-6 rounded-xl shadow-lg border border-neutral-800 flex flex-col justify-between h-full pointer-events-none">
+                        <div class="flex items-center justify-end gap-3 mt-auto">
+                            <p class="text-neutral-300 italic mb-6">"NexOS is great for gaming!"</p>
+                            <div class="flex items-center justify-end gap-3 mt-auto">
+                                <p class="text-sm font-semibold text-neutral-400">&mdash; Steve Jobs</p>
+                            </div>
+                        </div>
+                    </blockquote>
                 </div>
-
-            </section>
-            
-
-
-            <section class="text-6xl text-center my-80">
-                <!-- Slogan -->
-                <h1>Our <span>best</span> products, just <span>for you</span></h1>
-            </section>
-
-            <section class="flex items-center text-center max-w-full">
-                <!-- Product showcase with two products -->
-                <section class="w-1/2 h-64 bg-cover bg-center bg-no-repeat flex flex-col justify-center items-center" style="background-image: url('images/eewewe.jpeg');">
-                    <h3>! Best Seller</h3>
-                    <button class="px-4 py-1 bg-red-500 rounded-xl">
-                        <a href="html/neXus-60HE/keyboard-intro.html">Learn More</a>
-                    </button>
-
-                </section>
-
-                <section class="w-1/2 h-64 bg-cover bg-center bg-no-repeat flex flex-col justify-center items-center" style="background-image: url('images/neXuslogo.png');">
-                    <h3>! Best Seller</h3>
-                    <button class="px-4 py-1 bg-red-500 rounded-xl">
-                        <a href="html/neXos/nexos-intro.html">Learn More</a>
-                    </button>
-
-                </section>
-            </section>
-
-            <section class="text-6xl text-center my-80 tagline">
-                <!-- Slogan -->
-                <h1>Quality so <span>good</span>, it's built to</h1>
-                <h1>last a lifetime</h1>
-            </section>
-            
-            <section class="text-6xl text-center">
-                <!-- Text for quality control -->
-            </section>
-
-            <section class="text-6xl text-center tagline">
-                <!-- Slogan -->
-                <h1>Built <span>For Gamer, By Gamers</span></h1>
-            </section>
-
-            <section>
             </section>
             
         </article>
 
         <!-- Footer Sections -->
 
-        <footer class="flex flex-col items-center">
+        <footer class="flex flex-col items-center bg-[--mainblack]">
 
             <!-- All relevant links -->
             <img class="w-25 h-20 mb-4" src="images/neXuslogo2.png" alt="neXus logo">
@@ -248,6 +200,60 @@
 
 
         <script>
+
+            // For the hamburger menu
+            document.addEventListener('DOMContentLoaded', () => {
+                const menuBtn = document.getElementById('menu-btn');
+                const mobileMenu = document.getElementById('mobile-menu');
+
+                menuBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+
+                window.addEventListener('click', (e) => {
+                    if (!menuBtn.contains(e.target) && !mobileMenu.contains(e.target)) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                });
+            });
+
+            // For the typing text at the top
+            document.addEventListener('DOMContentLoaded', () => {
+                const words = ["BETTER.", "FASTER.", "EASIER.", "FOR GAMING.", "FOR PRIVACY.", "MORE RELIABLE."];
+                let wordIdx = 0;
+                let charIdx = 0;
+                let isDeleting = false;
+                const typewriterElement = document.getElementById('typewriter');
+
+                function type() {
+                    const currentWord = words[wordIdx];
+
+                    if (isDeleting) {
+                        typewriterElement.textContent = currentWord.substring(0, charIdx - 1);
+                        charIdx --;
+                    } else {
+                        typewriterElement.textContent =  currentWord.substring(0, charIdx + 1);
+                        charIdx ++;
+                    }
+
+                    let typeSpeed = isDeleting ? 60 : 120;
+
+                    if (!isDeleting && charIdx === currentWord.length) {
+                        typeSpeed = 1800;
+                        isDeleting = true;
+                    } 
+                    
+                    else if (isDeleting && charIdx === 0) {
+                        isDeleting = false;
+                        wordIdx = (wordIdx + 1) % words.length;
+                        typeSpeed = 400;
+                    }
+                    
+                    setTimeout(type, typeSpeed);
+                }
+
+                setTimeout(type, 500);
+            })
             //For the selection of actions
             
             let NButton = document.getElementById("next");
