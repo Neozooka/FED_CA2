@@ -1,5 +1,5 @@
 const shop_list = [
-    "nexus-60he-magnetic-keyboard-8000hz-polling-adjustable", 
+    "nexus-60he-magnetic-keyboard-8000hz-polling-adjustable1", 
     "nexus-60he-magnetic-keyboard-8000hz-polling-adjustable2", 
     "nexus-60he-magnetic-keyboard-8000hz-polling-adjustable3",
     "nexus-60he-magnetic-keyboard-8000hz-polling-adjustable4",
