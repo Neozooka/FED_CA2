@@ -1,3 +1,69 @@
+path = "../products.json"
+
+const navigationEntries = performance.getEntriesByType("navigation")
+const isReload = navigationEntries.length > 0 && navigationEntries[0].type === "reload"
+
+if (isReload) {
+    localStorage.removeItem("userCart")
+}
+
+let cart = JSON.parse(localStorage.getItem("userCart")) || []
+
+function loadProductsFromList(cart) {
+    const CartTemplate = document.querySelector("[cart-template]")
+    const CartContainer = document.querySelector("[cart-container]")
+    
+    CartContainer.innerHTML = ""
+    let index = 0
+    cart.forEach(item => {
+        const card = CartTemplate.content.cloneNode(true)
+        const title = card.querySelector("[title]")
+        const price = card.querySelector("[price]")
+        const photo = card.querySelector("[cart-image] img") 
+        const containerDiv = card.querySelector(".container")
+        
+        title.textContent = item.title
+        price.textContent = item.price
+        photo.src = item.image
+        
+        containerDiv.setAttribute("id", title + index)
+        
+        CartContainer.appendChild(card)
+        index += 1
+    })
+}
+
+function saveCart() {
+    localStorage.setItem("userCart", JSON.stringify(cart))
+}
+
+async function addCart(id) {
+    const response = await fetch("../javascript/products.json")
+    
+    const products = await response.json()
+    
+    const matchedProduct = products.find(item => {
+        let productId = item.title
+        console.log(`Comparing JSON Title: "${productId}" with Clicked ID: "${id}"`)
+        return productId === id
+    })
+    console.log(matchedProduct)
+    
+    if (matchedProduct) {
+        cart.push(matchedProduct)
+        saveCart()
+    }
+    
+    console.log(cart)
+}
+
+function remove(index) {
+    cart.splice(cart[index.length-1])
+    console.log(cart)
+}
+
+
+
 const shop_list = [
     "nexus-60he-magnetic-keyboard-8000hz-polling-adjustable1", 
     "nexus-60he-magnetic-keyboard-8000hz-polling-adjustable2", 
@@ -10,7 +76,6 @@ const shop_list = [
 ];
 //searchbar work function\
 
-let cart = []
 
 search.addEventListener("input", e => { //checks for input in the search bar input in the html file
     const value = e.target.value.toLowerCase(); //lowercase so everything can match with database and not show error
@@ -36,12 +101,6 @@ function updateResultCount(list) {
   maxCountEl.textContent = shop_list.length
 }
 
-function addCart(id) {
-    element = document.getElementById(id)
-    cart.push(id)
-}
-
-function remove(id) {
-    cart.remove(cart.indexOf(id))
-}
-
+window.addEventListener("DOMContentLoaded", () => {
+    loadProductsFromList(cart)
+})

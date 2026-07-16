@@ -136,27 +136,29 @@
                                 </div>
                             </div>
 
-                            <div class="mx-6 w-[1200px] h-[115px] bg-gray-700 flex flex-col justify-center px-8 py-0 border border-gray-600 rounded-xl" id="nexus-60he-magnetic-keyboard-8000hz-polling-adjustable3">
-                                <div class="w-full flex flex-row items-center justify-between gap-8">
-                                    <div class="flex-shrink-0">
-                                        <img src="../images/eewewe.jpeg" class="w-[150px] h-[90px] object-cover rounded-lg shadow-md">
+                            <tenplate cart-template class="container mx-6 w-[1200px] h-[115px] bg-gray-700 flex flex-col justify-center px-8 py-0 border border-gray-600 rounded-xl" id="">
+                                <div cart-container class="w-full flex flex-row items-center justify-between gap-8">
+                                    <div cart-image class="flex-shrink-0">
+                                        <img src="" class="w-[150px] h-[90px] object-cover rounded-lg shadow-md">
                                     </div>
-                                    <div class="flex-1 flex items-center justify-between">
-                                        <h3 class="text-xl font-medium text-white">
-                                            neXus 60HE Magnetic Keyboard 8000Hz Polling Adjustable...
+                                    <div cart-content class="flex-1 flex items-center justify-between">
+                                        <h3 title class="text-xl font-medium text-white">
+                                            
                                         </h3>
 
-                                        <h3 class="text-xl font-medium text-white">
-                                            $6000
+                                        <h3 price class="text-xl font-medium text-white">
+                                            
                                         </h3>
                                     </div>
-                                    <div style="color: var(--text);" class="flex items-center justify-end">
+                                    <div cart remove style="color: var(--text);" class="flex items-center justify-end">
                                         <button class="w-[140px] h-[50px] text-red-400 hover:text-red-300 hover:underline transition-colors duration-200 font-medium text-lg flex items-center justify-center" onclick="">
                                             Remove
                                         </button>
                                     </div>
                                 </div>
-                            </div>
+                            </tenplate>
+
+                    
                         </section>
                     </div>
                 </section>
@@ -314,7 +316,6 @@
         </footer>
 
         <script>
-
             //searchbar work function\
 
             const cardNumber = document.getElementById("cardNumber")
@@ -385,7 +386,8 @@
             })
 
             function print() {
-                alert(`Credit Card Number: ${cardNumberList.pop()} Expiry: ${ExpiryList.pop()} CVV: ${CVVList.pop()} Name: ${NameList.pop()}`)
+                console.log(cart)
+                // alert(`Credit Card Number: ${cardNumberList.pop()} Expiry: ${ExpiryList.pop()} CVV: ${CVVList.pop()} Name: ${NameList.pop()}`)
             }
 
             function choosePayment(id) {
@@ -395,7 +397,7 @@
                 element.forEach(button => {
                     button.classList.remove("border-red-500", "font-medium", "text-red-500", "border-gray-700", "text-gray-500")
                     button.classList.add("border-gray-700", "text-gray-500")
-                });
+                })
 
                 exactButton.classList.remove( "border-gray-700", "text-gray-500")
                 exactButton.classList.add("border-red-500", "text-red-500", "font-medium")
