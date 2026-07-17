@@ -1,32 +1,26 @@
 path = "../products.json"
 
-const navigationEntries = performance.getEntriesByType("navigation")
-const isReload = navigationEntries.length > 0 && navigationEntries[0].type === "reload"
-
-if (isReload) {
-    localStorage.removeItem("userCart")
-}
-
 let cart = JSON.parse(localStorage.getItem("userCart")) || []
 
 function loadProductsFromList(cart) {
     const CartTemplate = document.querySelector("[cart-template]")
     const CartContainer = document.querySelector("[cart-container]")
     
-    CartContainer.innerHTML = ""
     let index = 0
     cart.forEach(item => {
         const card = CartTemplate.content.cloneNode(true)
         const title = card.querySelector("[title]")
         const price = card.querySelector("[price]")
         const photo = card.querySelector("[cart-image] img") 
+        const remove = card.querySelector(".remove")
         const containerDiv = card.querySelector(".container")
         
         title.textContent = item.title
         price.textContent = item.price
         photo.src = item.image
         
-        containerDiv.setAttribute("id", title + index)
+        containerDiv.setAttribute("id", item.title)
+        remove.setAttribute("id", index)
         
         CartContainer.appendChild(card)
         index += 1
@@ -58,8 +52,16 @@ async function addCart(id) {
 }
 
 function remove(index) {
-    cart.splice(cart[index.length-1])
-    console.log(cart)
+    const arrayIndex = parseInt(index);
+    
+    const cardContainer = index.closest(".container");
+    if (cardContainer) {
+        cardContainer.remove();
+    }
+    
+    cart.splice(arrayIndex, 1);
+        
+    loadProductsFromList(cart);
 }
 
 

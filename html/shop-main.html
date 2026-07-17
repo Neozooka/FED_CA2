@@ -266,5 +266,14 @@
         </section>
     </footer>
 
+    <script>
+        const navigationEntries = performance.getEntriesByType("navigation")
+        const isReload = navigationEntries.length > 0 && navigationEntries[0].type === "reload"
+
+        if (isReload) {
+            localStorage.removeItem("userCart")
+        }
+    </script>
+
     </body>
 </html>
