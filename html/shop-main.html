@@ -48,7 +48,6 @@
         <header>
             <nav class="container px-6 max-w-full flex justify-between" style="background-color: #1e1e1e">
                 <div class="flex flex-row items-center">
-                    
                     <img class="w-25 h-20" src="../images/neXuslogo2.png" alt="neXus logo">
                     <h1 class="ml-4 text-lg text-center font-extrabold">Home</h1>
 
@@ -101,8 +100,8 @@
                                     <h3 class="text-lg font-medium text-white line-clamp-2">neXus 60HE Magnetic Keyboard 8000Hz Polling Adjustable...</h3>
                                 </div>
                                 <div style="color: var(--text);" class="flex flex-row justify-between w-full gap-2">
-                                    <button class="bg-red-500 flex-1 h-[50px] px-2 rounded-xl transition hover:bg-red-600"><p class="text-sm font-semibold text-white" onclick="">Add to Cart</p></button>
-                                    <button class="bg-red-500 flex-1 h-[50px] px-2 rounded-xl transition hover:bg-red-600"><a class="text-sm font-semibold text-white" onclick="">Buy Now</a></button>
+                                    <button class="bg-red-500 flex-1 h-[50px] px-2 rounded-xl transition hover:bg-red-600"><p class="text-sm font-semibold text-white" onclick="addCart('neXus-60HE-Magnetic-Keyboard-8000Hz-Polling-Adjustable')">Add to Cart</p></button>
+                                    <button class="bg-red-500 flex-1 h-[50px] px-2 rounded-xl transition hover:bg-red-600"><a class="text-sm font-semibold text-white" onclick="addCart()">Buy Now</a></button>
                                 </div>
                             </div>
                         </div>
@@ -204,8 +203,8 @@
                                     <h3 class="text-lg font-medium text-white line-clamp-2">neXus 60HE Magnetic Keyboard 8000Hz Polling Adjustable...</h3>
                                 </div>
                                 <div style="color: var(--text);" class="flex flex-row justify-between w-full gap-2">
-                                    <button class="bg-red-500 flex-1 h-[50px] px-2 rounded-xl transition hover:bg-red-600"><p class="text-sm font-semibold text-white" onclick="">Add to Cart</p></button>
-                                    <button class="bg-red-500 flex-1 h-[50px] px-2 rounded-xl transition hover:bg-red-600"><a class="text-sm font-semibold text-white" onclick="">Buy Now</a></button>
+                                    <button class="bg-red-500 flex-1 h-[50px] px-2 rounded-xl transition hover:bg-red-600"><p class="text-sm font-semibold text-white" onclick="addCart()">Add to Cart</p></button>
+                                    <button class="bg-red-500 flex-1 h-[50px] px-2 rounded-xl transition hover:bg-red-600"><a class="text-sm font-semibold text-white" onclick="addCart()">Buy Now</a></button>
                                 </div>
                             </div>
                         </div>
@@ -266,6 +265,15 @@
             </div>
         </section>
     </footer>
+
+    <script>
+        const navigationEntries = performance.getEntriesByType("navigation")
+        const isReload = navigationEntries.length > 0 && navigationEntries[0].type === "reload"
+
+        if (isReload) {
+            localStorage.removeItem("userCart")
+        }
+    </script>
 
     </body>
 </html>
