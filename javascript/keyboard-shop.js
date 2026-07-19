@@ -1,4 +1,4 @@
-path = "../products.json"
+path = "../../javascript/products.json"
 
 let cart = JSON.parse(localStorage.getItem("userCart")) || []
 
@@ -32,7 +32,7 @@ function saveCart() {
 }
 
 async function addCart(id) {
-    const response = await fetch("../javascript/products.json")
+    const response = await fetch(path)
     
     const products = await response.json()
     
