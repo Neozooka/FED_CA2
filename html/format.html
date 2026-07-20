@@ -11,13 +11,14 @@
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <script src="../javascript/header-footer.js" defer></script>
         <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@200..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
 
         <style>
            
             :root {
-                --mainblack: #1e1e1e;
+                --background: #1e1e1e;
                 --text: #FFFFFF;
                 --maingreen: #23D042;
             }
@@ -31,7 +32,7 @@
             }
 
             body {
-                background-color: var(--mainblack);
+                background-color: var(--background);
                 color: var(--text);
                 font-family: 'Roboto', sans-serif;
             }
@@ -91,7 +92,7 @@
         <div id="menu-overlay" class="fixed inset-0 bg-black/20 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300 z-40 hidden md:block"></div>
         <!-- Navbar -->
 
-        <header class="relative w-full overflow-x-clip bg-[var(--mainblack)] z-50">
+        <header class="relative w-full overflow-x-clip bg-[var(--background)] z-50">
             <nav class="w-full px-6 flex justify-between items-center">
 
                 <div class="flex flex-row items-center">
@@ -107,7 +108,7 @@
                     </button>
                 </div>
                 
-                <div id="mobile-menu" class="fixed inset-0 bg-[var(--mainblack)] p-6 pt-28 flex flex-col shadow-xl z-40 transform translate-y-full opacity-0 pointer-events-none transition-all duration-300 ease-in-out md:hidden overflow-y-auto">
+                <div id="mobile-menu" class="fixed inset-0 bg-[var(--background)] p-6 pt-28 flex flex-col shadow-xl z-40 transform translate-y-full opacity-0 pointer-events-none transition-all duration-300 ease-in-out md:hidden overflow-y-auto">
                     <div class="flex flex-col text-left">
                         <a href="../../index.html" class="py-4 text-2xl font-bold tagline text-white hover:text-neutral-300 border-b border-neutral-800">Home</a>
                         
@@ -156,7 +157,7 @@
 
         <!-- Footer Sections -->
 
-        <footer class="flex flex-col items-center bg-[--mainblack] text-neutral-200 py-8 px-4 w-full">
+        <footer class="flex flex-col items-center bg-[--background] text-neutral-200 py-8 px-4 w-full">
 
             <img class="w-25 h-20 mb-6 object-contain" src="../images/neXuslogo2.png" alt="neXus logo">
 
@@ -208,85 +209,7 @@
 
 
     <script>
-            // Synchronized Responsive Navigation Engine
-            document.addEventListener('DOMContentLoaded', () => {
-                const menuBtn = document.getElementById('menu-btn');
-                const mobileMenu = document.getElementById('mobile-menu');
-                const desktopDrawer = document.getElementById('desktop-drawer');
-                const menuOverlay = document.getElementById('menu-overlay');
-                const body = document.body;
-
-                function closeAllMenus() {
-                    menuBtn.classList.remove('open');
-                    mobileMenu.classList.add('translate-y-full', 'pointer-events-none');
-                    mobileMenu.classList.remove('translate-y-0', 'opacity-100');
-                    desktopDrawer.classList.add('translate-x-full');
-                    desktopDrawer.classList.remove('translate-x-0');
-                    menuOverlay.classList.remove('opacity-100');
-                    menuOverlay.classList.add('pointer-events-none');
-                    body.classList.remove('no-scroll');
-                }
-
-                menuBtn.addEventListener('click', () => {
-                    menuBtn.classList.toggle('open');
-                    
-                    if (window.innerWidth >= 768) {
-                        // Desktop Drawer & Fog Backdrop State Integration
-                        const isClosing = desktopDrawer.classList.contains('translate-x-0');
-                        
-                        desktopDrawer.classList.toggle('translate-x-full');
-                        desktopDrawer.classList.toggle('translate-x-0');
-                        
-                        if (!isClosing) {
-                            menuOverlay.classList.remove('pointer-events-none');
-                            menuOverlay.classList.add('opacity-100');
-                            body.classList.add('no-scroll');
-                        } else {
-                            menuOverlay.classList.add('pointer-events-none');
-                            menuOverlay.classList.remove('opacity-100');
-                            body.classList.remove('no-scroll');
-                        }
-                        
-                        // Clear mobile parameters safely
-                        mobileMenu.classList.add('translate-y-full', 'pointer-events-none');
-                        mobileMenu.classList.remove('translate-y-0', 'opacity-100');
-                    } else {
-                        // Mobile Full-Screen Takeover View Logic
-                        const isClosing = mobileMenu.classList.contains('translate-y-0');
-                        
-                        mobileMenu.classList.toggle('translate-y-full');
-                        mobileMenu.classList.toggle('translate-y-0');
-                        mobileMenu.classList.toggle('opacity-100');
-                        mobileMenu.classList.toggle('pointer-events-none');
-                        
-                        if (!isClosing) {
-                            body.classList.add('no-scroll');
-                        } else {
-                            body.classList.remove('no-scroll');
-                        }
-
-                        // Clear desktop parameters safely
-                        desktopDrawer.classList.add('translate-x-full');
-                        desktopDrawer.classList.remove('translate-x-0');
-                        menuOverlay.classList.add('pointer-events-none');
-                        menuOverlay.classList.remove('opacity-100');
-                    }
-                });
-
-                // Background/Overlay Bounds Click Catchers
-                window.addEventListener('click', (e) => {
-                    if (!menuBtn.contains(e.target) && !mobileMenu.contains(e.target) && !desktopDrawer.contains(e.target)) {
-                        closeAllMenus();
-                    }
-                });
-
-                menuOverlay.addEventListener('click', closeAllMenus);
-
-                // Handle layout changes cleanly on screen rotations/resizes
-                window.addEventListener('resize', () => {
-                    closeAllMenus();
-                });
-            });
+            
 
 
     </script>
