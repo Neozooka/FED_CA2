@@ -84,9 +84,9 @@
 
         <main class="relative z-10 w-full">
 
-            <!-- wait for video to end" -->
-            <section class="h-screen flex flex-col justify-between p-8 md:p-16 max-w-7xl mx-auto">                
-                <div class="max-w-xl">
+                    <!-- Fully Centered Screen Layout -->
+            <section class="h-screen flex flex-col justify-center items-center text-center p-8 md:p-16 max-w-7xl mx-auto">                
+                <div class="max-w-xl mb-12">
                     <p class="text-xs uppercase tracking-[0.3em] text-neutral-400 mb-2">01 — CONCEPT</p>
                     <h1 class="text-4xl md:text-6xl font-light tracking-wide leading-tight mb-4">
                         Timeless craft meets modern form.
@@ -128,7 +128,6 @@
             </section>
 
             <div id="feel-and-play-track" class="relative w-full h-[200vh]">
-                
 
                 <div class="sticky top-0 h-[100dvh] w-full flex items-center justify-center p-6 md:p-12 lg:p-16 overflow-hidden">
                     
@@ -147,39 +146,38 @@
                         <div class="w-full lg:w-5/12 flex flex-col gap-4">
 
                             <!-- Picture Container -->
-                            <div class="w-full h-[150px] sm:h-[180px] lg:h-[240px] border border-neutral-800/60 rounded-2xl bg-neutral-900/30 backdrop-blur-sm flex items-end p-4 relative shrink-0">
+                            <div class="w-full h-[200px] sm:h-[250px] lg:h-[240px] border border-neutral-800/60 rounded-2xl bg-neutral-900/30 backdrop-blur-sm flex items-end p-4 relative shrink-0">
                                 <span id="active-badge" class="text-[10px] sm:text-xs uppercase tracking-[0.2em] bg-black/80 px-3 py-1.5 rounded-full border border-neutral-700">
                                     Switch: Linear
                                 </span>
                             </div>
 
-                            <div class="w-full bg-black/60 p-5 lg:p-6 rounded-2xl border border-neutral-800/80 backdrop-blur-md space-y-4 shrink-0">
-                                <div class="flex space-x-4 border-b border-neutral-800 pb-3 text-xs tracking-widest overflow-x-auto">
-                                    <span id="tab-linear" class="text-white border-b-2 border-white pb-3 -mb-[13px] whitespace-nowrap">01 / LINEAR</span>
-                                    <span id="tab-tactile" class="text-neutral-500 border-b-2 border-transparent pb-3 -mb-[13px] whitespace-nowrap">02 / TACTILE</span>
-                                    <span id="tab-clicky" class="text-neutral-500 border-b-2 border-transparent pb-3 -mb-[13px] whitespace-nowrap">03 / CLICKY</span>
+                            <div class="lg:col-span-5 bg-black/60 p-8 rounded-2xl border border-neutral-800/80 backdrop-blur-md space-y-6">
+                                <div class="flex space-x-4 border-b border-neutral-800 pb-3 text-xs tracking-widest">
+                                    <span id="tab-linear" class="text-white border-b-2 border-white pb-3 -mb-[14px]">01 / LINEAR</span>
+                                    <span id="tab-tactile" class="text-neutral-500 border-b-2 border-transparent 
+                                    pb-3 -mb-[14px]">02 / TACTILE</span>
+                                    <span id="tab-clicky" class="text-neutral-500 border-b-2 border-transparent 
+                                    pb-3 -mb-[14px]">03 / CLICKY</span>
                                 </div>
 
-                                <div class="space-y-2 text-xs font-light">
-                                    <div class="flex justify-between border-b border-neutral-800/60 pb-1.5">
+                                <div class="space-y-3 text-xs font-light">
+                                    <div class="flex justify-between border-b border-neutral-800/60 pb-2">
                                         <span class="text-neutral-500 uppercase">Sound</span>
                                         <span id="spec-sound" class="text-neutral-200">"Snappy clack"</span>
                                     </div>
-                                    <div class="flex justify-between border-b border-neutral-800/60 pb-1.5">
+                                    <div class="flex justify-between border-b border-neutral-800/60 pb-2">
                                         <span class="text-neutral-500 uppercase">Operating Force</span>
                                         <span id="spec-force" class="text-neutral-200">45 cN</span>
                                     </div>
                                 </div>
 
-                                <div class="flex flex-row gap-3">
-                                    <button class="w-full py-2.5 border border-neutral-700 hover:border-neutral-400 text-xs uppercase tracking-widest transition rounded-lg bg-neutral-900/50">
-                                        Play Sound
-                                    </button>
-                                    <button class="w-full py-2.5 border border-neutral-700 hover:border-neutral-400 text-xs uppercase tracking-widest transition rounded-lg bg-neutral-900/50">
-                                        Buy Now
-                                    </button>
-                                </div>
+                                <button class="w-full py-3 border border-neutral-700 hover:border-neutral-400 
+                                text-xs uppercase tracking-widest transition rounded-lg bg-neutral-900/50">
+                                    Play Switch Sound
+                                </button>
                             </div>
+
 
                         </div>
 
