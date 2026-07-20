@@ -68,7 +68,6 @@
                         <div class="h-1 mt-2 bg-white"></div>
                     </div>
                     
-                    <!-- idk whats here some sort of dropdown? out of view to left?-->
                 </div>
             </nav>
         </header>
@@ -90,29 +89,41 @@
                 <section class="flex flex-col items-center w-full px-2 sm:px-4">
                     <div class="z-[100] flex h-[500px] w-full flex-col items-center overflow-y-auto rounded-lg p-t-[60px] pt-[60px]">
                         
-                        <section cart-container class="dbdb text-center flex flex-col gap-10 mb-[400px] w-full max-w-[1200px] items-center">
-                            
+                        <section cart-container class="dbdb text-center flex flex-col gap-4 mb-8 w-full max-w-[1200px] items-center">
 
                             <template cart-template>
-                                <div class="container mx-auto w-full max-w-[1200px] min-h-[115px] bg-gray-700 flex flex-col justify-center px-4 sm:px-8 py-4 sm:py-0 border border-gray-600 rounded-xl" id="">
-                                    <div class="w-full flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-8">
+                                <div class="container mx-auto w-full max-w-[1200px] min-h-[90px] sm:min-h-[115px] bg-gray-700 flex flex-row items-center justify-between px-2.5 sm:px-8 py-3 border border-gray-600 rounded-xl">
+                                    <div class="w-full flex flex-row items-center justify-between gap-2.5 sm:gap-8">
+                                        
+                                        <!-- Product Thumbnail -->
                                         <div cart-image class="flex-shrink-0">
-                                            <img src="" class="w-[150px] h-[90px] object-cover rounded-lg shadow-md">
+                                            <img src="" class="w-[65px] h-[45px] xs:w-[90px] xs:h-[60px] sm:w-[150px] sm:h-[90px] object-cover rounded-lg shadow-md">
                                         </div>
-                                        <div cart-content class="flex-1 flex flex-col sm:flex-row items-center justify-between w-full gap-2 sm:gap-0">
-                                            <h3 title class="text-lg sm:text-xl font-medium text-white text-center sm:text-left">
-                                                
+
+                                        <!-- Content Area (Title & Price inline) -->
+                                        <div cart-content class="flex-1 flex flex-row items-center justify-between min-w-0 gap-2 px-1">
+                                            <h3 title class="text-xs sm:text-xl font-medium text-white truncate text-left">
+                                                <!-- Title goes here -->
                                             </h3>
 
-                                            <h3 price class="text-lg sm:text-xl font-medium text-white">
-                                                
+                                            <h3 price class="text-xs sm:text-xl font-medium text-white whitespace-nowrap">
+                                                <!-- Price goes here -->
                                             </h3>
                                         </div>
-                                        <div cart remove style="color: var(--text);" class="flex items-center justify-center sm:justify-end w-full sm:w-auto">
-                                            <button class="remove w-full sm:w-[140px] h-[50px] text-red-400 hover:text-red-300 hover:underline transition-colors duration-200 font-medium text-lg flex items-center justify-center" onclick="remove(this)">
-                                                Remove
+
+                                        <!-- Action Area (Trash Icon Button) -->
+                                        <div cart remove style="color: var(--text);" class="flex items-center justify-end flex-shrink-0">
+                                            <button class="remove p-2 text-red-400 hover:text-red-300 hover:bg-red-500/10 rounded-lg transition-all duration-200 flex items-center justify-center" onclick="remove(this)" title="Remove item" aria-label="Remove item">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 sm:w-6 sm:h-6 stroke-current fill-none" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                    <path d="M3 6h18" />
+                                                    <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6" />
+                                                    <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2" />
+                                                    <line x1="10" y1="11" x2="10" y2="17" />
+                                                    <line x1="14" y1="11" x2="14" y2="17" />
+                                                </svg>
                                             </button>
                                         </div>
+
                                     </div>
                                 </div>
                             </template>
@@ -290,6 +301,8 @@
                 }
                 showAlert(cardName, document.getElementById("cardName-alert"), msg, isValid || e.target.value.length === 0)
             })
+
+            // payButton.disabled = true;
 
             function print() {
                 console.log(cart)
