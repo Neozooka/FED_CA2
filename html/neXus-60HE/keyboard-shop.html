@@ -410,12 +410,12 @@
 
             setInterval(next, 4000)
 
-            function returnId(id) {
+            function returnId(id) {      
                 product_id = id
             }
 
             function activeProduct(id) {
-                console.log("hi")
+                // console.log("hi")
                 elementRemoved = document.querySelectorAll(".Product-Button")
                 elementRemoved.forEach(elem => {
                     elem.classList.remove("border-gray-200", "border-red-500", "text-red-500")

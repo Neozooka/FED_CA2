@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <!-- <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet"> -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Geist+Pixel&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+        <style>
+           
+            :root {
+                --background: #1e1e1e;
+                --text: #FFFFFF;
+                --maingreen: #23D042;
+            }
+
+            body {
+                background-color: var(--background);
+                color: var(--text);
+                font-family: 'Roboto', sans-serif;
+            }
+
+            .action {
+                transition: all 0.5s ease-in-out;
+            }
+
+            .tagline {
+                font-family: 'Geist Pixel', sans-serif;
+            }
+
+
+        </style>
+    </head>
+
+    <body>
+
+        <!-- Navbar -->
+
+        <header>
+            <nav class="container px-6 max-w-full flex justify-between" style="background-color: #1e1e1e">
+                <div class="flex flex-row items-center">
+                    
+                    <img class="w-25 h-20" src="../images/neXuslogo2.png" alt="neXus logo">
+                    <h1 class="ml-4 text-lg text-center font-extrabold">Home</h1>
+
+                </div>
+                
+
+                <div class="flex flex-row justify-between items-center">
+                    <div class="mr-8">
+                        <button class="px-6 py-2 rounded-xl" style="background-color: var(--maingreen)">
+                            <!-- img or svg -->
+                            <img> 
+                            <a class="">Shop</a>
+                        </button>
+                    </div>
+                    <div class="w-8" >
+                        <div class= "h-1 bg-white"></div>
+                        <div class="h-1 mt-2 bg-white"></div>
+                        <div class="h-1 mt-2 bg-white"></div>
+                    </div>
+                    
+                    <!-- idk whats here some sort of dropdown? out of view to left?-->
+                </div>
+            </nav>
+        </header>
+
+        <!-- video first, with audio into a scroll thing. -->
+
+
+        <!-- come back to the beginign of vdieo -->
+
+        <div class="fixed inset-0 w-screen h-screen z-0 pointer-events-none flex items-center justify-center overflow-hidden">
+            <canvas id="global-keyboard-canvas" class="block w-full h-full opacity-80"></canvas>
+            <div class="absolute inset-0 bg-radial from-transparent via-black/40 to-black"></div>
+        </div>
+
+        <main class="relative z-10 w-full">
+
+            <!-- wait for video to end" -->
+            <section class="h-screen flex flex-col justify-between p-8 md:p-16 max-w-7xl mx-auto">                
+                <div class="max-w-xl">
+                    <p class="text-xs uppercase tracking-[0.3em] text-neutral-400 mb-2">01 — CONCEPT</p>
+                    <h1 class="text-4xl md:text-6xl font-light tracking-wide leading-tight mb-4">
+                        Timeless craft meets modern form.
+                    </h1>
+                    <p class="text-sm font-light text-neutral-400 leading-relaxed">
+                        Hand crafted in Singapore
+                    </p>
+                </div>
+
+                <div class="text-xs text-neutral-500 tracking-[0.2em] uppercase animate-pulse">
+                    ↓ Scroll to animate keyboard
+                </div>
+            </section>
+
+            <section class="min-h-screen flex flex-col justify-start p-8 md:p-16 max-w-7xl mx-auto gap-[500px] mb-[500px]">
+                <div class="max-w-md bg-black/40 p-8 rounded-2xl border border-neutral-800/80 backdrop-blur-md">
+                    <p class="text-xs uppercase tracking-[0.3em] text-neutral-400 mb-2">02 — MATERIAL</p>
+                    <h2 class="text-3xl font-light tracking-wide mb-4">Premium Craftsmanship</h2>
+                    <p class="text-sm font-light text-neutral-300 leading-relaxed">
+                        As you scroll through this block, the background keyboard tilts into perspective to reveal its layered chassis and lacquer depth.
+                    </p>
+                </div>
+
+                <div class="max-w-md bg-black/40 p-8 rounded-2xl border border-neutral-800/80 backdrop-blur-md">
+                    <p class="text-xs uppercase tracking-[0.3em] text-neutral-400 mb-2">02 — MATERIAL</p>
+                    <h2 class="text-3xl font-light tracking-wide mb-4">Only the best design</h2>
+                    <p class="text-sm font-light text-neutral-300 leading-relaxed">
+                        As you scroll through this block, the background keyboard tilts into perspective to reveal its layered chassis and lacquer depth.
+                    </p>
+                </div>
+
+                <div class="max-w-md bg-black/40 p-8 rounded-2xl border border-neutral-800/80 backdrop-blur-md">
+                    <p class="text-xs uppercase tracking-[0.3em] text-neutral-400 mb-2">02 — MATERIAL</p>
+                    <h2 class="text-3xl font-light tracking-wide mb-4">Limited Production</h2>
+                    <p class="text-sm font-light text-neutral-300 leading-relaxed">
+                        As you scroll through this block, the background keyboard tilts into perspective to reveal its layered chassis and lacquer depth.
+                    </p>
+                </div>
+            </section>
+
+            <div id="feel-and-play-track" class="relative w-full h-[200vh]">
+                
+
+                <div class="sticky top-0 h-[100dvh] w-full flex items-center justify-center p-6 md:p-12 lg:p-16 overflow-hidden">
+                    
+                    <div class="w-full max-w-7xl flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12">
+
+                        <div class="w-full lg:w-1/3">
+                            <p class="text-xs uppercase tracking-[0.3em] text-neutral-400 mb-1">03 — FEEL & PLAY</p>
+                            <h2 class="text-2xl md:text-3xl font-light tracking-wide mb-3">Customize Sensory Experience</h2>
+                            <div class="space-y-2 text-xs font-light text-neutral-300 leading-relaxed">
+                                <p>The neXus-60HE isn't just a feat of engineering, it is also an audio-sensory experience.</p>
+                                <p>Users can choose their preferred sound of keyclicks for what best fits them.</p>
+                                <p>We have switches ranging from a LINEAR Snappy clack sound, to a TACTILE Deep thock.</p>
+                            </div>
+                        </div>
+
+                        <div class="w-full lg:w-5/12 flex flex-col gap-4">
+
+                            <!-- Picture Container -->
+                            <div class="w-full h-[150px] sm:h-[180px] lg:h-[240px] border border-neutral-800/60 rounded-2xl bg-neutral-900/30 backdrop-blur-sm flex items-end p-4 relative shrink-0">
+                                <span id="active-badge" class="text-[10px] sm:text-xs uppercase tracking-[0.2em] bg-black/80 px-3 py-1.5 rounded-full border border-neutral-700">
+                                    Switch: Linear
+                                </span>
+                            </div>
+
+                            <div class="w-full bg-black/60 p-5 lg:p-6 rounded-2xl border border-neutral-800/80 backdrop-blur-md space-y-4 shrink-0">
+                                <div class="flex space-x-4 border-b border-neutral-800 pb-3 text-xs tracking-widest overflow-x-auto">
+                                    <span id="tab-linear" class="text-white border-b-2 border-white pb-3 -mb-[13px] whitespace-nowrap">01 / LINEAR</span>
+                                    <span id="tab-tactile" class="text-neutral-500 border-b-2 border-transparent pb-3 -mb-[13px] whitespace-nowrap">02 / TACTILE</span>
+                                    <span id="tab-clicky" class="text-neutral-500 border-b-2 border-transparent pb-3 -mb-[13px] whitespace-nowrap">03 / CLICKY</span>
+                                </div>
+
+                                <div class="space-y-2 text-xs font-light">
+                                    <div class="flex justify-between border-b border-neutral-800/60 pb-1.5">
+                                        <span class="text-neutral-500 uppercase">Sound</span>
+                                        <span id="spec-sound" class="text-neutral-200">"Snappy clack"</span>
+                                    </div>
+                                    <div class="flex justify-between border-b border-neutral-800/60 pb-1.5">
+                                        <span class="text-neutral-500 uppercase">Operating Force</span>
+                                        <span id="spec-force" class="text-neutral-200">45 cN</span>
+                                    </div>
+                                </div>
+
+                                <div class="flex flex-row gap-3">
+                                    <button class="w-full py-2.5 border border-neutral-700 hover:border-neutral-400 text-xs uppercase tracking-widest transition rounded-lg bg-neutral-900/50">
+                                        Play Sound
+                                    </button>
+                                    <button class="w-full py-2.5 border border-neutral-700 hover:border-neutral-400 text-xs uppercase tracking-widest transition rounded-lg bg-neutral-900/50">
+                                        Buy Now
+                                    </button>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>      
+
+
+            <section class="min-h-screen w-full flex flex-col justify-center items-center text-center p-8 max-w-2xl mx-auto">
+                <p class="text-xs uppercase tracking-[0.3em] text-neutral-400 mb-2">04 — TECH & SPEC</p>
+                <h2 class="text-3xl font-light mb-4">Engineered for Precision</h2>
+                <p class="text-sm font-light text-neutral-400 leading-relaxed mb-8">
+                    Wondering about the Technical Specifications of our keyboard?
+                </p>
+                <button class="px-8 py-3 bg-white text-black text-xs font-semibold uppercase tracking-widest rounded-full hover:bg-neutral-200 transition">
+                    View the Technical Specifications
+                </button>
+            </section>
+
+            <section class="min-h-screen w-full flex flex-col justify-center items-center text-center p-8 max-w-2xl mx-auto">
+                <p class="text-xs uppercase tracking-[0.3em] text-neutral-400 mb-2">05 — PRE-ORDER</p>
+                <h2 class="text-3xl font-light mb-4">Pre-Order Now Open</h2>
+                <div class="space-y-1 mb-8">
+                    <p class="text-sm font-light text-neutral-400 leading-relaxed">
+                        The best time to purchase is NOW.
+                    </p>
+                    <p class="text-sm font-light text-neutral-400 leading-relaxed">
+                        Don't miss out on our pre-launch deals!
+                    </p>
+                </div>
+                <button class="px-8 py-3 bg-white text-black text-xs font-semibold uppercase tracking-widest rounded-full hover:bg-neutral-200 transition">
+                    Buy Now
+                </button>
+            </section>
+
+        </main>
+
+        <!-- Footer Sections -->
+
+    
+        <script>
+            const canvas = document.getElementById('global-keyboard-canvas');
+            const ctx = canvas.getContext('2d');
+            const frameCount = 60; // Total 3D animation frames
+            const images = [];
+
+            // Set Canvas Dimensions
+            function resize() {
+                canvas.width = window.innerWidth * window.devicePixelRatio;
+                canvas.height = window.innerHeight * window.devicePixelRatio;
+                renderGlobalFrame(currentFrame);
+            }
+
+            //load real images: `keyboard_frame_${i}.png`
+            function createDemoFrame(i) {
+                const temp = document.createElement('canvas');
+                temp.width = 1000;
+                temp.height = 1000;
+                const tCtx = temp.getContext('2d');
+
+                const progress = i / frameCount;
+                const rotation = progress * Math.PI * 2;
+                const explode = Math.sin(progress * Math.PI) * 50;
+
+                tCtx.save();
+                tCtx.translate(500, 500);
+                tCtx.rotate(rotation);
+
+                // Outer Keyboard Frame
+                tCtx.strokeStyle = '#333333';
+                tCtx.lineWidth = 10;
+                tCtx.strokeRect(-250, -120, 500, 240);
+
+                // Keycaps Floating / Exploding
+                tCtx.fillStyle = '#ffffff';
+                for (let x = -200; x <= 200; x += 60) {
+                    for (let y = -80; y <= 80; y += 50) {
+                        tCtx.fillRect(x + (x > 0 ? explode/2 : -explode/2), y, 40, 35);
+                    }
+                }
+
+                tCtx.restore();
+
+                const img = new Image();
+                img.src = temp.toDataURL();
+                return img;
+            }
+
+            for (let i = 0; i < frameCount; i++) {
+                images.push(createDemoFrame(i));
+            }
+
+            let currentFrame = 0;
+
+            function renderGlobalFrame(index) {
+                if (!images[index]) return;
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+                const img = images[index];
+                const hRatio = canvas.width / img.width;
+                const vRatio = canvas.height / img.height;
+                const ratio = Math.max(hRatio, vRatio) * 0.7; // Scale image nicely
+
+                const shiftX = (canvas.width - img.width * ratio) / 2;
+                const shiftY = (canvas.height - img.height * ratio) / 2;
+
+                ctx.drawImage(img, 0, 0, img.width, img.height, shiftX, shiftY, img.width * ratio, img.height * ratio);
+            }
+
+            // SCROLL SCRUBBING LISTENER
+            window.addEventListener('scroll', () => {
+                const scrollTop = window.scrollY;
+                const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+                const scrollFraction = Math.max(0, Math.min(1, scrollTop / maxScroll));
+
+                // 1. Scrub through global 3D keyboard background frames based on total page scroll
+                const frameIndex = Math.min(frameCount - 1, Math.floor(scrollFraction * frameCount));
+                if (frameIndex !== currentFrame) {
+                    currentFrame = frameIndex;
+                    requestAnimationFrame(() => renderGlobalFrame(currentFrame));
+                }
+
+                // 2. Handle "Feel & Play" specific switch updates
+                updateFeelAndPlaySection();
+            });
+
+            function updateFeelAndPlaySection() {
+                const track = document.getElementById('feel-and-play-track');
+                const rect = track.getBoundingClientRect();
+                const trackHeight = track.clientHeight - window.innerHeight;
+                
+                let progress = -rect.top / trackHeight;
+                progress = Math.max(0, Math.min(1, progress));
+
+                if (rect.top <= 0 && rect.bottom >= window.innerHeight) {
+                    // Inside Feel & Play sticky section
+                    let active = 'linear';
+                    if (progress > 0.66) active = 'clicky';
+                    else if (progress > 0.33) active = 'tactile';
+
+                    document.getElementById('active-badge').innerText = `Switch: ${active.toUpperCase()}`;
+                    
+                    // Specs updating
+                    const sounds = { linear: '"Snappy clack"', tactile: '"Deep thock"', clicky: '"Crisp click"' };
+                    document.getElementById('spec-sound').innerText = sounds[active];
+
+                    ['linear', 'tactile', 'clicky'].forEach(t => {
+                        const tab = document.getElementById(`tab-${t}`);
+                        if (t === active) {
+                            tab.className = 'text-white border-b-2 border-white pb-3 -mb-[14px]';
+                        } else {
+                            tab.className = 'text-neutral-500 border-b-2 border-transparent pb-3 -mb-[14px]';
+                        }
+                    });
+                }
+            }
+
+            window.addEventListener('resize', resize);
+            window.addEventListener('load', resize);
+        </script>
+
+    </body>
+
+</html>
