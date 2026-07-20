@@ -78,30 +78,32 @@ const shop_list = [
 ];
 //searchbar work function\
 
-
-search.addEventListener("input", e => { //checks for input in the search bar input in the html file
-    const value = e.target.value.toLowerCase(); //lowercase so everything can match with database and not show error
-    console.log(value) //check for the words so i can see in console
-    let in_search = []
-    shop_list.forEach(item => {
-        let itemElement = document.getElementById(item)
-        const show = itemElement.id.toLowerCase().includes(value)
-        if (show) {
-            in_search.push(item)
-        }
-        itemElement.classList.toggle("hidden", !show) //check in css file
-        console.log("Hidden" +show+ item)
+if (typeof search !== "undefined") {
+    search.addEventListener("input", e => { //checks for input in the search bar input in the html file
+        const value = e.target.value.toLowerCase(); //lowercase so everything can match with database and not show error
+        console.log(value) //check for the words so i can see in console
+        let in_search = []
+        shop_list.forEach(item => {
+            let itemElement = document.getElementById(item)
+            const show = itemElement.id.toLowerCase().includes(value)
+            if (show) {
+                in_search.push(item)
+            }
+            itemElement.classList.toggle("hidden", !show) //check in css file
+            console.log("Hidden" +show+ item)
+        })
+        updateResultCount(in_search)
     })
-    updateResultCount(in_search)
-})
 
-const currentCountEl = document.getElementById('current-count')
-const maxCountEl = document.getElementById('max-count')
+    const currentCountEl = document.getElementById('current-count')
+    const maxCountEl = document.getElementById('max-count')
 
-function updateResultCount(list) {
-  currentCountEl.textContent = list.length
-  maxCountEl.textContent = shop_list.length
+    function updateResultCount(list) {
+    currentCountEl.textContent = list.length
+    maxCountEl.textContent = shop_list.length
+    }
 }
+
 
 window.addEventListener("DOMContentLoaded", () => {
     loadProductsFromList(cart)
