@@ -6,81 +6,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>neXos. Your computer. Better.</title>
         <script src="https://cdn.tailwindcss.com"></script>
-        <!-- <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet"> -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@200..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
-        <style>
-           
-            :root {
-                --mainblack: #1e1e1e;
-                --text: #FFFFFF;
-                --maingreen: #23D042;
-            }
-            
-            * {
-                border: none;
-                border-radius: 0;
-                padding: 0;
-                margin: 0;
-                transition: 150ms;
-            }
-
-            body {
-                background-color: var(--mainblack);
-                color: var(--text);
-                font-family: 'Roboto', sans-serif;
-            }
-
-            body.no-scroll {
-                overflow: hidden;
-            }
-
-            .main-button {
-                background-color: var(--maingreen);
-            }
-
-            .action {
-                transition: all 0.5s ease-in-out;
-            }
-
-            h1, header, #desktop-drawer {
-                font-family: 'Oxanium', 'Roboto', sans-serif;
-            }
-
-            .hamburger-line {
-                position: absolute;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                width: 24px;
-                height: 3px;
-                background-color: white;
-                border-radius: 9999px;
-                transition: transform 0.3s ease, opacity 0.3s ease, top 0.3s ease;
-            }
-            
-            /* Initial Positions */
-            .line-1 { top: 30%; }
-            .line-2 { top: 50%; }
-            .line-3 { top: 70%; }
-
-            /* Opened State Transformations */
-            .open .line-1 {
-                top: 50%;
-                transform: translate(-50%, -50%) rotate(45deg);
-            }
-            .open .line-2 {
-                opacity: 0;
-                transform: translate(-100%, -50%);
-            }
-            .open .line-3 {
-                top: 50%;
-                transform: translate(-50%, -50%) rotate(-45deg);
-            }
-        </style>
+        <link rel="stylesheet" href="../../css/style.css">
     </head>
 
     <body>
@@ -88,7 +20,7 @@
         <div id="menu-overlay" class="fixed inset-0 bg-black/20 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300 z-40 hidden md:block"></div>
         <!-- Navbar -->
 
-        <header class="relative w-full overflow-x-clip bg-[var(--mainblack)] z-50">
+        <header class="relative w-full overflow-x-clip bg-[var(--background)] z-50">
             <nav class="w-full px-6 flex justify-between items-center">
 
                 <div class="flex flex-row items-center">
@@ -104,7 +36,7 @@
                     </button>
                 </div>
                 
-                <div id="mobile-menu" class="fixed inset-0 bg-[var(--mainblack)] p-6 pt-28 flex flex-col shadow-xl z-40 transform translate-y-full opacity-0 pointer-events-none transition-all duration-300 ease-in-out md:hidden overflow-y-auto">
+                <div id="mobile-menu" class="fixed inset-0 bg-[var(--background)] p-6 pt-28 flex flex-col shadow-xl z-40 transform translate-y-full opacity-0 pointer-events-none transition-all duration-300 ease-in-out md:hidden overflow-y-auto">
                     <div class="flex flex-col text-left">
                         <a href="../../index.html" class="py-4 text-2xl font-bold tagline text-white hover:text-neutral-300 border-b border-neutral-800">Home</a>
                         
@@ -177,7 +109,7 @@
         <article class="container mx-auto max-w-full text-center">
 
             <!-- Hero -->
-            <section id="hero" class="w-full bg-[--mainblack] py-20 flex flex-col items-center">
+            <section id="hero" class="w-full bg-[--background] py-20 flex flex-col items-center">
                 <div class="container mx-auto text-center" style="overflow: visible;">
                     <h1 class="flex flex-col items-center justify-center text-4xl tracking-tight md:text-6xl text-white font-black">
                         <span class="mb-2">YOUR COMPUTER,</span>
@@ -204,7 +136,7 @@
 
             <!-- User reviews -->
             <section id="reviews" class="w-full bg-neutral-100 py-20 flex flex-col">
-                <h1 class="text-3xl font-bold tracking-tight md:text-5xl text-[--mainblack]">
+                <h1 class="text-3xl font-bold tracking-tight md:text-5xl text-[--background]">
                     SEE WHAT GAMERS ARE SAYING ABOUT NexOS.
                 </h1>
 
@@ -224,7 +156,7 @@
 
         <!-- Footer Sections -->
 
-        <footer class="flex flex-col items-center bg-[--mainblack] text-neutral-200 py-8 px-4 w-full">
+        <footer class="flex flex-col items-center bg-[--background] text-neutral-200 py-8 px-4 w-full">
 
             <img class="w-25 h-20 mb-6 object-contain" src="../../images/neXuslogo2.png" alt="neXus logo">
 

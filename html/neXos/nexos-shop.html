@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>neXos. Your computer. Better.</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@200..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" href="../../css/style.css">
+    </head>
+
+    <body>
+
+        <div id="menu-overlay" class="fixed inset-0 bg-black/20 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300 z-40 hidden md:block"></div>
+        <!-- Navbar -->
+
+        <header class="relative w-full overflow-x-clip bg-[var(--background)] z-50">
+            <nav class="w-full px-6 flex justify-between items-center">
+
+                <div class="flex flex-row items-center">
+                    <img class="w-25 h-20" src="../../images/neXuslogo2.png" alt="neXus logo">
+                    <h1 class="ml-4 text-xl text-center font-black">software</h1>
+                </div>
+
+                <div class="flex flex-row items-center space-x-6">
+                    <button id="menu-btn" class="w-10 h-10 relative cursor-pointer focus:outline-none z-[60] flex items-center justify-center" aria-label="Menu">
+                        <div class="hamburger-line line-1"></div>
+                        <div class="hamburger-line line-2"></div>
+                        <div class="hamburger-line line-3"></div>
+                    </button>
+                </div>
+                
+                <div id="mobile-menu" class="fixed inset-0 bg-[var(--background)] p-6 pt-28 flex flex-col shadow-xl z-40 transform translate-y-full opacity-0 pointer-events-none transition-all duration-300 ease-in-out md:hidden overflow-y-auto">
+                    <div class="flex flex-col text-left">
+                        <a href="../../index.html" class="py-4 text-2xl font-bold tagline text-white hover:text-neutral-300 border-b border-neutral-800">Home</a>
+                        
+                        <span class="pt-4 text-sm font-semibold text-neutral-500 uppercase tracking-wider">Keyboard Options</span>
+                        <a href="../neXus-60HE/keyboard-intro.html" class="py-3 pl-4 text-xl font-medium text-white hover:text-neutral-300 border-b border-neutral-800">Intro</a>
+                        <a href="#" class="py-3 pl-4 text-xl font-medium text-white hover:text-neutral-300 border-b border-neutral-800">About</a>
+                        <a href="#" class="py-3 pl-4 text-xl font-medium text-white hover:text-neutral-300 border-b border-neutral-800">Shop</a>
+                        
+                        <span class="pt-4 text-sm font-semibold text-neutral-500 uppercase tracking-wider">NexOS Navigation</span>
+                        <a href="#" class="py-3 pl-4 text-xl text-neutral-400 hover:text-white border-b border-neutral-800">NEXOS</a>
+                        <a href="nexos-computer.html" class="py-3 pl-4 text-xl text-neutral-400 hover:text-white border-b border-neutral-800 mb-6">COMPUTERS</a>
+                    </div>
+                    
+                    <a href="#" class="inline-block px-6 py-3 rounded-xl font-bold text-white text-center main-button w-full text-lg shadow-md">
+                        Shop Menu
+                    </a>
+                </div>
+            </nav>
+        </header>
+
+        <div id="desktop-drawer" class="fixed top-0 right-0 h-full w-96 bg-neutral-900/95 backdrop-blur-lg border-l border-neutral-800 shadow-2xl z-50 transform translate-x-full transition-transform duration-300 ease-in-out hidden md:flex flex-col p-8 pt-28">
+            <div class="flex flex-col text-left space-y-1">
+                <a href="../../index.html" class="py-3 text-2xl font-bold text-white hover:text-[var(--maingreen)] border-b border-neutral-800/60 transition-colors">Home</a>
+                
+                <div class="relative group border-b border-neutral-800/60 py-3">
+                    <button class="w-full text-left text-2xl font-bold text-white hover:text-[var(--maingreen)] flex justify-between items-center transition-colors focus:outline-none">
+                        <span>Keyboard</span>
+                        <i class="fa fa-caret-down text-sm transition-transform duration-200 group-hover:rotate-180"></i>
+                    </button>
+                    <div class="hidden group-hover:flex flex-col pl-4 mt-2 space-y-1 bg-neutral-950/40 rounded-xl p-2 transition-all">
+                        <a href="../neXus-60HE/keyboard-intro.html" class="py-2 text-lg text-neutral-300 hover:text-[var(--maingreen)] transition-colors">Intro</a>
+                        <a href="#" class="py-2 text-lg text-neutral-300 hover:text-[var(--maingreen)] transition-colors">About</a>
+                        <a href="#" class="py-2 text-lg text-neutral-300 hover:text-[var(--maingreen)] transition-colors">Shop</a>
+                    </div>
+                </div>
+
+                <a href="#" class="py-3 text-2xl font-bold text-neutral-400 hover:text-white border-b border-neutral-800/60 transition-colors">NEXOS</a>
+                <a href="nexos-computer.html" class="py-3 text-2xl font-bold text-neutral-400 hover:text-white border-b border-neutral-800/60 transition-colors mb-6">COMPUTERS</a>
+            </div>
+
+            <a href="#" class="inline-block px-6 py-3 rounded-xl font-bold text-white text-center main-button text-lg shadow-md hover:opacity-90 mt-auto">
+                Shop
+            </a>
+        </div>
+
+        <!-- Mini header -->
+        
+        <div id="sub-nav-wrapper" class="sticky top-0 w-full px-4 py-3 z-30 transition-all duration-300">
+            <div id="sub-nav" class="max-w-7xl mx-auto bg-neutral-900/70 backdrop-blur-md rounded-2xl border border-neutral-800/60 px-6 py-3 flex justify-between items-center transition-all duration-300">
+                
+                <div class="items-center hidden sm:flex">
+                    <img class="w-[6vw] min-w-[128px] max-w-[156px] h-auto object-contain" src="../../images/nexos-logo.png" alt="neXus logo">
+                </div>
+
+                <div class="flex items-center space-x-6 md:space-x-8 grow justify-end">
+                    <div class="flex space-x-6 md:space-x-8 mr-6 md:mr-8">
+                        <a href="#" class="text-white font-semibold hover:text-blue-400 text-sm md:text-base">Overview</a>
+                        <a href="#" class="text-neutral-400 font-medium hover:text-white text-sm md:text-base">Pro</a>
+                    </div>
+
+                    <a href="#" class="main-button text-white font-bold px-5 py-2 rounded-xl hover:bg-green transition-colors shadow-sm text-sm md:text-base">
+                        Download
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Body -->
+
+        <article class="container mx-auto max-w-full text-center">
+
+            <!-- Hero -->
+            <section id="hero" class="w-full bg-[--background] py-20 flex flex-col items-center">
+                <div class="container mx-auto text-center" style="overflow: visible;">
+                    <h1 class="flex flex-col items-center justify-center text-4xl tracking-tight md:text-6xl text-white font-black">
+                        <span class="mb-2">YOUR COMPUTER,</span>
+                        <span class="text-[--maingreen] min-h-[1.2em] inline-flex items-center justify-center relative">
+                            <span id="typewriter"></span>
+                            <span class="animate-pulse ml-1 border-r-4 border-[--maingreen] h-[1em]">
+                        </span>
+                    </h1>
+                </div>
+
+                <p class="text-lg md:text-xl max-w-2xl mx-auto leading-relaxed text-center mt-6">
+                    Say goodbye to OS bloat, forced updates, and input lag.
+                    NexOS is the lightweight, hyper-optimised Linux operating system
+                    built by competitive players, for competitive players.
+                </p>
+
+                <a href="#" class="inline-block px-6 py-2 m-4 rounded-xl font-bold text-white text-center main-button">
+                    Download NexOS
+                </a>
+
+                <!-- insert image here -->
+
+            </section>
+
+            <!-- User reviews -->
+            <section id="reviews" class="w-full bg-neutral-100 py-20 flex flex-col">
+                <h1 class="text-3xl font-bold tracking-tight md:text-5xl text-[--background]">
+                    SEE WHAT GAMERS ARE SAYING ABOUT NexOS.
+                </h1>
+
+                <div class="relative w-full overflow-hidden cursor-grab active:cursor-grabbing" id="carousel-window">
+                    <blockquote class="bg-white p-6 rounded-xl shadow-lg border border-neutral-800 flex flex-col justify-between h-full pointer-events-none">
+                        <div class="flex items-center justify-end gap-3 mt-auto">
+                            <p class="text-neutral-300 italic mb-6">"NexOS is great for gaming!"</p>
+                            <div class="flex items-center justify-end gap-3 mt-auto">
+                                <p class="text-sm font-semibold text-neutral-400">&mdash; Steve Jobs</p>
+                            </div>
+                        </div>
+                    </blockquote>
+                </div>
+            </section>
+            
+        </article>
+
+        <!-- Footer Sections -->
+
+        <footer class="flex flex-col items-center bg-[--background] text-neutral-200 py-8 px-4 w-full">
+
+            <img class="w-25 h-20 mb-6 object-contain" src="../../images/neXuslogo2.png" alt="neXus logo">
+
+            <nav class="w-full max-w-4xl mb-6">
+                <ul class="flex flex-wrap justify-center gap-x-6 gap-y-3 text-lg md:text-xl font-medium">
+                    <li><a href="../../index.html" class="hover:underline">Home</a></li>
+                    <li><a href="../neXus-60HE/keyboard-intro.html" class="hover:underline">Hardware</a></li>
+                    <li><a href="nexos-intro.html" class="hover:underline">Software</a></li>
+                    <li><a href="../contact.html" class="hover:underline">Contact Us</a></li>
+                    <li><a href="../../index.html" class="hover:underline">About Us</a></li>
+                </ul>
+            </nav>
+            
+            <hr class="w-full max-w-5xl border-t border-neutral-700 my-4">
+
+            <section class="w-full max-w-5xl flex flex-col md:flex-row justify-between items-center md:items-start gap-8 pt-4 text-base md:text-lg text-center md:text-left">
+                
+                <div class="flex-1 w-full">
+                    <ul class="space-y-2">
+                        <li><a href="https://www.youtube.com/watch?v=EE8U7U8syuI" target="_blank" class="hover:underline">Terms of Service</a></li>
+                        <li><a href="https://www.youtube.com/watch?v=EE8U7U8syuI" target="_blank" class="hover:underline">Privacy Policy</a></li>
+                    </ul>
+                </div>
+
+                <div class="flex-1 w-full flex flex-col items-center md:items-start gap-2">
+                    <p class="font-semibold text-neutral-400">Socials</p>
+                    <ul class="flex flex-row justify-center md:justify-start gap-4">
+                        <li>
+                            <a href="https://www.youtube.com/watch?v=EE8U7U8syuI" target="_blank" class="flex items-center gap-2 hover:underline">
+                                <i style="font-size:20px; color:red;" class="fa">&#xf16a;</i>
+                                <span>Youtube</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.youtube.com/watch?v=EE8U7U8syuI" target="_blank" class="flex items-center gap-2 hover:underline">
+                                <i style="font-size:20px;" class="fa">&#xf1e8;</i>
+                                <span>Twitch</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="flex-1 w-full md:text-right text-neutral-400 self-center md:self-start">
+                    <p>&copy; 2026 neXus Corporation. All rights reserved.</p>
+                </div>
+                
+            </section>
+        </footer>
+
+
+
+
+
+        <script>
+
+            // Synchronized Responsive Navigation Engine
+            document.addEventListener('DOMContentLoaded', () => {
+                const menuBtn = document.getElementById('menu-btn');
+                const mobileMenu = document.getElementById('mobile-menu');
+                const desktopDrawer = document.getElementById('desktop-drawer');
+                const menuOverlay = document.getElementById('menu-overlay');
+                const body = document.body;
+
+                function closeAllMenus() {
+                    menuBtn.classList.remove('open');
+                    mobileMenu.classList.add('translate-y-full', 'pointer-events-none');
+                    mobileMenu.classList.remove('translate-y-0', 'opacity-100');
+                    desktopDrawer.classList.add('translate-x-full');
+                    desktopDrawer.classList.remove('translate-x-0');
+                    menuOverlay.classList.remove('opacity-100');
+                    menuOverlay.classList.add('pointer-events-none');
+                    body.classList.remove('no-scroll');
+                }
+
+                menuBtn.addEventListener('click', () => {
+                    menuBtn.classList.toggle('open');
+                    
+                    if (window.innerWidth >= 768) {
+                        // Desktop Drawer & Fog Backdrop State Integration
+                        const isClosing = desktopDrawer.classList.contains('translate-x-0');
+                        
+                        desktopDrawer.classList.toggle('translate-x-full');
+                        desktopDrawer.classList.toggle('translate-x-0');
+                        
+                        if (!isClosing) {
+                            menuOverlay.classList.remove('pointer-events-none');
+                            menuOverlay.classList.add('opacity-100');
+                            body.classList.add('no-scroll');
+                        } else {
+                            menuOverlay.classList.add('pointer-events-none');
+                            menuOverlay.classList.remove('opacity-100');
+                            body.classList.remove('no-scroll');
+                        }
+                        
+                        // Clear mobile parameters safely
+                        mobileMenu.classList.add('translate-y-full', 'pointer-events-none');
+                        mobileMenu.classList.remove('translate-y-0', 'opacity-100');
+                    } else {
+                        // Mobile Full-Screen Takeover View Logic
+                        const isClosing = mobileMenu.classList.contains('translate-y-0');
+                        
+                        mobileMenu.classList.toggle('translate-y-full');
+                        mobileMenu.classList.toggle('translate-y-0');
+                        mobileMenu.classList.toggle('opacity-100');
+                        mobileMenu.classList.toggle('pointer-events-none');
+                        
+                        if (!isClosing) {
+                            body.classList.add('no-scroll');
+                        } else {
+                            body.classList.remove('no-scroll');
+                        }
+
+                        // Clear desktop parameters safely
+                        desktopDrawer.classList.add('translate-x-full');
+                        desktopDrawer.classList.remove('translate-x-0');
+                        menuOverlay.classList.add('pointer-events-none');
+                        menuOverlay.classList.remove('opacity-100');
+                    }
+                });
+
+                // Background/Overlay Bounds Click Catchers
+                window.addEventListener('click', (e) => {
+                    if (!menuBtn.contains(e.target) && !mobileMenu.contains(e.target) && !desktopDrawer.contains(e.target)) {
+                        closeAllMenus();
+                    }
+                });
+
+                menuOverlay.addEventListener('click', closeAllMenus);
+
+                // Handle layout changes cleanly on screen rotations/resizes
+                window.addEventListener('resize', () => {
+                    closeAllMenus();
+                });
+            });
+
+            // For the typing text at the top
+            document.addEventListener('DOMContentLoaded', () => {
+                const words = ["BETTER.", "FASTER.", "EASIER.", "FOR GAMING.", "FOR PRIVACY.", "MORE RELIABLE."];
+                let wordIdx = 0;
+                let charIdx = 0;
+                let isDeleting = false;
+                const typewriterElement = document.getElementById('typewriter');
+
+                function type() {
+                    const currentWord = words[wordIdx];
+
+                    if (isDeleting) {
+                        typewriterElement.textContent = currentWord.substring(0, charIdx - 1);
+                        charIdx --;
+                    } else {
+                        typewriterElement.textContent =  currentWord.substring(0, charIdx + 1);
+                        charIdx ++;
+                    }
+
+                    let typeSpeed = isDeleting ? 60 : 120;
+
+                    if (!isDeleting && charIdx === currentWord.length) {
+                        typeSpeed = 1800;
+                        isDeleting = true;
+                    } 
+                    
+                    else if (isDeleting && charIdx === 0) {
+                        isDeleting = false;
+                        wordIdx = (wordIdx + 1) % words.length;
+                        typeSpeed = 400;
+                    }
+                    
+                    setTimeout(type, typeSpeed);
+                }
+
+                setTimeout(type, 500);
+            })
+            
+            const subNavWrapper = document.getElementById('sub-nav-wrapper');
+            const subNav = document.getElementById('sub-nav');
+
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 80) {
+                    subNavWrapper.classList.remove('py-3');
+                    subNavWrapper.classList.add('py-2');
+                    subNav.classList.add('shadow-xl', 'shadow-black/40', 'bg-neutral-900');
+                    subNav.classList.remove('bg-neutral-900/70');
+                } else {
+                    subNavWrapper.classList.remove('py-2');
+                    subNavWrapper.classList.add('py-3');
+                    subNav.classList.remove('shadow-xl', 'shadow-black/40', 'bg-neutral-900');
+                    subNav.classList.add('bg-neutral-900/70');
+                }
+            });
+
+
+
+        </script>
+
+    </body>
+
+</html>
+
+
+
