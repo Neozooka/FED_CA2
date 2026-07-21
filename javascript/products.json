@@ -1,5 +1,52 @@
-[{
-  "image": "../images/eewewe.jpeg",
-  "title": "neXus-60HE-Magnetic-Keyboard-8000Hz-Polling-Adjustable",
-  "price": "$6000"
-}]
+[
+  {
+    "image": "../images/MonitorArm_372.png",
+    "title": "neXus-Single-Monitor-Arm-Gas-Spring-Desk-Mount-USB-Ports",
+    "price": "$120"
+  },
+  {
+    "image": "../images/Microphone_372.png",
+    "title": "neXus-USB-Condenser-Microphone-Studio-Quality-Gain-Control",
+    "price": "$180"
+  },
+  {
+    "image": "../images/GamingMonitor_372.png",
+    "title": "neXus-Gaming-Monitor-27-Inch-4K-OLED-240Hz-Ultra-Fast",
+    "price": "$899"
+  },
+  {
+    "image": "../images/Lochness_372.png",
+    "title": "neXus-Lochness-Gaming-Headset-50mm-Drivers-ClearCast-Microphone",
+    "price": "$150"
+  },
+  {
+    "image": "../images/PythonV1_372.png",
+    "title": "neXus-Python-Ultra-Light-Gaming-Mouse-26K-DPI-59g-Optical-Switches",
+    "price": "$120"
+  },
+  {
+    "image": "../images/ClickySwitch_372.png",
+    "title": "neXus-Kailh-Box-Jade-Clicky-Mechanical-Switches",
+    "price": "$35"
+  },
+  {
+    "image": "../images/Clear_372.png",
+    "title": "neXus-Clear-Glass-Gaming-Mousepad-450x400mm-Ultra-Smooth",
+    "price": "$90"
+  },
+  {
+    "image": "../images/TactileSwitch_372.png",
+    "title": "neXus-Gateron-Baby-Kangaroo-2.0-Tactile-Switches",
+    "price": "$40"
+  },
+  {
+    "image": "../images/LinearSwitch_372.png",
+    "title": "neXus-Gateron-Pro-3.0-Yellow-Linear-Switches",
+    "price": "$30"
+  },
+  {
+    "image": "../images/PythonV2_372.png",
+    "title": "neXus-Python-V2-Gaming-Mouse-30K-DPI-54g-Optical-Gen-3-Switches",
+    "price": "$150"
+  }
+]
