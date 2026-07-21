@@ -16,10 +16,8 @@
     </head>
 
     <body>
-
+        <!-- Header -->
         <div id="menu-overlay" class="fixed inset-0 bg-black/20 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300 z-40 hidden md:block"></div>
-        <!-- Navbar -->
-
         <header class="relative w-full overflow-x-clip bg-[var(--background)] z-50">
             <nav class="w-full px-6 flex justify-between items-center">
 
@@ -43,11 +41,13 @@
                         <span class="pt-4 text-sm font-semibold text-neutral-500 uppercase tracking-wider">Keyboard Options</span>
                         <a href="../neXus-60HE/keyboard-intro.html" class="py-3 pl-4 text-xl font-medium text-white hover:text-neutral-300 border-b border-neutral-800">Intro</a>
                         <a href="#" class="py-3 pl-4 text-xl font-medium text-white hover:text-neutral-300 border-b border-neutral-800">About</a>
-                        <a href="#" class="py-3 pl-4 text-xl font-medium text-white hover:text-neutral-300 border-b border-neutral-800">Shop</a>
+                        <a href="#" class="py-3 pl-4 text-xl font-medium text-white hover:text-neutral-300 border-b border-neutral-800">Keyboard Shop</a>
                         
-                        <span class="pt-4 text-sm font-semibold text-neutral-500 uppercase tracking-wider">NexOS Navigation</span>
-                        <a href="#" class="py-3 pl-4 text-xl text-neutral-400 hover:text-white border-b border-neutral-800">NEXOS</a>
-                        <a href="nexos-computer.html" class="py-3 pl-4 text-xl text-neutral-400 hover:text-white border-b border-neutral-800 mb-6">COMPUTERS</a>
+                        <span class="pt-4 text-sm font-semibold text-neutral-500 uppercase tracking-wider">NexOS Options</span>
+                        <a href="nexos-intro.html" class="py-3 pl-4 text-xl font-medium text-white hover:text-neutral-300 border-b border-neutral-800">Intro</a>
+                        <a href="#" class="py-3 pl-4 text-xl font-medium text-white hover:text-neutral-300 border-b border-neutral-800">Pro</a>
+                        <a href="nexos-computer.html" class="py-3 pl-4 text-xl font-medium text-white hover:text-neutral-300 border-b border-neutral-800">Computers</a>
+                        <a href="#" class="py-3 pl-4 text-xl font-medium text-white hover:text-neutral-300 border-b border-neutral-800 mb-6">Downloads</a>
                     </div>
                     
                     <a href="#" class="inline-block px-6 py-3 rounded-xl font-bold text-white text-center main-button w-full text-lg shadow-md">
@@ -69,12 +69,22 @@
                     <div class="hidden group-hover:flex flex-col pl-4 mt-2 space-y-1 bg-neutral-950/40 rounded-xl p-2 transition-all">
                         <a href="../neXus-60HE/keyboard-intro.html" class="py-2 text-lg text-neutral-300 hover:text-[var(--maingreen)] transition-colors">Intro</a>
                         <a href="#" class="py-2 text-lg text-neutral-300 hover:text-[var(--maingreen)] transition-colors">About</a>
-                        <a href="#" class="py-2 text-lg text-neutral-300 hover:text-[var(--maingreen)] transition-colors">Shop</a>
+                        <a href="#" class="py-2 text-lg text-neutral-300 hover:text-[var(--maingreen)] transition-colors">Keyboard Shop</a>
                     </div>
                 </div>
 
-                <a href="#" class="py-3 text-2xl font-bold text-neutral-400 hover:text-white border-b border-neutral-800/60 transition-colors">NEXOS</a>
-                <a href="nexos-computer.html" class="py-3 text-2xl font-bold text-neutral-400 hover:text-white border-b border-neutral-800/60 transition-colors mb-6">COMPUTERS</a>
+                <div class="relative group border-b border-neutral-800/60 py-3 mb-6">
+                    <button class="w-full text-left text-2xl font-bold text-white hover:text-[var(--maingreen)] flex justify-between items-center transition-colors focus:outline-none">
+                        <span>NexOS</span>
+                        <i class="fa fa-caret-down text-sm transition-transform duration-200 group-hover:rotate-180"></i>
+                    </button>
+                    <div class="hidden group-hover:flex flex-col pl-4 mt-2 space-y-1 bg-neutral-950/40 rounded-xl p-2 transition-all">
+                        <a href="nexos-intro.html" class="py-2 text-lg text-neutral-300 hover:text-[var(--maingreen)] transition-colors">Intro</a>
+                        <a href="#" class="py-2 text-lg text-neutral-300 hover:text-[var(--maingreen)] transition-colors">Pro</a>
+                        <a href="nexos-computer.html" class="py-2 text-lg text-neutral-300 hover:text-[var(--maingreen)] transition-colors">Computers</a>
+                        <a href="#" class="py-2 text-lg text-neutral-300 hover:text-[var(--maingreen)] transition-colors">Downloads</a>
+                    </div>
+                </div>
             </div>
 
             <a href="#" class="inline-block px-6 py-3 rounded-xl font-bold text-white text-center main-button text-lg shadow-md hover:opacity-90 mt-auto">
@@ -82,8 +92,6 @@
             </a>
         </div>
 
-        <!-- Mini header -->
-        
         <div id="sub-nav-wrapper" class="sticky top-0 w-full px-4 py-3 z-30 transition-all duration-300">
             <div id="sub-nav" class="max-w-7xl mx-auto bg-neutral-900/70 backdrop-blur-md rounded-2xl border border-neutral-800/60 px-6 py-3 flex justify-between items-center transition-all duration-300">
                 
@@ -104,11 +112,8 @@
             </div>
         </div>
 
-        <!-- Main Body -->
-
         <article class="container mx-auto max-w-full text-center">
 
-            <!-- Hero -->
             <section id="hero" class="w-full bg-[--background] py-20 flex flex-col items-center">
                 <div class="container mx-auto text-center" style="overflow: visible;">
                     <h1 class="flex flex-col items-center justify-center text-4xl tracking-tight md:text-6xl text-white font-black">
@@ -130,11 +135,8 @@
                     Download NexOS
                 </a>
 
-                <!-- insert image here -->
+                </section>
 
-            </section>
-
-            <!-- User reviews -->
             <section id="reviews" class="w-full bg-neutral-100 py-20 flex flex-col">
                 <h1 class="text-3xl font-bold tracking-tight md:text-5xl text-[--background]">
                     SEE WHAT GAMERS ARE SAYING ABOUT NexOS.
@@ -154,8 +156,7 @@
             
         </article>
 
-        <!-- Footer Sections -->
-
+        <!-- Footer -->
         <footer class="flex flex-col items-center bg-[--background] text-neutral-200 py-8 px-4 w-full">
 
             <img class="w-25 h-20 mb-6 object-contain" src="../../images/neXuslogo2.png" alt="neXus logo">
@@ -354,6 +355,3 @@
     </body>
 
 </html>
-
-
-
