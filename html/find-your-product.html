@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <!-- <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet"> -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <script src="../javascript/header-footer.js" defer></script>
+        <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@200..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" href="../css/style.css">
+    </head>
+
+    <body>
+
+        <!-- Navbar -->
+
+        <div id="menu-overlay" class="fixed inset-0 bg-black/20 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300 z-40 hidden md:block"></div>
+        <header class="relative w-full overflow-x-clip bg-[var(--background)] z-50">
+            <nav class="w-full px-6 flex justify-between items-center">
+
+                <div class="flex flex-row items-center">
+                    <img class="w-25 h-20" src="/images/neXuslogo2.png" alt="neXus logo">
+                    <h2 class="ml-4 text-xl text-center font-black">home</h1>
+                </div>
+
+                <div class="flex flex-row items-center space-x-6">
+                    <button id="menu-btn" class="w-10 h-10 relative cursor-pointer focus:outline-none z-[60] flex items-center justify-center" aria-label="Menu">
+                        <div class="hamburger-line line-1"></div>
+                        <div class="hamburger-line line-2"></div>
+                        <div class="hamburger-line line-3"></div>
+                    </button>
+                </div>
+                
+                <div id="mobile-menu" class="fixed inset-0 bg-[var(--background)] p-6 pt-28 flex flex-col shadow-xl z-40 transform translate-y-full opacity-0 pointer-events-none transition-all duration-300 ease-in-out md:hidden overflow-y-auto">
+                    <div class="flex flex-col text-left">
+                        <a href="/index.html" class="py-4 text-2xl font-bold tagline text-white hover:text-neutral-300 border-b border-neutral-800">Home</a>
+                        <a href="/html/find-your-product.html" class="py-4 text-2xl font-bold tagline text-white hover:text-neutral-300 border-b border-neutral-800">Find your product</a>
+                        
+                        <span class="pt-4 text-sm font-semibold text-neutral-500 uppercase tracking-wider">Keyboard Options</span>
+                        <a href="/html/neXus-60HE/keyboard-intro.html" class="py-3 pl-4 text-xl font-medium text-white hover:text-neutral-300 border-b border-neutral-800">Intro</a>
+                        <a href="/html/neXus-60HE/keyboard-creator.html" class="py-3 pl-4 text-xl font-medium text-white hover:text-neutral-300 border-b border-neutral-800">About</a>
+                        <a href="/html/neXus-60HE/keyboard-shop.html" class="py-3 pl-4 text-xl font-medium text-white hover:text-neutral-300 border-b border-neutral-800">Keyboard Shop</a>
+                        <a href="/html/neXus-60HE/keyboard-tech.html"class="py-3 pl-4 text-xl font-medium text-white hover:text-neutral-300 border-b border-neutral-800">Technical Specs</a>
+                        
+                        <span class="pt-4 text-sm font-semibold text-neutral-500 uppercase tracking-wider">Software Options</span>
+                        <a href="/html/neXos/nexos-intro.html" class="py-3 pl-4 text-xl font-medium text-white hover:text-neutral-300 border-b border-neutral-800">NexOS</a>
+                        <a href="/html/neXos/nexos-pro.html" class="py-3 pl-4 text-xl font-medium text-white hover:text-neutral-300 border-b border-neutral-800">Pro</a>
+                        <a href="/html/neXos/nexos-computer.html" class="py-3 pl-4 text-xl font-medium text-white hover:text-neutral-300 border-b border-neutral-800">Computers</a>
+                        <a href="/html/neXos/nexos-shop.html" class="py-3 pl-4 text-xl font-medium text-white hover:text-neutral-300 border-b border-neutral-800 mb-6">Downloads</a>
+                    </div>
+                    
+                    <a href="/html/shop-main.html" class="inline-block px-6 py-3 rounded-xl font-bold text-white text-center main-button w-full text-lg shadow-md">
+                        Shop Menu
+                    </a>
+                </div>
+            </nav>
+        </header>
+
+        <div id="desktop-drawer" class="fixed top-0 right-0 h-full w-96 bg-neutral-900/95 backdrop-blur-lg border-l border-neutral-800 shadow-2xl z-50 transform translate-x-full transition-transform duration-300 ease-in-out hidden md:flex flex-col p-8 pt-28">
+            <div class="flex flex-col text-left space-y-1">
+                <a href="/index.html" class="py-3 text-2xl font-bold text-white hover:text-[var(--maingreen)] border-b border-neutral-800/60 transition-colors">Home</a>
+                <a href="/html/find-your-product.html" class="py-3 text-2xl font-bold text-white hover:text-[var(--maingreen)] border-b border-neutral-800/60 transition-colors">Find your product</a>
+                <div class="relative group border-b border-neutral-800/60 py-3">
+                    <button class="w-full text-left text-2xl font-bold text-white hover:text-[var(--maingreen)] flex justify-between items-center transition-colors focus:outline-none">
+                        <span>Keyboard</span>
+                        <i class="fa fa-caret-down text-sm transition-transform duration-200 group-hover:rotate-180"></i>
+                    </button>
+                    <div class="hidden group-hover:flex flex-col pl-4 mt-2 space-y-1 bg-neutral-950/40 rounded-xl p-2 transition-all">
+                        <a href="/html/neXus-60HE/keyboard-intro.html" class="py-2 text-lg text-neutral-300 hover:text-[var(--maingreen)] transition-colors">Intro</a>
+                        <a href="/html/neXus-60HE/keyboard-creator.html" class="py-2 text-lg text-neutral-300 hover:text-[var(--maingreen)] transition-colors">About</a>
+                        <a href="/html/neXus-60HE/keyboard-shop.html" class="py-2 text-lg text-neutral-300 hover:text-[var(--maingreen)] transition-colors">Keyboard Shop</a>
+                        <a href="/html/neXus-60HE/keyboard-tech.html"class="py-2 text-lg text-neutral-300 hover:text-[var(--maingreen)] transition-colors">Technical Specs</a>
+                    </div>
+                </div>
+
+                <div class="relative group border-b border-neutral-800/60 py-3 mb-6">
+                    <button class="w-full text-left text-2xl font-bold text-white hover:text-[var(--maingreen)] flex justify-between items-center transition-colors focus:outline-none">
+                        <span>Software</span>
+                        <i class="fa fa-caret-down text-sm transition-transform duration-200 group-hover:rotate-180"></i>
+                    </button>
+                    <div class="hidden group-hover:flex flex-col pl-4 mt-2 space-y-1 bg-neutral-950/40 rounded-xl p-2 transition-all">
+                        <a href="/html/neXos/nexos-intro.html" class="py-2 text-lg text-neutral-300 hover:text-[var(--maingreen)] transition-colors">Intro</a>
+                        <a href="/html/neXos/nexos-pro.html" class="py-2 text-lg text-neutral-300 hover:text-[var(--maingreen)] transition-colors">Pro</a>
+                        <a href="/html/neXos/nexos-computer.html" class="py-2 text-lg text-neutral-300 hover:text-[var(--maingreen)] transition-colors">Computers</a>
+                        <a href="/html/neXos/nexos-shop.html" class="py-2 text-lg text-neutral-300 hover:text-[var(--maingreen)] transition-colors">Downloads</a>
+                    </div>
+                </div>
+            </div>
+
+            <a href="/html/shop-main.html" class="inline-block px-6 py-3 rounded-xl font-bold text-white text-center main-button text-lg shadow-md hover:opacity-90 mt-auto">
+                Shop
+            </a>
+        </div>
+
+        <article class="flex flex-col items-center justify-center p-8 text-white min-h-screen font-sans" style="background-color: var(--background);">
+
+            
+
+        </article>
+
+
+        <!-- Footer Sections -->
+
+        <footer class="flex flex-col items-center bg-[--background] text-neutral-200 py-8 px-4 w-full">
+
+            <img class="w-25 h-20 mb-6 object-contain" src="../images/neXuslogo2.png" alt="neXus logo">
+
+            <nav class="w-full max-w-4xl mb-6">
+                <ul class="flex flex-wrap justify-center gap-x-6 gap-y-3 text-lg md:text-xl font-medium">
+                    <li><a href="/index.html" class="hover:underline">Home</a></li>
+                    <li><a href="/html/neXus-60HE/keyboard-intro.html" class="hover:underline">Hardware</a></li>
+                    <li><a href="/html/neXos/nexos-intro.html" class="hover:underline">Software</a></li>
+                    <li><a href="/html/find-your-product.html" class="hover:underline">Find your product</a></li>
+                    <li><a href="/index.html" class="hover:underline">About Us</a></li>
+                </ul>
+            </nav>
+            
+            <hr class="w-full max-w-5xl border-t border-neutral-700 my-4">
+
+            <section class="w-full max-w-5xl flex flex-col md:flex-row justify-between items-center md:items-start gap-8 pt-4 text-base md:text-lg text-center md:text-left">
+                
+                <div class="flex-1 w-full">
+                    <ul class="space-y-2">
+                        <li><a href="https://www.youtube.com/watch?v=EE8U7U8syuI" target="_blank" class="hover:underline">Terms of Service</a></li>
+                        <li><a href="https://www.youtube.com/watch?v=EE8U7U8syuI" target="_blank" class="hover:underline">Privacy Policy</a></li>
+                        <p>&copy; 2026 neXus Corporation. All rights reserved.</p>
+                    </ul>
+                </div>
+
+                <div class="flex-1 w-full flex flex-col items-center md:items-start gap-2">
+                    <p class="font-semibold text-neutral-400">Socials</p>
+                    <ul class="flex flex-row justify-center md:justify-start gap-4">
+                        <li>
+                            <a href="https://www.youtube.com/watch?v=EE8U7U8syuI" target="_blank" class="flex items-center gap-2 hover:underline">
+                                <i style="font-size:20px; color:red;" class="fa">&#xf16a;</i>
+                                <span>Youtube</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.youtube.com/watch?v=EE8U7U8syuI" target="_blank" class="flex items-center gap-2 hover:underline">
+                                <i style="font-size:20px;" class="fa">&#xf1e8;</i>
+                                <span>Twitch</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="flex-1 w-full md:text-right text-neutral-400 self-center md:self-start space-y-6">
+                    <div class="flex flex-col gap-1">
+                        <h4 class="text-xs font-medium opacity-80 uppercase tracking-wide">customer support phone number</h4>
+                        <p class="text-sm font-normal">8484 9244</p>
+                    </div>
+                    
+                    <div class="flex flex-col gap-1">
+                        <h4 class="text-xs font-medium opacity-80 uppercase tracking-wide">customer support email</h4>
+                        <p class="text-sm font-normal">neXus_support@gmail.com</p>
+                    </div>
+                    
+                    <div class="flex flex-col gap-1">
+                        <h4 class="text-xs font-medium opacity-80 uppercase tracking-wide">corporate office location</h4>
+                        <p class="text-sm font-normal leading-snug">8 TEMASEK BOULEVARD #29-02 SUNTEC TOWER THREE</p>
+                    </div>
+                </div>
+                
+            </section>
+        </footer>
+
+        <script>
+            const userEmail = document.getElementById("user-email")
+            const userSubject = document.getElementById("user-subject")
+            const userContent = document.getElementById("user-content")
+
+            let emailList = []
+            let subjectList = []
+            let contentList = []
+            let content = false
+            let subject = false
+
+            function showAlert(inputElement, alertElement, msg, isValid) {
+                if (isValid) {
+                    inputElement.classList.remove("border-red-500")
+                    inputElement.classList.add("border-transparent")
+                    alertElement.classList.add("hidden")
+                    alertElement.innerText = ""
+                } else {
+                    inputElement.classList.remove("border-transparent")
+                    inputElement.classList.add("border-red-500")
+                    alertElement.classList.remove("hidden")
+                    alertElement.innerText = msg
+                }
+            }
+
+            userEmail.addEventListener("input", e => {
+                const value = e.target.value.trim()
+                const emailCheck = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+                const isValid = emailCheck.test(value);
+                const msg = "Please enter a valid email address (e.g., name@domain.com)."
+                
+                showAlert(userEmail, document.getElementById("email-alert"), msg, isValid || value.length === 0)
+            })
+
+            userSubject.addEventListener("input", e => {
+                const value = e.target.value.trim()
+                const isValid = value.length > 0
+                const msg = "Subject cannot be empty."
+                
+                if (isValid) {
+                   subject = true
+                }
+
+                showAlert(userSubject, document.getElementById("subject-alert"), msg, isValid || e.target.value.length === 0)
+            })
+
+            userContent.addEventListener("input", e => {
+                const value = e.target.value.trim()
+                const isValid = value.length > 0
+                const msg = "Content box cannot be empty."
+
+                if (isValid) {
+                   content = true
+                }
+                
+                showAlert(userContent, document.getElementById("content-alert"), msg, isValid || e.target.value.length === 0)
+            })
+        </script>
+
+    </body>
+
+</html>
