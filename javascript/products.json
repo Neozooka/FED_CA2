@@ -1,52 +1,57 @@
 [
   {
+    "image": "../images/eewewe.jpeg",
+    "title": "nexus-60he-magnetic-keyboard-8000hz-polling-adjustable",
+    "price": 167
+  },
+  {
     "image": "../images/MonitorArm_372.png",
-    "title": "neXus-Single-Monitor-Arm-Gas-Spring-Desk-Mount-USB-Ports",
-    "price": "$120"
+    "title": "nexus-single-monitor-arm-gas-spring-desk-mount-usb-ports",
+    "price": 120
   },
   {
     "image": "../images/Microphone_372.png",
-    "title": "neXus-USB-Condenser-Microphone-Studio-Quality-Gain-Control",
-    "price": "$180"
+    "title": "nexus-usb-condenser-microphone-studio-quality-gain-control",
+    "price": 180
   },
   {
     "image": "../images/GamingMonitor_372.png",
-    "title": "neXus-Gaming-Monitor-27-Inch-4K-OLED-240Hz-Ultra-Fast",
-    "price": "$899"
+    "title": "nexus-gaming-monitor-27-inch-4k-oled-240hz-ultra-fast",
+    "price": 899
   },
   {
     "image": "../images/Lochness_372.png",
-    "title": "neXus-Lochness-Gaming-Headset-50mm-Drivers-ClearCast-Microphone",
-    "price": "$150"
+    "title": "nexus-lochness-gaming-headset-50mm-drivers-clearcast-microphone",
+    "price": 150
   },
   {
     "image": "../images/PythonV1_372.png",
-    "title": "neXus-Python-Ultra-Light-Gaming-Mouse-26K-DPI-59g-Optical-Switches",
-    "price": "$120"
+    "title": "nexus-python-ultra-light-gaming-mouse-26k-dpi-59g-optical-switches",
+    "price": 120
   },
   {
     "image": "../images/ClickySwitch_372.png",
-    "title": "neXus-Kailh-Box-Jade-Clicky-Mechanical-Switches",
-    "price": "$35"
+    "title": "nexus-kailh-box-jade-clicky-mechanical-switches",
+    "price": 35
   },
   {
     "image": "../images/Clear_372.png",
-    "title": "neXus-Clear-Glass-Gaming-Mousepad-450x400mm-Ultra-Smooth",
-    "price": "$90"
+    "title": "nexus-clear-glass-gaming-mousepad-450x400mm-ultra-smooth",
+    "price": 90
   },
   {
     "image": "../images/TactileSwitch_372.png",
-    "title": "neXus-Gateron-Baby-Kangaroo-2.0-Tactile-Switches",
-    "price": "$40"
+    "title": "nexus-gateron-baby-kangaroo-2.0-tactile-switches",
+    "price": 40
   },
   {
     "image": "../images/LinearSwitch_372.png",
-    "title": "neXus-Gateron-Pro-3.0-Yellow-Linear-Switches",
-    "price": "$30"
+    "title": "nexus-gateron-pro-3.0-yellow-linear-switches",
+    "price": 30
   },
   {
     "image": "../images/PythonV2_372.png",
-    "title": "neXus-Python-V2-Gaming-Mouse-30K-DPI-54g-Optical-Gen-3-Switches",
-    "price": "$150"
+    "title": "nexus-python-v2-gaming-mouse-30k-dpi-54g-optical-gen-3-switches",
+    "price": 150
   }
 ]

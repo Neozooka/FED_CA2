@@ -3,9 +3,13 @@ path = "../../javascript/products.json"
 let cart = JSON.parse(localStorage.getItem("userCart")) || []
 
 function loadProductsFromList(cart) {
+    const priceTotal = document.getElementById("checkout-total-price")
+    const numberItems = document.getElementById("checkout-item-count")
     const CartTemplate = document.querySelector("[cart-template]")
     const CartContainer = document.querySelector("[cart-container]")
+    let cost = 0
     
+    CartContainer.innerHTML = ""
     let index = 0
     cart.forEach(item => {
         const card = CartTemplate.content.cloneNode(true)
@@ -16,8 +20,9 @@ function loadProductsFromList(cart) {
         const containerDiv = card.querySelector(".container")
         
         title.textContent = item.title
-        price.textContent = item.price
+        price.textContent = "$" + item.price
         photo.src = item.image
+        cost += item.price
         
         containerDiv.setAttribute("id", item.title)
         remove.setAttribute("id", index)
@@ -25,6 +30,10 @@ function loadProductsFromList(cart) {
         CartContainer.appendChild(card)
         index += 1
     })
+
+    numberItems.textContent = index
+    priceTotal.textContent = cost + ".00"
+    console.log(cost)
 }
 
 function saveCart() {
@@ -52,30 +61,31 @@ async function addCart(id) {
 }
 
 function remove(index) {
-    const arrayIndex = parseInt(index);
+    const arrayIndex = parseInt(index)
     
-    const cardContainer = index.closest(".container");
+    const cardContainer = index.closest(".container")
     if (cardContainer) {
-        cardContainer.remove();
+        cardContainer.remove()
     }
     
-    cart.splice(arrayIndex, 1);
+    cart.splice(arrayIndex, 1)
         
-    loadProductsFromList(cart);
+    loadProductsFromList(cart)
 }
 
-
-
 const shop_list = [
-    "nexus-60he-magnetic-keyboard-8000hz-polling-adjustable1", 
-    "nexus-60he-magnetic-keyboard-8000hz-polling-adjustable2", 
-    "nexus-60he-magnetic-keyboard-8000hz-polling-adjustable3",
-    "nexus-60he-magnetic-keyboard-8000hz-polling-adjustable4",
-    "nexus-60he-magnetic-keyboard-8000hz-polling-adjustable5",
-    "nexus-60he-magnetic-keyboard-8000hz-polling-adjustable6",
-    "nexus-60he-magnetic-keyboard-8000hz-polling-adjustable7",
-    "nexus-60he-magnetic-keyboard-8000hz-polling-adjustable8"
-];
+    "nexus-60he-magnetic-keyboard-8000hz-polling-adjustable",
+    "nexus-single-monitor-arm-gas-spring-desk-mount-usb-ports",
+    "nexus-usb-condenser-microphone-studio-quality-gain-control",
+    "nexus-gaming-monitor-27-inch-4k-oled-240hz-ultra-fast",
+    "nexus-lochness-gaming-headset-50mm-drivers-clearcast-microphone",
+    "nexus-python-ultra-light-gaming-mouse-26k-dpi-59g-optical-switches",
+    "nexus-kailh-box-jade-clicky-mechanical-switches",
+    "nexus-clear-glass-gaming-mousepad-450x400mm-ultra-smooth",
+    "nexus-gateron-baby-kangaroo-2-0-tactile-switches",
+    "nexus-gateron-pro-3-0-yellow-linear-switches",
+    "nexus-python-v2-gaming-mouse-30k-dpi-54g-optical-gen-3-switches"
+]
 //searchbar work function\
 
 if (typeof search !== "undefined") {
