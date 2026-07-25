@@ -52,7 +52,7 @@
 
             <section class="min-h-screen flex flex-col justify-start p-8 md:p-16 max-w-7xl mx-auto gap-[500px] mb-[500px]">
                 <div class="max-w-md bg-black/40 p-8 rounded-2xl border border-neutral-800/80 backdrop-blur-md">
-                    <p class="text-xs uppercase tracking-[0.3em] text-neutral-400 mb-2">02 — MATERIAL</p>
+                    <p class="text-xs uppercase tracking-[0.3em] text-neutral-400 mb-2">02 — Our Craft</p>
                     <h2 class="text-3xl font-light tracking-wide mb-4">Premium Craftsmanship</h2>
                     <p class="text-sm font-light text-neutral-300 leading-relaxed">
                         As you scroll through this block, the background keyboard tilts into perspective to reveal its layered chassis and lacquer depth.
@@ -60,7 +60,7 @@
                 </div>
 
                 <div class="max-w-md bg-black/40 p-8 rounded-2xl border border-neutral-800/80 backdrop-blur-md">
-                    <p class="text-xs uppercase tracking-[0.3em] text-neutral-400 mb-2">02 — MATERIAL</p>
+                    <p class="text-xs uppercase tracking-[0.3em] text-neutral-400 mb-2">02 — Design</p>
                     <h2 class="text-3xl font-light tracking-wide mb-4">Only the best design</h2>
                     <p class="text-sm font-light text-neutral-300 leading-relaxed">
                         As you scroll through this block, the background keyboard tilts into perspective to reveal its layered chassis and lacquer depth.
@@ -68,7 +68,7 @@
                 </div>
 
                 <div class="max-w-md bg-black/40 p-8 rounded-2xl border border-neutral-800/80 backdrop-blur-md">
-                    <p class="text-xs uppercase tracking-[0.3em] text-neutral-400 mb-2">02 — MATERIAL</p>
+                    <p class="text-xs uppercase tracking-[0.3em] text-neutral-400 mb-2">02 — Limited Edition</p>
                     <h2 class="text-3xl font-light tracking-wide mb-4">Limited Production</h2>
                     <p class="text-sm font-light text-neutral-300 leading-relaxed">
                         As you scroll through this block, the background keyboard tilts into perspective to reveal its layered chassis and lacquer depth.
@@ -171,124 +171,119 @@
 
     
         <script>
-            const canvas = document.getElementById('global-keyboard-canvas');
+            const canvas = document.getElementById('global-keyboard-canvas')
             const ctx = canvas.getContext('2d');
-            const frameCount = 60; // Total 3D animation frames
+            const frameCount = 60; 
             const images = [];
 
-            // Set Canvas Dimensions
             function resize() {
-                canvas.width = window.innerWidth * window.devicePixelRatio;
-                canvas.height = window.innerHeight * window.devicePixelRatio;
-                renderGlobalFrame(currentFrame);
+                canvas.width = window.innerWidth * window.devicePixelRatio
+                canvas.height = window.innerHeight * window.devicePixelRatio
+                renderGlobalFrame(currentFrame)
             }
 
             //load real images: `keyboard_frame_${i}.png`
             function createDemoFrame(i) {
-                const temp = document.createElement('canvas');
-                temp.width = 1000;
-                temp.height = 1000;
-                const tCtx = temp.getContext('2d');
+                const temp = document.createElement('canvas')
+                temp.width = 1000
+                temp.height = 1000
+                const tCtx = temp.getContext('2d')
 
-                const progress = i / frameCount;
-                const rotation = progress * Math.PI * 2;
-                const explode = Math.sin(progress * Math.PI) * 50;
+                const progress = i / frameCount
+                const rotation = progress * Math.PI * 2
+                const explode = Math.sin(progress * Math.PI) * 50
 
-                tCtx.save();
-                tCtx.translate(500, 500);
-                tCtx.rotate(rotation);
+                tCtx.save()
+                tCtx.translate(500, 500)
+                tCtx.rotate(rotation)
 
-                // Outer Keyboard Frame
-                tCtx.strokeStyle = '#333333';
+            
+                tCtx.strokeStyle = '#333333'
                 tCtx.lineWidth = 10;
-                tCtx.strokeRect(-250, -120, 500, 240);
+                tCtx.strokeRect(-250, -120, 500, 240)
 
-                // Keycaps Floating / Exploding
-                tCtx.fillStyle = '#ffffff';
+                
+                tCtx.fillStyle = '#ffffff'
                 for (let x = -200; x <= 200; x += 60) {
                     for (let y = -80; y <= 80; y += 50) {
-                        tCtx.fillRect(x + (x > 0 ? explode/2 : -explode/2), y, 40, 35);
+                        tCtx.fillRect(x + (x > 0 ? explode/2 : -explode/2), y, 40, 35)
                     }
                 }
 
-                tCtx.restore();
+                tCtx.restore()
 
-                const img = new Image();
-                img.src = temp.toDataURL();
-                return img;
+                const img = new Image()
+                img.src = temp.toDataURL()
+                return img
             }
 
             for (let i = 0; i < frameCount; i++) {
-                images.push(createDemoFrame(i));
+                images.push(createDemoFrame(i))
             }
 
-            let currentFrame = 0;
+            let currentFrame = 0
 
             function renderGlobalFrame(index) {
-                if (!images[index]) return;
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                if (!images[index]) return
+                ctx.clearRect(0, 0, canvas.width, canvas.height)
 
-                const img = images[index];
-                const hRatio = canvas.width / img.width;
-                const vRatio = canvas.height / img.height;
-                const ratio = Math.max(hRatio, vRatio) * 0.7; // Scale image nicely
+                const img = images[index]
+                const hRatio = canvas.width / img.width
+                const vRatio = canvas.height / img.height
+                const ratio = Math.max(hRatio, vRatio) * 0.7;
 
-                const shiftX = (canvas.width - img.width * ratio) / 2;
-                const shiftY = (canvas.height - img.height * ratio) / 2;
+                const shiftX = (canvas.width - img.width * ratio) / 2
+                const shiftY = (canvas.height - img.height * ratio) / 2
 
-                ctx.drawImage(img, 0, 0, img.width, img.height, shiftX, shiftY, img.width * ratio, img.height * ratio);
+                ctx.drawImage(img, 0, 0, img.width, img.height, shiftX, shiftY, img.width * ratio, img.height * ratio)
             }
-
-            // SCROLL SCRUBBING LISTENER
+            //scroll scrub
             window.addEventListener('scroll', () => {
                 const scrollTop = window.scrollY;
                 const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-                const scrollFraction = Math.max(0, Math.min(1, scrollTop / maxScroll));
-
-                // 1. Scrub through global 3D keyboard background frames based on total page scroll
-                const frameIndex = Math.min(frameCount - 1, Math.floor(scrollFraction * frameCount));
+                const scrollFraction = Math.max(0, Math.min(1, scrollTop / maxScroll))
+                const frameIndex = Math.min(frameCount - 1, Math.floor(scrollFraction * frameCount))
                 if (frameIndex !== currentFrame) {
-                    currentFrame = frameIndex;
-                    requestAnimationFrame(() => renderGlobalFrame(currentFrame));
+                    currentFrame = frameIndex
+                    requestAnimationFrame(() => renderGlobalFrame(currentFrame))
                 }
 
                 // 2. Handle "Feel & Play" specific switch updates
-                updateFeelAndPlaySection();
+                updateFeelAndPlaySection()
             });
 
             function updateFeelAndPlaySection() {
-                const track = document.getElementById('feel-and-play-track');
-                const rect = track.getBoundingClientRect();
-                const trackHeight = track.clientHeight - window.innerHeight;
+                const track = document.getElementById('feel-and-play-track')
+                const rect = track.getBoundingClientRect()
+                const trackHeight = track.clientHeight - window.innerHeight
                 
                 let progress = -rect.top / trackHeight;
-                progress = Math.max(0, Math.min(1, progress));
+                progress = Math.max(0, Math.min(1, progress))
 
                 if (rect.top <= 0 && rect.bottom >= window.innerHeight) {
-                    // Inside Feel & Play sticky section
-                    let active = 'linear';
-                    if (progress > 0.66) active = 'clicky';
-                    else if (progress > 0.33) active = 'tactile';
+                    let active = 'linear'
+                    if (progress > 0.66) active = 'clicky'
+                    else if (progress > 0.33) active = 'tactile'
 
-                    document.getElementById('active-badge').innerText = `Switch: ${active.toUpperCase()}`;
+                    document.getElementById('active-badge').innerText = `Switch: ${active.toUpperCase()}`
                     
                     // Specs updating
-                    const sounds = { linear: '"Snappy clack"', tactile: '"Deep thock"', clicky: '"Crisp click"' };
-                    document.getElementById('spec-sound').innerText = sounds[active];
+                    const sounds = { linear: '"Snappy clack"', tactile: '"Deep thock"', clicky: '"Crisp click"' }
+                    document.getElementById('spec-sound').innerText = sounds[active]
 
                     ['linear', 'tactile', 'clicky'].forEach(t => {
                         const tab = document.getElementById(`tab-${t}`);
                         if (t === active) {
-                            tab.className = 'text-white border-b-2 border-white pb-3 -mb-[14px]';
+                            tab.className = 'text-white border-b-2 border-white pb-3 -mb-[14px]'
                         } else {
-                            tab.className = 'text-neutral-500 border-b-2 border-transparent pb-3 -mb-[14px]';
+                            tab.className = 'text-neutral-500 border-b-2 border-transparent pb-3 -mb-[14px]'
                         }
                     });
                 }
             }
-
-            window.addEventListener('resize', resize);
-            window.addEventListener('load', resize);
+            
+            window.addEventListener('resize', resize)
+            window.addEventListener('load', resize)
         </script>
 
     </body>
