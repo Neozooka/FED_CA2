@@ -26,11 +26,6 @@
 
         <!-- come back to the beginign of vdieo -->
 
-        <div class="fixed inset-0 w-screen h-screen z-0 pointer-events-none flex items-center justify-center overflow-hidden">
-            <canvas id="global-keyboard-canvas" class="block w-full h-full opacity-80"></canvas>
-            <div class="absolute inset-0 bg-radial from-transparent via-black/40 to-black"></div>
-        </div>
-
         <main class="relative z-10 w-full">
 
                     <!-- Fully Centered Screen Layout -->
@@ -171,72 +166,7 @@
 
     
         <script>
-            const canvas = document.getElementById('global-keyboard-canvas')
-            const ctx = canvas.getContext('2d');
-            const frameCount = 60
-            const images = []
-
-            function resize() {
-                canvas.width = window.innerWidth * window.devicePixelRatio
-                canvas.height = window.innerHeight * window.devicePixelRatio
-                renderGlobalFrame(currentFrame)
-            }
-
-            //load real images: `keyboard_frame_${i}.png`
-            function createDemoFrame(i) {
-                const temp = document.createElement('canvas')
-                temp.width = 1000
-                temp.height = 1000
-                const tCtx = temp.getContext('2d')
-
-                const progress = i / frameCount
-                const rotation = progress * Math.PI * 2
-                const explode = Math.sin(progress * Math.PI) * 50
-
-                tCtx.save()
-                tCtx.translate(500, 500)
-                tCtx.rotate(rotation)
-
             
-                tCtx.strokeStyle = '#333333'
-                tCtx.lineWidth = 10;
-                tCtx.strokeRect(-250, -120, 500, 240)
-
-                
-                tCtx.fillStyle = '#ffffff'
-                for (let x = -200; x <= 200; x += 60) {
-                    for (let y = -80; y <= 80; y += 50) {
-                        tCtx.fillRect(x + (x > 0 ? explode/2 : -explode/2), y, 40, 35)
-                    }
-                }
-
-                tCtx.restore()
-
-                const img = new Image()
-                img.src = temp.toDataURL()
-                return img
-            }
-
-            for (let i = 0; i < frameCount; i++) {
-                images.push(createDemoFrame(i))
-            }
-
-            let currentFrame = 0
-
-            function renderGlobalFrame(index) {
-                if (!images[index]) return
-                ctx.clearRect(0, 0, canvas.width, canvas.height)
-
-                const img = images[index]
-                const hRatio = canvas.width / img.width
-                const vRatio = canvas.height / img.height
-                const ratio = Math.max(hRatio, vRatio) * 0.7;
-
-                const shiftX = (canvas.width - img.width * ratio) / 2
-                const shiftY = (canvas.height - img.height * ratio) / 2
-
-                ctx.drawImage(img, 0, 0, img.width, img.height, shiftX, shiftY, img.width * ratio, img.height * ratio)
-            }
             //scroll scrub
             window.addEventListener('scroll', () => {
                 const scrollTop = window.scrollY;
@@ -247,8 +177,6 @@
                     currentFrame = frameIndex
                     requestAnimationFrame(() => renderGlobalFrame(currentFrame))
                 }
-
-                // 2. Handle "Feel & Play" specific switch updates
                 updateFeelAndPlaySection()
             });
 
