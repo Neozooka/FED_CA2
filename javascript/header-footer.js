@@ -107,12 +107,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function getRootPrefix() {
     const path = window.location.pathname;
-    const segments = path.split('/').filter(Boolean);
-
-    const isFile = segments.length > 0 && segments[segments.length - 1].includes('.');
-    const depth = isFile ? segments.length - 1 : segments.length;
     
-    if (depth === 0) return './';
+    const segments = path.split('/').filter(Boolean);
+    const htmlIndex = segments.indexOf('html');
+
+    if (htmlIndex === -1) {
+        return './';
+    }
+
+    const depth = segments.length - htmlIndex - (segments[segments.length - 1].includes('.') ? 1 : 0);
     return '../'.repeat(depth);
 }
 
@@ -299,8 +302,8 @@ function preventSamePageReloads() {
 
         const isSamePage = 
             targetPath === currentPath ||
-            (currentPath === '/' && targetPath.endsWith('/index.html')) ||
-            (currentPath.endsWith('/index.html') && targetPath === '/');
+            (currentPath.endsWith('/') && targetPath.endsWith('/index.html')) ||
+            (currentPath.endsWith('/index.html') && targetPath.endsWith('/'));
 
         if (isSamePage) {
             e.preventDefault();
