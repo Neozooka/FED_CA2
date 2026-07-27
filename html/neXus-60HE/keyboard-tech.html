@@ -17,10 +17,101 @@
     </head>
 
     <body>
+        
 
         <div id="header-container"></div>
 
+        <article>
+            <section class="flex flex-row max-w-xl mx-auto justify-center">
+                <div>
+                    <div>KEY CAPS</div>
+                    <div>SWITCHES</div>
+                    <div>BOTTOM CASE</div>
+                    <!-- parts of the keyboard -->
+                </div>
+                <div>
+                    <div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <div>
+                        <div></div>
+                        <div>content</div>
+                    </div>
+                    <!-- images to slide in -->
+                </div>
+            </section>
+
+            <section class="bg-[#1e1e1e] text-white max-w-xl mx-auto ">
+            
+                <div class="border-b border-white/20 last:border-b-0">
+                    <button class="accordion-header w-full flex justify-between items-center p-4 hover:bg-white/5 transition-colors">
+                    <span class="font-medium text-lg">Dimension and weight</span>
+   
+                    <span class="arrow transform transition-transform duration-300 text-sm">&#9660;</span>
+                    </button>
+                    <div class="accordion-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                    <div class="p-4 text-gray-300 text-sm bg-white/5">
+                        <p>Your dimension and weight details go here.</p>
+                    </div>
+                    </div>
+                </div>
+
+                <div class="border-b border-white/20 last:border-b-0">
+                    <button class="accordion-header w-full flex justify-between items-center p-4 hover:bg-white/5 transition-colors">
+                    <span class="font-medium text-lg">Power and Connection</span>
+                    <span class="arrow transform transition-transform duration-300 text-sm">&#9660;</span>
+                    </button>
+                    <div class="accordion-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                    <div class="p-4 text-gray-300 text-sm bg-white/5">
+                        <p>Your power and connection details go here.</p>
+                    </div>
+                    </div>
+                </div>
+
+                <div class="border-b border-white/20 last:border-b-0">
+                    <button class="accordion-header w-full flex justify-between items-center p-4 hover:bg-white/5 transition-colors">
+                    <span class="font-medium text-lg">Care and Maintenance</span>
+                    <span class="arrow transform transition-transform duration-300 text-sm">&#9660;</span>
+                    </button>
+                    <div class="accordion-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                    <div class="p-4 text-gray-300 text-sm bg-white/5">
+                        <p>Your care and maintenance details go here.</p>
+                    </div>
+                    </div>
+                </div>
+
+            </section>
+        </article>
+
         <div id="footer-container"></div>
+
+        <script>
+            let accordionHeaders = document.querySelectorAll('.accordion-header');
+
+            accordionHeaders.forEach(header => {
+                header.addEventListener('click', () => {
+                    const currentItem = header.parentElement;
+                    const content = currentItem.querySelector('.accordion-content');
+                    const arrow = header.querySelector('.arrow');
+                    
+                    arrow.classList.toggle('-rotate-180');
+
+                    if (content.style.maxHeight) {
+
+                    content.style.maxHeight = null;
+                    } else {
+
+                    content.style.maxHeight = content.scrollHeight + "px";
+                    }
+                });
+            });
+
+        </script>
         
     </body>
 
