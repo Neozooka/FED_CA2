@@ -2,6 +2,7 @@ path = "../../javascript/products.json"
 
 let cart = JSON.parse(localStorage.getItem("userCart")) || []
 
+
 function loadProductsFromList(cart) {
     const priceTotal = document.getElementById("checkout-total-price")
     const numberItems = document.getElementById("checkout-item-count")
@@ -86,6 +87,7 @@ const shop_list = [
     "nexus-gateron-pro-3-0-yellow-linear-switches",
     "nexus-python-v2-gaming-mouse-30k-dpi-54g-optical-gen-3-switches"
 ]
+
 //searchbar work function\
 
 if (typeof search !== "undefined") {
@@ -113,6 +115,23 @@ if (typeof search !== "undefined") {
     maxCountEl.textContent = shop_list.length
     }
 }
+
+
+if (typeof search2 !== "undefined") {
+    search2.addEventListener("input", e => { //checks for input in the search bar input in the html file
+        const value = e.target.value.toLowerCase(); //lowercase so everything can match with database and not show error
+        console.log(value) //check for the words so i can see in console
+        let in_search = []
+        cart.forEach(item => {
+            let itemElement = document.getElementById(item.title)
+            const show = itemElement.id.toLowerCase().includes(value)
+            itemElement.classList.toggle("hidden", !show) //check in css file
+            console.log("Hidden" +show+ item.title)
+        })
+    })
+
+}
+
 
 
 window.addEventListener("DOMContentLoaded", () => {

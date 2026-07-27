@@ -31,62 +31,7 @@
         <div id="footer-container"></div>
 
         <script>
-            const userEmail = document.getElementById("user-email")
-            const userSubject = document.getElementById("user-subject")
-            const userContent = document.getElementById("user-content")
-
-            let emailList = []
-            let subjectList = []
-            let contentList = []
-            let content = false
-            let subject = false
-
-            function showAlert(inputElement, alertElement, msg, isValid) {
-                if (isValid) {
-                    inputElement.classList.remove("border-red-500")
-                    inputElement.classList.add("border-transparent")
-                    alertElement.classList.add("hidden")
-                    alertElement.innerText = ""
-                } else {
-                    inputElement.classList.remove("border-transparent")
-                    inputElement.classList.add("border-red-500")
-                    alertElement.classList.remove("hidden")
-                    alertElement.innerText = msg
-                }
-            }
-
-            userEmail.addEventListener("input", e => {
-                const value = e.target.value.trim()
-                const emailCheck = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-                const isValid = emailCheck.test(value);
-                const msg = "Please enter a valid email address (e.g., name@domain.com)."
-                
-                showAlert(userEmail, document.getElementById("email-alert"), msg, isValid || value.length === 0)
-            })
-
-            userSubject.addEventListener("input", e => {
-                const value = e.target.value.trim()
-                const isValid = value.length > 0
-                const msg = "Subject cannot be empty."
-                
-                if (isValid) {
-                   subject = true
-                }
-
-                showAlert(userSubject, document.getElementById("subject-alert"), msg, isValid || e.target.value.length === 0)
-            })
-
-            userContent.addEventListener("input", e => {
-                const value = e.target.value.trim()
-                const isValid = value.length > 0
-                const msg = "Content box cannot be empty."
-
-                if (isValid) {
-                   content = true
-                }
-                
-                showAlert(userContent, document.getElementById("content-alert"), msg, isValid || e.target.value.length === 0)
-            })
+            
         </script>
 
     </body>
