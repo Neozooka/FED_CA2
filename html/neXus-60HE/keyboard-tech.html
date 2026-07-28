@@ -22,27 +22,92 @@
         <div id="header-container"></div>
 
         <article>
-            <section class="flex flex-row max-w-xl mx-auto justify-center">
-                <div>
-                    <div>KEY CAPS</div>
-                    <div>SWITCHES</div>
-                    <div>BOTTOM CASE</div>
-                    <!-- parts of the keyboard -->
-                </div>
-                <div>
-                    <div>
-                        <div></div>
-                        <div></div>
+            <section class="max-w-4xl mx-auto p-6 bg-neutral-950 text-white rounded-3xl border border-neutral-800 shadow-2xl">
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+                    
+                    <!-- LEFT SIDE: Navigation Buttons -->
+                    <div class="md:col-span-4 flex flex-col space-y-3">
+                    <h3 class="text-xs uppercase tracking-widest text-neutral-500 font-semibold mb-2">Explore Components</h3>
+                    
+                    <button data-part="keyboard" class="part-btn active w-full text-left p-4 rounded-xl border transition-all duration-300 bg-neutral-900 border-white text-white font-medium flex justify-between items-center group">
+                        <span>00 / Full Keyboard</span>
+                        <span class="text-xs text-neutral-400 group-hover:translate-x-1 transition-transform">→</span>
+                    </button>
+
+                    <button data-part="keycaps" class="part-btn w-full text-left p-4 rounded-xl border transition-all duration-300 bg-neutral-900/50 border-neutral-800 text-neutral-400 hover:border-neutral-700 hover:text-white font-medium flex justify-between items-center group">
+                        <span>01 / Keycaps</span>
+                        <span class="text-xs text-neutral-400 group-hover:translate-x-1 transition-transform">→</span>
+                    </button>
+
+                    <button data-part="switches" class="part-btn w-full text-left p-4 rounded-xl border transition-all duration-300 bg-neutral-900/50 border-neutral-800 text-neutral-400 hover:border-neutral-700 hover:text-white font-medium flex justify-between items-center group">
+                        <span>02 / Switches</span>
+                        <span class="text-xs text-neutral-400 group-hover:translate-x-1 transition-transform">→</span>
+                    </button>
+
+                    <button data-part="case" class="part-btn w-full text-left p-4 rounded-xl border transition-all duration-300 bg-neutral-900/50 border-neutral-800 text-neutral-400 hover:border-neutral-700 hover:text-white font-medium flex justify-between items-center group">
+                        <span>03 / Bottom Case</span>
+                        <span class="text-xs text-neutral-400 group-hover:translate-x-1 transition-transform">→</span>
+                    </button>
                     </div>
-                    <div>
-                        <div></div>
-                        <div></div>
+
+                    <!-- RIGHT SIDE: Carousel Display & Specs -->
+                    <div class="md:col-span-8 flex flex-col space-y-6">
+                    
+                    <!-- IMAGE DISPLAY AREA (SLIDE TRACK) -->
+                    <div class="relative w-full h-64 sm:h-72 bg-neutral-900 rounded-2xl border border-neutral-800 overflow-hidden">
+                        <div id="slider-track" class="flex h-full w-[400%] transition-transform duration-500 ease-out">
+                        <!-- Slide 0: Full Keyboard -->
+                        <div class="w-1/4 h-full flex items-center justify-center p-6 bg-gradient-to-br from-neutral-900 to-neutral-950">
+                            <img src="https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&w=800&q=80" alt="Full Keyboard" class="h-full object-contain filter drop-shadow-2xl" />
+                        </div>
+                        <!-- Slide 1: Keycaps -->
+                        <div class="w-1/4 h-full flex items-center justify-center p-6 bg-gradient-to-br from-neutral-900 to-neutral-950">
+                            <img src="https://images.unsplash.com/photo-1618384887929-16ec33fab9ef?auto=format&fit=crop&w=800&q=80" alt="Keycaps" class="h-full object-contain filter drop-shadow-2xl" />
+                        </div>
+                        <!-- Slide 2: Switches -->
+                        <div class="w-1/4 h-full flex items-center justify-center p-6 bg-gradient-to-br from-neutral-900 to-neutral-950">
+                            <img src="https://images.unsplash.com/photo-1595225476474-87563907a212?auto=format&fit=crop&w=800&q=80" alt="Switches" class="h-full object-contain filter drop-shadow-2xl" />
+                        </div>
+                        <!-- Slide 3: Bottom Case -->
+                        <div class="w-1/4 h-full flex items-center justify-center p-6 bg-gradient-to-br from-neutral-900 to-neutral-950">
+                            <img src="https://images.unsplash.com/photo-1541140532154-b024d705b909?auto=format&fit=crop&w=800&q=80" alt="Bottom Case" class="h-full object-contain filter drop-shadow-2xl" />
+                        </div>
+                        </div>
                     </div>
-                    <div>
-                        <div></div>
-                        <div>content</div>
+
+                    <!-- SPECIFICATIONS CARD -->
+                    <div class="bg-black/60 p-6 sm:p-8 rounded-2xl border border-neutral-800/80 backdrop-blur-md space-y-6">
+                        
+                        <!-- Tab Title -->
+                        <div class="border-b border-neutral-800 pb-3 text-xs tracking-widest uppercase font-semibold">
+                        <span id="spec-title" class="text-white border-b-2 border-white pb-3 -mb-[14px] inline-block">
+                            00 / FULL KEYBOARD BUILD
+                        </span>
+                        </div>
+
+                        <!-- Dynamic Specs Grid -->
+                        <div class="space-y-3 text-xs font-light">
+                        <div class="flex justify-between border-b border-neutral-800/60 pb-2">
+                            <span id="label-1" class="text-neutral-500 uppercase">PROFILE / TYPE</span>
+                            <span id="val-1" class="text-neutral-200 font-medium">75% Custom Mechanical</span>
+                        </div>
+                        <div class="flex justify-between border-b border-neutral-800/60 pb-2">
+                            <span id="label-2" class="text-neutral-500 uppercase">MATERIAL / SOUND</span>
+                            <span id="val-2" class="text-neutral-200 font-medium">CNC Aluminum & Gasket Mount</span>
+                        </div>
+                        <div class="flex justify-between border-b border-neutral-800/60 pb-2">
+                            <span id="label-3" class="text-neutral-500 uppercase">TOTAL WEIGHT</span>
+                            <span id="val-3" class="text-neutral-200 font-medium">1.45 kg</span>
+                        </div>
+                        </div>
+
+                        <!-- Action Button -->
+                        <button id="action-btn" class="w-full py-3 border border-neutral-700 hover:border-neutral-400 text-xs uppercase tracking-widest transition rounded-lg bg-neutral-900/50 hover:bg-neutral-800 text-neutral-200 font-medium">
+                        Play Switch Sound
+                        </button>
                     </div>
-                    <!-- images to slide in -->
+
+                    </div>
                 </div>
             </section>
 
@@ -50,38 +115,46 @@
             
                 <div class="border-b border-white/20 last:border-b-0">
                     <button class="accordion-header w-full flex justify-between items-center p-4 hover:bg-white/5 transition-colors">
-                    <span class="font-medium text-lg">Dimension and weight</span>
-   
-                    <span class="arrow transform transition-transform duration-300 text-sm">&#9660;</span>
+                        <span class="font-medium text-lg">Dimension and weight</span>
+                        <span class="arrow transform transition-transform duration-300 text-sm">&#9660;</span>
                     </button>
                     <div class="accordion-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
-                    <div class="p-4 text-gray-300 text-sm bg-white/5">
-                        <p>Your dimension and weight details go here.</p>
-                    </div>
+                        <div class="p-4 text-gray-300 text-sm bg-white/5 space-y-2">
+                            <p><strong class="text-white">Dimensions (L x W x H):</strong> 315 mm x 135 mm x 40 mm</p>
+                            <p><strong class="text-white">Weight:</strong> 0.3 kg (300g)</p>
+                            <p><strong class="text-white">Form Factor:</strong> Compact / 75% Layout</p>
+                        </div>
                     </div>
                 </div>
 
                 <div class="border-b border-white/20 last:border-b-0">
                     <button class="accordion-header w-full flex justify-between items-center p-4 hover:bg-white/5 transition-colors">
-                    <span class="font-medium text-lg">Power and Connection</span>
-                    <span class="arrow transform transition-transform duration-300 text-sm">&#9660;</span>
+                        <span class="font-medium text-lg">Power and Connection</span>
+                        <span class="arrow transform transition-transform duration-300 text-sm">&#9660;</span>
                     </button>
                     <div class="accordion-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
-                    <div class="p-4 text-gray-300 text-sm bg-white/5">
-                        <p>Your power and connection details go here.</p>
-                    </div>
+                        <div class="p-4 text-gray-300 text-sm bg-white/5 space-y-2">
+                            <p><strong class="text-white">Interface:</strong> USB-A (Plug & Play, no drivers required)</p>
+                            <p><strong class="text-white">Cable Type:</strong> Detachable Braided USB-A to USB-C</p>
+                            <p><strong class="text-white">Cable Length:</strong> 1.8 m (approx. 6 ft)</p>
+                            <p><strong class="text-white">Operating Voltage/Current:</strong> 5V DC / 100mA</p>
+                            <p><strong class="text-white">System Compatibility:</strong> Windows 10/11, macOS, Linux, ChromeOS</p>
+                        </div>
                     </div>
                 </div>
 
                 <div class="border-b border-white/20 last:border-b-0">
                     <button class="accordion-header w-full flex justify-between items-center p-4 hover:bg-white/5 transition-colors">
-                    <span class="font-medium text-lg">Care and Maintenance</span>
-                    <span class="arrow transform transition-transform duration-300 text-sm">&#9660;</span>
+                        <span class="font-medium text-lg">Care and Maintenance</span>
+                        <span class="arrow transform transition-transform duration-300 text-sm">&#9660;</span>
                     </button>
                     <div class="accordion-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
-                    <div class="p-4 text-gray-300 text-sm bg-white/5">
-                        <p>Your care and maintenance details go here.</p>
-                    </div>
+                        <div class="p-4 text-gray-300 text-sm bg-white/5 space-y-2">
+                            <p><strong class="text-white">Regular Cleaning:</strong> Unplug the keyboard before cleaning. Use a compressed air duster to clear debris between the keys.</p>
+                            <p><strong class="text-white">Surface Care:</strong> Wipe down keycaps with a soft, lint-free microfiber cloth slightly dampened with water or mild isopropyl alcohol. Avoid harsh chemicals.</p>
+                            <p><strong class="text-white">Liquid Protection:</strong> Keep liquids away from the keyboard surface. In case of spills, disconnect immediately and allow to dry completely for 24–48 hours.</p>
+                            <p><strong class="text-white">Storage:</strong> Store in a cool, dry place away from direct sunlight and extreme temperatures when not in use.</p>
+                        </div>
                     </div>
                 </div>
 
