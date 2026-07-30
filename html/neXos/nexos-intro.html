@@ -22,7 +22,7 @@
         <div id="header-container"></div>
 
         <div id="sub-nav-wrapper" class="sticky top-0 w-full px-4 py-3 z-30 transition-all duration-300">
-            <div id="sub-nav" class="max-w-7xl mx-auto bg-neutral-900/70 backdrop-blur-md rounded-2xl border border-neutral-800/60 px-6 py-3 flex justify-between items-center transition-all duration-300">
+            <div id="sub-nav" class="max-w-7xl mx-auto bg-neutral-900/30 backdrop-blur-md rounded-2xl border border-neutral-800/40 px-6 py-3 flex justify-between items-center transition-all duration-300">
                 
                 <div class="items-center hidden sm:flex">
                     <img class="w-[6vw] min-w-[128px] max-w-[156px] h-auto object-contain" src="../../images/nexos-logo.png" alt="neXus logo">
@@ -66,22 +66,46 @@
 
                 </section>
 
-            <section id="reviews" class="w-full bg-neutral-100 py-20 flex flex-col">
-                <h1 class="text-3xl font-bold tracking-tight md:text-5xl text-[--background]">
-                    SEE WHAT GAMERS ARE SAYING ABOUT NexOS.
+            <section id="reviews" class="w-full bg-neutral-100 py-20 px-4 md:px-8 flex flex-col items-center overflow-hidden">
+                <h1 class="text-3xl font-black tracking-tight md:text-5xl text-neutral-900 text-center mb-12 select-none">
+                    SEE WHAT GAMERS ARE SAYING ABOUT <span class="text-[--maingreen]">NexOS.</span>
                 </h1>
 
-                <div class="relative w-full overflow-hidden cursor-grab active:cursor-grabbing" id="carousel-window">
-                    <blockquote class="bg-white p-6 rounded-xl shadow-lg border border-neutral-800 flex flex-col justify-between h-full pointer-events-none">
-                        <div class="flex items-center justify-end gap-3 mt-auto">
-                            <p class="text-neutral-300 italic mb-6">"NexOS is great for gaming!"</p>
-                            <div class="flex items-center justify-end gap-3 mt-auto">
-                                <p class="text-sm font-semibold text-neutral-400">&mdash; Steve Jobs</p>
+                <div class="relative w-full max-w-5xl overflow-hidden cursor-grab active:cursor-grabbing select-none px-4" id="carousel-window">
+                    <div id="carousel-track" class="flex gap-6 transition-transform duration-300 ease-out will-change-transform">
+                        
+                        <blockquote class="w-full md:w-[450px] shrink-0 bg-white p-8 rounded-xl shadow-md border border-neutral-200 flex flex-col justify-between min-h-[200px]">
+                            <p class="text-lg text-neutral-700 italic mb-6 pointer-events-none">
+                                "NexOS is great for gaming! The responsiveness and low latency give me a huge edge."
+                            </p>
+                            <div class="flex items-center justify-end gap-3 mt-auto pointer-events-none">
+                                <p class="text-sm font-semibold text-neutral-900">&mdash; Steve Jobs</p>
                             </div>
-                        </div>
-                    </blockquote>
+                        </blockquote>
+
+                        <blockquote class="w-full md:w-[450px] shrink-0 bg-white p-8 rounded-xl shadow-md border border-neutral-200 flex flex-col justify-between min-h-[200px]">
+                            <p class="text-lg text-neutral-700 italic mb-6 pointer-events-none">
+                                "The customization options are insane. Best OS tweaks I've used so far."
+                            </p>
+                            <div class="flex items-center justify-end gap-3 mt-auto pointer-events-none">
+                                <p class="text-sm font-semibold text-neutral-900">&mdash; Alex R.</p>
+                            </div>
+                        </blockquote>
+
+                        <blockquote class="w-full md:w-[450px] shrink-0 bg-white p-8 rounded-xl shadow-md border border-neutral-200 flex flex-col justify-between min-h-[200px]">
+                            <p class="text-lg text-neutral-700 italic mb-6 pointer-events-none">
+                                "FPS boosts were noticeable right out of the box. Highly recommended for any gamer."
+                            </p>
+                            <div class="flex items-center justify-end gap-3 mt-auto pointer-events-none">
+                                <p class="text-sm font-semibold text-neutral-900">&mdash; Sarah K.</p>
+                            </div>
+                        </blockquote>
+
+                    </div>
                 </div>
             </section>
+
+            <section id="performance" class="w-full bg-[--background] py-20 flex flex-col items-center"></section>
             
         </article>
 
@@ -98,13 +122,17 @@
                 if (window.scrollY > 80) {
                     subNavWrapper.classList.remove('py-3');
                     subNavWrapper.classList.add('py-2');
-                    subNav.classList.add('shadow-xl', 'shadow-black/40', 'bg-neutral-900');
-                    subNav.classList.remove('bg-neutral-900/70');
+                    
+                    // Slightly darker on scroll for readability, but still transparent
+                    subNav.classList.add('shadow-xl', 'shadow-black/40', 'bg-neutral-900/60');
+                    subNav.classList.remove('bg-neutral-900/30');
                 } else {
                     subNavWrapper.classList.remove('py-2');
                     subNavWrapper.classList.add('py-3');
-                    subNav.classList.remove('shadow-xl', 'shadow-black/40', 'bg-neutral-900');
-                    subNav.classList.add('bg-neutral-900/70');
+                    
+                    // Ultra-transparent at the top of the page
+                    subNav.classList.remove('shadow-xl', 'shadow-black/40', 'bg-neutral-900/60');
+                    subNav.classList.add('bg-neutral-900/30');
                 }
             });
 
@@ -145,6 +173,102 @@
 
                 setTimeout(type, 500);
             })
+
+            // For the reviews
+            document.addEventListener('DOMContentLoaded', () => {
+                const windowEl = document.getElementById('carousel-window');
+                const track = document.getElementById('carousel-track');
+                const cards = track.children;
+                
+                let isDragging = false;
+                let startX = 0;
+                let currentTranslate = 0;
+                let prevTranslate = 0;
+                let currentIndex = 0;
+                let animationId;
+
+                // Get position X from mouse or touch event
+                function getPositionX(event) {
+                    return event.type.includes('mouse') ? event.clientX : event.touches[0].clientX;
+                }
+
+                function setSliderPosition() {
+                    track.style.transform = `translateX(${currentTranslate}px)`;
+                }
+
+                function animation() {
+                    setSliderPosition();
+                    if (isDragging) requestAnimationFrame(animation);
+                }
+
+                function touchStart(index) {
+                    return function (event) {
+                        isDragging = true;
+                        startX = getPositionX(event);
+                        
+                        // Disable smooth transition during active drag
+                        track.classList.remove('transition-transform', 'duration-300', 'ease-out');
+                        
+                        animationId = requestAnimationFrame(animation);
+                        windowEl.classList.add('cursor-grabbing');
+                    };
+                }
+
+                function touchMove(event) {
+                    if (!isDragging) return;
+                    const currentPosition = getPositionX(event);
+                    const currentMove = currentPosition - startX;
+                    currentTranslate = prevTranslate + currentMove;
+                }
+
+                function touchEnd() {
+                    if (!isDragging) return;
+                    isDragging = false;
+                    cancelAnimationFrame(animationId);
+
+                    const movedBy = currentTranslate - prevTranslate;
+
+                    // Snap logic: Check if moved far enough to trigger slide change
+                    if (movedBy < -100 && currentIndex < cards.length - 1) {
+                        currentIndex += 1;
+                    }
+
+                    if (movedBy > 100 && currentIndex > 0) {
+                        currentIndex -= 1;
+                    }
+
+                    setPositionByIndex();
+                    windowEl.classList.remove('cursor-grabbing');
+                }
+
+                function setPositionByIndex() {
+                    // Calculate offset including track gap
+                    const cardWidth = windowEl.clientWidth;
+                    const gap = 24; // matches Tailwind 'gap-6' (1.5rem = 24px)
+                    
+                    currentTranslate = -(currentIndex * (cardWidth + gap));
+                    prevTranslate = currentTranslate;
+
+                    // Re-enable smooth transition for snapping animation
+                    track.classList.add('transition-transform', 'duration-300', 'ease-out');
+                    setSliderPosition();
+                }
+
+                // Event Listeners for Touch / Mouse
+                windowEl.addEventListener('mousedown', touchStart());
+                windowEl.addEventListener('mousemove', touchMove);
+                windowEl.addEventListener('mouseup', touchEnd);
+                windowEl.addEventListener('mouseleave', () => {
+                    if (isDragging) touchEnd();
+                });
+
+                windowEl.addEventListener('touchstart', touchStart());
+                windowEl.addEventListener('touchmove', touchMove);
+                windowEl.addEventListener('touchend', touchEnd);
+
+                // Recalculate on window resize
+                window.addEventListener('resize', setPositionByIndex);
+            });
         </script>
 
     </body>
