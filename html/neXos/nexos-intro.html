@@ -67,9 +67,9 @@
                 </section>
 
             <section id="reviews" class="w-full bg-neutral-100 py-20 px-4 md:px-8 flex flex-col items-center overflow-hidden">
-                <h1 class="text-3xl font-black tracking-tight md:text-5xl text-neutral-900 text-center mb-12 select-none">
+                <h2 class="text-3xl font-black tracking-tight md:text-5xl text-neutral-900 text-center mb-12 select-none">
                     SEE WHAT GAMERS ARE SAYING ABOUT <span class="text-[--maingreen]">NexOS.</span>
-                </h1>
+                </h2>
 
                 <div class="relative w-full max-w-5xl overflow-hidden cursor-grab active:cursor-grabbing select-none px-4" id="carousel-window">
                     <div id="carousel-track" class="flex gap-6 transition-transform duration-300 ease-out will-change-transform">
@@ -104,9 +104,199 @@
                     </div>
                 </div>
             </section>
-
-            <section id="performance" class="w-full bg-[--background] py-20 flex flex-col items-center"></section>
             
+            <section id="performance" class="w-full bg-[--background] py-20 px-4 md:px-8 flex flex-col items-center overflow-hidden">
+                <div class="max-w-5xl w-full">
+                    
+                    <div class="text-left mb-10 reveal-on-scroll">
+                        <h2 class="text-4xl sm:text-5xl md:text-6xl font-black text-white tracking-tight mb-4">
+                            PERFORMANCE IS PRIORITY.
+                        </h2>
+                        <p class="text-neutral-300 text-lg sm:text-xl leading-relaxed max-w-3xl">
+                            100% of your RAM and CPU cycles are directed straight to your game. Zero telemetry. This means games load faster, run smoother, and stay responsive.
+                        </p>
+                    </div>
+
+                    <div class="bg-neutral-900 rounded-3xl border border-neutral-800 p-6 sm:p-10 md:p-14 shadow-2xl relative mb-8 reveal-on-scroll">
+                        
+                    <div class="overflow-hidden w-full">
+                        <div id="perf-track" class="flex transition-transform duration-700 ease-[cubic-bezier(0.32,0.72,0,1)]">
+                            
+                            <div class="perf-slide w-full shrink-0">
+                                <h3 class="text-white font-bold text-lg sm:text-xl md:text-2xl text-center mb-6 sm:mb-8 tracking-wide">
+                                    Average FPS in Most Played Games
+                                </h3>
+                                <div class="space-y-4 sm:space-y-6 max-w-3xl mx-auto">
+                                    
+                                    <div class="flex flex-col sm:flex-row sm:items-center gap-1.5 sm:gap-6">
+                                        <span class="w-full sm:w-32 text-left sm:text-right font-black text-white text-base sm:text-xl shrink-0">
+                                            NexOS
+                                        </span>
+                                        <div class="grow bg-neutral-950 rounded-xl sm:rounded-2xl h-12 sm:h-16 p-1.5 sm:p-2 border border-neutral-800 relative">
+                                            <div class="perf-bar bg-[--maingreen] h-full rounded-lg sm:rounded-xl flex items-center justify-end pr-3 sm:pr-4 text-[--text] font-extrabold text-sm sm:text-base whitespace-nowrap overflow-hidden" style="width: 0%;" data-width="92%">
+                                                +45% FPS
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="flex flex-col sm:flex-row sm:items-center gap-1.5 sm:gap-6">
+                                        <span class="w-full sm:w-32 text-left sm:text-right font-medium text-neutral-400 text-sm sm:text-lg shrink-0">
+                                            Windows 11
+                                        </span>
+                                        <div class="grow bg-neutral-950 rounded-xl sm:rounded-2xl h-12 sm:h-16 p-1.5 sm:p-2 border border-neutral-800 relative">
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="perf-slide w-full shrink-0">
+                                <h3 class="text-white font-bold text-lg sm:text-xl md:text-2xl text-center mb-6 sm:mb-8 tracking-wide">
+                                    Idle Memory Usage (RAM)
+                                </h3>
+                                <div class="space-y-4 sm:space-y-6 max-w-3xl mx-auto">
+                                    
+                                    <div class="flex flex-col sm:flex-row sm:items-center gap-1.5 sm:gap-6">
+                                        <span class="w-full sm:w-32 text-left sm:text-right font-black text-white text-base sm:text-xl shrink-0">
+                                            NexOS
+                                        </span>
+                                        <div class="grow bg-neutral-950 rounded-xl sm:rounded-2xl h-12 sm:h-16 p-1.5 sm:p-2 border border-neutral-800 relative">
+                                            <div class="perf-bar bg-[--maingreen] h-full rounded-lg sm:rounded-xl flex items-center justify-end pr-3 sm:pr-4 text-[--text] font-extrabold text-sm sm:text-base whitespace-nowrap overflow-hidden" style="width: 0%;" data-width="35%">
+                                                1.8 GB
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="flex flex-col sm:flex-row sm:items-center gap-1.5 sm:gap-6">
+                                        <span class="w-full sm:w-32 text-left sm:text-right font-medium text-neutral-400 text-sm sm:text-lg shrink-0">
+                                            Windows 11
+                                        </span>
+                                        <div class="grow bg-neutral-950 rounded-xl sm:rounded-2xl h-12 sm:h-16 p-1.5 sm:p-2 border border-neutral-800 relative">
+                                            <div class="perf-bar bg-neutral-800 h-full rounded-lg sm:rounded-xl border border-neutral-700/50 flex items-center justify-end pr-3 sm:pr-4 text-neutral-300 font-semibold text-xs sm:text-sm whitespace-nowrap overflow-hidden" style="width: 0%;" data-width="85%">
+                                                3.5 GB
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="perf-slide w-full shrink-0">
+                                <h3 class="text-white font-bold text-lg sm:text-xl md:text-2xl text-center mb-6 sm:mb-8 tracking-wide">
+                                    DPC Latency (Lower is Better)
+                                </h3>
+                                <div class="space-y-4 sm:space-y-6 max-w-3xl mx-auto">
+                                    
+                                    <div class="flex flex-col sm:flex-row sm:items-center gap-1.5 sm:gap-6">
+                                        <span class="w-full sm:w-32 text-left sm:text-right font-black text-white text-base sm:text-xl shrink-0">
+                                            NexOS
+                                        </span>
+                                        <div class="grow bg-neutral-950 rounded-xl sm:rounded-2xl h-12 sm:h-16 p-1.5 sm:p-2 border border-neutral-800 relative">
+                                            <div class="perf-bar bg-[--maingreen] h-full rounded-lg sm:rounded-xl flex items-center justify-end pr-3 sm:pr-4 text-[--text] font-extrabold text-sm sm:text-base whitespace-nowrap overflow-hidden" style="width: 0%;" data-width="25%">
+                                                12µs
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="flex flex-col sm:flex-row sm:items-center gap-1.5 sm:gap-6">
+                                        <span class="w-full sm:w-32 text-left sm:text-right font-medium text-neutral-400 text-sm sm:text-lg shrink-0">
+                                            Windows 11
+                                        </span>
+                                        <div class="grow bg-neutral-950 rounded-xl sm:rounded-2xl h-12 sm:h-16 p-1.5 sm:p-2 border border-neutral-800 relative">
+                                            <div class="perf-bar bg-neutral-800 h-full rounded-lg sm:rounded-xl border border-neutral-700/50 flex items-center justify-end pr-3 sm:pr-4 text-neutral-300 font-semibold text-xs sm:text-sm whitespace-nowrap overflow-hidden" style="width: 0%;" data-width="75%">
+                                                84µs
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    </div>
+
+                    <div class="flex justify-center items-center reveal-on-scroll">
+                        <div class="inline-flex items-center gap-3 px-4 py-2 bg-neutral-900/80 backdrop-blur-md rounded-full border border-neutral-800/80 shadow-lg">
+                            
+                            <button id="prev" class="w-6 h-6 flex items-center justify-center text-neutral-400 hover:text-white transition-colors" aria-label="Previous Slide">
+                                <i class="fa fa-chevron-left text-xs"></i>
+                            </button>
+
+                            <div id="dots" class="flex items-center gap-2 px-1">
+                                <button class="w-2 h-2 rounded-full bg-white transition-all duration-300" data-index="0" aria-label="Slide 1"></button>
+                                <button class="w-2 h-2 rounded-full bg-neutral-600 hover:bg-neutral-400 transition-all duration-300" data-index="1" aria-label="Slide 2"></button>
+                                <button class="w-2 h-2 rounded-full bg-neutral-600 hover:bg-neutral-400 transition-all duration-300" data-index="2" aria-label="Slide 3"></button>
+                            </div>
+
+                            <button id="next" class="w-6 h-6 flex items-center justify-center text-neutral-400 hover:text-white transition-colors" aria-label="Next Slide">
+                                <i class="fa fa-chevron-right text-xs"></i>
+                            </button>
+
+                            <div class="w-[1px] h-3.5 bg-neutral-800 mx-0.5"></div>
+
+                            <button id="play-pause" class="w-6 h-6 flex items-center justify-center text-neutral-400 hover:text-white transition-colors" aria-label="Pause Slideshow">
+                                <i class="fa fa-pause text-xs"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+            
+            <section id="screen-comparison" class="w-full bg-[--background] py-20 px-4 md:px-8 flex flex-col items-center overflow-hidden">
+                <div class="max-w-5xl w-full">
+                    
+                    <div class="text-left mb-10 reveal-on-scroll">
+                        <h2 class="text-4xl sm:text-5xl md:text-6xl font-black text-white tracking-tight mb-4">
+                            GAMING HAS NEVER BEEN EASIER.
+                        </h2>
+                        <p class="text-neutral-300 text-lg sm:text-xl leading-relaxed max-w-3xl">
+                            With NexOS, the friction of transitioning has been removed. Switch between a traditional desktop environment and a hyper-optimized workspace dedicated for gaming. Because the power of Linux should be easy for everyone to experience.
+                        </p>
+                    </div>
+
+                    <div class="relative w-full max-w-4xl mx-auto flex flex-col items-center reveal-on-scroll">
+                        
+                        <div class="relative w-full max-w-[850px]">
+                            
+                            <img src="../../images/monitor-stand.png" alt="Monitor Display" class="w-full h-auto object-contain pointer-events-none relative z-30 block">
+
+                            <div id="screen-slider-container" 
+                                class="absolute top-[1.6%] left-[1.6%] w-[96.8%] h-[79.2%] rounded-sm overflow-hidden select-none bg-black z-10"
+                                style="--pos: 50%;">
+                                
+                                <div class="absolute inset-0 w-full h-full pointer-events-none">
+                                    <img src="../../images/desktop-mode.jpg" alt="Desktop Environment" class="w-full h-full object-fill select-none">
+                                    <span class="absolute top-3 left-3 bg-neutral-900/80 backdrop-blur-md text-white text-xs px-2.5 py-1 rounded-md font-medium z-10 pointer-events-none">
+                                        Desktop Mode
+                                    </span>
+                                </div>
+
+                                <div class="screen-overlay-clip absolute inset-0 w-full h-full pointer-events-none z-10">
+                                    <img src="../../images/gaming-mode.jpg" alt="Gaming Workspace" class="w-full h-full object-fill select-none">
+                                    <span class="absolute top-3 left-3 bg-[--maingreen] text-black font-extrabold text-xs px-2.5 py-1 rounded-md z-10 pointer-events-none shadow-md">
+                                        Gaming Mode
+                                    </span>
+                                </div>
+
+                                <div id="screen-handle" class="absolute top-0 bottom-0 -ml-4 w-8 flex items-center justify-center cursor-ew-resize z-20 touch-none" style="left: var(--pos);">
+                                    <div class="absolute top-0 bottom-0 w-[2px] bg-[--maingreen] shadow-[0_0_8px_rgba(0,255,100,0.8)]"></div>
+                                    
+                                    <div class="relative w-8 h-8 rounded-full bg-neutral-900/90 backdrop-blur-md border-2 border-[--maingreen] shadow-xl flex items-center justify-center gap-1 transition-transform active:scale-95">
+                                        <i class="fa fa-chevron-left text-white text-[9px]"></i>
+                                        <i class="fa fa-chevron-right text-white text-[9px]"></i>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </section>
         </article>
 
         <div id="footer-container"></div>
@@ -268,6 +458,215 @@
 
                 // Recalculate on window resize
                 window.addEventListener('resize', setPositionByIndex);
+            });
+
+            document.addEventListener('DOMContentLoaded', () => {
+                
+                const track = document.getElementById('perf-track');
+                const slides = document.querySelectorAll('.perf-slide');
+                const dots = document.querySelectorAll('#dots button');
+                const playPauseBtn = document.getElementById('play-pause');
+                const prevBtn = document.getElementById('prev');
+                const nextBtn = document.getElementById('next');
+                
+                let currentIndex = 0;
+                let autoSlideInterval = null;
+                let isPlaying = true;
+                let hasAnimatedInitially = false;
+
+                // Helper to animate bars for a target slide
+                function animateSlideBars(slideEl) {
+                    const bars = slideEl.querySelectorAll('.perf-bar');
+                    bars.forEach(bar => {
+                        bar.style.transition = 'none';
+                        bar.style.width = '0%';
+                        void bar.offsetWidth; // Force instant DOM reflow
+                        bar.style.transition = 'width 1000ms cubic-bezier(0.16, 1, 0.3, 1)';
+                        bar.style.width = bar.getAttribute('data-width');
+                    });
+                }
+
+                // 1. Scroll Reveal Observer (Guarantees single execution on reveal)
+                const revealElements = document.querySelectorAll('.reveal-on-scroll');
+                const revealObserver = new IntersectionObserver((entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('is-visible');
+                            
+                            // Only trigger the bar animation once when the main chart box enters view
+                            if (!hasAnimatedInitially && entry.target.contains(track)) {
+                                hasAnimatedInitially = true;
+                                animateSlideBars(slides[currentIndex]);
+                            }
+
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.15 });
+
+                revealElements.forEach(el => revealObserver.observe(el));
+
+
+                // 2. Carousel Update Function
+                function updateCarousel(newIndex) {
+                    // Prevent restarting animation if user clicks the button for the active slide
+                    if (newIndex === currentIndex && hasAnimatedInitially) return;
+
+                    currentIndex = newIndex;
+                    
+                    // Translate Track
+                    track.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+                    // Update Dots
+                    dots.forEach((dot, idx) => {
+                        if (idx === currentIndex) {
+                            dot.className = "w-2 h-2 rounded-full bg-white transition-all duration-300 scale-110";
+                        } else {
+                            dot.className = "w-2 h-2 rounded-full bg-neutral-600 hover:bg-neutral-400 transition-all duration-300";
+                        }
+                    });
+
+                    // Animate bars only on a genuine slide change
+                    animateSlideBars(slides[currentIndex]);
+                }
+
+                function nextSlide() {
+                    const nextIndex = (currentIndex + 1) % slides.length;
+                    updateCarousel(nextIndex);
+                }
+
+                function prevSlide() {
+                    const prevIndex = (currentIndex - 1 + slides.length) % slides.length;
+                    updateCarousel(prevIndex);
+                }
+
+                // Play / Pause Toggle Logic
+                function startAutoplay() {
+                    if (!autoSlideInterval) {
+                        autoSlideInterval = setInterval(nextSlide, 4500);
+                    }
+                    isPlaying = true;
+                    if (playPauseBtn) {
+                        playPauseBtn.innerHTML = '<i class="fa fa-pause text-xs"></i>';
+                        playPauseBtn.setAttribute('aria-label', 'Pause Slideshow');
+                    }
+                }
+
+                function stopAutoplay() {
+                    if (autoSlideInterval) {
+                        clearInterval(autoSlideInterval);
+                        autoSlideInterval = null;
+                    }
+                    isPlaying = false;
+                    if (playPauseBtn) {
+                        playPauseBtn.innerHTML = '<i class="fa fa-play text-xs pl-0.5"></i>';
+                        playPauseBtn.setAttribute('aria-label', 'Play Slideshow');
+                    }
+                }
+
+                // Control Handlers
+                if (playPauseBtn) {
+                    playPauseBtn.addEventListener('click', () => {
+                        if (isPlaying) {
+                            stopAutoplay();
+                        } else {
+                            nextSlide();
+                            startAutoplay();
+                        }
+                    });
+                }
+
+                if (prevBtn) {
+                    prevBtn.addEventListener('click', () => {
+                        prevSlide();
+                        if (isPlaying) {
+                            stopAutoplay();
+                            startAutoplay();
+                        }
+                    });
+                }
+
+                if (nextBtn) {
+                    nextBtn.addEventListener('click', () => {
+                        nextSlide();
+                        if (isPlaying) {
+                            stopAutoplay();
+                            startAutoplay();
+                        }
+                    });
+                }
+
+                dots.forEach(dot => {
+                    dot.addEventListener('click', (e) => {
+                        const index = parseInt(e.currentTarget.dataset.index);
+                        updateCarousel(index);
+                        if (isPlaying) {
+                            stopAutoplay();
+                            startAutoplay();
+                        }
+                    });
+                });
+
+                startAutoplay();
+            });
+
+            document.addEventListener('DOMContentLoaded', () => {
+                const container = document.getElementById('screen-slider-container');
+                const handle = document.getElementById('screen-handle');
+
+                if (!container || !handle) return;
+
+                let isDragging = false;
+
+                function updateSliderPosition(clientX) {
+                    const rect = container.getBoundingClientRect();
+                    let x = clientX - rect.left;
+
+                    // Clamp inside container bounds (0% to 100%)
+                    if (x < 0) x = 0;
+                    if (x > rect.width) x = rect.width;
+
+                    const percentage = (x / rect.width) * 100;
+                    
+                    // Update CSS variable directly (instant GPU paint)
+                    container.style.setProperty('--pos', `${percentage}%`);
+                }
+
+                // Pointer Down (Mouse click or Touch start)
+                function onPointerDown(e) {
+                    isDragging = true;
+                    handle.setPointerCapture(e.pointerId); // Lock cursor to handle
+                    updateSliderPosition(e.clientX);
+                }
+
+                // Pointer Move (Dragging)
+                function onPointerMove(e) {
+                    if (!isDragging) return;
+                    updateSliderPosition(e.clientX);
+                }
+
+                // Pointer Up / Cancel (Release)
+                function onPointerUp(e) {
+                    if (!isDragging) return;
+                    isDragging = false;
+                    try {
+                        handle.releasePointerCapture(e.pointerId);
+                    } catch (err) {}
+                }
+
+                // Attach Unified Pointer Listeners
+                handle.addEventListener('pointerdown', onPointerDown);
+                handle.addEventListener('pointermove', onPointerMove);
+                handle.addEventListener('pointerup', onPointerUp);
+                handle.addEventListener('pointercancel', onPointerUp);
+
+                // Allow clicking anywhere inside screen container to move handle
+                container.addEventListener('pointerdown', (e) => {
+                    if (e.target !== handle && !handle.contains(e.target)) {
+                        updateSliderPosition(e.clientX);
+                        onPointerDown(e);
+                    }
+                });
             });
         </script>
 
