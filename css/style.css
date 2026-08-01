@@ -32,7 +32,7 @@ body.no-scroll {
     transition: all 0.5s ease-in-out;
 }
 
-h1, h2, header, #desktop-drawer {
+h1, h2, h3, header, #desktop-drawer {
     font-family: 'Oxanium', 'Roboto', sans-serif;
 }
 
@@ -87,4 +87,27 @@ h1, h2, header, #desktop-drawer {
     touch-action: none;
     -webkit-user-select: none;
     user-select: none;
+}
+
+/* Shockwave Ripple Animation */
+@keyframes cta-ripple {
+    0% {
+        width: 0px;
+        height: 0px;
+        opacity: 0.6;
+    }
+    100% {
+        width: 500px;
+        height: 500px;
+        opacity: 0;
+    }
+}
+
+.cta-shockwave {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.8);
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    animation: cta-ripple 0.6s cubic-bezier(0.1, 0.8, 0.3, 1) forwards;
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
     <head>
 
         <meta charset="UTF-8">
@@ -15,6 +15,9 @@
         <link rel="stylesheet" href="../../css/style.css">
 
         <script src="../../javascript/header-footer.js" defer></script>
+        <script src="../../javascript/reveal-on-scroll.js" defer></script>
+        <script src="../../javascript/perf-slider.js" defer></script>
+        <script src="../../javascript/accordion.js" defer></script>
     </head>
 
     <body>
@@ -24,14 +27,14 @@
         <div id="sub-nav-wrapper" class="sticky top-0 w-full px-4 py-3 z-30 transition-all duration-300">
             <div id="sub-nav" class="max-w-7xl mx-auto bg-neutral-900/30 backdrop-blur-md rounded-2xl border border-neutral-800/40 px-6 py-3 flex justify-between items-center transition-all duration-300">
                 
-                <div class="items-center hidden sm:flex">
-                    <img class="w-[6vw] min-w-[128px] max-w-[156px] h-auto object-contain" src="../../images/nexos-logo.png" alt="neXus logo">
-                </div>
+            <a href="#" id="logo-scroll" class="items-center hidden sm:flex hover:opacity-80 transition-opacity cursor-pointer">
+                <img class="w-[6vw] min-w-[128px] max-w-[156px] h-auto object-contain" src="../../images/nexos-logo.png" alt="neXus logo">
+            </a>
 
                 <div class="flex items-center space-x-6 md:space-x-8 grow justify-end">
                     <div class="flex space-x-6 md:space-x-8 mr-6 md:mr-8">
-                        <a href="#" class="text-white font-semibold hover:text-blue-400 text-sm md:text-base">Overview</a>
-                        <a href="#" class="text-neutral-400 font-medium hover:text-white text-sm md:text-base">Pro</a>
+                        <a href="#" class="text-white font-semibold text-sm md:text-base">Overview</a>
+                        <a href="#" class="text-neutral-400 font-medium hover:text-[--maingreen] text-sm md:text-base">Pro</a>
                     </div>
 
                     <a href="#" class="main-button text-white font-bold px-5 py-2 rounded-xl hover:bg-green transition-colors shadow-sm text-sm md:text-base">
@@ -43,7 +46,7 @@
 
         <article class="container mx-auto max-w-full text-center">
 
-            <section id="hero" class="w-full bg-[--background] py-20 flex flex-col items-center">
+            <section id="hero" class="w-full bg-[--background] py-20 flex flex-col items-center scroll-mt-24">
                 <div class="container mx-auto text-center" style="overflow: visible;">
                     <h1 class="flex flex-col items-center justify-center text-4xl tracking-tight md:text-6xl text-white font-black">
                         <span class="mb-2">YOUR COMPUTER,</span>
@@ -144,6 +147,7 @@
                                             Windows 11
                                         </span>
                                         <div class="grow bg-neutral-950 rounded-xl sm:rounded-2xl h-12 sm:h-16 p-1.5 sm:p-2 border border-neutral-800 relative">
+                                            <div class="perf-bar bg-neutral-800 h-full rounded-xl border border-neutral-700/50 transition-all duration-1000 ease-out" style="width: 0%;" data-width="38%"></div>
                                         </div>
                                     </div>
 
@@ -297,6 +301,256 @@
 
                 </div>
             </section>
+
+            <section id="games-demo" class="w-full bg-[--background] py-20 px-4 md:px-8 flex flex-col items-center overflow-hidden">
+                <div class="max-w-5xl w-full">
+                    
+                    <div class="text-left mb-12 reveal-on-scroll">
+                        <h2 class="text-4xl sm:text-5xl md:text-6xl font-black text-white tracking-tight mb-4">
+                            GAMES, UNLIMITED GAMES.
+                        </h2>
+                        <p class="text-neutral-300 text-lg sm:text-xl leading-relaxed max-w-3xl mb-6">
+                            Your entire library, running without the overhead. From massive AAA blockbusters to your favourite indie gems, <span class="text-white font-semibold">NexOS</span> plays them all out of the box. Zero terminal commands required.
+                        </p>
+                        <p class="text-neutral-400 text-base leading-relaxed max-w-3xl">
+                            Backed by native Proton+ integration and pre-compiled, day-one optimized drivers for Intel, AMD, and NVIDIA, your PC won't just play games—it unleashes them.
+                        </p>
+                    </div>
+
+                    <div class="relative w-full max-w-4xl mx-auto flex flex-col items-center reveal-on-scroll">
+                        
+                        <div class="relative w-full max-w-[850px]">
+                            
+                            <img src="../../images/monitor-stand.png" alt="Monitor Display" class="w-full h-auto object-contain pointer-events-none relative z-30 block">
+
+                            <div class="absolute top-[1.6%] left-[1.6%] w-[96.8%] h-[79.2%] rounded-sm overflow-hidden bg-black z-10 pointer-events-none">
+                                
+                                <div class="relative w-full h-full scale-[1.02]">
+                                    <iframe 
+                                        class="w-full h-full object-cover border-0"
+                                        src="https://www.youtube-nocookie.com/embed/7t2ebLRAN6Y?autoplay=1&mute=1&controls=0&loop=1&playlist=7t2ebLRAN6Y&disablekb=1&modestbranding=1&rel=0&playsinline=1&enablejsapi=1" 
+                                        title="Gameplay Preview" 
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                        tabindex="-1">
+                                    </iframe>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </section>
+
+            <section id="keyboard" class="w-full bg-[--background] py-20 px-4 md:px-8 flex flex-col items-center overflow-hidden">
+                <div class="max-w-5xl w-full">
+
+                    <div class="text-left mb-12 reveal-on-scroll">
+                        <h2 class="text-4xl sm:text-5xl md:text-6xl font-black text-white tracking-tight mb-4">
+                            WORKS BEST WITH OUR HARDWARE.
+                        </h2>
+
+                        <p class="text-neutral-300 text-lg sm:text-xl leading-relaxed max-w-3xl mb-6">
+                            Of course, the best gamers need the best gear. NexOS features kernel-level integration with neXus 60HE. You can adjust Hall Effect rapid trigger settings, custom actuation points, and RGB lighting natively within the OS settings menu. No heavy software needed.
+                        </p>
+                    </div>
+
+                    <div class="relative w-full max-w-[850px]">
+                        
+                        <img src="../../images/placeholder.png" alt="Placeholder" class="w-full h-auto object-contain pointer-events-none relative z-10 block">
+
+                    </div>
+                </div>
+            </section>
+
+            <section id="os-values" class="w-full bg-[--background] py-16 px-4 md:px-8 flex flex-col items-center">
+                <div class="max-w-5xl w-full grid grid-cols-1 md:grid-cols-2 gap-6 reveal-on-scroll">
+
+                    <div class="bg-[#12d14b] text-black p-8 sm:p-10 rounded-3xl flex flex-col justify-between items-start text-left shadow-lg transition-transform duration-300 hover:-translate-y-1">
+                        <div class="flex flex-col items-start text-left w-full">
+                            <div class="w-14 h-14 rounded-full bg-black/10 backdrop-blur-sm flex items-center justify-center mb-8">
+                                <i class="fa fa-shield text-2xl text-black/80"></i>
+                            </div>
+                            
+                            <h3 class="text-3xl font-black tracking-tight mb-4 uppercase">
+                                RELIABLE.
+                            </h3>
+                            <p class="text-black/80 text-base sm:text-lg leading-relaxed">
+                                With a solid foundation of Linux, NexOS operates on the same open source software powering the most critical infrastructure.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="bg-[#1ca8e9] text-black p-8 sm:p-10 rounded-3xl flex flex-col justify-between items-start text-left shadow-lg transition-transform duration-300 hover:-translate-y-1">
+                        <div class="flex flex-col items-start text-left w-full">
+                            <div class="w-14 h-14 rounded-full bg-black/10 backdrop-blur-sm flex items-center justify-center mb-8">
+                                <i class="fa fa-lock text-2xl text-black/80"></i>
+                            </div>
+                            
+                            <h3 class="text-3xl font-black tracking-tight mb-4 uppercase">
+                                SECURE.
+                            </h3>
+                            <p class="text-black/80 text-base sm:text-lg leading-relaxed">
+                                Thanks to the architecture and advanced security of Linux, NexOS is more resistant to viruses and malware. Security patches and software updates are guaranteed for years to come, even after feature updates, so your PC will stay secure against malware.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="bg-[#383b40] text-white p-8 sm:p-10 rounded-3xl flex flex-col justify-between items-start text-left shadow-lg transition-transform duration-300 hover:-translate-y-1">
+                        <div class="flex flex-col items-start text-left w-full">
+                            <div class="w-14 h-14 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center mb-8">
+                                <i class="fa fa-eye-slash text-2xl text-white/90"></i>
+                            </div>
+                            
+                            <h3 class="text-3xl font-black tracking-tight mb-4 uppercase text-white">
+                                PRIVATE.
+                            </h3>
+                            <p class="text-neutral-300 text-base sm:text-lg leading-relaxed mb-8">
+                                We believe privacy is a fundamental human right. That’s why NexOS will never collect personal data, so advertisers and governments can’t spy on you. We also do independent audits of our software every six months to verify its privacy.
+                            </p>
+                        </div>
+
+                        <a href="#" class="inline-flex items-center gap-2 font-bold text-white hover:text-[--maingreen] transition-colors text-base text-left">
+                            &gt; Read our stance on privacy
+                        </a>
+                    </div>
+
+                    <div class="bg-[#f04f43] text-white p-8 sm:p-10 rounded-3xl flex flex-col justify-between items-start text-left shadow-lg transition-transform duration-300 hover:-translate-y-1">
+                        <div class="flex flex-col items-start text-left w-full">
+                            <div class="w-14 h-14 rounded-full bg-black/10 backdrop-blur-sm flex items-center justify-center mb-8">
+                                <i class="fa fa-universal-access text-2xl text-white"></i>
+                            </div>
+                            
+                            <h3 class="text-3xl font-black tracking-tight mb-4 uppercase text-white">
+                                ACCESSIBLE.
+                            </h3>
+                            <p class="text-white/90 text-base sm:text-lg leading-relaxed mb-8">
+                                We believe all gamers should have access to gaming, no matter what. NexOS is translated into over 100 languages. It also includes a screen reader, magnifier, click assist, and other assistive technologies.
+                            </p>
+                        </div>
+
+                        <a href="#" class="inline-flex items-center gap-2 font-bold text-white hover:text-black transition-colors text-base text-left">
+                            &gt; Learn more about MAGA@neXus
+                        </a>
+                    </div>
+
+                </div>
+            </section>
+
+            <section id="download-cta" class="w-full bg-[--background] py-20 px-4 md:px-8 flex flex-col items-center">
+                <div class="max-w-5xl w-full reveal-on-scroll">
+                    
+                    <div id="cta-card" class="relative overflow-hidden bg-[#dcdcdc] rounded-[2.5rem] p-10 sm:p-16 md:p-20 text-black flex flex-col items-center justify-center text-center transition-shadow duration-500 shadow-2xl group cursor-default">
+                        
+                        <div id="cta-glow" class="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 bg-[radial-gradient(circle_at_var(--mouse-x,50%)_var(--mouse-y,50%),rgba(255,255,255,0.8)_0%,rgba(220,220,220,0)_60%)]"></div>
+
+                        <div class="relative z-10 max-w-3xl flex flex-col items-center">
+                            <h2 class="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-neutral-900 leading-tight mb-10">
+                                JOIN THE NEXT EVOLUTION OF GAMING. DOWNLOAD <span class="text-[--maingreen]">NexOS</span>.
+                            </h2>
+
+                            <button id="download-btn" class="relative overflow-hidden inline-flex items-center justify-center px-10 py-4 rounded-2xl bg-[--maingreen] text-black font-extrabold text-lg sm:text-xl tracking-wide shadow-lg transition-transform duration-200 active:scale-95 group-hover:scale-105">
+                                
+                                <span id="btn-glow" class="absolute inset-0 bg-white/40 opacity-0 transition-opacity duration-200 pointer-events-none"></span>
+                                
+                                <span class="relative z-10 pointer-events-none text-white">Download NexOS</span>
+                            </button>
+                        </div>
+
+                    </div>
+
+                </div>
+            </section>
+
+            <section id="computer-cta" class="w-full bg-[--background] py-20 px-4 md:px-8 flex flex-col items-center overflow-hidden">
+                <div class="max-w-5xl w-full">
+
+                    <div class="text-left mb-12 reveal-on-scroll">
+                        <h2 class="text-4xl sm:text-5xl md:text-6xl font-black text-white tracking-tight mb-4">
+                            CHOOSE A COMPUTER WITH NexOS.
+                        </h2>
+
+                        <p class="text-neutral-300 text-lg sm:text-xl leading-relaxed max-w-3xl mb-6">
+                            Only the best hardware for the best operating system. We have partnered with computer manufactuers to install NexOS out of the box. From gaming handhelds to monster gaming laptops, experience true zero-bloat performance straight from the factory floor. 
+                        </p>
+                    </div>
+
+                    <div class="relative w-full max-w-[850px]">
+                        
+                        <img src="../../images/placeholder.png" alt="Placeholder" class="w-full h-auto object-contain pointer-events-none relative z-10 block">
+
+                    </div>
+                </div>
+            </section>
+
+            <section id="faq" class="w-full bg-[--background] py-20 px-4 md:px-8 flex flex-col items-center overflow-hidden">
+                <div class="max-w-5xl w-full reveal-on-scroll">
+                    
+                    <div class="text-left mb-12">
+                        <h2 class="text-4xl sm:text-5xl md:text-6xl font-black text-white tracking-tight uppercase mb-4">
+                            FREQUENTLY ASKED QUESTIONS.
+                        </h2>
+                        <p class="text-neutral-300 text-lg sm:text-xl leading-relaxed max-w-3xl mb-6">
+                            Everything you need to know about switching to NexOS.
+                        </p>
+                    </div>
+
+                    <div class="space-y-4" id="faq-accordion">
+
+                        <div class="faq-item bg-neutral-900 border border-neutral-800 rounded-2xl overflow-hidden transition-colors">
+                            <button class="faq-trigger w-full px-6 py-5 flex justify-between items-center text-left text-white font-bold text-lg sm:text-xl focus:outline-none">
+                                <span>Can I dual-boot NexOS alongside Windows?</span>
+                                <i class="fa fa-chevron-down text-neutral-400 text-sm transition-transform duration-300 faq-icon"></i>
+                            </button>
+                            <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out px-6">
+                                <p class="text-neutral-400 text-base leading-relaxed pb-6 pt-1">
+                                    Yes! NexOS comes with an automated installer that allows you to safely dual-boot alongside Windows 10 or 11. You can choose which OS to boot into every time you turn on your PC.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item bg-neutral-900 border border-neutral-800 rounded-2xl overflow-hidden transition-colors">
+                            <button class="faq-trigger w-full px-6 py-5 flex justify-between items-center text-left text-white font-bold text-lg sm:text-xl focus:outline-none">
+                                <span>Will my favorite Anti-Cheat games work?</span>
+                                <i class="fa fa-chevron-down text-neutral-400 text-sm transition-transform duration-300 faq-icon"></i>
+                            </button>
+                            <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out px-6">
+                                <p class="text-neutral-400 text-base leading-relaxed pb-6 pt-1">
+                                    Most major competitive titles (Apex Legends, Counter-Strike 2, Dota 2, Rainbow Six Siege, Overwatch 2) are fully supported out of the box via Proton+. Titles relying on kernel-level Windows drivers (like Valorant) currently require native Windows execution.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item bg-neutral-900 border border-neutral-800 rounded-2xl overflow-hidden transition-colors">
+                            <button class="faq-trigger w-full px-6 py-5 flex justify-between items-center text-left text-white font-bold text-lg sm:text-xl focus:outline-none">
+                                <span>Do I need experience with Linux terminal commands?</span>
+                                <i class="fa fa-chevron-down text-neutral-400 text-sm transition-transform duration-300 faq-icon"></i>
+                            </button>
+                            <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out px-6">
+                                <p class="text-neutral-400 text-base leading-relaxed pb-6 pt-1">
+                                    Not at all. NexOS features a custom GUI store, automatic GPU driver management, and graphical settings for all system tweaks. Zero terminal commands are needed to play games or update your system.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item bg-neutral-900 border border-neutral-800 rounded-2xl overflow-hidden transition-colors">
+                            <button class="faq-trigger w-full px-6 py-5 flex justify-between items-center text-left text-white font-bold text-lg sm:text-xl focus:outline-none">
+                                <span>How do updates work on NexOS?</span>
+                                <i class="fa fa-chevron-down text-neutral-400 text-sm transition-transform duration-300 faq-icon"></i>
+                            </button>
+                            <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out px-6">
+                                <p class="text-neutral-400 text-base leading-relaxed pb-6 pt-1">
+                                    Updates run quietly in the background without forcing system restarts or interrupting your gaming sessions. You are always in full control of when updates are applied.
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </section>
         </article>
 
         <div id="footer-container"></div>
@@ -323,6 +577,22 @@
                     // Ultra-transparent at the top of the page
                     subNav.classList.remove('shadow-xl', 'shadow-black/40', 'bg-neutral-900/60');
                     subNav.classList.add('bg-neutral-900/30');
+                }
+            });
+
+            document.addEventListener('DOMContentLoaded', () => {
+                const logoScroll = document.getElementById('logo-scroll');
+
+                if (logoScroll) {
+                    logoScroll.addEventListener('click', (e) => {
+                        e.preventDefault(); // Prevents adding '#' to the URL
+                        
+                        // Smoothly scroll to the absolute top of the document
+                        window.scrollTo({
+                            top: 0,
+                            behavior: 'smooth'
+                        });
+                    });
                 }
             });
 
@@ -460,155 +730,6 @@
                 window.addEventListener('resize', setPositionByIndex);
             });
 
-            document.addEventListener('DOMContentLoaded', () => {
-                
-                const track = document.getElementById('perf-track');
-                const slides = document.querySelectorAll('.perf-slide');
-                const dots = document.querySelectorAll('#dots button');
-                const playPauseBtn = document.getElementById('play-pause');
-                const prevBtn = document.getElementById('prev');
-                const nextBtn = document.getElementById('next');
-                
-                let currentIndex = 0;
-                let autoSlideInterval = null;
-                let isPlaying = true;
-                let hasAnimatedInitially = false;
-
-                // Helper to animate bars for a target slide
-                function animateSlideBars(slideEl) {
-                    const bars = slideEl.querySelectorAll('.perf-bar');
-                    bars.forEach(bar => {
-                        bar.style.transition = 'none';
-                        bar.style.width = '0%';
-                        void bar.offsetWidth; // Force instant DOM reflow
-                        bar.style.transition = 'width 1000ms cubic-bezier(0.16, 1, 0.3, 1)';
-                        bar.style.width = bar.getAttribute('data-width');
-                    });
-                }
-
-                // 1. Scroll Reveal Observer (Guarantees single execution on reveal)
-                const revealElements = document.querySelectorAll('.reveal-on-scroll');
-                const revealObserver = new IntersectionObserver((entries, observer) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            entry.target.classList.add('is-visible');
-                            
-                            // Only trigger the bar animation once when the main chart box enters view
-                            if (!hasAnimatedInitially && entry.target.contains(track)) {
-                                hasAnimatedInitially = true;
-                                animateSlideBars(slides[currentIndex]);
-                            }
-
-                            observer.unobserve(entry.target);
-                        }
-                    });
-                }, { threshold: 0.15 });
-
-                revealElements.forEach(el => revealObserver.observe(el));
-
-
-                // 2. Carousel Update Function
-                function updateCarousel(newIndex) {
-                    // Prevent restarting animation if user clicks the button for the active slide
-                    if (newIndex === currentIndex && hasAnimatedInitially) return;
-
-                    currentIndex = newIndex;
-                    
-                    // Translate Track
-                    track.style.transform = `translateX(-${currentIndex * 100}%)`;
-
-                    // Update Dots
-                    dots.forEach((dot, idx) => {
-                        if (idx === currentIndex) {
-                            dot.className = "w-2 h-2 rounded-full bg-white transition-all duration-300 scale-110";
-                        } else {
-                            dot.className = "w-2 h-2 rounded-full bg-neutral-600 hover:bg-neutral-400 transition-all duration-300";
-                        }
-                    });
-
-                    // Animate bars only on a genuine slide change
-                    animateSlideBars(slides[currentIndex]);
-                }
-
-                function nextSlide() {
-                    const nextIndex = (currentIndex + 1) % slides.length;
-                    updateCarousel(nextIndex);
-                }
-
-                function prevSlide() {
-                    const prevIndex = (currentIndex - 1 + slides.length) % slides.length;
-                    updateCarousel(prevIndex);
-                }
-
-                // Play / Pause Toggle Logic
-                function startAutoplay() {
-                    if (!autoSlideInterval) {
-                        autoSlideInterval = setInterval(nextSlide, 4500);
-                    }
-                    isPlaying = true;
-                    if (playPauseBtn) {
-                        playPauseBtn.innerHTML = '<i class="fa fa-pause text-xs"></i>';
-                        playPauseBtn.setAttribute('aria-label', 'Pause Slideshow');
-                    }
-                }
-
-                function stopAutoplay() {
-                    if (autoSlideInterval) {
-                        clearInterval(autoSlideInterval);
-                        autoSlideInterval = null;
-                    }
-                    isPlaying = false;
-                    if (playPauseBtn) {
-                        playPauseBtn.innerHTML = '<i class="fa fa-play text-xs pl-0.5"></i>';
-                        playPauseBtn.setAttribute('aria-label', 'Play Slideshow');
-                    }
-                }
-
-                // Control Handlers
-                if (playPauseBtn) {
-                    playPauseBtn.addEventListener('click', () => {
-                        if (isPlaying) {
-                            stopAutoplay();
-                        } else {
-                            nextSlide();
-                            startAutoplay();
-                        }
-                    });
-                }
-
-                if (prevBtn) {
-                    prevBtn.addEventListener('click', () => {
-                        prevSlide();
-                        if (isPlaying) {
-                            stopAutoplay();
-                            startAutoplay();
-                        }
-                    });
-                }
-
-                if (nextBtn) {
-                    nextBtn.addEventListener('click', () => {
-                        nextSlide();
-                        if (isPlaying) {
-                            stopAutoplay();
-                            startAutoplay();
-                        }
-                    });
-                }
-
-                dots.forEach(dot => {
-                    dot.addEventListener('click', (e) => {
-                        const index = parseInt(e.currentTarget.dataset.index);
-                        updateCarousel(index);
-                        if (isPlaying) {
-                            stopAutoplay();
-                            startAutoplay();
-                        }
-                    });
-                });
-
-                startAutoplay();
-            });
 
             document.addEventListener('DOMContentLoaded', () => {
                 const container = document.getElementById('screen-slider-container');
@@ -666,6 +787,69 @@
                         updateSliderPosition(e.clientX);
                         onPointerDown(e);
                     }
+                });
+            });
+
+            document.addEventListener('DOMContentLoaded', () => {
+                const ctaCard = document.getElementById('cta-card');
+                const ctaGlow = document.getElementById('cta-glow');
+                const downloadBtn = document.getElementById('download-btn');
+                const btnGlow = document.getElementById('btn-glow');
+
+                if (!ctaCard || !ctaGlow || !downloadBtn) return;
+
+                // 1. Mouse Tracking Gradient & Proximity Glow
+                ctaCard.addEventListener('mousemove', (e) => {
+                    const rect = ctaCard.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+
+                    // Set CSS Variables for the cursor-tracking gradient
+                    ctaCard.style.setProperty('--mouse-x', `${x}px`);
+                    ctaCard.style.setProperty('--mouse-y', `${y}px`);
+
+                    // Calculate Proximity to Download Button Center
+                    const btnRect = downloadBtn.getBoundingClientRect();
+                    const btnCenterX = btnRect.left + btnRect.width / 2;
+                    const btnCenterY = btnRect.top + btnRect.height / 2;
+
+                    const distance = Math.hypot(e.clientX - btnCenterX, e.clientY - btnCenterY);
+                    const maxDistance = 250; // Distance in pixels where glow starts intensifying
+
+                    if (distance < maxDistance) {
+                        const intensity = 1 - distance / maxDistance;
+                        btnGlow.style.opacity = intensity.toFixed(2);
+                    } else {
+                        btnGlow.style.opacity = '0';
+                    }
+                });
+
+                // Fade gradient in/out on enter/leave
+                ctaCard.addEventListener('mouseenter', () => {
+                    ctaGlow.style.opacity = '1';
+                });
+
+                ctaCard.addEventListener('mouseleave', () => {
+                    ctaGlow.style.opacity = '0';
+                    btnGlow.style.opacity = '0';
+                });
+
+                // 2. Cool Shockwave Ripple Effect on Click
+                downloadBtn.addEventListener('click', (e) => {
+                    const rect = downloadBtn.getBoundingClientRect();
+                    const ripple = document.createElement('span');
+                    ripple.className = 'cta-shockwave';
+
+                    // Position ripple relative to click point inside the button
+                    ripple.style.left = `${e.clientX - rect.left}px`;
+                    ripple.style.top = `${e.clientY - rect.top}px`;
+
+                    downloadBtn.appendChild(ripple);
+
+                    // Remove element after animation finishes
+                    setTimeout(() => {
+                        ripple.remove();
+                    }, 650);
                 });
             });
         </script>
