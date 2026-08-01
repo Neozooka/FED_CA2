@@ -142,10 +142,10 @@ function loadHeaderAndFooter() {
         <header class="relative w-full overflow-x-clip bg-[var(--background)] z-50">
             <nav class="w-full px-6 flex justify-between items-center">
 
-                <div class="flex flex-row items-center">
-                    <img class="w-25 h-20" src="${root}images/neXuslogo2.png" alt="neXus logo">
+                <a href="${root}index.html" class="flex flex-row items-center cursor-pointer group">
+                    <img class="w-25 h-20 transition-transform group-hover:scale-105" src="${root}images/neXuslogo2.png" alt="neXus logo">
                     <h2 class="ml-4 text-xl text-center font-black">${dynamicTitle}</h2>
-                </div>
+                </a>
 
                 <div class="flex flex-row items-center space-x-6">
                     <button id="menu-btn" class="w-10 h-10 relative cursor-pointer focus:outline-none z-[60] flex items-center justify-center" aria-label="Menu">
@@ -221,7 +221,9 @@ function loadHeaderAndFooter() {
     if (footerContainer) {
         footerContainer.innerHTML = `
         <footer class="relative flex flex-col items-center bg-[--background] text-neutral-200 py-8 px-4 w-full">
-            <img class="w-25 h-20 mb-6 object-contain" src="${root}images/neXuslogo2.png" alt="neXus logo">
+            <a href="${root}index.html" class="mb-6">
+                <img class="w-25 h-20 object-contain transition-transform hover:scale-105" src="${root}images/neXuslogo2.png" alt="neXus logo">
+            </a>
 
             <nav class="w-full max-w-4xl mb-6">
                 <ul class="flex flex-wrap justify-center gap-x-6 gap-y-3 text-lg md:text-xl font-medium">
