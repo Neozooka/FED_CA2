@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
     <head>
 
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>neXos. Your computer. Better.</title>
+        <title>neXos Pro | We gave your computer wings.</title>
         <script src="https://cdn.tailwindcss.com"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="icon" type="image/x-icon" href="/images/neXuslogo2.png">
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -145,65 +146,61 @@
             document.addEventListener('DOMContentLoaded', () => {
                 gsap.registerPlugin(ScrollTrigger);
 
-                // Prevent scroll resize flickering
                 ScrollTrigger.config({ ignoreMobileResize: true });
 
                 const tl = gsap.timeline({
                     scrollTrigger: {
                         trigger: "#scroll-story-wrapper",
                         start: "top top",
-                        end: "+=4000",
-                        scrub: 0.5,
+                        end: "+=3500", // Adjusted scroll distance
+                        scrub: 1,      // Smooth out scrubbing slighty (0.5 to 1)
                         pin: "#scroll-story",
                         pinSpacing: true,
                         anticipatePin: 1,
-                        invalidateOnRefresh: true
+                        invalidateOnRefresh: true,
                     }
                 });
 
                 // --- SEQUENCED TIMELINE ---
 
-                // Phrase 1: "For fifteen years"
+                // Phrase 1
                 tl.fromTo("#phrase-1", { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: 1 })
-                .to("#phrase-1", { autoAlpha: 1, duration: 1.5 })
-                .to("#phrase-1", { autoAlpha: 0, y: -20, duration: 1 })
+                .to("#phrase-1", { autoAlpha: 0, y: -20, duration: 1 }, "+=1")
 
-                // Phrase 2: "we have asked ourselves"
+                // Phrase 2
                 .fromTo("#phrase-2", { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: 1 })
-                .to("#phrase-2", { autoAlpha: 1, duration: 1.5 })
-                .to("#phrase-2", { autoAlpha: 0, y: -20, duration: 1 })
+                .to("#phrase-2", { autoAlpha: 0, y: -20, duration: 1 }, "+=1")
 
-                // Phrase 3: "What is the best way to play a PC game?"
+                // Phrase 3
                 .fromTo("#phrase-3", { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: 1 })
-                .to("#phrase-3", { autoAlpha: 1, duration: 2 })
-                .to("#phrase-3", { autoAlpha: 0, y: -20, duration: 1 })
+                .to("#phrase-3", { autoAlpha: 0, y: -20, duration: 1 }, "+=1.5")
 
                 // Shrink video & reveal multi-monitor display
                 .to("#game-screen", { 
                     scale: 0.6,
                     borderRadius: "20px",
-                    duration: 5,
+                    duration: 4,
                     ease: "power1.inOut"
                 }, "shrinkStart")
                 .to("#multi-monitor-frame", { 
                     autoAlpha: 1, 
-                    duration: 3 
-                }, "shrinkStart+=1")
+                    duration: 2.5 
+                }, "shrinkStart+=0.5")
 
-                // Phrase 4: "No limit, no bottlenecks."
+                // Phrase 4
                 .fromTo("#phrase-4", { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: 1 }, "shrinkStart+=1")
-                .to("#phrase-4", { autoAlpha: 1, duration: 1.5 })
-                .to("#phrase-4", { autoAlpha: 0, y: -20, duration: 1 })
+                .to("#phrase-4", { autoAlpha: 0, y: -20, duration: 1 }, "+=1")
 
-                // Phrase 5: "Just pure kinetic speed."
+                // Phrase 5
                 .fromTo("#phrase-5", { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: 1 })
-                .to("#phrase-5", { autoAlpha: 1, duration: 2 })
-                .to("#phrase-5", { autoAlpha: 0, y: -20, duration: 1 }) // Smoothly fades out phrase 5 before unpinning!
+                .to("#phrase-5", { autoAlpha: 0, y: -20, duration: 1 }, "+=1.5");
 
-                // Buffer padding at the end
-                .to({}, { duration: 1 });
+                // Force ScrollTrigger to recalculate layout after assets load
+                const video = document.querySelector("#game-screen video");
+                if (video) {
+                    video.addEventListener('loadedmetadata', () => ScrollTrigger.refresh());
+                }
 
-                // Ensure ScrollTrigger refreshes properly after media and fonts load
                 window.addEventListener('load', () => {
                     ScrollTrigger.refresh();
                 });
