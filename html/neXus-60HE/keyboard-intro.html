@@ -302,18 +302,18 @@
             window.addEventListener('scroll', () => {
                 const currentScrollY = window.scrollY
 
-                // Always show header at the very top of the page
+                // always shows
                 if (currentScrollY <= 0) {
                     header.classList.remove('-translate-y-full')
                     lastScrollY = currentScrollY
                     return
                 }
 
-                // Scrolling DOWN -> Hide Header
+                // hide header
                 if (currentScrollY > lastScrollY && currentScrollY > 50) {
                     header.classList.add('-translate-y-full')
                 } 
-                // Scrolling UP -> Show Header
+                // show header
                 else if (currentScrollY < lastScrollY-50) {
                     header.classList.remove('-translate-y-full')
                 }
