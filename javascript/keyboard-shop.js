@@ -1,79 +1,115 @@
-path = "../../javascript/products.json"
+const path = "../../javascript/products.json"
 
 let cart = JSON.parse(localStorage.getItem("userCart")) || []
 
+// Ensure legacy carts without quantity default to quantity = 1
+cart = cart.map(item => ({
+    ...item,
+    quantity: item.quantity || 1
+}))
+
+function saveCart() {
+    localStorage.setItem("userCart", JSON.stringify(cart))
+}
 
 function loadProductsFromList(cart) {
     const priceTotal = document.getElementById("checkout-total-price")
     const numberItems = document.getElementById("checkout-item-count")
     const CartTemplate = document.querySelector("[cart-template]")
     const CartContainer = document.querySelector("[cart-container]")
-    let cost = 0
     
+    if (!CartContainer || !CartTemplate) return
+
+    let totalCost = 0
+    let totalItemsCount = 0
+
     CartContainer.innerHTML = ""
-    let index = 0
-    cart.forEach(item => {
+
+    cart.forEach((item, index) => {
+        const itemQuantity = item.quantity || 1
+        const itemTotalPrice = item.price * itemQuantity
+
+        totalCost += itemTotalPrice
+        totalItemsCount += itemQuantity
+
         const card = CartTemplate.content.cloneNode(true)
+        const containerDiv = card.querySelector(".container")
         const title = card.querySelector("[title]")
         const price = card.querySelector("[price]")
-        const photo = card.querySelector("[cart-image] img") 
-        const remove = card.querySelector(".remove")
-        const containerDiv = card.querySelector(".container")
+        const photo = card.querySelector("[cart-image] img")
+        const quantityCount = card.querySelector("[quantity-count]")
         
+        const btnDecrease = card.querySelector(".quantity-decrease")
+        const btnIncrease = card.querySelector(".quantity-increase")
+        const btnRemove = card.querySelector(".remove")
+
+        // Populate card details
+        containerDiv.dataset.index = index
         title.textContent = item.title
-        price.textContent = "$" + item.price
+        price.textContent = "$" + itemTotalPrice.toFixed(2)
         photo.src = item.image
-        cost += item.price
-        
-        containerDiv.setAttribute("id", item.title)
-        remove.setAttribute("id", index)
-        
+        quantityCount.textContent = itemQuantity
+
+        // Attach quantity buttons event listeners
+        btnDecrease.addEventListener("click", () => changeQuantity(index, -1))
+        btnIncrease.addEventListener("click", () => changeQuantity(index, 1))
+        btnRemove.addEventListener("click", () => removeItem(index))
+
         CartContainer.appendChild(card)
-        index += 1
     })
 
-    numberItems.textContent = index
-    priceTotal.textContent = cost + ".00"
-    console.log(cost)
+    if (numberItems) numberItems.textContent = totalItemsCount
+    if (priceTotal) priceTotal.textContent = "$" + totalCost.toFixed(2)
 }
 
-function saveCart() {
-    localStorage.setItem("userCart", JSON.stringify(cart))
-}
-
+// Add item to cart or increase quantity if it already exists
 async function addCart(id) {
-    const response = await fetch(path)
-    
-    const products = await response.json()
-    
-    const matchedProduct = products.find(item => {
-        let productId = item.title
-        console.log(`Comparing JSON Title: "${productId}" with Clicked ID: "${id}"`)
-        return productId === id
-    })
-    console.log(matchedProduct)
-    
-    if (matchedProduct) {
-        cart.push(matchedProduct)
-        saveCart()
+    try {
+        const response = await fetch(path)
+        const products = await response.json()
+
+        const matchedProduct = products.find(item => item.title === id)
+
+        if (matchedProduct) {
+            const existingItem = cart.find(item => item.title === id)
+
+            if (existingItem) {
+                existingItem.quantity = (existingItem.quantity || 1) + 1
+            } else {
+                cart.push({ ...matchedProduct, quantity: 1 })
+            }
+
+            saveCart()
+            loadProductsFromList(cart)
+        }
+    } catch (error) {
+        console.error("Error adding product to cart:", error)
     }
-    
-    console.log(cart)
 }
 
-function remove(index) {
-    const arrayIndex = parseInt(index)
-    
-    const cardContainer = index.closest(".container")
-    if (cardContainer) {
-        cardContainer.remove()
+// Change quantity (+1 or -1)
+function changeQuantity(index, delta) {
+    if (cart[index]) {
+        cart[index].quantity = (cart[index].quantity || 1) + delta
+
+        // If quantity reaches 0, remove item from cart
+        if (cart[index].quantity <= 0) {
+            cart.splice(index, 1)
+        }
+
+        saveCart()
+        loadProductsFromList(cart)
     }
-    
-    cart.splice(arrayIndex, 1)
-        
+}
+
+// Remove entire item row from cart
+function removeItem(index) {
+    cart.splice(index, 1)
+    saveCart()
     loadProductsFromList(cart)
 }
 
+// Shop page search bar
 const shop_list = [
     "nexus-60he-magnetic-keyboard-8000hz-polling-adjustable",
     "nexus-single-monitor-arm-gas-spring-desk-mount-usb-ports",
@@ -88,21 +124,18 @@ const shop_list = [
     "nexus-python-v2-gaming-mouse-30k-dpi-54g-optical-gen-3-switches"
 ]
 
-//searchbar work function\
-
-if (typeof search !== "undefined") {
-    search.addEventListener("input", e => { //checks for input in the search bar input in the html file
-        const value = e.target.value.toLowerCase(); //lowercase so everything can match with database and not show error
-        console.log(value) //check for the words so i can see in console
+if (typeof search !== "undefined" && search !== null) {
+    search.addEventListener("input", e => {
+        const value = e.target.value.toLowerCase()
         let in_search = []
+        
         shop_list.forEach(item => {
-            let itemElement = document.getElementById(item)
-            const show = itemElement.id.toLowerCase().includes(value)
-            if (show) {
-                in_search.push(item)
+            const itemElement = document.getElementById(item)
+            if (itemElement) {
+                const show = itemElement.id.toLowerCase().includes(value)
+                if (show) in_search.push(item)
+                itemElement.classList.toggle("hidden", !show)
             }
-            itemElement.classList.toggle("hidden", !show) //check in css file
-            console.log("Hidden" +show+ item)
         })
         updateResultCount(in_search)
     })
@@ -111,28 +144,30 @@ if (typeof search !== "undefined") {
     const maxCountEl = document.getElementById('max-count')
 
     function updateResultCount(list) {
-    currentCountEl.textContent = list.length
-    maxCountEl.textContent = shop_list.length
+        if (currentCountEl) currentCountEl.textContent = list.length
+        if (maxCountEl) maxCountEl.textContent = shop_list.length
     }
 }
 
+// Cart search bar (filters rendered DOM nodes directly)
+if (typeof search2 !== "undefined" && search2 !== null) {
+    search2.addEventListener("input", e => {
+        const value = e.target.value.toLowerCase()
+        const CartContainer = document.querySelector("[cart-container]")
+        
+        if (!CartContainer) return
 
-if (typeof search2 !== "undefined") {
-    search2.addEventListener("input", e => { //checks for input in the search bar input in the html file
-        const value = e.target.value.toLowerCase(); //lowercase so everything can match with database and not show error
-        console.log(value) //check for the words so i can see in console
-        let in_search = []
-        cart.forEach(item => {
-            let itemElement = document.getElementById(item.title)
-            const show = itemElement.id.toLowerCase().includes(value)
-            itemElement.classList.toggle("hidden", !show) //check in css file
-            console.log("Hidden" +show+ item.title)
+        const cardElements = CartContainer.querySelectorAll(".container")
+
+        cardElements.forEach(card => {
+            const titleEl = card.querySelector("[title]")
+            const titleText = titleEl ? titleEl.textContent.toLowerCase() : ""
+            const show = titleText.includes(value)
+            
+            card.classList.toggle("hidden", !show)
         })
     })
-
 }
-
-
 
 window.addEventListener("DOMContentLoaded", () => {
     loadProductsFromList(cart)
