@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie-edge">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,334 +13,296 @@
         <script src="../javascript/keyboard-shop.js" defer></script>
         <script src="../javascript/header-footer.js" defer></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
         <link rel="stylesheet" href="../css/style.css">
     </head>
-    <body>
+    <body class="min-h-screen flex flex-col">
         <div id="header-container" class="sticky top-0 z-50"></div>
 
-        <section class="flex flex-col items-center w-full px-4 md:px-8">
-            <div class="z-10 flex min-h-screen w-full max-w-7xl flex-col items-center overflow-y-auto rounded-lg pt-[60px]">
+        <main class="flex-grow flex flex-col items-center w-full px-4 sm:px-6 lg:px-8 py-6">
+            <div class="z-10 flex w-full max-w-7xl flex-col items-center">
                 
-                <div class="flex flex-col md:flex-row items-center justify-center w-full gap-4 mb-[50px]">
-                    <!-- <h1 class="text-4xl md:text-5xl font-bold whitespace-nowrap">Shop Search</h1> -->
-                    
-                    <input id="search" class="w-full h-[60px] md:h-[50px] rounded border border-[rgb(192,192,192)] p-2.5 text-[15px] md:text-[17px] shadow-[inset_1px_2px_3px_rgba(0,0,0,0.05)] outline-none md:max-w-[500px]"  type="text" placeholder="Search products here" style="background-color: var(--background)">
+                <div class="flex flex-col sm:flex-row items-center justify-center w-full gap-4 mb-6">
+                    <input id="search" class="w-full h-12 rounded border border-gray-300 p-3 text-base shadow-inner outline-none sm:max-w-md" type="text" placeholder="Search products here" style="background-color: var(--background)">
                 </div>
 
-                <h2 class="mb-[30px]">
-                    <span id="current-count">8</span> out of <span id="max-count">8</span> found
+                <h2 class="mb-6 text-sm sm:text-base font-medium">
+                    <span id="current-count">10</span> out of <span id="max-count">10</span> found
                 </h2>
 
-                <div class="w-full text-center">
-                    <section class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 sm:gap-x-3 gap-x-6 gap-y-6 justify-items-center">
-                        <div class="w-full md:max-w-[400px] bg-[var(--shop-item)] rounded-xl border border-gray-200  hover:shadow-md transition-all duration-200 rounded-xs flex flex-col items-center overflow-hidden cursor-pointer" id="nexus-60he-magnetic-keyboard-8000hz-polling-adjustable">
-                            <div class="w-full p-2 flex flex-col items-center">
-                                <!-- Image in Shopee's clean, square container -->
-                                <div class="w-full rounded-xl aspect-square overflow-hidden bg-gray-50 rounded-xs">
-                                    <img src="../images/eewewe.jpeg" class="w-full h-full object-cover">
-                                </div>
-                                
-                                <!-- Compact, left-aligned title -->
-                                <div class="py-2 text-left w-full flex flex-col gap-2">
-                                    <h3 class="text-lg font-normal text-white line-clamp-2 leading-snug">neXus 60HE Magnetic Keyboard 8000Hz Polling Adjustable...</h3>
-                                    <div class="flex flex-row justify-between items-center">
-                                        <p class="text-red-500 font-semibold">$167</p>
-                                        <p class="text-xs text-white font-semibold">Free shipping available</p>
-                                    </div>
-                                </div>
-                                
-                                <!-- Shopee Orange Action Buttons -->
-                                <div class="flex flex-row justify-between w-full gap-1.5 mt-1">
-                                    <button class="rounded-md bg-[var(--maingreen)]  flex-1 h-[36px] px-1 rounded-xs transition hover:bg-[var(--hovergreen)]">
-                                        <p class="text-base lg:text-sm font-medium text-white" onclick="addCart('nexus-60he-magnetic-keyboard-8000hz-polling-adjustable')">Add to Cart</p>
-                                    </button>
-                                    <button class="rounded-md bg-[var(--maingreen)] flex-1 h-[36px] px-1 rounded-xs transition hover:bg-[var(--hovergreen)]">
-                                        <a class="text-base lg:text-sm font-medium text-white block w-full leading-[36px]" href="../html/payment.html" onclick="addCart('nexus-60he-magnetic-keyboard-8000hz-polling-adjustable')">Buy Now</a>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Item 1: neXus Single Monitor Arm -->
-                        <div class="w-full md:max-w-[400px] bg-[var(--shop-item)] rounded-xl border border-gray-200  hover:shadow-md transition-all duration-200 rounded-xs flex flex-col items-center overflow-hidden cursor-pointer" id="nexus-single-monitor-arm-gas-spring-desk-mount-usb-ports">
-                            <div class="w-full p-2 flex flex-col items-center">
-                                <div class="w-full rounded-xl aspect-square overflow-hidden bg-gray-50 rounded-xs">
-                                    <img src="../images/MonitorArm_372.png" class="w-full h-full object-cover">
-                                </div>
-                                
-                                <div class="py-2 text-left w-full flex flex-col gap-2">
-                                    <h3 class="text-lg font-normal text-white line-clamp-2 leading-snug">neXus Single Monitor Arm Gas Spring Desk Mount USB Ports</h3>
-                                    <div class="flex flex-row justify-between items-center">
-                                        <p class="text-red-500 font-semibold">$120</p>
-                                        <p class="text-xs text-white font-semibold">Free shipping available</p>
-                                    </div>
-                                </div>
-                                
-                                <div class="flex flex-row justify-between w-full gap-1.5 mt-1">
-                                    <button class="rounded-md bg-[var(--maingreen)]  flex-1 h-[36px] px-1 rounded-xs transition hover:bg-[var(--hovergreen)]">
-                                        <p class="text-base lg:text-sm font-medium text-white" onclick="addCart('nexus-single-monitor-arm-gas-spring-desk-mount-usb-ports')">Add to Cart</p>
-                                    </button>
-                                    <button class="rounded-md bg-[var(--maingreen)] flex-1 h-[36px] px-1 rounded-xs transition hover:bg-[var(--hovergreen)]">
-                                        <a class="text-base lg:text-sm font-medium text-white block w-full leading-[36px]" href="../html/payment.html" onclick="addCart('nexus-single-monitor-arm-gas-spring-desk-mount-usb-ports')">Buy Now</a>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Item 2: neXus USB Condenser Microphone -->
-                        <div class="w-full md:max-w-[400px] bg-[var(--shop-item)] rounded-xl border border-gray-200  hover:shadow-md transition-all duration-200 rounded-xs flex flex-col items-center overflow-hidden cursor-pointer" id="nexus-usb-condenser-microphone-studio-quality-gain-control">
-                            <div class="w-full p-2 flex flex-col items-center">
-                                <div class="w-full rounded-xl aspect-square overflow-hidden bg-gray-50 rounded-xs">
-                                    <img src="../images/Microphone_372.png" class="w-full h-full object-cover">
-                                </div>
-                                
-                                <div class="py-2 text-left w-full flex flex-col gap-2">
-                                    <h3 class="text-lg font-normal text-white line-clamp-2 leading-snug">neXus USB Condenser Microphone Studio Quality Gain Control</h3>
-                                    <div class="flex flex-row justify-between items-center">
-                                        <p class="text-red-500 font-semibold">$180</p>
-                                        <p class="text-xs text-white font-semibold">Free shipping available</p>
-                                    </div>
-                                </div>
-                                
-                                <div class="flex flex-row justify-between w-full gap-1.5 mt-1">
-                                    <button class="rounded-md bg-[var(--maingreen)]  flex-1 h-[36px] px-1 rounded-xs transition hover:bg-[var(--hovergreen)]">
-                                        <p class="text-base lg:text-sm font-medium text-white" onclick="addCart('nexus-usb-condenser-microphone-studio-quality-gain-control')">Add to Cart</p>
-                                    </button>
-                                    <button class="rounded-md bg-[var(--maingreen)] flex-1 h-[36px] px-1 rounded-xs transition hover:bg-[var(--hovergreen)]">
-                                        <a class="text-base lg:text-sm font-medium text-white block w-full leading-[36px]" href="../html/payment.html" onclick="addCart('nexus-usb-condenser-microphone-studio-quality-gain-control')">Buy Now</a>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Item 3: neXus Gaming Monitor 27 Inch -->
-                        <div class="w-full md:max-w-[400px] bg-[var(--shop-item)] rounded-xl border border-gray-200  hover:shadow-md transition-all duration-200 rounded-xs flex flex-col items-center overflow-hidden cursor-pointer" id="nexus-gaming-monitor-27-inch-4k-oled-240hz-ultra-fast">
-                            <div class="w-full p-2 flex flex-col items-center">
-                                <div class="w-full rounded-xl aspect-square overflow-hidden bg-gray-50 rounded-xs">
-                                    <img src="../images/GamingMonitor_372.png" class="w-full h-full object-cover">
-                                </div>
-                                
-                                <div class="py-2 text-left w-full flex flex-col gap-2">
-                                    <h3 class="text-lg font-normal text-white line-clamp-2 leading-snug">neXus Gaming Monitor 27 Inch 4K OLED 240Hz Ultra Fast</h3>
-                                    <div class="flex flex-row justify-between items-center">
-                                        <p class="text-red-500 font-semibold">$899</p>
-                                        <p class="text-xs text-white font-semibold">Free shipping available</p>
-                                    </div>
-                                </div>
-                                
-                                <div class="flex flex-row justify-between w-full gap-1.5 mt-1">
-                                    <button class="rounded-md bg-[var(--maingreen)]  flex-1 h-[36px] px-1 rounded-xs transition hover:bg-[var(--hovergreen)]">
-                                        <p class="text-base lg:text-sm font-medium text-white" onclick="addCart('nexus-gaming-monitor-27-inch-4k-oled-240hz-ultra-fast')">Add to Cart</p>
-                                    </button>
-                                    <button class="rounded-md bg-[var(--maingreen)] flex-1 h-[36px] px-1 rounded-xs transition hover:bg-[var(--hovergreen)]">
-                                        <a class="text-base lg:text-sm font-medium text-white block w-full leading-[36px]" href="../html/payment.html" onclick="addCart('nexus-gaming-monitor-27-inch-4k-oled-240hz-ultra-fast')">Buy Now</a>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Item 4: neXus Lochness Gaming Headset -->
-                        <div class="w-full md:max-w-[400px] bg-[var(--shop-item)] rounded-xl border border-gray-200  hover:shadow-md transition-all duration-200 rounded-xs flex flex-col items-center overflow-hidden cursor-pointer" id="nexus-lochness-gaming-headset-50mm-drivers-clearcast-microphone">
-                            <div class="w-full p-2 flex flex-col items-center">
-                                <div class="w-full rounded-xl aspect-square overflow-hidden bg-gray-50 rounded-xs">
-                                    <img src="../images/Lochness_372.png" class="w-full h-full object-cover">
-                                </div>
-                                
-                                <div class="py-2 text-left w-full flex flex-col gap-2">
-                                    <h3 class="text-lg font-normal text-white line-clamp-2 leading-snug">neXus Lochness Gaming Headset 50mm Drivers ClearCast Microphone</h3>
-                                    <p class="text-red-500 font-semibold">$150</p>
-                                </div>
-                                
-                                <div class="flex flex-row justify-between w-full gap-1.5 mt-1">
-                                    <button class="rounded-md bg-[var(--maingreen)]  flex-1 h-[36px] px-1 rounded-xs transition hover:bg-[var(--hovergreen)]">
-                                        <p class="text-base lg:text-sm font-medium text-white" onclick="addCart('nexus-lochness-gaming-headset-50mm-drivers-clearcast-microphone')">Add to Cart</p>
-                                    </button>
-                                    <button class="rounded-md bg-[var(--maingreen)] flex-1 h-[36px] px-1 rounded-xs transition hover:bg-[var(--hovergreen)]">
-                                        <a class="text-base lg:text-sm font-medium text-white block w-full leading-[36px]" href="../html/payment.html" onclick="addCart('nexus-lochness-gaming-headset-50mm-drivers-clearcast-microphone')">Buy Now</a>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Item 5: neXus Python Ultra Light Gaming Mouse -->
-                        <div class="w-full md:max-w-[400px] bg-[var(--shop-item)] rounded-xl border border-gray-200  hover:shadow-md transition-all duration-200 rounded-xs flex flex-col items-center overflow-hidden cursor-pointer" id="nexus-python-ultra-light-gaming-mouse-26k-dpi-59g-optical-switches">
-                            <div class="w-full p-2 flex flex-col items-center">
-                                <div class="w-full rounded-xl aspect-square overflow-hidden bg-gray-50 rounded-xs">
-                                    <img src="../images/PythonV1_372.png" class="w-full h-full object-cover">
-                                </div>
-                                
-                                <div class="py-2 text-left w-full flex flex-col gap-2">
-                                    <h3 class="text-lg font-normal text-white line-clamp-2 leading-snug">neXus Python Ultra Light Gaming Mouse 26K DPI 59g Optical Switches</h3>
-                                    <p class="text-red-500 font-semibold">$120</p>
-                                </div>
-                                
-                                <div class="flex flex-row justify-between w-full gap-1.5 mt-1">
-                                    <button class="rounded-md bg-[var(--maingreen)]  flex-1 h-[36px] px-1 rounded-xs transition hover:bg-[var(--hovergreen)]">
-                                        <p class="text-base lg:text-sm font-medium text-white" onclick="addCart('nexus-python-ultra-light-gaming-mouse-26k-dpi-59g-optical-switches')">Add to Cart</p>
-                                    </button>
-                                    <button class="rounded-md bg-[var(--maingreen)] flex-1 h-[36px] px-1 rounded-xs transition hover:bg-[var(--hovergreen)]">
-                                        <a class="text-base lg:text-sm font-medium text-white block w-full leading-[36px]" href="../html/payment.html" onclick="addCart('nexus-python-ultra-light-gaming-mouse-26k-dpi-59g-optical-switches')">Buy Now</a>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Item 6: neXus Kailh Box Jade Switches -->
-                        <div class="w-full md:max-w-[400px] bg-[var(--shop-item)] rounded-xl border border-gray-200  hover:shadow-md transition-all duration-200 rounded-xs flex flex-col items-center overflow-hidden cursor-pointer" id="nexus-kailh-box-jade-clicky-mechanical-switches">
-                            <div class="w-full p-2 flex flex-col items-center">
-                                <div class="w-full rounded-xl aspect-square overflow-hidden bg-gray-50 rounded-xs">
-                                    <img src="../images/ClickySwitch_372.png" class="w-full h-full object-cover">
-                                </div>
-                                
-                                <div class="py-2 text-left w-full flex flex-col gap-2">
-                                    <h3 class="text-lg font-normal text-white line-clamp-2 leading-snug">neXus Kailh Box Jade Clicky Mechanical Switches</h3>
-                                    <p class="text-red-500 font-semibold">$35</p>
-                                </div>
-                                
-                                <div class="flex flex-row justify-between w-full gap-1.5 mt-1">
-                                    <button class="rounded-md bg-[var(--maingreen)]  flex-1 h-[36px] px-1 rounded-xs transition hover:bg-[var(--hovergreen)]">
-                                        <p class="text-base lg:text-sm font-medium text-white" onclick="addCart('nexus-kailh-box-jade-clicky-mechanical-switches')">Add to Cart</p>
-                                    </button>
-                                    <button class="rounded-md bg-[var(--maingreen)] flex-1 h-[36px] px-1 rounded-xs transition hover:bg-[var(--hovergreen)]">
-                                        <a class="text-base lg:text-sm font-medium text-white block w-full leading-[36px]" href="../html/payment.html" onclick="addCart('nexus-kailh-box-jade-clicky-mechanical-switches')">Buy Now</a>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Item 7: neXus Clear Glass Gaming Mousepad -->
-                        <div class="w-full md:max-w-[400px] bg-[var(--shop-item)] rounded-xl border border-gray-200  hover:shadow-md transition-all duration-200 rounded-xs flex flex-col items-center overflow-hidden cursor-pointer" id="nexus-clear-glass-gaming-mousepad-450x400mm-ultra-smooth">
-                            <div class="w-full p-2 flex flex-col items-center">
-                                <div class="w-full rounded-xl aspect-square overflow-hidden bg-gray-50 rounded-xs">
-                                    <img src="../images/Clear_372.png" class="w-full h-full object-cover">
-                                </div>
-                                
-                                <div class="py-2 text-left w-full flex flex-col gap-2">
-                                    <h3 class="text-lg font-normal text-white line-clamp-2 leading-snug">neXus Clear Glass Gaming Mousepad 450x400mm Ultra Smooth</h3>
-                                    <p class="text-red-500 font-semibold">$90</p>
-                                </div>
-                                
-                                <div class="flex flex-row justify-between w-full gap-1.5 mt-1">
-                                    <button class="rounded-md bg-[var(--maingreen)]  flex-1 h-[36px] px-1 rounded-xs transition hover:bg-[var(--hovergreen)]">
-                                        <p class="text-base lg:text-sm font-medium text-white" onclick="addCart('nexus-clear-glass-gaming-mousepad-450x400mm-ultra-smooth')">Add to Cart</p>
-                                    </button>
-                                    <button class="rounded-md bg-[var(--maingreen)] flex-1 h-[36px] px-1 rounded-xs transition hover:bg-[var(--hovergreen)]">
-                                        <a class="text-base lg:text-sm font-medium text-white block w-full leading-[36px]" href="../html/payment.html" onclick="addCart('nexus-clear-glass-gaming-mousepad-450x400mm-ultra-smooth')">Buy Now</a>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Item 8: neXus Gateron Baby Kangaroo 2.0 Switches -->
-                        <div class="w-full md:max-w-[400px] bg-[var(--shop-item)] rounded-xl border border-gray-200  hover:shadow-md transition-all duration-200 rounded-xs flex flex-col items-center overflow-hidden cursor-pointer" id="nexus-gateron-baby-kangaroo-2-0-tactile-switches">
-                            <div class="w-full p-2 flex flex-col items-center">
-                                <div class="w-full rounded-xl aspect-square overflow-hidden bg-gray-50 rounded-xs">
-                                    <img src="../images/TactileSwitch_372.png" class="w-full h-full object-cover">
-                                </div>
-                                
-                                <div class="py-2 text-left w-full flex flex-col gap-2">
-                                    <h3 class="text-lg font-normal text-white line-clamp-2 leading-snug">neXus Gateron Baby Kangaroo 2.0 Tactile Switches</h3>
-                                    <p class="text-red-500 font-semibold">$40</p>
-                                </div>
-                                
-                                <div class="flex flex-row justify-between w-full gap-1.5 mt-1">
-                                    <button class="rounded-md bg-[var(--maingreen)]  flex-1 h-[36px] px-1 rounded-xs transition hover:bg-[var(--hovergreen)]">
-                                        <p class="text-base lg:text-sm font-medium text-white" onclick="addCart('nexus-gateron-baby-kangaroo-2-0-tactile-switches')">Add to Cart</p>
-                                    </button>
-                                    <button class="rounded-md bg-[var(--maingreen)] flex-1 h-[36px] px-1 rounded-xs transition hover:bg-[var(--hovergreen)]">
-                                        <a class="text-base lg:text-sm font-medium text-white block w-full leading-[36px]" href="../html/payment.html" onclick="addCart('nexus-gateron-baby-kangaroo-2-0-tactile-switches')">Buy Now</a>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Item 9: neXus Gateron Pro 3.0 Yellow Switches -->
-                        <div class="w-full md:max-w-[400px] bg-[var(--shop-item)] rounded-xl border border-gray-200  hover:shadow-md transition-all duration-200 rounded-xs flex flex-col items-center overflow-hidden cursor-pointer" id="nexus-gateron-pro-3-0-yellow-linear-switches">
-                            <div class="w-full p-2 flex flex-col items-center">
-                                <div class="w-full rounded-xl aspect-square overflow-hidden bg-gray-50 rounded-xs">
-                                    <img src="../images/LinearSwitch_372.png" class="w-full h-full object-cover">
-                                </div>
-                                
-                                <div class="py-2 text-left w-full flex flex-col gap-2">
-                                    <h3 class="text-lg font-normal text-white line-clamp-2 leading-snug">neXus Gateron Pro 3.0 Yellow Linear Switches</h3>
-                                    <p class="text-red-500 font-semibold">$30</p>
-                                </div>
-                                
-                                <div class="flex flex-row justify-between w-full gap-1.5 mt-1">
-                                    <button class="rounded-md bg-[var(--maingreen)]  flex-1 h-[36px] px-1 rounded-xs transition hover:bg-[var(--hovergreen)]">
-                                        <p class="text-base lg:text-sm font-medium text-white" onclick="addCart('nexus-gateron-pro-3-0-yellow-linear-switches')">Add to Cart</p>
-                                    </button>
-                                    <button class="rounded-md bg-[var(--maingreen)] flex-1 h-[36px] px-1 rounded-xs transition hover:bg-[var(--hovergreen)]">
-                                        <a class="text-base lg:text-sm font-medium text-white block w-full leading-[36px]" href="../html/payment.html" onclick="addCart('nexus-gateron-pro-3-0-yellow-linear-switches')">Buy Now</a>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Item 10: neXus Python V2 Gaming Mouse -->
-                        <div class="w-full md:max-w-[400px] bg-[var(--shop-item)] rounded-xl border border-gray-200  hover:shadow-md transition-all duration-200 rounded-xs flex flex-col items-center overflow-hidden cursor-pointer" id="nexus-python-v2-gaming-mouse-30k-dpi-54g-optical-gen-3-switches">
-                            <div class="w-full p-2 flex flex-col items-center">
-                                <div class="w-full rounded-xl aspect-square overflow-hidden bg-gray-50 rounded-xs">
-                                    <img src="../images/PythonV2_372.png" class="w-full h-full object-cover">
-                                </div>
-                                
-                                <div class="py-2 text-left w-full flex flex-col gap-2">
-                                    <h3 class="text-lg font-normal text-white line-clamp-2 leading-snug">neXus Python V2 Gaming Mouse 30K DPI 54g Optical Gen 3 Switches</h3>
-                                    <div class="flex flex-row justify-between items-center">
-                                        <p class="text-red-500 font-semibold">$150</p>
-                                        <p class="text-xs text-white font-semibold">Free shipping available</p>
-                                    </div>
-                                </div>
-                                
-                                <div class="flex flex-row justify-between w-full gap-1.5 mt-1">
-                                    <button class="rounded-md bg-[var(--maingreen)]  flex-1 h-[36px] px-1 rounded-xs transition hover:bg-[var(--hovergreen)]">
-                                        <p class="text-base lg:text-sm font-medium text-white" onclick="addCart('nexus-python-v2-gaming-mouse-30k-dpi-54g-optical-gen-3-switches')">Add to Cart</p>
-                                    </button>
-                                    <button class="rounded-md bg-[var(--maingreen)] flex-1 h-[36px] px-1 rounded-xs transition hover:bg-[var(--hovergreen)]">
-                                        <a class="text-base lg:text-sm font-medium text-white block w-full leading-[36px]" href="../html/payment.html" onclick="addCart('nexus-python-v2-gaming-mouse-30k-dpi-54g-optical-gen-3-switches')">Buy Now</a>
-                                    </button>
-                                </div>
-                            </div>
-                       
-
+                <div class="w-full">
+                    <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 justify-items-center">
                         
+                        <div class="w-full max-w-[350px] sm:max-w-none bg-[var(--shop-item)] rounded-xl border border-gray-200 hover:shadow-md transition-all duration-200 flex flex-col items-center overflow-hidden cursor-pointer" id="nexus-60he-magnetic-keyboard-8000hz-polling-adjustable">
+                            <div class="w-full p-3 flex flex-col h-full justify-between">
+                                <div>
+                                    <div class="w-full rounded-xl aspect-square overflow-hidden bg-gray-50">
+                                        <img src="../images/eewewe.jpeg" alt="neXus 60HE Magnetic Keyboard" class="w-full h-full object-cover">
+                                    </div>
+                                    <div class="py-3 text-left w-full flex flex-col gap-2">
+                                        <h3 class="text-base sm:text-lg font-normal text-white line-clamp-2 leading-snug">neXus 60HE Magnetic Keyboard 8000Hz Polling Adjustable...</h3>
+                                        <div class="flex flex-row justify-between items-center gap-2">
+                                            <p class="text-red-500 font-semibold">$167</p>
+                                            <p class="text-xs text-white font-semibold">Free shipping available</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flex flex-row justify-between w-full gap-2 mt-2">
+                                    <button onclick="addCart('nexus-60he-magnetic-keyboard-8000hz-polling-adjustable')" class="rounded-md bg-[var(--maingreen)] flex-1 h-9 px-2 transition hover:bg-[var(--hovergreen)] text-xs sm:text-sm font-medium text-white">
+                                        Add to Cart
+                                    </button>
+                                    <a href="../html/payment.html" onclick="addCart('nexus-60he-magnetic-keyboard-8000hz-polling-adjustable')" class="rounded-md bg-[var(--maingreen)] flex-1 h-9 px-2 transition hover:bg-[var(--hovergreen)] text-xs sm:text-sm font-medium text-white flex items-center justify-center text-center">
+                                        Buy Now
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
 
+                        <div class="w-full max-w-[350px] sm:max-w-none bg-[var(--shop-item)] rounded-xl border border-gray-200 hover:shadow-md transition-all duration-200 flex flex-col items-center overflow-hidden cursor-pointer" id="nexus-single-monitor-arm-gas-spring-desk-mount-usb-ports">
+                            <div class="w-full p-3 flex flex-col h-full justify-between">
+                                <div>
+                                    <div class="w-full rounded-xl aspect-square overflow-hidden bg-gray-50">
+                                        <img src="../images/MonitorArm_372.png" alt="neXus Single Monitor Arm" class="w-full h-full object-cover">
+                                    </div>
+                                    <div class="py-3 text-left w-full flex flex-col gap-2">
+                                        <h3 class="text-base sm:text-lg font-normal text-white line-clamp-2 leading-snug">neXus Single Monitor Arm Gas Spring Desk Mount USB Ports</h3>
+                                        <div class="flex flex-row justify-between items-center gap-2">
+                                            <p class="text-red-500 font-semibold">$120</p>
+                                            <p class="text-xs text-white font-semibold">Free shipping available</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flex flex-row justify-between w-full gap-2 mt-2">
+                                    <button onclick="addCart('nexus-single-monitor-arm-gas-spring-desk-mount-usb-ports')" class="rounded-md bg-[var(--maingreen)] flex-1 h-9 px-2 transition hover:bg-[var(--hovergreen)] text-xs sm:text-sm font-medium text-white">
+                                        Add to Cart
+                                    </button>
+                                    <a href="../html/payment.html" onclick="addCart('nexus-single-monitor-arm-gas-spring-desk-mount-usb-ports')" class="rounded-md bg-[var(--maingreen)] flex-1 h-9 px-2 transition hover:bg-[var(--hovergreen)] text-xs sm:text-sm font-medium text-white flex items-center justify-center text-center">
+                                        Buy Now
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
 
+                        <div class="w-full max-w-[350px] sm:max-w-none bg-[var(--shop-item)] rounded-xl border border-gray-200 hover:shadow-md transition-all duration-200 flex flex-col items-center overflow-hidden cursor-pointer" id="nexus-usb-condenser-microphone-studio-quality-gain-control">
+                            <div class="w-full p-3 flex flex-col h-full justify-between">
+                                <div>
+                                    <div class="w-full rounded-xl aspect-square overflow-hidden bg-gray-50">
+                                        <img src="../images/Microphone_372.png" alt="neXus USB Condenser Microphone" class="w-full h-full object-cover">
+                                    </div>
+                                    <div class="py-3 text-left w-full flex flex-col gap-2">
+                                        <h3 class="text-base sm:text-lg font-normal text-white line-clamp-2 leading-snug">neXus USB Condenser Microphone Studio Quality Gain Control</h3>
+                                        <div class="flex flex-row justify-between items-center gap-2">
+                                            <p class="text-red-500 font-semibold">$180</p>
+                                            <p class="text-xs text-white font-semibold">Free shipping available</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flex flex-row justify-between w-full gap-2 mt-2">
+                                    <button onclick="addCart('nexus-usb-condenser-microphone-studio-quality-gain-control')" class="rounded-md bg-[var(--maingreen)] flex-1 h-9 px-2 transition hover:bg-[var(--hovergreen)] text-xs sm:text-sm font-medium text-white">
+                                        Add to Cart
+                                    </button>
+                                    <a href="../html/payment.html" onclick="addCart('nexus-usb-condenser-microphone-studio-quality-gain-control')" class="rounded-md bg-[var(--maingreen)] flex-1 h-9 px-2 transition hover:bg-[var(--hovergreen)] text-xs sm:text-sm font-medium text-white flex items-center justify-center text-center">
+                                        Buy Now
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
 
+                        <div class="w-full max-w-[350px] sm:max-w-none bg-[var(--shop-item)] rounded-xl border border-gray-200 hover:shadow-md transition-all duration-200 flex flex-col items-center overflow-hidden cursor-pointer" id="nexus-gaming-monitor-27-inch-4k-oled-240hz-ultra-fast">
+                            <div class="w-full p-3 flex flex-col h-full justify-between">
+                                <div>
+                                    <div class="w-full rounded-xl aspect-square overflow-hidden bg-gray-50">
+                                        <img src="../images/GamingMonitor_372.png" alt="neXus Gaming Monitor" class="w-full h-full object-cover">
+                                    </div>
+                                    <div class="py-3 text-left w-full flex flex-col gap-2">
+                                        <h3 class="text-base sm:text-lg font-normal text-white line-clamp-2 leading-snug">neXus Gaming Monitor 27 Inch 4K OLED 240Hz Ultra Fast</h3>
+                                        <div class="flex flex-row justify-between items-center gap-2">
+                                            <p class="text-red-500 font-semibold">$899</p>
+                                            <p class="text-xs text-white font-semibold">Free shipping available</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flex flex-row justify-between w-full gap-2 mt-2">
+                                    <button onclick="addCart('nexus-gaming-monitor-27-inch-4k-oled-240hz-ultra-fast')" class="rounded-md bg-[var(--maingreen)] flex-1 h-9 px-2 transition hover:bg-[var(--hovergreen)] text-xs sm:text-sm font-medium text-white">
+                                        Add to Cart
+                                    </button>
+                                    <a href="../html/payment.html" onclick="addCart('nexus-gaming-monitor-27-inch-4k-oled-240hz-ultra-fast')" class="rounded-md bg-[var(--maingreen)] flex-1 h-9 px-2 transition hover:bg-[var(--hovergreen)] text-xs sm:text-sm font-medium text-white flex items-center justify-center text-center">
+                                        Buy Now
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
 
+                        <div class="w-full max-w-[350px] sm:max-w-none bg-[var(--shop-item)] rounded-xl border border-gray-200 hover:shadow-md transition-all duration-200 flex flex-col items-center overflow-hidden cursor-pointer" id="nexus-lochness-gaming-headset-50mm-drivers-clearcast-microphone">
+                            <div class="w-full p-3 flex flex-col h-full justify-between">
+                                <div>
+                                    <div class="w-full rounded-xl aspect-square overflow-hidden bg-gray-50">
+                                        <img src="../images/Lochness_372.png" alt="neXus Lochness Gaming Headset" class="w-full h-full object-cover">
+                                    </div>
+                                    <div class="py-3 text-left w-full flex flex-col gap-2">
+                                        <h3 class="text-base sm:text-lg font-normal text-white line-clamp-2 leading-snug">neXus Lochness Gaming Headset 50mm Drivers ClearCast Microphone</h3>
+                                        <p class="text-red-500 font-semibold">$150</p>
+                                    </div>
+                                </div>
+                                <div class="flex flex-row justify-between w-full gap-2 mt-2">
+                                    <button onclick="addCart('nexus-lochness-gaming-headset-50mm-drivers-clearcast-microphone')" class="rounded-md bg-[var(--maingreen)] flex-1 h-9 px-2 transition hover:bg-[var(--hovergreen)] text-xs sm:text-sm font-medium text-white">
+                                        Add to Cart
+                                    </button>
+                                    <a href="../html/payment.html" onclick="addCart('nexus-lochness-gaming-headset-50mm-drivers-clearcast-microphone')" class="rounded-md bg-[var(--maingreen)] flex-1 h-9 px-2 transition hover:bg-[var(--hovergreen)] text-xs sm:text-sm font-medium text-white flex items-center justify-center text-center">
+                                        Buy Now
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
 
+                        <div class="w-full max-w-[350px] sm:max-w-none bg-[var(--shop-item)] rounded-xl border border-gray-200 hover:shadow-md transition-all duration-200 flex flex-col items-center overflow-hidden cursor-pointer" id="nexus-python-ultra-light-gaming-mouse-26k-dpi-59g-optical-switches">
+                            <div class="w-full p-3 flex flex-col h-full justify-between">
+                                <div>
+                                    <div class="w-full rounded-xl aspect-square overflow-hidden bg-gray-50">
+                                        <img src="../images/PythonV1_372.png" alt="neXus Python Ultra Light Gaming Mouse" class="w-full h-full object-cover">
+                                    </div>
+                                    <div class="py-3 text-left w-full flex flex-col gap-2">
+                                        <h3 class="text-base sm:text-lg font-normal text-white line-clamp-2 leading-snug">neXus Python Ultra Light Gaming Mouse 26K DPI 59g Optical Switches</h3>
+                                        <p class="text-red-500 font-semibold">$120</p>
+                                    </div>
+                                </div>
+                                <div class="flex flex-row justify-between w-full gap-2 mt-2">
+                                    <button onclick="addCart('nexus-python-ultra-light-gaming-mouse-26k-dpi-59g-optical-switches')" class="rounded-md bg-[var(--maingreen)] flex-1 h-9 px-2 transition hover:bg-[var(--hovergreen)] text-xs sm:text-sm font-medium text-white">
+                                        Add to Cart
+                                    </button>
+                                    <a href="../html/payment.html" onclick="addCart('nexus-python-ultra-light-gaming-mouse-26k-dpi-59g-optical-switches')" class="rounded-md bg-[var(--maingreen)] flex-1 h-9 px-2 transition hover:bg-[var(--hovergreen)] text-xs sm:text-sm font-medium text-white flex items-center justify-center text-center">
+                                        Buy Now
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
 
+                        <div class="w-full max-w-[350px] sm:max-w-none bg-[var(--shop-item)] rounded-xl border border-gray-200 hover:shadow-md transition-all duration-200 flex flex-col items-center overflow-hidden cursor-pointer" id="nexus-kailh-box-jade-clicky-mechanical-switches">
+                            <div class="w-full p-3 flex flex-col h-full justify-between">
+                                <div>
+                                    <div class="w-full rounded-xl aspect-square overflow-hidden bg-gray-50">
+                                        <img src="../images/ClickySwitch_372.png" alt="neXus Kailh Box Jade Switches" class="w-full h-full object-cover">
+                                    </div>
+                                    <div class="py-3 text-left w-full flex flex-col gap-2">
+                                        <h3 class="text-base sm:text-lg font-normal text-white line-clamp-2 leading-snug">neXus Kailh Box Jade Clicky Mechanical Switches</h3>
+                                        <p class="text-red-500 font-semibold">$35</p>
+                                    </div>
+                                </div>
+                                <div class="flex flex-row justify-between w-full gap-2 mt-2">
+                                    <button onclick="addCart('nexus-kailh-box-jade-clicky-mechanical-switches')" class="rounded-md bg-[var(--maingreen)] flex-1 h-9 px-2 transition hover:bg-[var(--hovergreen)] text-xs sm:text-sm font-medium text-white">
+                                        Add to Cart
+                                    </button>
+                                    <a href="../html/payment.html" onclick="addCart('nexus-kailh-box-jade-clicky-mechanical-switches')" class="rounded-md bg-[var(--maingreen)] flex-1 h-9 px-2 transition hover:bg-[var(--hovergreen)] text-xs sm:text-sm font-medium text-white flex items-center justify-center text-center">
+                                        Buy Now
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
 
+                        <div class="w-full max-w-[350px] sm:max-w-none bg-[var(--shop-item)] rounded-xl border border-gray-200 hover:shadow-md transition-all duration-200 flex flex-col items-center overflow-hidden cursor-pointer" id="nexus-clear-glass-gaming-mousepad-450x400mm-ultra-smooth">
+                            <div class="w-full p-3 flex flex-col h-full justify-between">
+                                <div>
+                                    <div class="w-full rounded-xl aspect-square overflow-hidden bg-gray-50">
+                                        <img src="../images/Clear_372.png" alt="neXus Clear Glass Mousepad" class="w-full h-full object-cover">
+                                    </div>
+                                    <div class="py-3 text-left w-full flex flex-col gap-2">
+                                        <h3 class="text-base sm:text-lg font-normal text-white line-clamp-2 leading-snug">neXus Clear Glass Gaming Mousepad 450x400mm Ultra Smooth</h3>
+                                        <p class="text-red-500 font-semibold">$90</p>
+                                    </div>
+                                </div>
+                                <div class="flex flex-row justify-between w-full gap-2 mt-2">
+                                    <button onclick="addCart('nexus-clear-glass-gaming-mousepad-450x400mm-ultra-smooth')" class="rounded-md bg-[var(--maingreen)] flex-1 h-9 px-2 transition hover:bg-[var(--hovergreen)] text-xs sm:text-sm font-medium text-white">
+                                        Add to Cart
+                                    </button>
+                                    <a href="../html/payment.html" onclick="addCart('nexus-clear-glass-gaming-mousepad-450x400mm-ultra-smooth')" class="rounded-md bg-[var(--maingreen)] flex-1 h-9 px-2 transition hover:bg-[var(--hovergreen)] text-xs sm:text-sm font-medium text-white flex items-center justify-center text-center">
+                                        Buy Now
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
 
+                        <div class="w-full max-w-[350px] sm:max-w-none bg-[var(--shop-item)] rounded-xl border border-gray-200 hover:shadow-md transition-all duration-200 flex flex-col items-center overflow-hidden cursor-pointer" id="nexus-gateron-baby-kangaroo-2-0-tactile-switches">
+                            <div class="w-full p-3 flex flex-col h-full justify-between">
+                                <div>
+                                    <div class="w-full rounded-xl aspect-square overflow-hidden bg-gray-50">
+                                        <img src="../images/TactileSwitch_372.png" alt="neXus Gateron Baby Kangaroo Switches" class="w-full h-full object-cover">
+                                    </div>
+                                    <div class="py-3 text-left w-full flex flex-col gap-2">
+                                        <h3 class="text-base sm:text-lg font-normal text-white line-clamp-2 leading-snug">neXus Gateron Baby Kangaroo 2.0 Tactile Switches</h3>
+                                        <p class="text-red-500 font-semibold">$40</p>
+                                    </div>
+                                </div>
+                                <div class="flex flex-row justify-between w-full gap-2 mt-2">
+                                    <button onclick="addCart('nexus-gateron-baby-kangaroo-2-0-tactile-switches')" class="rounded-md bg-[var(--maingreen)] flex-1 h-9 px-2 transition hover:bg-[var(--hovergreen)] text-xs sm:text-sm font-medium text-white">
+                                        Add to Cart
+                                    </button>
+                                    <a href="../html/payment.html" onclick="addCart('nexus-gateron-baby-kangaroo-2-0-tactile-switches')" class="rounded-md bg-[var(--maingreen)] flex-1 h-9 px-2 transition hover:bg-[var(--hovergreen)] text-xs sm:text-sm font-medium text-white flex items-center justify-center text-center">
+                                        Buy Now
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
 
+                        <div class="w-full max-w-[350px] sm:max-w-none bg-[var(--shop-item)] rounded-xl border border-gray-200 hover:shadow-md transition-all duration-200 flex flex-col items-center overflow-hidden cursor-pointer" id="nexus-gateron-pro-3-0-yellow-linear-switches">
+                            <div class="w-full p-3 flex flex-col h-full justify-between">
+                                <div>
+                                    <div class="w-full rounded-xl aspect-square overflow-hidden bg-gray-50">
+                                        <img src="../images/LinearSwitch_372.png" alt="neXus Gateron Pro Switches" class="w-full h-full object-cover">
+                                    </div>
+                                    <div class="py-3 text-left w-full flex flex-col gap-2">
+                                        <h3 class="text-base sm:text-lg font-normal text-white line-clamp-2 leading-snug">neXus Gateron Pro 3.0 Yellow Linear Switches</h3>
+                                        <p class="text-red-500 font-semibold">$30</p>
+                                    </div>
+                                </div>
+                                <div class="flex flex-row justify-between w-full gap-2 mt-2">
+                                    <button onclick="addCart('nexus-gateron-pro-3-0-yellow-linear-switches')" class="rounded-md bg-[var(--maingreen)] flex-1 h-9 px-2 transition hover:bg-[var(--hovergreen)] text-xs sm:text-sm font-medium text-white">
+                                        Add to Cart
+                                    </button>
+                                    <a href="../html/payment.html" onclick="addCart('nexus-gateron-pro-3-0-yellow-linear-switches')" class="rounded-md bg-[var(--maingreen)] flex-1 h-9 px-2 transition hover:bg-[var(--hovergreen)] text-xs sm:text-sm font-medium text-white flex items-center justify-center text-center">
+                                        Buy Now
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
 
-
-
-
-
-
-
-
-
-
-
+                        <div class="w-full max-w-[350px] sm:max-w-none bg-[var(--shop-item)] rounded-xl border border-gray-200 hover:shadow-md transition-all duration-200 flex flex-col items-center overflow-hidden cursor-pointer" id="nexus-python-v2-gaming-mouse-30k-dpi-54g-optical-gen-3-switches">
+                            <div class="w-full p-3 flex flex-col h-full justify-between">
+                                <div>
+                                    <div class="w-full rounded-xl aspect-square overflow-hidden bg-gray-50">
+                                        <img src="../images/PythonV2_372.png" alt="neXus Python V2 Gaming Mouse" class="w-full h-full object-cover">
+                                    </div>
+                                    <div class="py-3 text-left w-full flex flex-col gap-2">
+                                        <h3 class="text-base sm:text-lg font-normal text-white line-clamp-2 leading-snug">neXus Python V2 Gaming Mouse 30K DPI 54g Optical Gen 3 Switches</h3>
+                                        <div class="flex flex-row justify-between items-center gap-2">
+                                            <p class="text-red-500 font-semibold">$150</p>
+                                            <p class="text-xs text-white font-semibold">Free shipping available</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flex flex-row justify-between w-full gap-2 mt-2">
+                                    <button onclick="addCart('nexus-python-v2-gaming-mouse-30k-dpi-54g-optical-gen-3-switches')" class="rounded-md bg-[var(--maingreen)] flex-1 h-9 px-2 transition hover:bg-[var(--hovergreen)] text-xs sm:text-sm font-medium text-white">
+                                        Add to Cart
+                                    </button>
+                                    <a href="../html/payment.html" onclick="addCart('nexus-python-v2-gaming-mouse-30k-dpi-54g-optical-gen-3-switches')" class="rounded-md bg-[var(--maingreen)] flex-1 h-9 px-2 transition hover:bg-[var(--hovergreen)] text-xs sm:text-sm font-medium text-white flex items-center justify-center text-center">
+                                        Buy Now
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
 
                     </section>                    
                 </div>
             </div>
-        </section>
+        </main>
 
         <div id="footer-container"></div>
         
         <script>
-            const navigationEntries = performance.getEntriesByType("navigation")
-            const isReload = navigationEntries.length > 0 && navigationEntries[0].type === "reload"
+            const navigationEntries = performance.getEntriesByType("navigation");
+            const isReload = navigationEntries.length > 0 && navigationEntries[0].type === "reload";
 
             if (isReload) {
-                localStorage.removeItem("userCart")
+                localStorage.removeItem("userCart");
             }
         </script>
-
     </body>
 </html>
