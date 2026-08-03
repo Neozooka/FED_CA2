@@ -81,33 +81,45 @@
                     SEE WHAT GAMERS ARE SAYING ABOUT <span class="text-[--maingreen]">NexOS.</span>
                 </h2>
 
-                <div class="relative w-full max-w-5xl overflow-hidden cursor-grab active:cursor-grabbing select-none px-4" id="carousel-window">
-                    <div id="carousel-track" class="flex gap-6 transition-transform duration-300 ease-out will-change-transform">
+                <div class="relative w-full max-w-6xl overflow-hidden cursor-grab active:cursor-grabbing select-none" id="carousel-window">
+                    <div class="pointer-events-none absolute left-0 top-0 bottom-0 w-12 sm:w-24 bg-gradient-to-r from-neutral-100 to-transparent z-10"></div>
+                    <div class="pointer-events-none absolute right-0 top-0 bottom-0 w-12 sm:w-24 bg-gradient-to-l from-neutral-100 to-transparent z-10"></div>
+
+                    <div id="carousel-track" class="flex gap-6 will-change-transform py-4">
                         
-                        <blockquote class="w-full md:w-[450px] shrink-0 bg-white p-8 rounded-xl shadow-md border border-neutral-200 flex flex-col justify-between min-h-[200px]">
-                            <p class="text-lg text-neutral-700 italic mb-6 pointer-events-none">
+                        <blockquote class="w-[85vw] sm:w-[380px] md:w-[420px] shrink-0 bg-white p-6 sm:p-8 rounded-2xl shadow-md border border-neutral-200 flex flex-col justify-between min-h-[190px]">
+                            <p class="text-base sm:text-lg text-neutral-700 italic mb-6 pointer-events-none">
                                 "NexOS is great for gaming! The responsiveness and low latency give me a huge edge."
                             </p>
                             <div class="flex items-center justify-end gap-3 mt-auto pointer-events-none">
-                                <p class="text-sm font-semibold text-neutral-900">&mdash; Steve Jobs</p>
+                                <p class="text-sm font-bold text-neutral-900">&mdash; Steve Jobs</p>
                             </div>
                         </blockquote>
 
-                        <blockquote class="w-full md:w-[450px] shrink-0 bg-white p-8 rounded-xl shadow-md border border-neutral-200 flex flex-col justify-between min-h-[200px]">
-                            <p class="text-lg text-neutral-700 italic mb-6 pointer-events-none">
+                        <blockquote class="w-[85vw] sm:w-[380px] md:w-[420px] shrink-0 bg-white p-6 sm:p-8 rounded-2xl shadow-md border border-neutral-200 flex flex-col justify-between min-h-[190px]">
+                            <p class="text-base sm:text-lg text-neutral-700 italic mb-6 pointer-events-none">
                                 "The customization options are insane. Best OS tweaks I've used so far."
                             </p>
                             <div class="flex items-center justify-end gap-3 mt-auto pointer-events-none">
-                                <p class="text-sm font-semibold text-neutral-900">&mdash; Alex R.</p>
+                                <p class="text-sm font-bold text-neutral-900">&mdash; Alex R.</p>
                             </div>
                         </blockquote>
 
-                        <blockquote class="w-full md:w-[450px] shrink-0 bg-white p-8 rounded-xl shadow-md border border-neutral-200 flex flex-col justify-between min-h-[200px]">
-                            <p class="text-lg text-neutral-700 italic mb-6 pointer-events-none">
+                        <blockquote class="w-[85vw] sm:w-[380px] md:w-[420px] shrink-0 bg-white p-6 sm:p-8 rounded-2xl shadow-md border border-neutral-200 flex flex-col justify-between min-h-[190px]">
+                            <p class="text-base sm:text-lg text-neutral-700 italic mb-6 pointer-events-none">
                                 "FPS boosts were noticeable right out of the box. Highly recommended for any gamer."
                             </p>
                             <div class="flex items-center justify-end gap-3 mt-auto pointer-events-none">
-                                <p class="text-sm font-semibold text-neutral-900">&mdash; Sarah K.</p>
+                                <p class="text-sm font-bold text-neutral-900">&mdash; Sarah K.</p>
+                            </div>
+                        </blockquote>
+
+                        <blockquote class="w-[85vw] sm:w-[380px] md:w-[420px] shrink-0 bg-white p-6 sm:p-8 rounded-2xl shadow-md border border-neutral-200 flex flex-col justify-between min-h-[190px]">
+                            <p class="text-base sm:text-lg text-neutral-700 italic mb-6 pointer-events-none">
+                                "Zero bloatware and instant boot times. My rig has never felt this snappy."
+                            </p>
+                            <div class="flex items-center justify-end gap-3 mt-auto pointer-events-none">
+                                <p class="text-sm font-bold text-neutral-900">&mdash; Marcus T.</p>
                             </div>
                         </blockquote>
 
@@ -490,9 +502,15 @@
 
                     </div>
 
-                    <a href="nexos-shop.html" class="main-button text-white font-bold px-5 py-2 rounded-xl hover:bg-green transition-colors shadow-sm text-sm md:text-base">
-                        Download
-                    </a>
+                    <div class="flex justify-start mt-8 reveal-on-scroll">
+                        <a href="nexos-computer.html" class="group relative inline-flex items-center justify-center gap-3 px-8 py-4 rounded-2xl bg-[--maingreen] text-white font-extrabold text-base md:text-lg tracking-wide shadow-[0_0_20px_rgba(18,209,75,0.3)] transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(18,209,75,0.6)] active:scale-95 overflow-hidden">
+                            
+                            <span class="absolute inset-0 bg-white/20 translate-y-full transition-transform duration-300 group-hover:translate-y-0"></span>
+
+                            <span class="relative z-10">Explore Powered PCs</span>
+                            <i class="fa fa-arrow-right relative z-10 text-sm transition-transform duration-300 group-hover:translate-x-1"></i>
+                        </a>
+                    </div>
                 </div>
             </section>
 
@@ -645,100 +663,92 @@
                 setTimeout(type, 500);
             })
 
-            // For the reviews
+            // For the reviews (Auto-scroll, Drag & Seamless Infinite Loop)
             document.addEventListener('DOMContentLoaded', () => {
                 const windowEl = document.getElementById('carousel-window');
                 const track = document.getElementById('carousel-track');
-                const cards = track.children;
-                
+                if (!windowEl || !track) return;
+
+                // Clone child elements to enable infinite seamless looping
+                const originalCards = Array.from(track.children);
+                originalCards.forEach(card => {
+                    const clone = card.cloneNode(true);
+                    track.appendChild(clone);
+                });
+
+                let currentX = 0;
+                const speed = 1.0; // Auto-scroll speed (pixels per frame)
+                let isPaused = false;
                 let isDragging = false;
                 let startX = 0;
-                let currentTranslate = 0;
-                let prevTranslate = 0;
-                let currentIndex = 0;
-                let animationId;
+                let dragStartX = 0;
+                let animationFrameId;
 
-                // Get position X from mouse or touch event
-                function getPositionX(event) {
-                    return event.type.includes('mouse') ? event.clientX : event.touches[0].clientX;
+                // Calculate width of one complete set of original cards + gaps
+                function getHalfWidth() {
+                    return track.scrollWidth / 2;
                 }
 
-                function setSliderPosition() {
-                    track.style.transform = `translateX(${currentTranslate}px)`;
+                function step() {
+                    if (!isDragging && !isPaused) {
+                        currentX -= speed;
+                    }
+
+                    const halfWidth = getHalfWidth();
+                    
+                    // Wrap around seamlessly
+                    if (Math.abs(currentX) >= halfWidth) {
+                        currentX += halfWidth;
+                    } else if (currentX > 0) {
+                        currentX -= halfWidth;
+                    }
+
+                    track.style.transform = `translateX(${currentX}px)`;
+                    animationFrameId = requestAnimationFrame(step);
                 }
 
-                function animation() {
-                    setSliderPosition();
-                    if (isDragging) requestAnimationFrame(animation);
+                // Event Handlers for Dragging & Hovering
+                function getPointerX(e) {
+                    return e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
                 }
 
-                function touchStart(index) {
-                    return function (event) {
-                        isDragging = true;
-                        startX = getPositionX(event);
-                        
-                        // Disable smooth transition during active drag
-                        track.classList.remove('transition-transform', 'duration-300', 'ease-out');
-                        
-                        animationId = requestAnimationFrame(animation);
-                        windowEl.classList.add('cursor-grabbing');
-                    };
+                function onPointerDown(e) {
+                    isDragging = true;
+                    startX = getPointerX(e);
+                    dragStartX = currentX;
+                    windowEl.classList.add('cursor-grabbing');
                 }
 
-                function touchMove(event) {
+                function onPointerMove(e) {
                     if (!isDragging) return;
-                    const currentPosition = getPositionX(event);
-                    const currentMove = currentPosition - startX;
-                    currentTranslate = prevTranslate + currentMove;
+                    const deltaX = getPointerX(e) - startX;
+                    currentX = dragStartX + deltaX;
                 }
 
-                function touchEnd() {
+                function onPointerUp() {
                     if (!isDragging) return;
                     isDragging = false;
-                    cancelAnimationFrame(animationId);
-
-                    const movedBy = currentTranslate - prevTranslate;
-
-                    // Snap logic: Check if moved far enough to trigger slide change
-                    if (movedBy < -100 && currentIndex < cards.length - 1) {
-                        currentIndex += 1;
-                    }
-
-                    if (movedBy > 100 && currentIndex > 0) {
-                        currentIndex -= 1;
-                    }
-
-                    setPositionByIndex();
                     windowEl.classList.remove('cursor-grabbing');
                 }
 
-                function setPositionByIndex() {
-                    // Calculate offset including track gap
-                    const cardWidth = windowEl.clientWidth;
-                    const gap = 24; // matches Tailwind 'gap-6' (1.5rem = 24px)
-                    
-                    currentTranslate = -(currentIndex * (cardWidth + gap));
-                    prevTranslate = currentTranslate;
-
-                    // Re-enable smooth transition for snapping animation
-                    track.classList.add('transition-transform', 'duration-300', 'ease-out');
-                    setSliderPosition();
-                }
-
-                // Event Listeners for Touch / Mouse
-                windowEl.addEventListener('mousedown', touchStart());
-                windowEl.addEventListener('mousemove', touchMove);
-                windowEl.addEventListener('mouseup', touchEnd);
+                // Hover listeners to pause on hover
+                windowEl.addEventListener('mouseenter', () => isPaused = true);
                 windowEl.addEventListener('mouseleave', () => {
-                    if (isDragging) touchEnd();
+                    isPaused = false;
+                    onPointerUp();
                 });
 
-                windowEl.addEventListener('touchstart', touchStart());
-                windowEl.addEventListener('touchmove', touchMove);
-                windowEl.addEventListener('touchend', touchEnd);
+                // Touch & Mouse Drag Listeners
+                windowEl.addEventListener('mousedown', onPointerDown);
+                window.addEventListener('mousemove', onPointerMove);
+                window.addEventListener('mouseup', onPointerUp);
 
-                // Recalculate on window resize
-                window.addEventListener('resize', setPositionByIndex);
+                windowEl.addEventListener('touchstart', onPointerDown, { passive: true });
+                window.addEventListener('touchmove', onPointerMove, { passive: true });
+                window.addEventListener('touchend', onPointerUp);
+
+                // Start auto loop
+                animationFrameId = requestAnimationFrame(step);
             });
 
 

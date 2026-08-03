@@ -22,6 +22,105 @@
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+        <style>
+            /* Pre-promote scroll-animated elements to their own compositor layer
+               so the browser isn't allocating/painting a new layer mid-scroll,
+               which is a common cause of scroll-jank on pinned sections. */
+            #game-screen,
+            #helix-zoom,
+            #helix-scrim,
+            .story-text {
+                will-change: transform, opacity;
+            }
+
+            /* ----------------------------------------------------------------
+               Double-helix background (adapted from double-helix-gallery.html)
+               Scoped under helix- prefixed classes so nothing here collides
+               with the rest of the site's styles.
+               ---------------------------------------------------------------- */
+            :root {
+                --helix-card-width: 225px;
+                --helix-card-height: 155px;
+                --helix-perspective: 1200px;
+            }
+
+            #helix-zoom {
+                position: absolute;
+                inset: 0;
+                width: 100%;
+                height: 100%;
+                transform-origin: 50% 50%;
+                /* Starting value only — the real starting scale is set inline
+                   below and driven by GSAP; this is just a safe fallback for
+                   the instant before JS runs. */
+                transform: scale(2.4);
+            }
+
+            .helix-scene {
+                position: relative;
+                width: 100%;
+                height: 100%;
+                perspective: var(--helix-perspective);
+                perspective-origin: 50% 50%;
+                overflow: hidden;
+                background: #0d0d0c;
+            }
+
+            .helix-world {
+                position: absolute;
+                inset: 0;
+                transform-style: preserve-3d;
+            }
+
+            .helix-card {
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                width: var(--helix-card-width);
+                height: var(--helix-card-height);
+                border-radius: 10px;
+                background-size: cover;
+                background-position: center;
+                will-change: transform, filter;
+            }
+
+            .helix-vignette {
+                position: absolute;
+                inset: 0;
+                pointer-events: none;
+                background:
+                    linear-gradient(to bottom, #0d0d0c 0%, transparent 18%, transparent 82%, #0d0d0c 100%),
+                    radial-gradient(ellipse 90% 80% at 50% 50%, transparent 55%, rgba(13, 13, 12, 0.9) 100%);
+            }
+
+            /* The site-wide `* { transition: 150ms }` reset in style.css applies
+               to transform/opacity/filter on every element, including these.
+               Both the rAF loop (per-card transform + filter) and GSAP (scale on
+               #helix-zoom, opacity on #helix-scrim) already update these
+               properties every frame — a CSS transition layered on top means the
+               browser is constantly easing toward a target that's already been
+               superseded, which reads as jitter. Opt out so JS has sole control,
+               same reasoning as the #game-screen / .story-text opt-out below. */
+            #helix-zoom,
+            #helix-scrim,
+            .helix-scene,
+            .helix-world,
+            .helix-card {
+                transition: none;
+            }
+
+            /* Full-bleed scrim that keeps phrases 1-3 reading as "helix as a
+               dark backdrop" — it starts opaque-ish and is faded out by GSAP
+               as we zoom out into the full reveal. */
+            #helix-scrim {
+                position: absolute;
+                inset: 0;
+                background: rgba(13, 13, 12, 0.6);
+                pointer-events: none;
+                opacity: 1;
+            }
+        </style>
     </head>
 
     <body class="bg-[--background] text-white overflow-x-hidden">
@@ -74,24 +173,21 @@
 
             <div id="scroll-story-wrapper" class="w-full bg-black relative">
                 
-                <section id="scroll-story" class="relative w-full h-screen bg-black text-white overflow-hidden">
+                <section id="scroll-story" class="relative w-full min-h-screen bg-black text-white overflow-hidden flex items-center justify-center">
                     
-                    <div id="sticky-viewport" class="relative w-full h-full flex items-center justify-center overflow-hidden">
+                    <div id="sticky-viewport" class="relative w-full h-full min-h-screen flex items-center justify-center overflow-hidden">
                         
-                        <div id="monitor-container" class="absolute inset-0 flex items-center justify-center z-10 w-full h-full">
-                            <div id="game-screen" class="relative w-full h-full overflow-hidden">
-                                <video 
-                                    class="w-full h-full object-cover" 
-                                    src="../../videos/gameplay.mp4" 
-                                    autoplay muted loop playsinline>
-                                </video>
+                        <div id="game-screen" class="absolute inset-0 w-full h-full overflow-hidden" style="transform: translateZ(0); -webkit-transform: translateZ(0);">
+                            <div id="helix-zoom">
+                                <div class="helix-scene" id="helixScene">
+                                    <div class="helix-world" id="helixWorld"></div>
+                                    <div class="helix-vignette"></div>
+                                </div>
                             </div>
-
-                            <img id="multi-monitor-frame" src="../../images/monitor-stand.png" alt="Multi Monitor Setup" class="absolute inset-0 w-full h-full object-contain pointer-events-none opacity-0 z-20">
+                            <div id="helix-scrim"></div>
                         </div>
 
                         <div class="relative z-30 text-center px-6 max-w-4xl w-full pointer-events-none">
-                            
                             <h2 id="phrase-1" class="story-text absolute inset-x-0 top-1/2 -translate-y-1/2 text-4xl sm:text-6xl md:text-7xl font-black uppercase tracking-tight opacity-0">
                                 For fifteen years
                             </h2>
@@ -111,7 +207,6 @@
                             <h2 id="phrase-5" class="story-text absolute inset-x-0 top-1/2 -translate-y-1/2 text-4xl sm:text-6xl md:text-7xl font-black uppercase tracking-tight opacity-0">
                                 Just pure kinetic speed.
                             </h2>
-
                         </div>
 
                     </div>
@@ -143,64 +238,183 @@
         <div id="footer-container"></div>
 
         <script>
+            // ----------------------------------------------------------------
+            // Double-helix background engine (adapted from double-helix-gallery.html)
+            // Ambient-only: the drag/momentum interaction from the original
+            // gallery is dropped here since this instance lives behind a
+            // scroll-driven story rather than being a stand-alone, draggable
+            // gallery. GSAP separately tweens #helix-zoom's scale and
+            // #helix-scrim's opacity to drive the "zoomed-in dark backdrop ->
+            // full reveal" beat described in the scroll story.
+            // ----------------------------------------------------------------
+            (function initHelix() {
+                const config = {
+                    scene: {
+                        strands: 2,
+                        perStrand: 20,
+                        turns: 2,
+                        speed: 0.18,
+                        spanFactor: 1.5
+                    },
+                    appearance: {
+                        palette: [
+                            "#7d9183", "#5b7ea3", "#c9bfa8", "#4f7d78", "#a9836a",
+                            "#6b7280", "#77805e", "#66757f", "#8a8478", "#96876f",
+                            "#5e7268", "#6f7d8c", "#847e6a", "#4e6a74"
+                        ],
+                        paletteStrandOffset: 7,
+                        brightnessFloor: 0.12,
+                        maxBlur: 5
+                    },
+                    image: {
+                        width: 520,
+                        height: 360
+                    },
+                    breakpoints: [
+                        { minWidth: 1440, radius: 560, perspective: 1400, cardWidth: 260, cardHeight: 180 },
+                        { minWidth: 1024, radius: 420, perspective: 1200, cardWidth: 225, cardHeight: 155 },
+                        { minWidth: 640,  radius: 310, perspective: 1000, cardWidth: 170, cardHeight: 118 },
+                        { minWidth: 0,    radius: 220, perspective: 850,  cardWidth: 128, cardHeight: 88 }
+                    ]
+                };
+
+                const wrap = (value, length) => ((value % length) + length) % length;
+                const helixAngle = (progress, phase) => progress * config.scene.turns * 2 * Math.PI + phase;
+                const depthOf = (angle) => (Math.cos(angle) + 1) / 2;
+                const helixTransform = (angle, y, radius) =>
+                    `translate(-50%, -50%) rotateY(${angle.toFixed(4)}rad) translateZ(${radius}px) translateY(${y.toFixed(1)}px)`;
+                const depthFilter = (depth) => {
+                    const { brightnessFloor, maxBlur } = config.appearance;
+                    const brightness = brightnessFloor + (1 - brightnessFloor) * depth * depth;
+                    const blur = (1 - depth) * (1 - depth) * maxBlur;
+                    return `brightness(${brightness.toFixed(3)}) blur(${blur.toFixed(2)}px)`;
+                };
+
+                const scene = document.getElementById("helixScene");
+                const world = document.getElementById("helixWorld");
+                if (!scene || !world) return; // section not present on this page render
+
+                const view = { span: 0, radius: 0 };
+                const pickBreakpoint = () =>
+                    config.breakpoints.find((bp) => window.innerWidth >= bp.minWidth) ??
+                    config.breakpoints[config.breakpoints.length - 1];
+
+                const applyViewport = () => {
+                    const bp = pickBreakpoint();
+                    view.span = scene.clientHeight * config.scene.spanFactor;
+                    view.radius = bp.radius;
+                    const root = document.documentElement.style;
+                    root.setProperty("--helix-card-width", `${bp.cardWidth}px`);
+                    root.setProperty("--helix-card-height", `${bp.cardHeight}px`);
+                    root.setProperty("--helix-perspective", `${bp.perspective}px`);
+                };
+
+                applyViewport();
+                window.addEventListener("resize", applyViewport);
+
+                const { strands, perStrand } = config.scene;
+                const { palette, paletteStrandOffset } = config.appearance;
+                const imageUrl = (strand, index) =>
+                    `https://picsum.photos/seed/helix-${strand}-${index}/${config.image.width}/${config.image.height}`;
+                const placeholderColor = (strand, index) =>
+                    palette[(index + strand * paletteStrandOffset) % palette.length];
+
+                const cards = [];
+                for (let strand = 0; strand < strands; strand++) {
+                    for (let index = 0; index < perStrand; index++) {
+                        const el = document.createElement("div");
+                        el.className = "helix-card";
+                        el.style.backgroundColor = placeholderColor(strand, index);
+                        el.style.backgroundImage = `url(${imageUrl(strand, index)})`;
+                        world.appendChild(el);
+                        cards.push({ el, base: index, phase: (strand / strands) * 2 * Math.PI });
+                    }
+                }
+
+                const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+                const start = performance.now();
+
+                const frame = (now) => {
+                    const elapsed = reducedMotion.matches ? 0 : (now - start) / 1000;
+                    for (const card of cards) {
+                        const progress = wrap(card.base + elapsed * config.scene.speed, perStrand) / perStrand;
+                        const angle = helixAngle(progress, card.phase);
+                        const y = (progress - 0.5) * view.span;
+                        card.el.style.transform = helixTransform(angle, y, view.radius);
+                        card.el.style.filter = depthFilter(depthOf(angle));
+                    }
+                    requestAnimationFrame(frame);
+                };
+                requestAnimationFrame(frame);
+            })();
+        </script>
+
+        <script>
             document.addEventListener('DOMContentLoaded', () => {
                 gsap.registerPlugin(ScrollTrigger);
 
-                ScrollTrigger.config({ ignoreMobileResize: true });
+                // Prevent resize glitches on mobile address bar toggles
+                ScrollTrigger.config({ 
+                    ignoreMobileResize: true,
+                    autoRefreshEvents: "DOMContentLoaded,load,resize"
+                });
 
                 const tl = gsap.timeline({
+                    defaults: { ease: "none" }, // Scrubbed timelines shouldn't ease tweens individually —
+                                                 // the scroll position IS the easing. Per-tween eases fight
+                                                 // the scrub and produce the speed-up/slow-down "jitter" feel.
                     scrollTrigger: {
                         trigger: "#scroll-story-wrapper",
                         start: "top top",
-                        end: "+=3500", // Adjusted scroll distance
-                        scrub: 1,      // Smooth out scrubbing slighty (0.5 to 1)
+                        end: "+=3000",
+                        scrub: 0.5,             // Lower = tighter coupling to scroll, less perceived lag
                         pin: "#scroll-story",
+                        pinType: "transform",    // FORCES GSAP to use transforms instead of position:fixed (Prevents video flashing)
                         pinSpacing: true,
                         anticipatePin: 1,
                         invalidateOnRefresh: true,
+                        fastScrollEnd: true      // Snaps to end state on very fast scroll flicks instead of lagging behind
                     }
                 });
 
-                // --- SEQUENCED TIMELINE ---
+                // Phrase Animations
+                tl.fromTo("#phrase-1", { autoAlpha: 0, y: 30 }, { autoAlpha: 1, y: 0, duration: 1 })
+                .to("#phrase-1", { autoAlpha: 0, y: -30, duration: 1 }, "+=0.5")
 
-                // Phrase 1
-                tl.fromTo("#phrase-1", { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: 1 })
-                .to("#phrase-1", { autoAlpha: 0, y: -20, duration: 1 }, "+=1")
+                .fromTo("#phrase-2", { autoAlpha: 0, y: 30 }, { autoAlpha: 1, y: 0, duration: 1 })
+                .to("#phrase-2", { autoAlpha: 0, y: -30, duration: 1 }, "+=0.5")
 
-                // Phrase 2
-                .fromTo("#phrase-2", { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: 1 })
-                .to("#phrase-2", { autoAlpha: 0, y: -20, duration: 1 }, "+=1")
+                .fromTo("#phrase-3", { autoAlpha: 0, y: 30 }, { autoAlpha: 1, y: 0, duration: 1 })
+                .to("#phrase-3", { autoAlpha: 0, y: -30, duration: 1 }, "+=0.5")
 
-                // Phrase 3
-                .fromTo("#phrase-3", { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: 1 })
-                .to("#phrase-3", { autoAlpha: 0, y: -20, duration: 1 }, "+=1.5")
-
-                // Shrink video & reveal multi-monitor display
+                // Shrink scale safely without dropping video context
                 .to("#game-screen", { 
-                    scale: 0.6,
-                    borderRadius: "20px",
-                    duration: 4,
-                    ease: "power1.inOut"
+                    scale: 0.7,
+                    borderRadius: "24px",
+                    duration: 3
                 }, "shrinkStart")
-                .to("#multi-monitor-frame", { 
-                    autoAlpha: 1, 
-                    duration: 2.5 
-                }, "shrinkStart+=0.5")
 
-                // Phrase 4
-                .fromTo("#phrase-4", { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: 1 }, "shrinkStart+=1")
-                .to("#phrase-4", { autoAlpha: 0, y: -20, duration: 1 }, "+=1")
+                // Helix reveal: the helix has been sitting zoomed-in and veiled
+                // behind phrases 1-3, reading as a dark textured backdrop. As
+                // we scroll past "No limit, no bottlenecks." it zooms out and
+                // the scrim clears, uncovering the full double-helix spiral
+                // just in time for "Just pure kinetic speed."
+                .to("#helix-zoom", {
+                    scale: 1,
+                    duration: 3
+                }, "shrinkStart")
+                .to("#helix-scrim", {
+                    opacity: 0,
+                    duration: 2.5
+                }, "shrinkStart+=0.25")
 
-                // Phrase 5
-                .fromTo("#phrase-5", { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: 1 })
-                .to("#phrase-5", { autoAlpha: 0, y: -20, duration: 1 }, "+=1.5");
+                .fromTo("#phrase-4", { autoAlpha: 0, y: 30 }, { autoAlpha: 1, y: 0, duration: 1 }, "shrinkStart+=0.5")
+                .to("#phrase-4", { autoAlpha: 0, y: -30, duration: 1 }, "+=0.5")
 
-                // Force ScrollTrigger to recalculate layout after assets load
-                const video = document.querySelector("#game-screen video");
-                if (video) {
-                    video.addEventListener('loadedmetadata', () => ScrollTrigger.refresh());
-                }
+                .fromTo("#phrase-5", { autoAlpha: 0, y: 30 }, { autoAlpha: 1, y: 0, duration: 1 })
+                .to("#phrase-5", { autoAlpha: 0, y: -30, duration: 1 }, "+=0.5");
 
+                // Recalculate positions after everything loads
                 window.addEventListener('load', () => {
                     ScrollTrigger.refresh();
                 });
