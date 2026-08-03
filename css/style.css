@@ -112,3 +112,29 @@ h1, h2, h3, header, #desktop-drawer {
     pointer-events: none;
     animation: cta-ripple 0.6s cubic-bezier(0.1, 0.8, 0.3, 1) forwards;
 }
+
+/* Force smooth GPU composition for pinned sections */
+#scroll-story-wrapper,
+#scroll-story {
+    will-change: transform;
+    transform: translateZ(0);
+}
+
+.story-text {
+    will-change: transform, opacity;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+}
+
+/* The global `* { transition: 150ms }` reset above applies to transform/opacity
+   on EVERY element, including these. GSAP already updates those same properties
+   every animation frame during the scrub — having a CSS transition on top of that
+   means the browser is constantly easing toward a target GSAP has already moved
+   past, causing a stutter/rubber-band effect. Opt these out so GSAP has sole
+   control of the properties it animates. */
+#game-screen,
+.story-text,
+#scroll-story-wrapper,
+#scroll-story {
+    transition: none;
+}
