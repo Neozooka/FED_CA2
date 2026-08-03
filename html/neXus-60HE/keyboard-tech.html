@@ -65,8 +65,8 @@
 
                         </div>
 
-                        <!-- RIGHT SIDE: Image Display & Specs Card -->
-                        <div class="md:col-span-8 flex flex-col space-y-8 w-full max-w-lg mx-auto md:mx-0">
+                        <!-- RIGHT SIDE: Image Display & Specs Card (Centered in grid column using mx-auto) -->
+                        <div class="md:col-span-8 flex flex-col space-y-8 w-full max-w-lg mx-auto">
                             
                             <!-- IMAGE DISPLAY SLIDER TRACK -->
                             <div class="relative w-full h-72 sm:h-80 overflow-hidden bg-transparent">
@@ -90,7 +90,7 @@
                                 </div>
                             </div>
 
-                            <!-- SPECIFICATIONS SECTION (Background removed, matched width) -->
+                            <!-- SPECIFICATIONS SECTION -->
                             <div class="w-full space-y-6">
                                 
                                 <!-- Title Header -->
@@ -115,11 +115,6 @@
                                         <span id="val-3" class="text-neutral-200 font-medium">1.45 kg (Built)</span>
                                     </div>
                                 </div>
-
-                                <!-- Audio Action Button -->
-                                <button id="action-btn" class="w-full py-3.5 border border-neutral-700 hover:border-white text-xs uppercase tracking-widest transition duration-300 rounded-xl bg-neutral-900 hover:bg-white hover:text-black text-neutral-200 font-bold">
-                                    Play Full Typing Demo
-                                </button>
 
                             </div>
 
@@ -200,83 +195,76 @@
                     title: "00 / FULL KEYBOARD BUILD",
                     labels: ["LAYOUT", "MOUNTING", "WEIGHT"],
                     values: ["75% Exploded Layout", "Gasket Mount System", "1.45 kg (Built)"],
-                    btnText: "Play Full Typing Demo"
                 },
                 keycaps: {
                     index: 1,
                     title: "01 / KEYCAP SPECIFICATIONS",
                     labels: ["PROFILE", "MATERIAL", "LEGENDS"],
                     values: ["Cherry Profile", "Double-shot PBT (1.5mm)", "Seamless Dye-Sublimated"],
-                    btnText: "Listen to Keycap Clack"
                 },
                 switches: {
                     index: 2,
                     title: "02 / SWITCH SPECIFICATIONS",
                     labels: ["TYPE", "OPERATING FORCE", "SOUND CHARACTER"],
                     values: ["Pre-Lubed Linear", "45 cN Actuation / 53 cN Bottom-out", "Snappy & Deep Thock"],
-                    btnText: "Play Switch Sound"
                 },
                 case: {
                     index: 3,
                     title: "03 / BOTTOM CASE SPECIFICATIONS",
                     labels: ["MATERIAL", "DAMPENING", "WEIGHT BAR"],
                     values: ["6063 Anodized Aluminum", "Poron Case Foam + PET Sheet", "Brass Accent Weight"],
-                    btnText: "Listen to Acoustic Resonance"
                 }
-            };
+            }
 
             document.addEventListener("DOMContentLoaded", () => {
-                const buttons = document.querySelectorAll(".part-btn");
-                const sliderTrack = document.getElementById("slider-track");
-                const specTitle = document.getElementById("spec-title");
-                const actionBtn = document.getElementById("action-btn");
+                const buttons = document.querySelectorAll(".part-btn")
+                const sliderTrack = document.getElementById("slider-track")
+                const specTitle = document.getElementById("spec-title")
 
-                const label1 = document.getElementById("label-1");
-                const val1 = document.getElementById("val-1");
-                const label2 = document.getElementById("label-2");
-                const val2 = document.getElementById("val-2");
-                const label3 = document.getElementById("label-3");
-                const val3 = document.getElementById("val-3");
+                const label1 = document.getElementById("label-1")
+                const val1 = document.getElementById("val-1")
+                const label2 = document.getElementById("label-2")
+                const val2 = document.getElementById("val-2")
+                const label3 = document.getElementById("label-3")
+                const val3 = document.getElementById("val-3")
 
                 buttons.forEach(btn => {
                     btn.addEventListener("click", () => {
-                        const partKey = btn.getAttribute("data-part");
-                        const data = specData[partKey];
+                        const partKey = btn.getAttribute("data-part")
+                        const data = specData[partKey]
 
-                        if (!data) return;
+                        if (!data) return
 
                         // 1. Reset all buttons to inactive styling
                         buttons.forEach(b => {
-                            b.classList.remove("active");
-                            const textSpan = b.querySelector(".part-text");
+                            b.classList.remove("active")
+                            const textSpan = b.querySelector(".part-text")
                             if (textSpan) {
-                                textSpan.className = "part-text inline-block transition-all duration-300 text-lg sm:text-xl font-medium text-neutral-500 group-hover:text-neutral-300 tracking-wide uppercase";
+                                textSpan.className = "part-text inline-block transition-all duration-300 text-lg sm:text-xl font-medium text-neutral-500 group-hover:text-neutral-300 tracking-wide uppercase"
                             }
-                        });
+                        })
 
                         // 2. Set clicked button to Active state (Bold & Larger text)
-                        btn.classList.add("active");
-                        const activeTextSpan = btn.querySelector(".part-text");
+                        btn.classList.add("active")
+                        const activeTextSpan = btn.querySelector(".part-text")
                         if (activeTextSpan) {
-                            activeTextSpan.className = "part-text inline-block transition-all duration-300 text-2xl sm:text-3xl font-black text-white tracking-wide uppercase";
+                            activeTextSpan.className = "part-text inline-block transition-all duration-300 text-2xl sm:text-3xl font-black text-white tracking-wide uppercase"
                         }
 
                         // 3. Slide Carousel Track (4 slides total, each moves 25%)
-                        sliderTrack.style.transform = `translateX(-${data.index * 25}%)`;
-
+                        sliderTrack.style.transform = `translateX(-${data.index * 25}%)`
                         // 4. Update Specs Card Content
-                        specTitle.textContent = data.title;
+                        specTitle.textContent = data.title
                         
-                        label1.textContent = data.labels[0];
-                        val1.textContent = data.values[0];
+                        label1.textContent = data.labels[0]
+                        val1.textContent = data.values[0]
 
-                        label2.textContent = data.labels[1];
-                        val2.textContent = data.values[1];
+                        label2.textContent = data.labels[1]
+                        val2.textContent = data.values[1]
 
-                        label3.textContent = data.labels[2];
-                        val3.textContent = data.values[2];
+                        label3.textContent = data.labels[2]
+                        val3.textContent = data.values[2]
 
-                        actionBtn.textContent = data.btnText;
                     });
                 });
             });

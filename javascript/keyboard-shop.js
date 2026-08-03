@@ -1,119 +1,87 @@
-let product_id = ""
-//For the selection of actions
+let product_id = "";
 
-let NButton = document.getElementById("next")
-let PButton = document.getElementById("previous")
-let actionView = document.querySelector(".actionView")
-let list = document.querySelector(".list")
+// 0-indexed slide tracker (0 = Image 1, 1 = Image 2, 2 = Image 3)
+let currentIndex = 0; 
+let autoSlide = null;
 
-//Calls the function with 1 parameter
+function updateCarousel(index) {
+    let actions = document.querySelectorAll(".action");
+    let carouselButtons = document.querySelectorAll(".carouselbutton");
+    let thumbnails = document.querySelectorAll(".thumb-card");
+    const totalSlides = actions.length;
 
-function updateCarouselLayout(count) {
-    let actions = document.querySelectorAll(".action")
-    let carouselbutton = document.querySelectorAll(".carouselbutton")
-    
-    if (count === 1) {
-        carouselbutton.forEach((button, index) => {
-            button.classList.remove("bg-gray-700", "bg-gray-300")
-            if (index === 0) {
-                button.classList.add("bg-gray-700")
-            } else if (index === 1) {
-                button.classList.add("bg-gray-300")
-            } else if (index === 2) {
-                button.classList.add("bg-gray-300")
-            }
-        })
-    } else if (count == 2) {
-        carouselbutton.forEach((button, index) => {
-            button.classList.remove("bg-gray-700", "bg-gray-300")
-            if (index === 0) {
-                button.classList.add("bg-gray-300")
-            } else if (index === 1) {
-                button.classList.add("bg-gray-700")
-            } else if (index === 2) {
-                button.classList.add("bg-gray-300")
-            }
-        })
-    } else if (count == 3) {
-        carouselbutton.forEach((button, index) => {
-            button.classList.remove("bg-gray-700", "bg-gray-300")
-            if (index === 0) {
-                button.classList.add("bg-gray-300")
-            } else if (index === 1) {
-                button.classList.add("bg-gray-300")
-            } else if (index === 2) {
-                button.classList.add("bg-gray-700")
-            }
-        })
-    }
+    // Normalize index bounds (loop back around)
+    if (index >= totalSlides) currentIndex = 0;
+    else if (index < 0) currentIndex = totalSlides - 1;
+    else currentIndex = index;
 
-    actions.forEach((card, index) => {
-        card.classList.remove("z-10", "z-20","opacity-0","opacity-100")
-        
-        if (index === 0) {
-            card.classList.add("opacity-0", "z-10")
-        } else if (index === 1) {
-            card.classList.add("opacity-100","z-20")
-        } else if (index === 2) {
-            card.classList.add("opacity-0", "z-10")
+    // 1. Update Top Carousel Images
+    actions.forEach((card, i) => {
+        if (i === currentIndex) {
+            card.classList.add("opacity-100", "z-20", "pointer-events-auto");
+            card.classList.remove("opacity-0", "z-10", "pointer-events-none");
+        } else {
+            card.classList.add("opacity-0", "z-10", "pointer-events-none");
+            card.classList.remove("opacity-100", "z-20", "pointer-events-auto");
+        }
+    });
+
+    // 2. Update Indicator Dots
+    carouselButtons.forEach((button, i) => {
+        if (i === currentIndex) {
+            button.classList.add("bg-gray-700");
+            button.classList.remove("bg-gray-300");
+        } else {
+            button.classList.add("bg-gray-300");
+            button.classList.remove("bg-gray-700");
+        }
+    });
+
+    // 3. Update Bottom Thumbnails
+    thumbnails.forEach((thumb, i) => {
+        if (i === currentIndex) {
+            thumb.classList.add("border-2", "border-white", "scale-105", "opacity-100");
+            thumb.classList.remove("opacity-50");
+        } else {
+            thumb.classList.remove("border-2", "border-white", "scale-105", "opacity-100");
+            thumb.classList.add("opacity-50");
         }
     });
 }
 
 function next() {
-    showSlider("next")
+    updateCarousel(currentIndex + 1);
 }
+
 function previous() {
-    showSlider("previous")
+    updateCarousel(currentIndex - 1);
 }
 
-//Moves the card to the left/right
-
-let count = 1
-
-function showSlider(type) {
-    let actions = document.querySelectorAll(".action")
-
-    if (type === "next") {
-        count += 1
-        // console.log(count)
-        setTimeout(() => {
-            list.appendChild(actions[0])
-            updateCarouselLayout(count)
-        }, 20)
-    } else {
-        let lastPos = actions.length - 1
-        count -= 1
-        setTimeout(() => {
-            list.prepend(actions[lastPos])
-            updateCarouselLayout(count)
-        }, 20)
-        
-    }
-
-    if (count > 3) {
-        count = 1
-    } else if (count < 1) {
-        count = 3
-    } 
+function goToSlide(targetIndex) {
+    updateCarousel(targetIndex);
 }
 
-setInterval(next, 4000)
+// Reset auto-slide timer when user interacts manually
+function resetInterval() {
+    clearInterval(autoSlide);
+    autoSlide = setInterval(next, 4000);
+}
+
+// Start auto-slide on load
+autoSlide = setInterval(next, 4000);
 
 function returnId(id) {      
-    product_id = id
+    product_id = id;
 }
 
 function activeProduct(id) {
-    // console.log("hi")
-    elementRemoved = document.querySelectorAll(".Product-Button")
+    let elementRemoved = document.querySelectorAll(".Product-Button");
     elementRemoved.forEach(elem => {
-        elem.classList.remove("border-gray-200", "border-red-500", "text-red-500")
-        elem.classList.add("border-gray-200")
-    })
-    element = document.getElementById(id)
-    element.classList.remove("border-gray-200")
-    element.classList.add("border-red-500", "text-red-500")
-    returnId(id)
-    
+        elem.classList.remove("border-gray-200", "bg-[var(--maingreen)]", "text-[var(--maingreen)]");
+        elem.classList.add("border-gray-200");
+    });
+    let element = document.getElementById(id);
+    element.classList.remove("border-gray-200");
+    element.classList.add("border-[var(--maingreen)]", "text-[var(--maingreen)]");
+    returnId(id);
 }
