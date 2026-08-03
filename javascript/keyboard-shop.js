@@ -103,7 +103,7 @@ function loadProductsFromList(cartList) {
     });
 
     if (numberItems) numberItems.textContent = totalItemsCount;
-    if (priceTotal) priceTotal.textContent = "$" + totalCost.toFixed(2);
+    if (priceTotal) priceTotal.textContent = totalCost.toFixed(2);
 }
 
 /**
