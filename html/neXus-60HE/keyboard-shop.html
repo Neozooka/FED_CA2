@@ -13,6 +13,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <script src="../../javascript/keyboard-shop.js" defer></script>
+        <script src="../../javascript/main-shop.js" defer></script>
         <script src="../../javascript/header-footer.js" defer></script>
         <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@200..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
@@ -141,11 +142,11 @@
                         </div>
                     </div>
                     <div class="flex justify-start gap-6">
-                        <button class="bg-red-500 flex-1 h-[50px] px-2 rounded-xl transition hover:bg-red-600" onclick="addCart(product_id)">
+                        <button class="bg-red-500 flex-1 h-[50px] px-2 rounded-xl transition hover:bg-red-600" onclick="addCart('nexus-60he-magnetic-keyboard-8000hz-polling-adjustable')">
                             <p class="text-sm font-semibold text-white">Add to Cart</p>
                         </button>
-                        <button class="bg-red-500 flex-1 h-[50px] px-2 rounded-xl transition hover:bg-red-600" onclick="addCart()">
-                            <a class="text-sm font-semibold text-white">Buy Now</a>
+                        <button class="bg-red-500 flex-1 h-[50px] px-2 rounded-xl transition hover:bg-red-600" onclick="addCart('nexus-60he-magnetic-keyboard-8000hz-polling-adjustable')">
+                            <a class="text-sm font-semibold text-white" href="../payment.html">Buy Now</a>
                         </button>
                     </div>
                 </div>
@@ -206,127 +207,7 @@
 
         <div id="footer-container"></div>
 
-        <script>
-            let product_id = ""
-            //For the selection of actions
-            
-            let NButton = document.getElementById("next")
-            let PButton = document.getElementById("previous")
-            let actionView = document.querySelector(".actionView")
-            let list = document.querySelector(".list")
-            
-            //Calls the function with 1 parameter
 
-            function updateCarouselLayout(count) {
-                let actions = document.querySelectorAll(".action")
-                let carouselbutton = document.querySelectorAll(".carouselbutton")
-                
-                if (count === 1) {
-                    carouselbutton.forEach((button, index) => {
-                        button.classList.remove("bg-gray-700", "bg-gray-300")
-                        if (index === 0) {
-                            button.classList.add("bg-gray-700")
-                        } else if (index === 1) {
-                            button.classList.add("bg-gray-300")
-                        } else if (index === 2) {
-                            button.classList.add("bg-gray-300")
-                        }
-                    })
-                } else if (count == 2) {
-                    carouselbutton.forEach((button, index) => {
-                        button.classList.remove("bg-gray-700", "bg-gray-300")
-                        if (index === 0) {
-                            button.classList.add("bg-gray-300")
-                        } else if (index === 1) {
-                            button.classList.add("bg-gray-700")
-                        } else if (index === 2) {
-                            button.classList.add("bg-gray-300")
-                        }
-                    })
-                } else if (count == 3) {
-                    carouselbutton.forEach((button, index) => {
-                        button.classList.remove("bg-gray-700", "bg-gray-300")
-                        if (index === 0) {
-                            button.classList.add("bg-gray-300")
-                        } else if (index === 1) {
-                            button.classList.add("bg-gray-300")
-                        } else if (index === 2) {
-                            button.classList.add("bg-gray-700")
-                        }
-                    })
-                }
-            
-                actions.forEach((card, index) => {
-                    card.classList.remove("z-10", "z-20","opacity-0","opacity-100")
-                    
-                    if (index === 0) {
-                        card.classList.add("opacity-0", "z-10")
-                    } else if (index === 1) {
-                        card.classList.add("opacity-100","z-20")
-                    } else if (index === 2) {
-                        card.classList.add("opacity-0", "z-10")
-                    }
-                });
-            }
-
-            function next() {
-                showSlider("next")
-            }
-            function previous() {
-                showSlider("previous")
-            }
-
-            //Moves the card to the left/right
-
-            let count = 1
-
-            function showSlider(type) {
-                let actions = document.querySelectorAll(".action")
-
-                if (type === "next") {
-                    count += 1
-                    // console.log(count)
-                    setTimeout(() => {
-                        list.appendChild(actions[0])
-                        updateCarouselLayout(count)
-                    }, 20)
-                } else {
-                    let lastPos = actions.length - 1
-                    count -= 1
-                    setTimeout(() => {
-                        list.prepend(actions[lastPos])
-                        updateCarouselLayout(count)
-                    }, 20)
-                    
-                }
-
-                if (count > 3) {
-                    count = 1
-                } else if (count < 1) {
-                    count = 3
-                } 
-            }
-
-            setInterval(next, 4000)
-
-            function returnId(id) {      
-                product_id = id
-            }
-
-            function activeProduct(id) {
-                // console.log("hi")
-                elementRemoved = document.querySelectorAll(".Product-Button")
-                elementRemoved.forEach(elem => {
-                    elem.classList.remove("border-gray-200", "border-red-500", "text-red-500")
-                    elem.classList.add("border-gray-200")
-                })
-                element = document.getElementById(id)
-                element.classList.remove("border-gray-200")
-                element.classList.add("border-red-500", "text-red-500")
-                returnId(id)
-                
-            }
-        </script>
 
     </body>
 
