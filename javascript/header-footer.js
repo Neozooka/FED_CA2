@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     loadHeaderAndFooter();
+    updateCartCount(); // Initialize cart count on page load
 
     const menuBtn = document.getElementById('menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
@@ -15,8 +16,10 @@ document.addEventListener('DOMContentLoaded', () => {
         mobileMenu.classList.remove('translate-y-0', 'opacity-100');
         desktopDrawer.classList.add('translate-x-full');
         desktopDrawer.classList.remove('translate-x-0');
-        menuOverlay.classList.remove('opacity-100');
-        menuOverlay.classList.add('pointer-events-none');
+        if (menuOverlay) {
+            menuOverlay.classList.remove('opacity-100');
+            menuOverlay.classList.add('pointer-events-none');
+        }
         body.classList.remove('no-scroll');
     }
 
@@ -107,7 +110,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function getRootPrefix() {
     const path = window.location.pathname;
-    
     const segments = path.split('/').filter(Boolean);
     const htmlIndex = segments.indexOf('html');
 
@@ -129,6 +131,25 @@ function getPageTitle() {
     return 'home';
 }
 
+/**
+ * Calculates total quantity of items stored in localStorage 'userCart'
+ * and updates all element badges with the class or ID 'cart-count'.
+ */
+function updateCartCount() {
+    const cart = JSON.parse(localStorage.getItem('userCart')) || [];
+    const totalCount = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
+
+    const countBadges = document.querySelectorAll('.cart-badge-count');
+    countBadges.forEach(badge => {
+        badge.textContent = totalCount;
+        if (totalCount > 0) {
+            badge.classList.remove('hidden');
+        } else {
+            badge.classList.add('hidden');
+        }
+    });
+}
+
 function loadHeaderAndFooter() {
     const headerContainer = document.getElementById('header-container');
     const footerContainer = document.getElementById('footer-container');
@@ -148,6 +169,11 @@ function loadHeaderAndFooter() {
                 </a>
 
                 <div class="flex flex-row items-center space-x-6">
+                    <a href="${root}html/payment.html" aria-label="Shopping Cart" class="relative text-white hover:text-[var(--maingreen)] transition-colors p-2 flex items-center">
+                        <i class="fa fa-shopping-cart text-2xl"></i>
+                        <span class="cart-badge-count absolute -top-1 -right-1 bg-red-600 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center hidden">0</span>
+                    </a>
+
                     <button id="menu-btn" class="w-10 h-10 relative cursor-pointer focus:outline-none z-[60] flex items-center justify-center" aria-label="Menu">
                         <div class="hamburger-line line-1"></div>
                         <div class="hamburger-line line-2"></div>
