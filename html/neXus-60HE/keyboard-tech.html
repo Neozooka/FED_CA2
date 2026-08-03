@@ -11,6 +11,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <script src="../../javascript/header-footer.js" defer></script>
+        <script src="../../javascript/accordion.js" defer></script>
         <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@200..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
         <link rel="stylesheet" href="../../css/style.css">
@@ -22,142 +23,170 @@
         <div id="header-container" class="sticky top-0 z-50"></div>
 
         <article>
-            <section class="max-w-4xl mx-auto p-6 bg-neutral-950 text-white rounded-3xl border border-neutral-800 shadow-2xl">
-                <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+            <article class="w-full  text-white py-16 px-4 sm:px-8 flex flex-col items-center">
+                <div class="max-w-6xl w-full space-y-12">
                     
-                    <!-- LEFT SIDE: Navigation Buttons -->
-                    <div class="md:col-span-4 flex flex-col space-y-3">
-                    <h3 class="text-xs uppercase tracking-widest text-neutral-500 font-semibold mb-2">Explore Components</h3>
-                    
-                    <button data-part="keyboard" class="part-btn active w-full text-left p-4 rounded-xl border transition-all duration-300 bg-neutral-900 border-white text-white font-medium flex justify-between items-center group">
-                        <span>00 / Full Keyboard</span>
-                        <span class="text-xs text-neutral-400 group-hover:translate-x-1 transition-transform">→</span>
-                    </button>
-
-                    <button data-part="keycaps" class="part-btn w-full text-left p-4 rounded-xl border transition-all duration-300 bg-neutral-900/50 border-neutral-800 text-neutral-400 hover:border-neutral-700 hover:text-white font-medium flex justify-between items-center group">
-                        <span>01 / Keycaps</span>
-                        <span class="text-xs text-neutral-400 group-hover:translate-x-1 transition-transform">→</span>
-                    </button>
-
-                    <button data-part="switches" class="part-btn w-full text-left p-4 rounded-xl border transition-all duration-300 bg-neutral-900/50 border-neutral-800 text-neutral-400 hover:border-neutral-700 hover:text-white font-medium flex justify-between items-center group">
-                        <span>02 / Switches</span>
-                        <span class="text-xs text-neutral-400 group-hover:translate-x-1 transition-transform">→</span>
-                    </button>
-
-                    <button data-part="case" class="part-btn w-full text-left p-4 rounded-xl border transition-all duration-300 bg-neutral-900/50 border-neutral-800 text-neutral-400 hover:border-neutral-700 hover:text-white font-medium flex justify-between items-center group">
-                        <span>03 / Bottom Case</span>
-                        <span class="text-xs text-neutral-400 group-hover:translate-x-1 transition-transform">→</span>
-                    </button>
+                    <!-- MAIN TITLE HEADER -->
+                    <div class="text-center md:text-left">
+                        <h2 class="text-2xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight text-white">
+                            Technical Specifications for the neXus-60HE
+                        </h2>
                     </div>
 
-                    <!-- RIGHT SIDE: Carousel Display & Specs -->
-                    <div class="md:col-span-8 flex flex-col space-y-6">
-                    
-                    <!-- IMAGE DISPLAY AREA (SLIDE TRACK) -->
-                    <div class="relative w-full h-64 sm:h-72 bg-neutral-900 rounded-2xl border border-neutral-800 overflow-hidden">
-                        <div id="slider-track" class="flex h-full w-[400%] transition-transform duration-500 ease-out">
-                        <!-- Slide 0: Full Keyboard -->
-                        <div class="w-1/4 h-full flex items-center justify-center p-6 bg-gradient-to-br from-neutral-900 to-neutral-950">
-                            <img src="https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&w=800&q=80" alt="Full Keyboard" class="h-full object-contain filter drop-shadow-2xl" />
-                        </div>
-                        <!-- Slide 1: Keycaps -->
-                        <div class="w-1/4 h-full flex items-center justify-center p-6 bg-gradient-to-br from-neutral-900 to-neutral-950">
-                            <img src="https://images.unsplash.com/photo-1618384887929-16ec33fab9ef?auto=format&fit=crop&w=800&q=80" alt="Keycaps" class="h-full object-contain filter drop-shadow-2xl" />
-                        </div>
-                        <!-- Slide 2: Switches -->
-                        <div class="w-1/4 h-full flex items-center justify-center p-6 bg-gradient-to-br from-neutral-900 to-neutral-950">
-                            <img src="https://images.unsplash.com/photo-1595225476474-87563907a212?auto=format&fit=crop&w=800&q=80" alt="Switches" class="h-full object-contain filter drop-shadow-2xl" />
-                        </div>
-                        <!-- Slide 3: Bottom Case -->
-                        <div class="w-1/4 h-full flex items-center justify-center p-6 bg-gradient-to-br from-neutral-900 to-neutral-950">
-                            <img src="https://images.unsplash.com/photo-1541140532154-b024d705b909?auto=format&fit=crop&w=800&q=80" alt="Bottom Case" class="h-full object-contain filter drop-shadow-2xl" />
-                        </div>
-                        </div>
-                    </div>
-
-                    <!-- SPECIFICATIONS CARD -->
-                    <div class="bg-black/60 p-6 sm:p-8 rounded-2xl border border-neutral-800/80 backdrop-blur-md space-y-6">
+                    <!-- MAIN LAYOUT GRID (Increased X-axis spacing with md:gap-20 lg:gap-24) -->
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-20 lg:gap-24 items-start">
                         
-                        <!-- Tab Title -->
-                        <div class="border-b border-neutral-800 pb-3 text-xs tracking-widest uppercase font-semibold">
-                        <span id="spec-title" class="text-white border-b-2 border-white pb-3 -mb-[14px] inline-block">
-                            00 / FULL KEYBOARD BUILD
-                        </span>
+                        <!-- LEFT SIDE: Text Navigation Buttons -->
+                        <div class="md:col-span-4 flex flex-col justify-center border-t border-neutral-800">
+                            
+                            <button data-part="keyboard" class="part-btn active group w-full text-left py-6 border-b border-neutral-800 transition-all duration-300">
+                                <span class="part-text inline-block transition-all duration-300 text-2xl sm:text-3xl font-black text-white tracking-wide uppercase">
+                                    Full Keyboard
+                                </span>
+                            </button>
+
+                            <button data-part="keycaps" class="part-btn group w-full text-left py-6 border-b border-neutral-800 transition-all duration-300">
+                                <span class="part-text inline-block transition-all duration-300 text-lg sm:text-xl font-medium text-neutral-500 group-hover:text-neutral-300 tracking-wide uppercase">
+                                    Key Caps
+                                </span>
+                            </button>
+
+                            <button data-part="switches" class="part-btn group w-full text-left py-6 border-b border-neutral-800 transition-all duration-300">
+                                <span class="part-text inline-block transition-all duration-300 text-lg sm:text-xl font-medium text-neutral-500 group-hover:text-neutral-300 tracking-wide uppercase">
+                                    Switches
+                                </span>
+                            </button>
+
+                            <button data-part="case" class="part-btn group w-full text-left py-6 border-b border-neutral-800 transition-all duration-300">
+                                <span class="part-text inline-block transition-all duration-300 text-lg sm:text-xl font-medium text-neutral-500 group-hover:text-neutral-300 tracking-wide uppercase">
+                                    Bottom Case
+                                </span>
+                            </button>
+
                         </div>
 
-                        <!-- Dynamic Specs Grid -->
-                        <div class="space-y-3 text-xs font-light">
-                        <div class="flex justify-between border-b border-neutral-800/60 pb-2">
-                            <span id="label-1" class="text-neutral-500 uppercase">PROFILE / TYPE</span>
-                            <span id="val-1" class="text-neutral-200 font-medium">75% Custom Mechanical</span>
-                        </div>
-                        <div class="flex justify-between border-b border-neutral-800/60 pb-2">
-                            <span id="label-2" class="text-neutral-500 uppercase">MATERIAL / SOUND</span>
-                            <span id="val-2" class="text-neutral-200 font-medium">CNC Aluminum & Gasket Mount</span>
-                        </div>
-                        <div class="flex justify-between border-b border-neutral-800/60 pb-2">
-                            <span id="label-3" class="text-neutral-500 uppercase">TOTAL WEIGHT</span>
-                            <span id="val-3" class="text-neutral-200 font-medium">1.45 kg</span>
-                        </div>
-                        </div>
+                        <!-- RIGHT SIDE: Image Display & Specs Card -->
+                        <div class="md:col-span-8 flex flex-col space-y-8 w-full max-w-lg mx-auto md:mx-0">
+                            
+                            <!-- IMAGE DISPLAY SLIDER TRACK -->
+                            <div class="relative w-full h-72 sm:h-80 overflow-hidden bg-transparent">
+                                <div id="slider-track" class="flex h-full w-[400%] transition-transform duration-500 ease-out">
+                                    <!-- Slide 0: Full Keyboard -->
+                                    <div class="w-1/4 h-full flex items-center justify-center p-2">
+                                        <img src="https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&w=800&q=80" alt="Full Keyboard" class="h-full object-contain filter drop-shadow-2xl" />
+                                    </div>
+                                    <!-- Slide 1: Keycaps -->
+                                    <div class="w-1/4 h-full flex items-center justify-center p-2">
+                                        <img src="https://images.unsplash.com/photo-1618384887929-16ec33fab9ef?auto=format&fit=crop&w=800&q=80" alt="Keycaps" class="h-full object-contain filter drop-shadow-2xl" />
+                                    </div>
+                                    <!-- Slide 2: Switches -->
+                                    <div class="w-1/4 h-full flex items-center justify-center p-2">
+                                        <img src="https://images.unsplash.com/photo-1595225476474-87563907a212?auto=format&fit=crop&w=800&q=80" alt="Switches" class="h-full object-contain filter drop-shadow-2xl" />
+                                    </div>
+                                    <!-- Slide 3: Bottom Case -->
+                                    <div class="w-1/4 h-full flex items-center justify-center p-2">
+                                        <img src="https://images.unsplash.com/photo-1541140532154-b024d705b909?auto=format&fit=crop&w=800&q=80" alt="Bottom Case" class="h-full object-contain filter drop-shadow-2xl" />
+                                    </div>
+                                </div>
+                            </div>
 
-                        <!-- Action Button -->
-                        <button id="action-btn" class="w-full py-3 border border-neutral-700 hover:border-neutral-400 text-xs uppercase tracking-widest transition rounded-lg bg-neutral-900/50 hover:bg-neutral-800 text-neutral-200 font-medium">
-                        Play Switch Sound
-                        </button>
-                    </div>
+                            <!-- SPECIFICATIONS SECTION (Background removed, matched width) -->
+                            <div class="w-full space-y-6">
+                                
+                                <!-- Title Header -->
+                                <div class="border-b border-neutral-800 pb-3 text-xs tracking-widest uppercase font-semibold">
+                                    <span id="spec-title" class="text-white border-b-2 border-white pb-3 -mb-[14px] inline-block">
+                                        00 / FULL KEYBOARD BUILD
+                                    </span>
+                                </div>
 
+                                <!-- Dynamic Spec Details -->
+                                <div class="space-y-3 text-xs sm:text-sm font-light">
+                                    <div class="flex justify-between border-b border-neutral-800/60 pb-2">
+                                        <span id="label-1" class="text-neutral-500 uppercase">LAYOUT</span>
+                                        <span id="val-1" class="text-neutral-200 font-medium">75% Exploded Layout</span>
+                                    </div>
+                                    <div class="flex justify-between border-b border-neutral-800/60 pb-2">
+                                        <span id="label-2" class="text-neutral-500 uppercase">MOUNTING</span>
+                                        <span id="val-2" class="text-neutral-200 font-medium">Gasket Mount System</span>
+                                    </div>
+                                    <div class="flex justify-between border-b border-neutral-800/60 pb-2">
+                                        <span id="label-3" class="text-neutral-500 uppercase">WEIGHT</span>
+                                        <span id="val-3" class="text-neutral-200 font-medium">1.45 kg (Built)</span>
+                                    </div>
+                                </div>
+
+                                <!-- Audio Action Button -->
+                                <button id="action-btn" class="w-full py-3.5 border border-neutral-700 hover:border-white text-xs uppercase tracking-widest transition duration-300 rounded-xl bg-neutral-900 hover:bg-white hover:text-black text-neutral-200 font-bold">
+                                    Play Full Typing Demo
+                                </button>
+
+                            </div>
+
+                        </div>
                     </div>
                 </div>
-            </section>
+        </article>
 
-            <section class="bg-[#1e1e1e] text-white max-w-xl mx-auto ">
-            
-                <div class="border-b border-white/20 last:border-b-0">
-                    <button class="accordion-header w-full flex justify-between items-center p-4 hover:bg-white/5 transition-colors">
-                        <span class="font-medium text-lg">Dimension and weight</span>
-                        <span class="arrow transform transition-transform duration-300 text-sm">&#9660;</span>
-                    </button>
-                    <div class="accordion-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
-                        <div class="p-4 text-gray-300 text-sm bg-white/5 space-y-2">
-                            <p><strong class="text-white">Dimensions (L x W x H):</strong> 315 mm x 135 mm x 40 mm</p>
-                            <p><strong class="text-white">Weight:</strong> 0.3 kg (300g)</p>
-                            <p><strong class="text-white">Form Factor:</strong> Compact / 75% Layout</p>
+            <section id="faq" class="w-full bg-[--background] py-20 px-4 md:px-8 flex flex-col items-center overflow-hidden z-20">
+                <div class="max-w-5xl w-full">
+                    
+                    <div class="text-left mb-12">
+                        <h2 class="text-4xl sm:text-5xl md:text-6xl font-black text-white tracking-tight uppercase mb-4">
+                            Specifications
+                        </h2>
+                        <p class="text-neutral-300 text-lg sm:text-xl leading-relaxed max-w-3xl mb-6">
+                            Everything you need to know about our flagship keyboard
+                        </p>
+                    </div>
+
+                    <div class="space-y-4" id="faq-accordion">
+
+                        <div class="faq-item bg-neutral-900 border border-neutral-800 rounded-2xl overflow-hidden transition-colors">
+                            <button class="faq-trigger w-full px-6 py-5 flex justify-between items-center text-left text-white font-bold text-lg sm:text-xl focus:outline-none">
+                                <span class="font-medium text-lg">Dimension and weight</span>
+                                <i class="fa fa-chevron-down text-neutral-400 text-sm transition-transform duration-300 faq-icon"></i>
+                            </button>
+                            <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out px-6">
+                                <div class="p-4 text-gray-300 text-sm bg-white/5 space-y-2">
+                                    <p><strong class="text-white">Dimensions (L x W x H):</strong> 315 mm x 135 mm x 40 mm</p>
+                                    <p><strong class="text-white">Weight:</strong> 0.3 kg (300g)</p>
+                                    <p><strong class="text-white">Form Factor:</strong> Compact / 75% Layout</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="faq-item bg-neutral-900 border border-neutral-800 rounded-2xl overflow-hidden transition-colors">
+                            <button class="faq-trigger w-full px-6 py-5 flex justify-between items-center text-left text-white font-bold text-lg sm:text-xl focus:outline-none">
+                                <span class="font-medium text-lg">Power and Connection</span>
+                                <i class="fa fa-chevron-down text-neutral-400 text-sm transition-transform duration-300 faq-icon"></i>
+                            </button>
+                            <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out px-6">
+                                <div class="p-4 text-gray-300 text-sm bg-white/5 space-y-2">
+                                    <p><strong class="text-white">Regular Cleaning:</strong> Unplug the keyboard before cleaning. Use a compressed air duster to clear debris between the keys.</p>
+                                    <p><strong class="text-white">Surface Care:</strong> Wipe down keycaps with a soft, lint-free microfiber cloth slightly dampened with water or mild isopropyl alcohol. Avoid harsh chemicals.</p>
+                                    <p><strong class="text-white">Liquid Protection:</strong> Keep liquids away from the keyboard surface. In case of spills, disconnect immediately and allow to dry completely for 24–48 hours.</p>
+                                    <p><strong class="text-white">Storage:</strong> Store in a cool, dry place away from direct sunlight and extreme temperatures when not in use.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="faq-item bg-neutral-900 border border-neutral-800 rounded-2xl overflow-hidden transition-colors">
+                            <button class="faq-trigger w-full px-6 py-5 flex justify-between items-center text-left text-white font-bold text-lg sm:text-xl focus:outline-none">
+                                <span class="font-medium text-lg">Care and Maintenance</span>
+                                <i class="fa fa-chevron-down text-neutral-400 text-sm transition-transform duration-300 faq-icon"></i>
+                            </button>
+                            <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out px-6">
+                                <div class="p-4 text-gray-300 text-sm bg-white/5 space-y-2">
+                                    <p><strong class="text-white">Regular Cleaning:</strong> Unplug the keyboard before cleaning. Use a compressed air duster to clear debris between the keys.</p>
+                                    <p><strong class="text-white">Surface Care:</strong> Wipe down keycaps with a soft, lint-free microfiber cloth slightly dampened with water or mild isopropyl alcohol. Avoid harsh chemicals.</p>
+                                    <p><strong class="text-white">Liquid Protection:</strong> Keep liquids away from the keyboard surface. In case of spills, disconnect immediately and allow to dry completely for 24–48 hours.</p>
+                                    <p><strong class="text-white">Storage:</strong> Store in a cool, dry place away from direct sunlight and extreme temperatures when not in use.</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-
-                <div class="border-b border-white/20 last:border-b-0">
-                    <button class="accordion-header w-full flex justify-between items-center p-4 hover:bg-white/5 transition-colors">
-                        <span class="font-medium text-lg">Power and Connection</span>
-                        <span class="arrow transform transition-transform duration-300 text-sm">&#9660;</span>
-                    </button>
-                    <div class="accordion-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
-                        <div class="p-4 text-gray-300 text-sm bg-white/5 space-y-2">
-                            <p><strong class="text-white">Interface:</strong> USB-A (Plug & Play, no drivers required)</p>
-                            <p><strong class="text-white">Cable Type:</strong> Detachable Braided USB-A to USB-C</p>
-                            <p><strong class="text-white">Cable Length:</strong> 1.8 m (approx. 6 ft)</p>
-                            <p><strong class="text-white">Operating Voltage/Current:</strong> 5V DC / 100mA</p>
-                            <p><strong class="text-white">System Compatibility:</strong> Windows 10/11, macOS, Linux, ChromeOS</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="border-b border-white/20 last:border-b-0">
-                    <button class="accordion-header w-full flex justify-between items-center p-4 hover:bg-white/5 transition-colors">
-                        <span class="font-medium text-lg">Care and Maintenance</span>
-                        <span class="arrow transform transition-transform duration-300 text-sm">&#9660;</span>
-                    </button>
-                    <div class="accordion-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
-                        <div class="p-4 text-gray-300 text-sm bg-white/5 space-y-2">
-                            <p><strong class="text-white">Regular Cleaning:</strong> Unplug the keyboard before cleaning. Use a compressed air duster to clear debris between the keys.</p>
-                            <p><strong class="text-white">Surface Care:</strong> Wipe down keycaps with a soft, lint-free microfiber cloth slightly dampened with water or mild isopropyl alcohol. Avoid harsh chemicals.</p>
-                            <p><strong class="text-white">Liquid Protection:</strong> Keep liquids away from the keyboard surface. In case of spills, disconnect immediately and allow to dry completely for 24–48 hours.</p>
-                            <p><strong class="text-white">Storage:</strong> Store in a cool, dry place away from direct sunlight and extreme temperatures when not in use.</p>
-                        </div>
-                    </div>
-                </div>
-
             </section>
         </article>
 
@@ -167,94 +196,92 @@
 
             const specData = {
                 keyboard: {
-                index: 0,
-                title: "00 / FULL KEYBOARD BUILD",
-                labels: ["LAYOUT", "MOUNTING", "WEIGHT"],
-                values: ["75% Exploded Layout", "Gasket Mount System", "1.45 kg (Built)"],
-                btnText: "Play Full Typing Demo"
+                    index: 0,
+                    title: "00 / FULL KEYBOARD BUILD",
+                    labels: ["LAYOUT", "MOUNTING", "WEIGHT"],
+                    values: ["75% Exploded Layout", "Gasket Mount System", "1.45 kg (Built)"],
+                    btnText: "Play Full Typing Demo"
                 },
                 keycaps: {
-                index: 1,
-                title: "01 / KEYCAP SPECIFICATIONS",
-                labels: ["PROFILE", "MATERIAL", "LEGENDS"],
-                values: ["Cherry Profile", "Double-shot PBT (1.5mm)", "Seamless Dye-Sublimated"],
-                btnText: "Listen to Keycap Clack"
+                    index: 1,
+                    title: "01 / KEYCAP SPECIFICATIONS",
+                    labels: ["PROFILE", "MATERIAL", "LEGENDS"],
+                    values: ["Cherry Profile", "Double-shot PBT (1.5mm)", "Seamless Dye-Sublimated"],
+                    btnText: "Listen to Keycap Clack"
                 },
                 switches: {
-                index: 2,
-                title: "02 / SWITCH SPECIFICATIONS",
-                labels: ["TYPE", "OPERATING FORCE", "SOUND CHARACTER"],
-                values: ["Pre-Lubed Linear", "45 cN Actuation / 53 cN Bottom-out", "Snappy & Deep Thock"],
-                btnText: "Play Switch Sound"
+                    index: 2,
+                    title: "02 / SWITCH SPECIFICATIONS",
+                    labels: ["TYPE", "OPERATING FORCE", "SOUND CHARACTER"],
+                    values: ["Pre-Lubed Linear", "45 cN Actuation / 53 cN Bottom-out", "Snappy & Deep Thock"],
+                    btnText: "Play Switch Sound"
                 },
                 case: {
-                index: 3,
-                title: "03 / BOTTOM CASE SPECIFICATIONS",
-                labels: ["MATERIAL", "DAMPENING", "WEIGHT BAR"],
-                values: ["6063 Anodized Aluminum", "Poron Case Foam + PET Sheet", "Brass Accent Weight"],
-                btnText: "Listen to Acoustic Resonance"
+                    index: 3,
+                    title: "03 / BOTTOM CASE SPECIFICATIONS",
+                    labels: ["MATERIAL", "DAMPENING", "WEIGHT BAR"],
+                    values: ["6063 Anodized Aluminum", "Poron Case Foam + PET Sheet", "Brass Accent Weight"],
+                    btnText: "Listen to Acoustic Resonance"
                 }
             };
 
-            const buttons = document.querySelectorAll('.part-btn');
-            const track = document.getElementById('slider-track');
-            const specTitle = document.getElementById('spec-title');
-            const label1 = document.getElementById('label-1');
-            const val1 = document.getElementById('val-1');
-            const label2 = document.getElementById('label-2');
-            const val2 = document.getElementById('val-2');
-            const label3 = document.getElementById('label-3');
-            const val3 = document.getElementById('val-3');
-            const actionBtn = document.getElementById('action-btn');
+            document.addEventListener("DOMContentLoaded", () => {
+                const buttons = document.querySelectorAll(".part-btn");
+                const sliderTrack = document.getElementById("slider-track");
+                const specTitle = document.getElementById("spec-title");
+                const actionBtn = document.getElementById("action-btn");
 
-            buttons.forEach(btn => {
-                btn.addEventListener('click', () => {
-                const part = btn.getAttribute('data-part');
-                const data = specData[part];
+                const label1 = document.getElementById("label-1");
+                const val1 = document.getElementById("val-1");
+                const label2 = document.getElementById("label-2");
+                const val2 = document.getElementById("val-2");
+                const label3 = document.getElementById("label-3");
+                const val3 = document.getElementById("val-3");
 
-                // Update Slider Position (25% per slide)
-                track.style.transform = `translateX(-${data.index * 25}%)`;
+                buttons.forEach(btn => {
+                    btn.addEventListener("click", () => {
+                        const partKey = btn.getAttribute("data-part");
+                        const data = specData[partKey];
 
-                // Update Specifications
-                specTitle.textContent = data.title;
-                label1.textContent = data.labels[0];
-                val1.textContent = data.values[0];
-                label2.textContent = data.labels[1];
-                val2.textContent = data.values[1];
-                label3.textContent = data.labels[2];
-                val3.textContent = data.values[2];
-                actionBtn.textContent = data.btnText;
+                        if (!data) return;
 
-                // Update Active Button State
-                buttons.forEach(b => {
-                    b.classList.remove('bg-neutral-900', 'border-white', 'text-white');
-                    b.classList.add('bg-neutral-900/50', 'border-neutral-800', 'text-neutral-400');
-                });
-                btn.classList.add('bg-neutral-900', 'border-white', 'text-white');
-                btn.classList.remove('bg-neutral-900/50', 'border-neutral-800', 'text-neutral-400');
-                });
-            });
-  
-            let accordionHeaders = document.querySelectorAll('.accordion-header');
+                        // 1. Reset all buttons to inactive styling
+                        buttons.forEach(b => {
+                            b.classList.remove("active");
+                            const textSpan = b.querySelector(".part-text");
+                            if (textSpan) {
+                                textSpan.className = "part-text inline-block transition-all duration-300 text-lg sm:text-xl font-medium text-neutral-500 group-hover:text-neutral-300 tracking-wide uppercase";
+                            }
+                        });
 
-            accordionHeaders.forEach(header => {
-                header.addEventListener('click', () => {
-                    const currentItem = header.parentElement;
-                    const content = currentItem.querySelector('.accordion-content');
-                    const arrow = header.querySelector('.arrow');
-                    
-                    arrow.classList.toggle('-rotate-180');
+                        // 2. Set clicked button to Active state (Bold & Larger text)
+                        btn.classList.add("active");
+                        const activeTextSpan = btn.querySelector(".part-text");
+                        if (activeTextSpan) {
+                            activeTextSpan.className = "part-text inline-block transition-all duration-300 text-2xl sm:text-3xl font-black text-white tracking-wide uppercase";
+                        }
 
-                    if (content.style.maxHeight) {
+                        // 3. Slide Carousel Track (4 slides total, each moves 25%)
+                        sliderTrack.style.transform = `translateX(-${data.index * 25}%)`;
 
-                    content.style.maxHeight = null;
-                    } else {
+                        // 4. Update Specs Card Content
+                        specTitle.textContent = data.title;
+                        
+                        label1.textContent = data.labels[0];
+                        val1.textContent = data.values[0];
 
-                    content.style.maxHeight = content.scrollHeight + "px";
-                    }
+                        label2.textContent = data.labels[1];
+                        val2.textContent = data.values[1];
+
+                        label3.textContent = data.labels[2];
+                        val3.textContent = data.values[2];
+
+                        actionBtn.textContent = data.btnText;
+                    });
                 });
             });
 
+          
         </script>
         
     </body>
