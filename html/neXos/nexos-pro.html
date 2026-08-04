@@ -17,6 +17,7 @@
         <link rel="stylesheet" href="../../css/nexos-pro.css">
 
         <script src="../../javascript/header-footer.js" defer></script>
+        <script src="../../javascript/helix.js" defer></script>
         <script src="../../javascript/reveal-on-scroll.js" defer></script>
         <script src="../../javascript/perf-slider.js" defer></script>
         <script src="../../javascript/accordion.js" defer></script>
@@ -116,22 +117,269 @@
 
             </div>
 
-            <section id="keyboard" class="w-full bg-[--background] pt-20 pb-20 px-4 md:px-8 flex flex-col items-center overflow-hidden">
+            <section id="layout-engine" class="w-full bg-[--background] pt-20 pb-20 px-4 md:px-8 flex flex-col items-center overflow-hidden">
                 <div class="max-w-5xl w-full">
 
                     <div class="text-left mb-12 reveal-on-scroll">
-                        <h2 class="text-4xl sm:text-5xl md:text-6xl font-black text-white tracking-tight mb-4">
-                            WORKS BEST WITH OUR HARDWARE.
+                        <h2 class="text-4xl sm:text-5xl md:text-6xl font-black text-white tracking-tight mb-4 uppercase">
+                            Aerodynamic Layout Engine.
                         </h2>
 
                         <p class="text-neutral-300 text-lg sm:text-xl leading-relaxed max-w-3xl mb-6">
-                            Of course, the best gamers need the best gear. NexOS features kernel-level integration with neXus 60HE. You can adjust Hall Effect rapid trigger settings, custom actuation points, and RGB lighting natively within the OS settings menu. No heavy software needed.
+                            Experience complete interface freedom. NexOS Pro unlocks premium, one-click desktop configurations that instantly morph your workspace. Effortlessly swap between a polished macOS style, a hyper-efficient modern coding environment, a minimalist handheld layout, and classic Windows environments.
                         </p>
                     </div>
 
-                    <div class="relative w-full max-w-[850px] mx-auto">
-                        <img src="../../images/placeholder.png" alt="Placeholder" class="w-full h-auto object-contain pointer-events-none relative z-10 block">
+                    <div class="relative w-full max-w-[1920px] mx-auto group reveal-on-scroll">
+                        
+                        <div id="layout-glow" class="absolute -inset-4 bg-gradient-to-r bg-[--maingreen] rounded-3xl blur-2xl opacity-30 group-hover:opacity-50 transition-all duration-700"></div>
+
+                        <div class="absolute -bottom-6 -right-6 z-20 bg-neutral-900/90 border border-neutral-700/60 backdrop-blur-md px-4 py-2 rounded-xl text-xs font-semibold text-neutral-300 shadow-xl hidden sm:flex items-center gap-2">
+                            <i class="fa fa-bolt text-yellow-400"></i>
+                            0ms Layout Latency
+                        </div>
+
+                        <div class="relative z-10 bg-neutral-950 border border-neutral-800 rounded-2xl shadow-2xl overflow-hidden aspect-video flex flex-col">
+                            
+                            <div class="bg-neutral-900/80 border-b border-neutral-800/80 px-4 py-3 flex items-center justify-between">
+                                <span id="current-layout-label" class="text-xs uppercase tracking-widest text-neutral-400 font-bold">
+                                    macOS Style
+                                </span>
+                            </div>
+
+                            <div id="desktop-viewport" class="relative grow bg-neutral-950 overflow-hidden flex items-center justify-center">
+                                
+                                <img id="layout-macos" 
+                                     src="../../images/desktop-macos.jpg" 
+                                     alt="macOS Layout" 
+                                     class="layout-view absolute inset-0 w-full h-full object-cover opacity-100 transition-opacity duration-500">
+
+                                <img id="layout-tiling" 
+                                     src="../../images/desktop-tiling.jpg" 
+                                     alt="Tiling Coding Layout" 
+                                     class="layout-view absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-500 pointer-events-none">
+
+                                <img id="layout-handheld" 
+                                     src="../../images/gaming-mode.jpg" 
+                                     alt="Handheld Layout" 
+                                     class="layout-view absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-500 pointer-events-none">
+
+                                <img id="layout-classic" 
+                                     src="../../images/desktop-mode.jpg" 
+                                     alt="Classic Windows Layout" 
+                                     class="layout-view absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-500 pointer-events-none">
+
+                            </div>
+                        </div>
                     </div>
+
+                    <div class="flex flex-wrap justify-center gap-3 sm:gap-4 mt-8">
+                        <button onclick="switchLayout('macos', 'macOS Style')" class="layout-pill active border border-[--maingreen] bg-[--maingreen]/10 text-white font-bold px-5 py-2.5 rounded-xl hover:bg-[--maingreen]/20 transition-all text-sm md:text-base">
+                        macOS
+                        </button>
+                        <button onclick="switchLayout('tiling', 'Tiling / Coding')" class="layout-pill border border-neutral-800 bg-neutral-900/60 text-neutral-400 font-bold px-5 py-2.5 rounded-xl hover:text-white hover:border-neutral-600 transition-all text-sm md:text-base">
+                        Tiling
+                        </button>
+                        <button onclick="switchLayout('handheld', 'Handheld Mode')" class="layout-pill border border-neutral-800 bg-neutral-900/60 text-neutral-400 font-bold px-5 py-2.5 rounded-xl hover:text-white hover:border-neutral-600 transition-all text-sm md:text-base">
+                        Handheld
+                        </button>
+                        <button onclick="switchLayout('classic', 'Classic Windows')" class="layout-pill border border-neutral-800 bg-neutral-900/60 text-neutral-400 font-bold px-5 py-2.5 rounded-xl hover:text-white hover:border-neutral-600 transition-all text-sm md:text-base">
+                        Classic
+                        </button>
+                    </div>
+
+                </div>
+            </section>
+
+            <section id="performance" class="w-full bg-[--background] py-20 px-4 md:px-8 flex flex-col items-center overflow-hidden">
+                <div class="max-w-5xl w-full">
+                    
+                    <div class="text-left mb-10 reveal-on-scroll">
+
+                        <h2 class="text-4xl sm:text-5xl md:text-6xl font-black text-white tracking-tight mb-4 uppercase">
+                            Optimization to the Max.
+                        </h2>
+                        <p class="text-neutral-300 text-lg sm:text-xl leading-relaxed max-w-3xl">
+                            Squeeze hidden performance out of your high-end components with automated, low-level OS intelligence.
+                        </p>
+                    </div>
+
+                    <div class="bg-neutral-900 rounded-3xl border border-neutral-800 p-6 sm:p-10 md:p-14 shadow-2xl relative mb-8 reveal-on-scroll">
+                        <div class="overflow-hidden w-full">
+                            
+                            <div id="perf-track" class="flex transition-transform duration-700 ease-[cubic-bezier(0.32,0.72,0,1)]">
+                                
+                                <div class="perf-slide w-full shrink-0">
+                                    <div class="text-center max-w-2xl mx-auto mb-8">
+                                        <h3 class="text-white font-bold text-xl sm:text-2xl md:text-3xl mb-3 tracking-wide">
+                                            Zen-Optimized Kernels
+                                        </h3>
+                                        <p class="text-neutral-400 text-sm sm:text-base leading-relaxed">
+                                            Instantly deploy real-time and specialized Linux kernels tailored down to your exact AMD Ryzen or Intel Core processor architecture.
+                                        </p>
+                                    </div>
+
+                                    <div class="space-y-4 sm:space-y-6 max-w-3xl mx-auto">
+                                        <div class="flex flex-col sm:flex-row sm:items-center gap-1.5 sm:gap-6">
+                                            <span class="w-full sm:w-36 text-left sm:text-right font-black text-white text-base sm:text-xl shrink-0">
+                                                NexOS Kernel
+                                            </span>
+                                            <div class="grow bg-neutral-950 rounded-xl sm:rounded-2xl h-12 sm:h-16 p-1.5 sm:p-2 border border-neutral-800 relative">
+                                                <div class="perf-bar bg-[--maingreen] h-full rounded-lg sm:rounded-xl flex items-center justify-end pr-3 sm:pr-4 text-[--text] font-extrabold text-sm sm:text-base whitespace-nowrap overflow-hidden" style="width: 0%;" data-width="95%">
+                                                    AVX-512 Compiled (95%)
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="flex flex-col sm:flex-row sm:items-center gap-1.5 sm:gap-6">
+                                            <span class="w-full sm:w-36 text-left sm:text-right font-medium text-neutral-400 text-sm sm:text-lg shrink-0">
+                                                Generic Linux
+                                            </span>
+                                            <div class="grow bg-neutral-950 rounded-xl sm:rounded-2xl h-12 sm:h-16 p-1.5 sm:p-2 border border-neutral-800 relative">
+                                                <div class="perf-bar bg-neutral-800 h-full rounded-lg sm:rounded-xl border border-neutral-700/50 flex items-center justify-end pr-3 sm:pr-4 text-neutral-300 font-semibold text-xs sm:text-sm whitespace-nowrap overflow-hidden" style="width: 0%;" data-width="50%">
+                                                    Generic x86-64 (50%)
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="perf-slide w-full shrink-0">
+                                    <div class="text-center max-w-2xl mx-auto mb-8">
+                                        <h3 class="text-white font-bold text-xl sm:text-2xl md:text-3xl mb-3 tracking-wide">
+                                            AI Resource Scheduling
+                                        </h3>
+                                        <p class="text-neutral-400 text-sm sm:text-base leading-relaxed">
+                                            The OS actively detects heavy workloads, putting non-essential background tasks into a deep sleep state to dedicate priority to your primary window.
+                                        </p>
+                                    </div>
+
+                                    <div class="space-y-4 sm:space-y-6 max-w-3xl mx-auto">
+                                        <div class="flex flex-col sm:flex-row sm:items-center gap-1.5 sm:gap-6">
+                                            <span class="w-full sm:w-36 text-left sm:text-right font-black text-white text-base sm:text-xl shrink-0">
+                                                NexOS Priority
+                                            </span>
+                                            <div class="grow bg-neutral-950 rounded-xl sm:rounded-2xl h-12 sm:h-16 p-1.5 sm:p-2 border border-neutral-800 relative">
+                                                <div class="perf-bar bg-[--maingreen] h-full rounded-lg sm:rounded-xl flex items-center justify-end pr-3 sm:pr-4 text-[--text] font-extrabold text-sm sm:text-base whitespace-nowrap overflow-hidden" style="width: 0%;" data-width="99%">
+                                                    99.0% Dedicated
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="flex flex-col sm:flex-row sm:items-center gap-1.5 sm:gap-6">
+                                            <span class="w-full sm:w-36 text-left sm:text-right font-medium text-neutral-400 text-sm sm:text-lg shrink-0">
+                                                Stock OS
+                                            </span>
+                                            <div class="grow bg-neutral-950 rounded-xl sm:rounded-2xl h-12 sm:h-16 p-1.5 sm:p-2 border border-neutral-800 relative">
+                                                <div class="perf-bar bg-neutral-800 h-full rounded-lg sm:rounded-xl border border-neutral-700/50 flex items-center justify-end pr-3 sm:pr-4 text-neutral-300 font-semibold text-xs sm:text-sm whitespace-nowrap overflow-hidden" style="width: 0%;" data-width="68%">
+                                                    68.0% Dedicated
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="perf-slide w-full shrink-0">
+                                    <div class="text-center max-w-2xl mx-auto mb-8">
+                                        <h3 class="text-white font-bold text-xl sm:text-2xl md:text-3xl mb-3 tracking-wide">
+                                            Native Power Tuning
+                                        </h3>
+                                        <p class="text-neutral-400 text-sm sm:text-base leading-relaxed">
+                                            Safe, hardware-level overclocking and undervolting sliders integrated directly into the core operating system settings menu.
+                                        </p>
+                                    </div>
+
+                                    <div class="space-y-4 sm:space-y-6 max-w-3xl mx-auto">
+                                        <div class="flex flex-col sm:flex-row sm:items-center gap-1.5 sm:gap-6">
+                                            <span class="w-full sm:w-36 text-left sm:text-right font-black text-white text-base sm:text-xl shrink-0">
+                                                NexOS Sub-Volt
+                                            </span>
+                                            <div class="grow bg-neutral-950 rounded-xl sm:rounded-2xl h-12 sm:h-16 p-1.5 sm:p-2 border border-neutral-800 relative">
+                                                <div class="perf-bar bg-[--maingreen] h-full rounded-lg sm:rounded-xl flex items-center justify-end pr-3 sm:pr-4 text-[--text] font-extrabold text-sm sm:text-base whitespace-nowrap overflow-hidden" style="width: 0%;" data-width="88%">
+                                                    -30mV Offset (+200MHz Boost)
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="flex flex-col sm:flex-row sm:items-center gap-1.5 sm:gap-6">
+                                            <span class="w-full sm:w-36 text-left sm:text-right font-medium text-neutral-400 text-sm sm:text-lg shrink-0">
+                                                3rd Party Apps
+                                            </span>
+                                            <div class="grow bg-neutral-950 rounded-xl sm:rounded-2xl h-12 sm:h-16 p-1.5 sm:p-2 border border-neutral-800 relative">
+                                                <div class="perf-bar bg-neutral-800 h-full rounded-lg sm:rounded-xl border border-neutral-700/50 flex items-center justify-end pr-3 sm:pr-4 text-neutral-300 font-semibold text-xs sm:text-sm whitespace-nowrap overflow-hidden" style="width: 0%;" data-width="45%">
+                                                    Heavy Background Overhead
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-center items-center reveal-on-scroll">
+                        <div class="inline-flex items-center gap-3 px-4 py-2 bg-neutral-900/80 backdrop-blur-md rounded-full border border-neutral-800/80 shadow-lg">
+                            
+                            <button id="prev" class="w-6 h-6 flex items-center justify-center text-neutral-400 hover:text-white transition-colors" aria-label="Previous Slide">
+                                <i class="fa fa-chevron-left text-xs"></i>
+                            </button>
+
+                            <div id="dots" class="flex items-center gap-2 px-1">
+                                <button class="w-2 h-2 rounded-full bg-white transition-all duration-300" data-index="0" aria-label="Slide 1"></button>
+                                <button class="w-2 h-2 rounded-full bg-neutral-600 hover:bg-neutral-400 transition-all duration-300" data-index="1" aria-label="Slide 2"></button>
+                                <button class="w-2 h-2 rounded-full bg-neutral-600 hover:bg-neutral-400 transition-all duration-300" data-index="2" aria-label="Slide 3"></button>
+                            </div>
+
+                            <button id="next" class="w-6 h-6 flex items-center justify-center text-neutral-400 hover:text-white transition-colors" aria-label="Next Slide">
+                                <i class="fa fa-chevron-right text-xs"></i>
+                            </button>
+
+                            <div class="w-[1px] h-3.5 bg-neutral-800 mx-0.5"></div>
+
+                            <button id="play-pause" class="w-6 h-6 flex items-center justify-center text-neutral-400 hover:text-white transition-colors" aria-label="Pause Slideshow">
+                                <i class="fa fa-pause text-xs"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <section id="games-demo" class="w-full bg-[--background] py-20 px-4 md:px-8 flex flex-col items-center overflow-hidden">
+                <div class="max-w-5xl w-full">
+                    
+                    <div class="text-left mb-12 reveal-on-scroll">
+                        <h2 class="text-4xl sm:text-5xl md:text-6xl font-black text-white tracking-tight mb-4">
+                            CREATORS, THIS ONE'S FOR YOU.
+                        </h2>
+                        <p class="text-neutral-300 text-lg sm:text-xl leading-relaxed max-w-3xl mb-6">
+                            Stop letting resource-heavy recording software drop your competitive frame rate. NexOS Pro comes pre-configured with a low-latency Pro Audio Pipeline (PipeWire) and a custom-tuned fork of OBS Studio. Stream, split multi-channel audio tracks, and capture raw gameplay using up to 40% fewer hardware resources than a traditional Windows environment.
+                        </p>
+                    </div>
+
+                    <div class="relative w-full max-w-4xl mx-auto flex flex-col items-center reveal-on-scroll">
+                        
+                        <div class="relative w-full max-w-[850px]">
+                            
+                            <img src="../../images/monitor-stand.png" alt="Monitor Display" class="w-full h-auto object-contain pointer-events-none relative z-30 block">
+
+                            <div class="absolute top-[1.6%] left-[1.6%] w-[96.8%] h-[79.2%] rounded-sm overflow-hidden bg-black z-10 pointer-events-none">
+                                
+                                <div class="relative w-full h-full scale-[1.02]">
+                                    <div class="absolute inset-0 w-full h-full pointer-events-none">
+
+                                        <img src="../../images/nexos-pro-obs-desktop.jpg" alt="NexOS Desktop with OBS" class="w-full h-full object-fill select-none">
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
                 </div>
             </section>
             
@@ -141,155 +389,79 @@
 
         <script>
             // ----------------------------------------------------------------
-            // Double-helix background engine
-            // Ambient-only: the drag/momentum interaction from the original
-            // gallery is dropped here since this instance lives behind a
-            // scroll-driven story rather than being a stand-alone, draggable
-            // gallery. GSAP separately tweens #helix-zoom's scale and
-            // #helix-scrim's opacity to drive the "zoomed-in dark backdrop ->
-            // full reveal" beat described in the scroll story.
+            // Interactive Layout Switcher Logic
             // ----------------------------------------------------------------
-            (function initHelix() {
-                const config = {
-                    scene: {
-                        strands: 2,
-                        perStrand: 20,
-                        turns: 2,
-                        speed: 0.18,
-                        spanFactor: 1.5
-                    },
-                    appearance: {
-                        palette: [
-                            "#7d9183", "#5b7ea3", "#c9bfa8", "#4f7d78", "#a9836a",
-                            "#6b7280", "#77805e", "#66757f", "#8a8478", "#96876f",
-                            "#5e7268", "#6f7d8c", "#847e6a", "#4e6a74"
-                        ],
-                        paletteStrandOffset: 7,
-                        brightnessFloor: 0.12,
-                        maxBlur: 5
-                    },
-                    image: {
-                        width: 520,
-                        height: 360
-                    },
-                    breakpoints: [
-                        { minWidth: 1440, radius: 560, perspective: 1400, cardWidth: 180, cardHeight: 270 },
-                        { minWidth: 1024, radius: 420, perspective: 1200, cardWidth: 150, cardHeight: 225 },
-                        { minWidth: 640,  radius: 310, perspective: 1000, cardWidth: 115, cardHeight: 172 },
-                        { minWidth: 0,    radius: 220, perspective: 850,  cardWidth: 90,  cardHeight: 135 }
-                    ]
-                };
+            function switchLayout(layoutId, labelText) {
+                // Update header label
+                document.getElementById('current-layout-label').innerText = labelText;
 
-                const wrap = (value, length) => ((value % length) + length) % length;
-                const helixAngle = (progress, phase) => progress * config.scene.turns * 2 * Math.PI + phase;
-                const depthOf = (angle) => (Math.cos(angle) + 1) / 2;
-                const helixTransform = (angle, y, radius) =>
-                    `translate(-50%, -50%) rotateY(${angle.toFixed(4)}rad) translateZ(${radius}px) translateY(${y.toFixed(1)}px)`;
-                const depthFilter = (depth) => {
-                    const { brightnessFloor, maxBlur } = config.appearance;
-                    const brightness = brightnessFloor + (1 - brightnessFloor) * depth * depth;
-                    const blur = (1 - depth) * (1 - depth) * maxBlur;
-                    return `brightness(${brightness.toFixed(3)}) blur(${blur.toFixed(2)}px)`;
-                };
+                // Hide all image layers
+                document.querySelectorAll('.layout-view').forEach(img => {
+                    img.classList.add('opacity-0', 'pointer-events-none');
+                    img.classList.remove('opacity-100');
+                });
 
-                const scene = document.getElementById("helixScene");
-                const world = document.getElementById("helixWorld");
-                if (!scene || !world) return; // section not present on this page render
-
-                const view = { span: 0, radius: 0 };
-                const pickBreakpoint = () =>
-                    config.breakpoints.find((bp) => window.innerWidth >= bp.minWidth) ??
-                    config.breakpoints[config.breakpoints.length - 1];
-
-                const applyViewport = () => {
-                    const bp = pickBreakpoint();
-                    view.span = scene.clientHeight * config.scene.spanFactor;
-                    view.radius = bp.radius;
-                    const root = document.documentElement.style;
-                    root.setProperty("--helix-card-width", `${bp.cardWidth}px`);
-                    root.setProperty("--helix-card-height", `${bp.cardHeight}px`);
-                    root.setProperty("--helix-perspective", `${bp.perspective}px`);
-                };
-
-                applyViewport();
-                window.addEventListener("resize", applyViewport);
-
-                const { strands, perStrand } = config.scene;
-                const { palette, paletteStrandOffset } = config.appearance;
-                const helixImages = [
-                    "../../images/nexos-pro-helix/01_Counter-Strike_2.webp",
-                    "../../images/nexos-pro-helix/02_Dota_2.webp",
-                    "../../images/nexos-pro-helix/03_PUBG_BATTLEGROUNDS.webp",
-                    "../../images/nexos-pro-helix/04_Palworld.webp",
-                    "../../images/nexos-pro-helix/06_Apex_Legends.webp",
-                    "../../images/nexos-pro-helix/07_Bongo_Cat.webp",
-                    "../../images/nexos-pro-helix/09_Rust.webp",
-                    "../../images/nexos-pro-helix/10_The_Binding_of_Isaac_Rebirth.webp",
-                    "../../images/nexos-pro-helix/11_Delta_Force.webp",
-                    "../../images/nexos-pro-helix/13_Wallpaper_Engine.webp",
-                    "../../images/nexos-pro-helix/14_Stardew_Valley.webp",
-                    "../../images/nexos-pro-helix/15_Slay_the_Spire_2.webp",
-                    "../../images/nexos-pro-helix/16_Project_Zomboid.webp",
-                    "../../images/nexos-pro-helix/17_Grand_Theft_Auto_V_Legacy.webp",
-                    "../../images/nexos-pro-helix/18_Grand_Theft_Auto_V_Enhanced.webp",
-                    "../../images/nexos-pro-helix/19_Path_of_Exile.webp",
-                    "../../images/nexos-pro-helix/20_War_Thunder.webp",
-                    "../../images/nexos-pro-helix/21_NARAKA_BLADEPOINT.webp",
-                    "../../images/nexos-pro-helix/22_Dead_by_Daylight.webp",
-                    "../../images/nexos-pro-helix/23_Warframe.webp",
-                    "../../images/nexos-pro-helix/24_Cyberpunk_2077.webp",
-                    "../../images/nexos-pro-helix/25_Marvel_Rivals.webp",
-                    "../../images/nexos-pro-helix/26_Deadlock.webp",
-                    "../../images/nexos-pro-helix/27_Baldurs_Gate_3.webp",
-                    "../../images/nexos-pro-helix/28_VRChat.webp",
-                    "../../images/nexos-pro-helix/29_Team_Fortress_2.webp",
-                    "../../images/nexos-pro-helix/30_Tom_Clancys_Rainbow_Six_Siege.webp",
-                    "../../images/nexos-pro-helix/31_Street_Fighter_6.webp",
-                    "../../images/nexos-pro-helix/32_Overwatch.webp",
-                    "../../images/nexos-pro-helix/33_Hearts_of_Iron_IV.webp",
-                    "../../images/nexos-pro-helix/34_Dont_Starve_Together.webp",
-                    "../../images/nexos-pro-helix/35_Geometry_Dash.webp",
-                    "../../images/nexos-pro-helix/36_Battlefield_6.webp",
-                    "../../images/nexos-pro-helix/37_DayZ.webp",
-                    "../../images/nexos-pro-helix/39_Sid_Meiers_Civilization_VI.webp",
-                    "../../images/nexos-pro-helix/40_Crosshair_X.webp"
-                ];
-
-                const imageUrl = (strand, index) => {
-                    const i = wrap(index + strand * 5, helixImages.length); // offset so both strands don't sync up
-                    return helixImages[i];
-                };
-                const placeholderColor = (strand, index) =>
-                    palette[(index + strand * paletteStrandOffset) % palette.length];
-
-                const cards = [];
-                for (let strand = 0; strand < strands; strand++) {
-                    for (let index = 0; index < perStrand; index++) {
-                        const el = document.createElement("div");
-                        el.className = "helix-card";
-                        el.style.backgroundColor = placeholderColor(strand, index);
-                        el.style.backgroundImage = `url(${imageUrl(strand, index)})`;
-                        world.appendChild(el);
-                        cards.push({ el, base: index, phase: (strand / strands) * 2 * Math.PI });
-                    }
+                // Show target layout image
+                const activeImg = document.getElementById(`layout-${layoutId}`);
+                if (activeImg) {
+                    activeImg.classList.remove('opacity-0', 'pointer-events-none');
+                    activeImg.classList.add('opacity-100');
                 }
 
-                const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-                const start = performance.now();
+                // Update active pill highlight
+                const pills = document.querySelectorAll('.layout-pill');
+                pills.forEach(pill => {
+                    pill.classList.remove('border-[--maingreen]', 'bg-[--maingreen]/10', 'text-white');
+                    pill.classList.add('border-neutral-800', 'bg-neutral-900/60', 'text-neutral-400');
+                });
 
-                const frame = (now) => {
-                    const elapsed = reducedMotion.matches ? 0 : (now - start) / 1000;
-                    for (const card of cards) {
-                        const progress = wrap(card.base + elapsed * config.scene.speed, perStrand) / perStrand;
-                        const angle = helixAngle(progress, card.phase);
-                        const y = (progress - 0.5) * view.span;
-                        card.el.style.transform = helixTransform(angle, y, view.radius);
-                        card.el.style.filter = depthFilter(depthOf(angle));
-                    }
-                    requestAnimationFrame(frame);
-                };
-                requestAnimationFrame(frame);
-            })();
+                event.currentTarget.classList.remove('border-neutral-800', 'bg-neutral-900/60', 'text-neutral-400');
+                event.currentTarget.classList.add('border-[--maingreen]', 'bg-[--maingreen]/10', 'text-white');
+            }
+
+            const track = document.getElementById("image-track");
+
+            const handleOnDown = e => track.dataset.mouseDownAt = e.clientX;
+
+            const handleOnUp = () => {
+            track.dataset.mouseDownAt = "0";  
+            track.dataset.prevPercentage = track.dataset.percentage || "0";
+            }
+
+            const handleOnMove = e => {
+            if (track.dataset.mouseDownAt === "0") return;
+            
+            const mouseDelta = parseFloat(track.dataset.mouseDownAt) - e.clientX,
+                    maxDelta = window.innerWidth / 2;
+            
+            const percentage = (mouseDelta / maxDelta) * -100,
+                    nextPercentageUnconstrained = parseFloat(track.dataset.prevPercentage || "0") + percentage,
+                    nextPercentage = Math.max(Math.min(nextPercentageUnconstrained, 0), -100);
+            
+            track.dataset.percentage = nextPercentage;
+            
+            // Smoothly move the entire track
+            track.animate({
+                transform: `translate(${nextPercentage}%, -50%)`
+            }, { duration: 1200, fill: "forwards" });
+            
+            // Pan image object position inside each card for the parallax depth effect
+            for (const image of track.getElementsByClassName("image")) {
+                image.animate({
+                objectPosition: `${100 + nextPercentage}% center`
+                }, { duration: 1200, fill: "forwards" });
+            }
+            }
+
+            /* Event Listeners */
+            window.onmousedown = e => handleOnDown(e);
+            window.ontouchstart = e => handleOnDown(e.touches[0]);
+
+            window.onmouseup = e => handleOnUp(e);
+            window.ontouchend = e => handleOnUp(e.touches[0]);
+
+            window.onmousemove = e => handleOnMove(e);
+            window.ontouchmove = e => handleOnMove(e.touches[0]);
         </script>
 
         <script>
@@ -304,7 +476,7 @@
 
                 const hasCoarsePointer = window.matchMedia("(pointer: coarse)").matches;
                 ScrollTrigger.normalizeScroll({
-                    type: hasCoarsePointer ? "touch,pointer" : "wheel,pointer,scroll",
+                    type: hasCoarsePointer ? "touch,pointer" : "wheel,scroll",
                     momentum: (self) => Math.min(4, Math.abs(self.velocityY) / 600)
                 });
 

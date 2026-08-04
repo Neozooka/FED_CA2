@@ -112,25 +112,30 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         backToTopBtn.addEventListener('click', () => {
-            // window.scrollTo's native "scroll" events get picked up by
-            // normalizeScroll's scrollbar-drag handling (the "scroll" type,
-            // added for desktop scrollbar-drag support) and fought/overridden.
-            // Hand it full control for the duration of this scroll instead.
+            // A previous version disabled the normalizer, called window.scrollTo,
+            // and re-enabled it on the "scrollend" event — but normalizeScroll's own
+            // interception of native scroll events can make "scrollend" fire
+            // unreliably (or early), so it could re-enable itself mid-glide and
+            // fight the remaining animation. Driving the scroll ourselves with a
+            // small rAF tween sidesteps that: we control exactly when it's done.
             const normalizer = typeof ScrollTrigger !== 'undefined' ? ScrollTrigger.normalizeScroll() : null;
             normalizer?.disable();
 
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
+            const startY = window.scrollY;
+            const duration = 600;
+            const startTime = performance.now();
 
-            const reEnable = () => normalizer?.enable();
-            if ('onscrollend' in window) {
-                window.addEventListener('scrollend', reEnable, { once: true });
-            } else {
-                // Fallback for browsers without scrollend support
-                setTimeout(reEnable, 1000);
+            function step(now) {
+                const progress = Math.min((now - startTime) / duration, 1);
+                const eased = 1 - Math.pow(1 - progress, 3);
+                window.scrollTo(0, startY * (1 - eased));
+                if (progress < 1) {
+                    requestAnimationFrame(step);
+                } else {
+                    normalizer?.enable();
+                }
             }
+            requestAnimationFrame(step);
         });
     }
 
