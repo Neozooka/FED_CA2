@@ -1,233 +1,223 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to neXus | Built for gamers, by gamers</title>
+    
+    <link rel="icon" type="image/x-icon" href="/images/neXuslogo2.png">
 
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Welcome to neXus | Built for gamers, by gamers </title>
-        <script src="https://cdn.tailwindcss.com"></script>
-        <!-- <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet"> -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="icon" type="image/x-icon" href="/images/neXuslogo2.png">
+    <script src="https://cdn.tailwindcss.com"></script>
 
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-        <link href="https://fonts.googleapis.com/css2?family=Geist+Pixel&family=Oxanium:wght@200..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@400;600;800&family=Roboto:wght@400;500;700&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
 
-        <link rel="stylesheet" href="css/style.css">
-        <script src="javascript/header-footer.js"></script>
-        <script src="javascript/reveal-on-scroll.js" defer></script>
-        <style>
-            h1 {
-                font-family: 'Oxanium', 'Roboto', sans-serif;
-            }
-            h2 {
-                font-family: 'Oxanium', 'Roboto', sans-serif;
-            }
-        </style>
-    </head>
-    <body>
+    <link rel="stylesheet" href="css/style.css">
 
-        <div id="header-container" class="sticky top-0 z-50"></div>
+    <script src="javascript/header-footer.js"></script>
+    <script src="javascript/reveal-on-scroll.js" defer></script>
+</head>
+<body class="bg-[#1e1e1e] text-white antialiased selection:bg-[var(--maingreen)] selection:text-white">
 
-        <!-- Main Body -->
+    <div id="header-container" class="sticky top-0 z-50"></div>
 
-        <section class="reveal-on-scroll h-[calc(100vh-80px)] min-h-[500px] tagline flex flex-col items-center justify-center text-center px-4 relative">
-            <!-- Slogan -->
-            <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-center">Only the <span>best</span> products,</h1>
-            <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-center">Made for gamers, by gamers</h1>
+    <main class="container mx-auto max-w-full overflow-hidden">
+
+        <section class="reveal-on-scroll h-[calc(100vh-80px)] min-h-[500px] flex flex-col items-center justify-center text-center px-4 relative">
+            <h1 class="text-3xl sm:text-5xl lg:text-7xl font-extrabold tracking-tight">
+                Only the <span class="text-[var(--maingreen)]">best</span> products,
+            </h1>
+            <h1 class="text-3xl sm:text-5xl lg:text-7xl font-extrabold tracking-tight mt-2">
+                Made for gamers, by gamers
+            </h1>
         </section>
 
-        <article class="container mx-auto max-w-full overflow-hidden">
-
-            <!-- Carousel / Showcase -->
-            <section class="reveal-on-scroll actionView relative w-full">
-                <div class="list relative h-[450px] md:h-[600px] lg:h-[800px] w-full overflow-hidden"> 
-                    <div style="background-image: url('../images/keyboardwhite3.webp');" class="action w-full h-3/4 bg-cover bg-center 
-                    bg-no-repeat absolute left-1/2 top-1/2 z-20 -translate-x-1/2 -translate-y-1/2 opacity-0 pointer-events-none">
-                    </div>
-                    <div style="background-image: url('../images/KeyboardGreen.webp');" class="action w-full h-3/4 bg-cover bg-center 
-                    bg-no-repeat absolute left-1/2 top-1/2 z-20 -translate-x-1/2 -translate-y-1/2 opacity-100 pointer-events-none">
-                    </div>
-                    <div style="background-image: url('../images/WhatsApp\ Image\ 2026-07-08\ at\ 10.28.12.jpeg');" class="action w-full h-3/4 bg-cover bg-center 
-                    left-1/2 top-1/2 z-20 -translate-x-1/2 -translate-y-1/2 opacity-0 absolute pointer-events-none">
-                    </div>
-                    <div class="absolute bottom-12 md:bottom-24 left-1/2 -translate-x-1/2 flex justify-center items-center gap-2 z-30" id="carousel-indicator">
-                        <button class="carouselbutton h-2 w-8 md:w-10 rounded-full bg-gray-700 transition-all duration-300 aria-current" aria-label="Image 1" id="carouselb1"></button>
-                        <button class="carouselbutton h-2 w-8 md:w-10 rounded-full bg-gray-300 hover:bg-gray-400 transition-all duration-300" aria-label="Image 2" id="carouselb2" ></button>
-                        <button class="carouselbutton h-2 w-8 md:w-10 rounded-full bg-gray-300 hover:bg-gray-400 transition-all duration-300" aria-label="Image 3" id="carouselb3"></button>
-                    </div>
-                    
+        <section class="reveal-on-scroll actionView relative w-full my-12" aria-label="Product Showcase Carousel">
+            <div class="list relative h-[450px] md:h-[600px] lg:h-[750px] w-full overflow-hidden rounded-2xl shadow-2xl"> 
+                <div style="background-image: url('images/keyboardwhite3.webp');" 
+                     class="action w-full h-full bg-cover bg-center bg-no-repeat absolute inset-0 z-20 opacity-0 pointer-events-none transition-opacity duration-500 ease-in-out">
+                </div>
+                <div style="background-image: url('images/KeyboardGreen.webp');" 
+                     class="action w-full h-full bg-cover bg-center bg-no-repeat absolute inset-0 z-20 opacity-100 pointer-events-auto transition-opacity duration-500 ease-in-out">
+                </div>
+                <div style="background-image: url('images/WhatsApp Image 2026-07-08 at 10.28.12.jpeg');" 
+                     class="action w-full h-full bg-cover bg-center bg-no-repeat absolute inset-0 z-20 opacity-0 pointer-events-none transition-opacity duration-500 ease-in-out">
                 </div>
 
-                <div class="arrowkeys absolute bottom-2.5 left-1/2 top-[50%] z-15 flex w-full max-w-full -translate-x-1/2 
-                -translate-y-1/2 items-center justify-between pointer-events-none px-2 md:px-6">
-                    <button id="previous" class="h-[100px] md:h-[200px] w-[35px] md:w-[50px] border-[1.5px] border-current bg-white 
-                    font-mono text-sm md:text-lg font-bold pointer-events-auto transition duration-500 hover:border-black hover:bg-[rgb(33,33,33)] 
-                    hover:text-white" onclick="previous()">&#8592;</button>
-                    <button id="next" class="h-[50px] w-[35px] md:w-[50px] border-[1.5px] border-current bg-white font-mono text-sm md:text-lg 
-                    font-bold pointer-events-auto transition duration-500 hover:border-black hover:bg-[rgb(33,33,33)] 
-                    hover:text-white" onclick="next()">&#8594;</button>
+                <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex justify-center items-center gap-3 z-30" id="carousel-indicator">
+                    <button class="carouselbutton h-2.5 w-8 rounded-full bg-white transition-all duration-300" aria-current="true" aria-label="Slide 1" id="carouselb1"></button>
+                    <button class="carouselbutton h-2.5 w-8 rounded-full bg-white/40 hover:bg-white/70 transition-all duration-300" aria-label="Slide 2" id="carouselb2"></button>
+                    <button class="carouselbutton h-2.5 w-8 rounded-full bg-white/40 hover:bg-white/70 transition-all duration-300" aria-label="Slide 3" id="carouselb3"></button>
                 </div>
+            </div>
+
+            <div class="arrowkeys absolute top-1/2 left-0 right-0 z-30 -translate-y-1/2 flex items-center justify-between pointer-events-none px-4 md:px-8">
+                <button id="previous" aria-label="Previous slide" class="h-12 w-12 md:h-14 md:w-14 rounded-full border border-white/20 bg-black/60 text-white flex items-center justify-center text-xl font-bold backdrop-blur-md pointer-events-auto transition duration-300 hover:bg-[var(--maingreen)] hover:border-[var(--maingreen)]">
+                    &#8592;
+                </button>
+                <button id="next" aria-label="Next slide" class="h-12 w-12 md:h-14 md:w-14 rounded-full border border-white/20 bg-black/60 text-white flex items-center justify-center text-xl font-bold backdrop-blur-md pointer-events-auto transition duration-300 hover:bg-[var(--maingreen)] hover:border-[var(--maingreen)]">
+                    &#8594;
+                </button>
+            </div>
+        </section>
+
+        <section class="reveal-on-scroll text-3xl sm:text-5xl lg:text-6xl text-center font-bold my-24 md:my-40 px-4">
+            <h2>Our <span class="text-[var(--maingreen)]">best</span> products, just <span class="text-[var(--maingreen)]">for you</span></h2>
+        </section>
+
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-6 px-4 max-w-7xl mx-auto">
+            <section class="reveal-on-scroll relative group h-[400px] md:h-[500px] rounded-2xl overflow-hidden bg-cover bg-center flex flex-col justify-between items-center p-8 text-center shadow-lg" style="background-image: url('images/eewewe.jpeg');">
+                <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition duration-300"></div>
+                <h3 class="relative z-10 text-lg md:text-xl font-bold bg-black/70 border border-white/10 text-white px-4 py-1.5 rounded-full backdrop-blur-sm">
+                    🔥 Best Seller
+                </h3>
+                <a href="html/neXus-60HE/keyboard-intro.html" class="relative z-10 inline-block px-6 py-3 bg-[var(--maingreen)] hover:bg-[var(--hovergreen)] text-white font-bold rounded-xl transition shadow-lg transform group-hover:scale-105">
+                    Learn More
+                </a>
             </section>
 
-            <!-- Tagline 2 -->
-            <section class="reveal-on-scroll tagline text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-center my-24 md:my-48 lg:my-80 px-4">
-                <!-- Slogan -->
-                <h1>Our <span>best</span> products, just <span>for you</span></h1>
+            <section class="reveal-on-scroll relative group h-[400px] md:h-[500px] rounded-2xl overflow-hidden bg-cover bg-center flex flex-col justify-between items-center p-8 text-center shadow-lg" style="background-image: url('images/neXuslogo.png');">
+                <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition duration-300"></div>
+                <h3 class="relative z-10 text-lg md:text-xl font-bold bg-black/70 border border-white/10 text-white px-4 py-1.5 rounded-full backdrop-blur-sm">
+                    🔥 Best Seller
+                </h3>
+                <a href="html/neXos/nexos-intro.html" class="relative z-10 inline-block px-6 py-3 bg-[var(--maingreen)] hover:bg-[var(--hovergreen)] text-white font-bold rounded-xl transition shadow-lg transform group-hover:scale-105">
+                    Learn More
+                </a>
             </section>
+        </section>
 
-            <!-- Product Showcase -->
-            <section class="flex flex-col md:flex-row items-center text-center max-w-full">
-                <!-- Product 1 -->
-                <section class="reveal-on-scroll w-full md:w-1/2 h-[350px] md:h-[500px] bg-cover bg-center bg-no-repeat flex flex-col justify-between items-center py-8 md:py-10" style="background-image: url('images/eewewe.jpeg');">
-                    <h3 class="text-xl md:text-2xl font-bold bg-black/50 text-white px-4 py-1 rounded">! Best Seller</h3>
-                    <button class="px-4 py-2 md:py-1 bg-red-500 rounded-xl text-white font-bold hover:bg-red-600 transition">
-                        <a href="html/neXus-60HE/keyboard-intro.html" class="block w-full h-full">Learn More</a>
+        <section class="reveal-on-scroll text-3xl sm:text-5xl lg:text-6xl text-center font-bold my-24 md:my-40 px-4">
+            <h2>Quality so <span class="text-[var(--maingreen)]">good</span>, it's built to last a lifetime</h2>
+        </section>
+
+        <section class="reveal-on-scroll px-4 my-16 md:my-24">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <div class="flex flex-col items-center text-center p-6 bg-white/5 border border-white/10 rounded-2xl backdrop-blur-sm hover:border-[var(--maingreen)] transition">
+                    <i class="fa fa-cogs text-4xl text-[var(--maingreen)] mb-4" aria-hidden="true"></i>
+                    <h3 class="text-xl font-bold mb-2">Rigorous Testing</h3>
+                    <p class="text-sm md:text-base text-gray-400">Every keyboard and mouse is stress-tested through thousands of keystrokes and clicks before leaving the factory.</p>
+                </div>
+                <div class="flex flex-col items-center text-center p-6 bg-white/5 border border-white/10 rounded-2xl backdrop-blur-sm hover:border-[var(--maingreen)] transition">
+                    <i class="fa fa-check-circle text-4xl text-[var(--maingreen)] mb-4" aria-hidden="true"></i>
+                    <h3 class="text-xl font-bold mb-2">Hand-Checked Components</h3>
+                    <p class="text-sm md:text-base text-gray-400">Switches, sensors, and cables are individually inspected to ensure competitive-grade standards.</p>
+                </div>
+                <div class="flex flex-col items-center text-center p-6 bg-white/5 border border-white/10 rounded-2xl backdrop-blur-sm hover:border-[var(--maingreen)] transition">
+                    <i class="fa fa-shield text-4xl text-[var(--maingreen)] mb-4" aria-hidden="true"></i>
+                    <h3 class="text-xl font-bold mb-2">Backed By Warranty</h3>
+                    <p class="text-sm md:text-base text-gray-400">We stand behind our gear with a full manufacturer warranty because gamers deserve reliability.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="reveal-on-scroll text-3xl sm:text-5xl lg:text-6xl text-center font-bold my-24 md:my-40 px-4">
+            <h2>Built <span class="text-[var(--maingreen)]">For Gamers, By Gamers</span></h2>
+        </section>
+
+        <section class="reveal-on-scroll text-center px-4 my-16 md:my-24 pb-16">
+            <div class="max-w-3xl mx-auto bg-gradient-to-b from-white/10 to-transparent p-8 md:p-12 rounded-3xl border border-white/10">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Join the <span class="text-[var(--maingreen)]">neXus</span> community</h2>
+                <p class="text-sm md:text-base text-gray-400 max-w-xl mx-auto mb-8">
+                    Get early access to drops, exclusive discounts, and behind-the-scenes looks at what we're building next.
+                </p>
+                <form class="flex flex-col sm:flex-row items-center justify-center gap-3 max-w-md mx-auto" onsubmit="event.preventDefault();">
+                    <input type="email" required placeholder="Enter your email" class="w-full sm:w-auto flex-1 px-4 py-3 bg-black/50 border border-white/20 rounded-xl text-sm focus:outline-none focus:border-[var(--maingreen)] transition">
+                    <button type="submit" class="w-full sm:w-auto px-6 py-3 bg-[var(--maingreen)] hover:bg-[var(--hovergreen)] rounded-xl text-white font-bold transition whitespace-nowrap">
+                        Sign Up
                     </button>
-                </section>
+                </form>
+            </div>
+        </section>
+        
+    </main>
 
-                <!-- Product 2 -->
-                <section class="reveal-on-scroll w-full md:w-1/2 h-[350px] md:h-[500px] bg-cover bg-center bg-no-repeat flex flex-col justify-between items-center py-8 md:py-10" style="background-image: url('images/neXuslogo.png');">
-                    <h3 class="text-xl md:text-2xl font-bold bg-black/50 text-white px-4 py-1 rounded">! Best Seller</h3>
-                    <button class="px-4 py-2 md:py-1 bg-red-500 rounded-xl text-white font-bold hover:bg-red-600 transition">
-                        <a href="html/neXos/nexos-intro.html" class="block w-full h-full">Learn More</a>
-                    </button>
-                </section>
-            </section>
+    <div id="footer-container"></div>
 
-            <!-- Tagline 3 -->
-            <section class="reveal-on-scroll text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-center my-24 md:my-48 lg:my-80 tagline px-4">
-                <!-- Slogan -->
-                <h1>Quality so <span>good</span>, it's built to</h1>
-                <h1>last a lifetime</h1>
-            </section>
+    <script>
+        (function () {
+            const slides = Array.from(document.querySelectorAll(".action"));
+            const indicators = Array.from(document.querySelectorAll(".carouselbutton"));
+            const nextBtn = document.getElementById("next");
+            const prevBtn = document.getElementById("previous");
+            const actionView = document.querySelector(".actionView");
 
-            <!-- Quality Control Text -->
-            <section class="reveal-on-scroll text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-center px-4">
-                <!-- Text for quality control -->
-            </section>
+            if (!slides.length) return;
 
-            <!-- Tagline 4 -->
-            <section class="reveal-on-scroll text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-center tagline my-24 md:my-48 lg:my-80 px-4">
-                <!-- Slogan -->
-                <h1>Built <span>For Gamers, By Gamers</span></h1>
-            </section>
+            const total = slides.length;
+            const AUTOPLAY_MS = 4000;
+            const TRANSITION_MS = 500;
 
-            <section>
-            </section>
-            
-        </article>
+            let current = Math.max(0, slides.findIndex((s) => s.classList.contains("opacity-100")));
+            let isAnimating = false;
+            let autoplayId = null;
 
-        <div id="footer-container"></div>
+            function render() {
+                slides.forEach((slide, i) => {
+                    if (i === current) {
+                        slide.classList.replace("opacity-0", "opacity-100");
+                        slide.classList.replace("pointer-events-none", "pointer-events-auto");
+                    } else {
+                        slide.classList.replace("opacity-100", "opacity-0");
+                        slide.classList.replace("pointer-events-auto", "pointer-events-none");
+                    }
+                });
 
-
-
-
-
-        <script>
-            //For the selection of actions
-            
-            let NButton = document.getElementById("next")
-            let PButton = document.getElementById("previous")
-            let actionView = document.querySelector(".actionView")
-            let list = document.querySelector(".list")
-            
-            //Calls the function with 1 parameter
-
-            function updateCarouselLayout(count) {
-                let actions = document.querySelectorAll(".action");
-                let carouselbutton = document.querySelectorAll(".carouselbutton")
-                
-                if (count === 1) {
-                    carouselbutton.forEach((button, index) => {
-                        button.classList.remove("bg-gray-700", "bg-gray-300")
-                        if (index === 0) {
-                            button.classList.add("bg-gray-700")
-                        } else if (index === 1) {
-                            button.classList.add("bg-gray-300")
-                        } else if (index === 2) {
-                            button.classList.add("bg-gray-300")
-                        }
-                    })
-                } else if (count == 2) {
-                    carouselbutton.forEach((button, index) => {
-                        button.classList.remove("bg-gray-700", "bg-gray-300")
-                        if (index === 0) {
-                            button.classList.add("bg-gray-300")
-                        } else if (index === 1) {
-                            button.classList.add("bg-gray-700")
-                        } else if (index === 2) {
-                            button.classList.add("bg-gray-300")
-                        }
-                    })
-                } else if (count == 3) {
-                    carouselbutton.forEach((button, index) => {
-                        button.classList.remove("bg-gray-700", "bg-gray-300")
-                        if (index === 0) {
-                            button.classList.add("bg-gray-300")
-                        } else if (index === 1) {
-                            button.classList.add("bg-gray-300")
-                        } else if (index === 2) {
-                            button.classList.add("bg-gray-700")
-                        }
-                    })
-                }
-            
-                actions.forEach((card, index) => {
-                    card.classList.remove("z-10", "z-20","opacity-0","opacity-100")
-                    
-                    if (index === 0) {
-                        card.classList.add("opacity-0", "z-10")
-                    } else if (index === 1) {
-                        card.classList.add("opacity-100","z-20")
-                    } else if (index === 2) {
-                        card.classList.add("opacity-0", "z-10")
+                indicators.forEach((btn, i) => {
+                    if (i === current) {
+                        btn.classList.replace("bg-white/40", "bg-white");
+                        btn.setAttribute("aria-current", "true");
+                    } else {
+                        btn.classList.replace("bg-white", "bg-white/40");
+                        btn.removeAttribute("aria-current");
                     }
                 });
             }
 
-            function next() {
-                showSlider("next")
+            function goTo(index, { restartAutoplay: shouldRestart = true } = {}) {
+                if (isAnimating || total <= 1) return;
+                isAnimating = true;
+                current = ((index % total) + total) % total;
+                render();
+                setTimeout(() => { isAnimating = false; }, TRANSITION_MS);
+                if (shouldRestart) restartAutoplay();
             }
-            function previous() {
-                showSlider("previous")
+
+            function next() { goTo(current + 1); }
+            function previous() { goTo(current - 1); }
+
+            function startAutoplay() {
+                if (total <= 1) return;
+                autoplayId = setInterval(() => goTo(current + 1, { restartAutoplay: false }), AUTOPLAY_MS);
             }
 
-            //Moves the card to the left/right
-
-            let count = 1
-
-            function showSlider(type) {
-                let actions = document.querySelectorAll(".action")
-
-                if (type === "next") {
-                    count += 1
-                    console.log(count)
-                    setTimeout(() => {
-                        list.appendChild(actions[0])
-                        updateCarouselLayout(count)
-                    }, 20);
-                } else {
-                    let lastPos = actions.length - 1
-                    count -= 1
-                    setTimeout(() => {
-                        list.prepend(actions[lastPos])
-                        updateCarouselLayout(count)
-                    }, 20);
-                    
+            function stopAutoplay() {
+                if (autoplayId) {
+                    clearInterval(autoplayId);
+                    autoplayId = null;
                 }
-
-                if (count > 3) {
-                    count = 1
-                } else if (count < 1) {
-                    count = 3
-                } 
             }
 
-            setInterval(next, 4000)
-        </script>
-    </body>
+            function restartAutoplay() {
+                stopAutoplay();
+                startAutoplay();
+            }
+
+            if (nextBtn) nextBtn.addEventListener("click", next);
+            if (prevBtn) prevBtn.addEventListener("click", previous);
+            indicators.forEach((btn, i) => btn.addEventListener("click", () => goTo(i)));
+
+            if (actionView) {
+                actionView.addEventListener("mouseenter", stopAutoplay);
+                actionView.addEventListener("mouseleave", startAutoplay);
+            }
+
+            render();
+            startAutoplay();
+        })();
+    </script>
+</body>
 </html>
