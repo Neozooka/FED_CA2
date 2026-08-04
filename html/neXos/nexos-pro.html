@@ -302,7 +302,11 @@
                     autoRefreshEvents: "DOMContentLoaded,load,resize"
                 });
 
-                ScrollTrigger.normalizeScroll(true);
+                const hasCoarsePointer = window.matchMedia("(pointer: coarse)").matches;
+                ScrollTrigger.normalizeScroll({
+                    type: hasCoarsePointer ? "touch,pointer" : "wheel,pointer,scroll",
+                    momentum: (self) => Math.min(4, Math.abs(self.velocityY) / 600)
+                });
 
                 const tl = gsap.timeline({
                     defaults: { ease: "none" }, // Scrubbed timelines shouldn't ease tweens individually —
