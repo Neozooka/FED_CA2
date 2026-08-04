@@ -5,6 +5,12 @@
 #helix-zoom,
 #helix-scrim,
 .story-text {
+    will-change: transform;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+}
+
+.story-text {
     will-change: transform, opacity;
 }
 
@@ -25,9 +31,10 @@
     width: 100%;
     height: 100%;
     transform-origin: 50% 50%;
-    /* Starting value only — the real starting scale is set inline
-        below and driven by GSAP; this is just a safe fallback for
-        the instant before JS runs. */
+    /* Starting value only — the scroll-story <script> in nexos-pro.html
+        takes over this element's scale on every scroll/resize tick
+        (interpolating 2.4 -> 1 as the story progresses); this is just
+        a safe fallback for the instant before that JS runs. */
     transform: scale(2.4);
 }
 

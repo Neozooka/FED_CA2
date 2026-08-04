@@ -74,40 +74,40 @@
                 </a>
             </section>
 
-            <div id="scroll-story-wrapper" class="w-full bg-black relative">
+            <div id="scroll-story-wrapper" class="w-full bg-black relative h-[300vh]">
                 
-                <section id="scroll-story" class="relative w-full min-h-screen bg-black text-white overflow-hidden flex items-center justify-center">
+                <section id="scroll-story" class="sticky top-0 w-full h-screen bg-black text-white overflow-hidden flex items-center justify-center">
                     
-                    <div id="sticky-viewport" class="relative w-full h-full min-h-screen flex items-center justify-center overflow-hidden">
+                    <div id="sticky-viewport" class="relative w-full h-full flex items-center justify-center overflow-hidden">
                         
-                        <div id="game-screen" class="absolute inset-0 w-full h-full overflow-hidden" style="transform: translateZ(0); -webkit-transform: translateZ(0);">
-                            <div id="helix-zoom">
-                                <div class="helix-scene" id="helixScene">
+                        <div id="game-screen" class="absolute inset-0 w-full h-full overflow-hidden transition-transform duration-75 ease-out" style="transform: translateZ(0); -webkit-transform: translateZ(0);">
+                            <div id="helix-zoom" class="w-full h-full relative overflow-hidden">
+                                <div class="helix-scene w-full h-full" id="helixScene">
                                     <div class="helix-world" id="helixWorld"></div>
                                     <div class="helix-vignette"></div>
                                 </div>
                             </div>
-                            <div id="helix-scrim"></div>
+                            <div id="helix-scrim" class="transition-opacity duration-75 ease-out"></div>
                         </div>
 
                         <div class="relative z-30 text-center px-6 max-w-4xl w-full pointer-events-none">
-                            <h2 id="phrase-1" class="story-text absolute inset-x-0 top-1/2 -translate-y-1/2 text-4xl sm:text-6xl md:text-7xl font-black uppercase tracking-tight opacity-0">
+                            <h2 id="phrase-1" class="story-text absolute inset-x-0 top-1/2 -translate-y-1/2 text-4xl sm:text-6xl md:text-7xl font-black uppercase tracking-tight opacity-0 transition-all duration-300">
                                 For fifteen years
                             </h2>
 
-                            <h2 id="phrase-2" class="story-text absolute inset-x-0 top-1/2 -translate-y-1/2 text-4xl sm:text-6xl md:text-7xl font-black uppercase tracking-tight opacity-0">
+                            <h2 id="phrase-2" class="story-text absolute inset-x-0 top-1/2 -translate-y-1/2 text-4xl sm:text-6xl md:text-7xl font-black uppercase tracking-tight opacity-0 transition-all duration-300">
                                 we have asked ourselves
                             </h2>
 
-                            <h2 id="phrase-3" class="story-text absolute inset-x-0 top-1/2 -translate-y-1/2 text-3xl sm:text-5xl md:text-6xl font-black uppercase tracking-tight opacity-0 leading-tight">
+                            <h2 id="phrase-3" class="story-text absolute inset-x-0 top-1/2 -translate-y-1/2 text-3xl sm:text-5xl md:text-6xl font-black uppercase tracking-tight opacity-0 leading-tight transition-all duration-300">
                                 What is the best way to play a PC game?
                             </h2>
 
-                            <h2 id="phrase-4" class="story-text absolute inset-x-0 top-1/2 -translate-y-1/2 text-4xl sm:text-6xl md:text-7xl font-black uppercase tracking-tight opacity-0 text-[--maingreen]">
+                            <h2 id="phrase-4" class="story-text absolute inset-x-0 top-1/2 -translate-y-1/2 text-4xl sm:text-6xl md:text-7xl font-black uppercase tracking-tight opacity-0 text-[--maingreen] transition-all duration-300">
                                 No limit, no bottlenecks.
                             </h2>
 
-                            <h2 id="phrase-5" class="story-text absolute inset-x-0 top-1/2 -translate-y-1/2 text-4xl sm:text-6xl md:text-7xl font-black uppercase tracking-tight opacity-0">
+                            <h2 id="phrase-5" class="story-text absolute inset-x-0 top-1/2 -translate-y-1/2 text-4xl sm:text-6xl md:text-7xl font-black uppercase tracking-tight opacity-0 transition-all duration-300">
                                 Just pure kinetic speed.
                             </h2>
                         </div>
@@ -395,7 +395,7 @@
                     </p>
                 </div>
 
-                <div class="relative w-full h-[60vmin] min-h-[350px] max-h-[600px] my-6 flex items-center justify-center select-none overflow-hidden border-y border-neutral-900 bg-black/40">
+                <div id="preloaded-carousel" class="relative w-full h-[60vmin] min-h-[350px] max-h-[600px] my-6 flex items-center justify-center select-none overflow-hidden border-y border-neutral-900 bg-black/40">
                     <div 
                         id="image-track" 
                         data-mouse-down-at="0" 
@@ -455,6 +455,8 @@
             // ----------------------------------------------------------------
             const track = document.getElementById("image-track");
 
+            const trackContainer = track.parentElement;
+
             const handleOnDown = e => track.dataset.mouseDownAt = e.clientX;
 
             const handleOnUp = () => {
@@ -488,83 +490,100 @@
             }
 
             /* Event Listeners for Track */
-            window.addEventListener('mousedown', e => handleOnDown(e));
-            window.addEventListener('touchstart', e => handleOnDown(e.touches[0]));
+            // Drag now only starts when the pointer/finger comes down on the carousel
+            // itself, not anywhere on the page (previously these were on `window`, so
+            // clicking or tapping elsewhere on the site also registered as a drag-start).
+            trackContainer.addEventListener('mousedown', e => handleOnDown(e));
+            trackContainer.addEventListener('touchstart', e => handleOnDown(e.touches[0]), { passive: true });
 
             window.addEventListener('mouseup', e => handleOnUp(e));
-            window.addEventListener('touchend', e => handleOnUp(e.touches[0]));
+            window.addEventListener('touchend', e => handleOnUp(e.changedTouches[0]));
 
             window.addEventListener('mousemove', e => handleOnMove(e));
-            window.addEventListener('touchmove', e => handleOnMove(e.touches[0]));
+            // `passive: false` + preventDefault stops the browser from hijacking the
+            // gesture as a page scroll, which is what broke dragging on touch devices.
+            window.addEventListener('touchmove', e => {
+                if (track.dataset.mouseDownAt !== "0") e.preventDefault();
+                handleOnMove(e.touches[0]);
+            }, { passive: false });
         </script>
 
         <script>
             document.addEventListener('DOMContentLoaded', () => {
-                gsap.registerPlugin(ScrollTrigger);
+                const wrapper = document.getElementById('scroll-story-wrapper');
+                const phrases = [
+                    document.getElementById('phrase-1'),
+                    document.getElementById('phrase-2'),
+                    document.getElementById('phrase-3'),
+                    document.getElementById('phrase-4'),
+                    document.getElementById('phrase-5')
+                ];
+                const helixZoom = document.getElementById('helix-zoom');
+                const helixScrim = document.getElementById('helix-scrim');
 
-                // Prevent resize glitches on mobile address bar toggles
-                ScrollTrigger.config({
-                    ignoreMobileResize: true,
-                    autoRefreshEvents: "DOMContentLoaded,load,resize"
-                });
+                // Matches the CSS fallback scale on #helix-zoom (transform: scale(2.4))
+                // so JS picks up exactly where the pre-JS paint leaves off, with no jump.
+                const HELIX_ZOOM_START = 2.4;
+                const HELIX_ZOOM_END = 1;
 
-                const hasCoarsePointer = window.matchMedia("(pointer: coarse)").matches;
-                ScrollTrigger.normalizeScroll({
-                    type: hasCoarsePointer ? "touch,pointer" : "wheel,scroll",
-                    momentum: (self) => Math.min(4, Math.abs(self.velocityY) / 600)
-                });
-
-                const tl = gsap.timeline({
-                    defaults: { ease: "none" },
-                    scrollTrigger: {
-                        trigger: "#scroll-story-wrapper",
-                        start: "top top",
-                        end: "+=3000",
-                        scrub: 0.5,
-                        pin: "#scroll-story",
-                        pinType: "transform",    
-                        pinSpacing: true,
-                        anticipatePin: 3,
-                        invalidateOnRefresh: true,
-                        fastScrollEnd: true      
+                // Helper function for smooth opacity fades based on progress
+                function getFadeOpacity(progress, start, peak, end) {
+                    if (progress < start || progress > end) return 0;
+                    if (progress >= start && progress <= peak) {
+                        return (progress - start) / (peak - start);
                     }
-                });
+                    return 1 - ((progress - peak) / (end - peak));
+                }
 
-                // Phrase Animations
-                tl.fromTo("#phrase-1", { autoAlpha: 0, y: 30 }, { autoAlpha: 1, y: 0, duration: 1 })
-                .to("#phrase-1", { autoAlpha: 0, y: -30, duration: 1 }, "+=0.5")
+                function updateScrollStory() {
+                    const rect = wrapper.getBoundingClientRect();
+                    const totalScrollable = wrapper.offsetHeight - window.innerHeight;
+                    
+                    // Calculate scroll progress through the wrapper from 0 to 1
+                    let progress = -rect.top / totalScrollable;
+                    progress = Math.max(0, Math.min(1, progress));
 
-                .fromTo("#phrase-2", { autoAlpha: 0, y: 30 }, { autoAlpha: 1, y: 0, duration: 1 })
-                .to("#phrase-2", { autoAlpha: 0, y: -30, duration: 1 }, "+=0.5")
+                    // 1. Phrase Animations Opacity & Y Translate
+                    // Phrase 1 (0% to 18%)
+                    phrases[0].style.opacity = getFadeOpacity(progress, 0.00, 0.08, 0.18);
+                    
+                    // Phrase 2 (18% to 36%)
+                    phrases[1].style.opacity = getFadeOpacity(progress, 0.18, 0.26, 0.36);
+                    
+                    // Phrase 3 (36% to 54%)
+                    phrases[2].style.opacity = getFadeOpacity(progress, 0.36, 0.44, 0.54);
 
-                .fromTo("#phrase-3", { autoAlpha: 0, y: 30 }, { autoAlpha: 1, y: 0, duration: 1 })
-                .to("#phrase-3", { autoAlpha: 0, y: -30, duration: 1 }, "+=0.5")
+                    // Phrase 4 (54% to 75%)
+                    phrases[3].style.opacity = getFadeOpacity(progress, 0.54, 0.63, 0.75);
 
-                .to("#game-screen", { 
-                    scale: 0.7,
-                    force3D: true,
-                    duration: 3
-                }, "shrinkStart")
+                    // Phrase 5 (75% to 95%)
+                    phrases[4].style.opacity = getFadeOpacity(progress, 0.75, 0.85, 0.95);
 
-                .to("#helix-zoom", {
-                    scale: 1,
-                    duration: 3
-                }, "shrinkStart")
-                .to("#helix-scrim", {
-                    opacity: 0,
-                    duration: 2.5
-                }, "shrinkStart+=0.25")
+                    // 2. Zoom the helix background out from progress 0.35 to 0.8, so the
+                    // "zoomed-in dark backdrop" reveals into the full helix around phrase 4
+                    // ("No limit, no bottlenecks."). This scales #helix-zoom itself — the
+                    // element whose CSS fallback (scale(2.4)) and transition:none rule are
+                    // built for exactly this — instead of #game-screen, which was shrinking
+                    // the whole sticky viewport uniformly and left the background permanently
+                    // stuck at its zoomed-in 2.4x starting scale, reading as an upward pan
+                    // from the helix cards' ambient drift rather than a deliberate zoom-out.
+                    if (progress > 0.35) {
+                        const zoomProgress = Math.min(1, (progress - 0.35) / 0.45);
+                        const scale = HELIX_ZOOM_START - (zoomProgress * (HELIX_ZOOM_START - HELIX_ZOOM_END));
+                        helixZoom.style.transform = `scale(${scale})`;
+                        helixScrim.style.opacity = 1 - zoomProgress;
+                    } else {
+                        helixZoom.style.transform = `scale(${HELIX_ZOOM_START})`;
+                        helixScrim.style.opacity = 1;
+                    }
+                }
 
-                .fromTo("#phrase-4", { autoAlpha: 0, y: 30 }, { autoAlpha: 1, y: 0, duration: 1 }, "shrinkStart+=0.5")
-                .to("#phrase-4", { autoAlpha: 0, y: -30, duration: 1 }, "+=0.5")
-
-                .fromTo("#phrase-5", { autoAlpha: 0, y: 30 }, { autoAlpha: 1, y: 0, duration: 1 })
-                .to("#phrase-5", { autoAlpha: 0, y: -30, duration: 1 }, "+=0.5");
-
-                // Recalculate positions after everything loads
-                window.addEventListener('load', () => {
-                    ScrollTrigger.refresh();
-                });
+                // Run on scroll and resize
+                window.addEventListener('scroll', updateScrollStory, { passive: true });
+                window.addEventListener('resize', updateScrollStory);
+                
+                // Initial run
+                updateScrollStory();
             });
         </script>
 

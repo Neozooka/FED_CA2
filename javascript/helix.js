@@ -1,11 +1,12 @@
-            // ----------------------------------------------------------------
+// ----------------------------------------------------------------
             // Double-helix background engine
             // Ambient-only: the drag/momentum interaction from the original
             // gallery is dropped here since this instance lives behind a
             // scroll-driven story rather than being a stand-alone, draggable
-            // gallery. GSAP separately tweens #helix-zoom's scale and
-            // #helix-scrim's opacity to drive the "zoomed-in dark backdrop ->
-            // full reveal" beat described in the scroll story.
+            // gallery. The scroll-story <script> in nexos-pro.html separately
+            // tweens #helix-zoom's scale and #helix-scrim's opacity on scroll
+            // to drive the "zoomed-in dark backdrop -> full reveal" beat
+            // described in the scroll story.
             // ----------------------------------------------------------------
             (function initHelix() {
                 const config = {
@@ -61,7 +62,9 @@
 
                 const applyViewport = () => {
                     const bp = pickBreakpoint();
-                    view.span = scene.clientHeight * config.scene.spanFactor;
+                    // Falls back to window.innerHeight so GSAP pinning never collapses the height to 0
+                    const viewportHeight = scene.clientHeight || window.innerHeight || 800;
+                    view.span = viewportHeight * config.scene.spanFactor;
                     view.radius = bp.radius;
                     const root = document.documentElement.style;
                     root.setProperty("--helix-card-width", `${bp.cardWidth}px`);
