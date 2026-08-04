@@ -302,8 +302,6 @@
                     autoRefreshEvents: "DOMContentLoaded,load,resize"
                 });
 
-                gsap.ticker.lagSmoothing(0);
-
                 ScrollTrigger.normalizeScroll(true);
 
                 const tl = gsap.timeline({
@@ -314,7 +312,13 @@
                         trigger: "#scroll-story-wrapper",
                         start: "top top",
                         end: "+=3000",
-                        scrub: true,            // Direct scroll coupling removes interpolation lag/jitter
+                        // A numeric scrub (rather than `true`) adds a small amount of
+                        // interpolation lag between the timeline and raw scroll position.
+                        // That lag is what smooths out mouse-wheel input, which arrives as
+                        // large, chunky position jumps per notch (unlike trackpad's stream
+                        // of small continuous deltas) — with scrub:true there's nothing to
+                        // absorb those jumps and they read as jitter.
+                        scrub: 0.5,
                         pin: "#scroll-story",
                         pinType: "transform",    // FORCES GSAP to use transforms instead of position:fixed (Prevents video flashing)
                         pinSpacing: true,
