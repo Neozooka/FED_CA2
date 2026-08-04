@@ -16,8 +16,13 @@
         <script src="../../javascript/main-shop.js" defer></script>
         <script src="../../javascript/header-footer.js" defer></script>
         <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@200..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-
+        <script src="../../javascript/shop-only.js" defer></script>
         <link rel="stylesheet" href="../../css/style.css">
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+        <script src="https://assets.codepen.io/16327/SplitText3.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/TextPlugin.min.js"></script>
     </head>
 
     <body>
@@ -28,13 +33,14 @@
 
         <article class="flex flex-col items-center gap-10">
 
-            <section class="flex flex-row ">
+            <section class="flex flex-row justify-between">
+                <img src="../../images/Images_Keyboard/keyboard0001.png" class="h-[200px]">
                 <div class="main-headline flex flex-col items-center justify-center gap-3">
                     <h1 class="text-5xl sm:text-7xl md:text-8xl font-black text-white tracking-wider ">
-                        neXus <span class="text-[var(--maingreen)]">SHOP</span>
+                        neXus<span class="text-[var(--maingreen)]">-60HE</span>
                     </h1>
                     <p class="tagline text-xs sm:text-sm md:text-base font-semibold text-gray-400 tracking-[0.25em] uppercase">
-                        ONLY THE BEST QUALITY PRODUCTS
+                        The Best keyboard for gaming
                     </p>
                 </div>
             </section>
@@ -127,7 +133,7 @@
                     <div class="actionView w-full max-w-sm mx-auto flex flex-col items-center gap-4">
                         
                         <!-- MAIN CAROUSEL IMAGE CONTAINER -->
-                        <div class="list relative h-[300px] w-full overflow-hidden rounded-xl border border-neutral-200"> 
+                        <div class="list relative h-[300px] w-full overflow-hidden rounded-lg border border-neutral-200"> 
                             
                             <!-- Slide 1 -->
                             <div style="background-image: url('../../images/eewewe.jpeg');" class="action w-full h-full bg-cover bg-center bg-no-repeat absolute left-1/2 top-1/2 z-20 -translate-x-1/2 -translate-y-1/2 opacity-0 transition-opacity duration-500 pointer-events-none"></div>
@@ -189,7 +195,7 @@
                         </div>
 
                         <!-- Price Block -->
-                        <div class="bg-neutral-100 p-4 rounded-xl border border-neutral-200">
+                        <div class="bg-neutral-100 p-4 rounded-lg border border-neutral-200">
                             <h2 class="text-red-600 text-3xl font-bold">$167</h2>
                         </div>
 
@@ -213,11 +219,11 @@
 
                         <!-- Action Buttons -->
                         <div class="flex justify-start gap-4 pt-4">
-                            <button class="bg-[var(--maingreen)] flex-1 h-[50px] px-4 rounded-xl transition hover:bg-[var(--hovergreen)] font-semibold text-white shadow-sm" onclick="addCart('nexus-60he-magnetic-keyboard-8000hz-polling-adjustable')">
+                            <button class="bg-[var(--maingreen)] flex-1 h-[50px] px-4 rounded-lg transition hover:bg-[var(--hovergreen)] font-semibold text-white shadow-sm" onclick="addCart('nexus-60he-magnetic-keyboard-8000hz-polling-adjustable')">
                                 Add to Cart
                             </button>
                             
-                            <a class="bg-[var(--maingreen)] flex-1 h-[50px] px-4 rounded-xl transition hover:bg-[var(--hovergreen)] font-semibold text-white flex items-center justify-center shadow-sm" onclick="addCart('nexus-60he-magnetic-keyboard-8000hz-polling-adjustable')" href="../payment.html">
+                            <a class="bg-[var(--maingreen)] flex-1 h-[50px] px-4 rounded-lg transition hover:bg-[var(--hovergreen)] font-semibold text-white flex items-center justify-center shadow-sm" onclick="addCart('nexus-60he-magnetic-keyboard-8000hz-polling-adjustable')" href="../payment.html">
                                 Buy Now
                             </a>
                         </div>
