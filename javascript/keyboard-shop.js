@@ -77,11 +77,11 @@ function returnId(id) {
 function activeProduct(id) {
     let elementRemoved = document.querySelectorAll(".Product-Button");
     elementRemoved.forEach(elem => {
-        elem.classList.remove("border-gray-200", "bg-[var(--maingreen)]", "text-[var(--maingreen)]");
+        elem.classList.remove("border-gray-200", "bg-[var(--maingreen)]", "text-[var(--maingreen)]", "text-neutral-900");
         elem.classList.add("border-gray-200");
     });
     let element = document.getElementById(id);
-    element.classList.remove("border-gray-200");
+    element.classList.remove("border-gray-200", "text-neutral-900");
     element.classList.add("border-[var(--maingreen)]", "text-[var(--maingreen)]");
     returnId(id);
 }
