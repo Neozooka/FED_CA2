@@ -297,10 +297,14 @@
                 gsap.registerPlugin(ScrollTrigger);
 
                 // Prevent resize glitches on mobile address bar toggles
-                ScrollTrigger.config({ 
+                ScrollTrigger.config({
                     ignoreMobileResize: true,
                     autoRefreshEvents: "DOMContentLoaded,load,resize"
                 });
+
+                gsap.ticker.lagSmoothing(0);
+
+                ScrollTrigger.normalizeScroll(true);
 
                 const tl = gsap.timeline({
                     defaults: { ease: "none" }, // Scrubbed timelines shouldn't ease tweens individually —
@@ -310,11 +314,11 @@
                         trigger: "#scroll-story-wrapper",
                         start: "top top",
                         end: "+=3000",
-                        scrub: 0.5,             // Lower = tighter coupling to scroll, less perceived lag
+                        scrub: true,            // Direct scroll coupling removes interpolation lag/jitter
                         pin: "#scroll-story",
                         pinType: "transform",    // FORCES GSAP to use transforms instead of position:fixed (Prevents video flashing)
                         pinSpacing: true,
-                        anticipatePin: 1,
+                        anticipatePin: 3,
                         invalidateOnRefresh: true,
                         fastScrollEnd: true      // Snaps to end state on very fast scroll flicks instead of lagging behind
                     }
@@ -333,7 +337,7 @@
                 // Shrink scale safely without dropping video context
                 .to("#game-screen", { 
                     scale: 0.7,
-                    borderRadius: "24px",
+                    force3D: true,
                     duration: 3
                 }, "shrinkStart")
 

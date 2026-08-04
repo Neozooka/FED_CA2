@@ -12,8 +12,10 @@
     border-radius: 0;
     padding: 0;
     margin: 0;
-    transition: 150ms;
 }
+
+/* Avoid animating every property on every element.
+   This dramatically reduces scroll jank, especially on Windows. */
 
 body {
     background-color: var(--background);
