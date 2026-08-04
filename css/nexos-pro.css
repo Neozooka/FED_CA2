@@ -30,12 +30,10 @@
     inset: 0;
     width: 100%;
     height: 100%;
+    transform-style: preserve-3d;
     transform-origin: 50% 50%;
-    /* Starting value only — the scroll-story <script> in nexos-pro.html
-        takes over this element's scale on every scroll/resize tick
-        (interpolating 2.4 -> 1 as the story progresses); this is just
-        a safe fallback for the instant before that JS runs. */
-    transform: scale(2.4);
+    /* Initial fallback before JS runs */
+    transform: translate3d(0, 0, 550px);
 }
 
 .helix-scene {
@@ -44,6 +42,7 @@
     height: 100%;
     perspective: var(--helix-perspective);
     perspective-origin: 50% 50%;
+    transform-style: preserve-3d;
     overflow: hidden;
     background: #0d0d0c;
 }
@@ -52,6 +51,17 @@
     position: absolute;
     inset: 0;
     transform-style: preserve-3d;
+    transform-origin: 50% 50%;
+}
+
+/* Ensure no CSS transition interfere with active frame transforms */
+#game-screen,
+#helix-zoom,
+#helix-scrim,
+.helix-scene,
+.helix-world,
+.helix-card {
+    transition: none !important;
 }
 
 .helix-card {
