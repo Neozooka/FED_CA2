@@ -9,6 +9,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const backToTopBtn = document.getElementById('back-to-top');
     const body = document.body;
 
+    // normalizeScroll(true) drives touch scrolling itself, on the JS thread —
+    // it bypasses the native `overflow:hidden` that body.no-scroll relies on,
+    // so the background kept scrolling under the open mobile nav. Toggling the
+    // normalizer's own enable/disable alongside the class fixes that.
+    function setScrollLock(locked) {
+        body.classList.toggle('no-scroll', locked);
+        if (typeof ScrollTrigger !== 'undefined') {
+            const normalizer = ScrollTrigger.normalizeScroll();
+            if (normalizer) {
+                locked ? normalizer.disable() : normalizer.enable();
+            }
+        }
+    }
+
     function closeAllMenus() {
         if (!menuBtn) return;
         menuBtn.classList.remove('open');
@@ -20,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
             menuOverlay.classList.remove('opacity-100');
             menuOverlay.classList.add('pointer-events-none');
         }
-        body.classList.remove('no-scroll');
+        setScrollLock(false);
     }
 
     if (menuBtn) {
@@ -36,11 +50,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (!isClosing) {
                     menuOverlay.classList.remove('pointer-events-none');
                     menuOverlay.classList.add('opacity-100');
-                    body.classList.add('no-scroll');
+                    setScrollLock(true);
                 } else {
                     menuOverlay.classList.add('pointer-events-none');
                     menuOverlay.classList.remove('opacity-100');
-                    body.classList.remove('no-scroll');
+                    setScrollLock(false);
                 }
                 
                 mobileMenu.classList.add('translate-y-full', 'pointer-events-none');
@@ -54,9 +68,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 mobileMenu.classList.toggle('pointer-events-none');
                 
                 if (!isClosing) {
-                    body.classList.add('no-scroll');
+                    setScrollLock(true);
                 } else {
-                    body.classList.remove('no-scroll');
+                    setScrollLock(false);
                 }
 
                 desktopDrawer.classList.add('translate-x-full');
@@ -98,10 +112,25 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         backToTopBtn.addEventListener('click', () => {
+            // window.scrollTo's native "scroll" events get picked up by
+            // normalizeScroll's scrollbar-drag handling (the "scroll" type,
+            // added for desktop scrollbar-drag support) and fought/overridden.
+            // Hand it full control for the duration of this scroll instead.
+            const normalizer = typeof ScrollTrigger !== 'undefined' ? ScrollTrigger.normalizeScroll() : null;
+            normalizer?.disable();
+
             window.scrollTo({
                 top: 0,
                 behavior: 'smooth'
             });
+
+            const reEnable = () => normalizer?.enable();
+            if ('onscrollend' in window) {
+                window.addEventListener('scrollend', reEnable, { once: true });
+            } else {
+                // Fallback for browsers without scrollend support
+                setTimeout(reEnable, 1000);
+            }
         });
     }
 

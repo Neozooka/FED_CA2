@@ -302,29 +302,6 @@
                     autoRefreshEvents: "DOMContentLoaded,load,resize"
                 });
 
-                // normalizeScroll fixes real jitter here: it keeps scroll handling
-                // and ScrollTrigger's pin/repaint logic on the same thread, avoiding
-                // the native-scroll-vs-JS-thread desync that reads as jumpiness on
-                // wheel input. The tradeoff is it also takes over from the browser
-                // entirely, so native trackpad momentum and the top/bottom rubber-band
-                // bounce don't happen by default. Passing a config (instead of `true`)
-                // adds a momentum function so wheel/trackpad/pointer input still gets
-                // some inertia when you let go, closer to native feel. Overscroll
-                // bounce itself isn't recoverable this way — that's fully disabled by
-                // design — it'd need a separate custom bounce effect if you want it back.
-                // The momentum function computes glide duration from release velocity,
-                // so it naturally tells a wheel notch (single low-velocity kick, short
-                // glide — matching native behavior, since most browsers give mouse
-                // wheel no momentum anyway) apart from a trackpad flick (sustained
-                // high velocity, proper coast). If the trackpad glide still feels short,
-                // raise the cap and/or lower the divisor below for a longer coast.
-                // "scroll" (for scrollbar-drag support) is desktop-only — there's
-                // no draggable scrollbar on a touchscreen. Combining "scroll" with
-                // "touch" broke mobile scrolling: the same touch drag was being
-                // processed twice, once via touch handling and once via the native
-                // scroll events it produces, and the two could disagree about the
-                // virtual scroll position, appearing to freeze scrolling partway
-                // through the pinned section. Gate it on pointer type instead.
                 const hasCoarsePointer = window.matchMedia("(pointer: coarse)").matches;
                 ScrollTrigger.normalizeScroll({
                     type: hasCoarsePointer ? "touch,pointer" : "wheel,pointer,scroll",
