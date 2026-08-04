@@ -33,8 +33,8 @@
 
         <article class="flex flex-col items-center gap-10">
 
-            <section class="flex flex-row justify-between">
-                <img src="../../images/Images_Keyboard/keyboard0001.png" class="h-[200px]">
+            <section class="flex max-w-5xl w-full h-[calc(100vh-80px)] min-h-[500px] flex flex-col items-center justify-center text-center px-4 relative  select-none gap-8" style="background-image: url('../../images/Images_Keyboard/keyboard0001.png');">
+                <!-- <img src="../../images/Images_Keyboard/keyboard0001.png" class="h-[200px]"> -->
                 <div class="main-headline flex flex-col items-center justify-center gap-3">
                     <h1 class="text-5xl sm:text-7xl md:text-8xl font-black text-white tracking-wider ">
                         neXus<span class="text-[var(--maingreen)]">-60HE</span>
@@ -351,47 +351,6 @@
                     animationFrameId = requestAnimationFrame(step);
                 }
 
-                // // Event Handlers for Dragging & Hovering
-                // function getPointerX(e) {
-                //     return e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
-                // }
-
-                // function onPointerDown(e) {
-                //     isDragging = true;
-                //     startX = getPointerX(e);
-                //     dragStartX = currentX;
-                //     windowEl.classList.add('cursor-grabbing');
-                // }
-
-                // function onPointerMove(e) {
-                //     if (!isDragging) return;
-                //     const deltaX = getPointerX(e) - startX;
-                //     currentX = dragStartX + deltaX;
-                // }
-
-                // function onPointerUp() {
-                //     if (!isDragging) return;
-                //     isDragging = false;
-                //     windowEl.classList.remove('cursor-grabbing');
-                // }
-
-                // // Hover listeners to pause on hover
-                // windowEl.addEventListener('mouseenter', () => isPaused = true);
-                // windowEl.addEventListener('mouseleave', () => {
-                //     isPaused = false;
-                //     onPointerUp();
-                // });
-
-                // // Touch & Mouse Drag Listeners
-                // windowEl.addEventListener('mousedown', onPointerDown);
-                // window.addEventListener('mousemove', onPointerMove);
-                // window.addEventListener('mouseup', onPointerUp);
-
-                // windowEl.addEventListener('touchstart', onPointerDown, { passive: true });
-                // window.addEventListener('touchmove', onPointerMove, { passive: true });
-                // window.addEventListener('touchend', onPointerUp);
-
-                // Start auto loop
                 animationFrameId = requestAnimationFrame(step);
             });
 
