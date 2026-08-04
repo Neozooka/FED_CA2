@@ -1,15 +1,11 @@
 const path = "../../javascript/products.json";
 
-// Retrieve cart from localStorage and normalize legacy items without a quantity property
 let cart = JSON.parse(localStorage.getItem("userCart")) || [];
 cart = cart.map(item => ({
     ...item,
     quantity: item.quantity || 1
 }));
 
-/**
- * Saves the current cart state to localStorage and updates cart count badges
- */
 function saveCart() {
     localStorage.setItem("userCart", JSON.stringify(cart));
     if (typeof updateCartCount === 'function') {
@@ -17,10 +13,7 @@ function saveCart() {
     }
 }
 
-/**
- * Toast Notification System
- * Displays a popup alert when a product is successfully added to the cart.
- */
+
 function showToastNotification(productName) {
     let container = document.getElementById('toast-container');
     if (!container) {
@@ -54,16 +47,45 @@ function showToastNotification(productName) {
     }, 3000);
 }
 
-/**
- * Renders all items in the cart container with quantity controls and total price calculations
- */
+
 function loadProductsFromList(cartList) {
     const priceTotal = document.getElementById("checkout-total-price");
     const numberItems = document.getElementById("checkout-item-count");
     const CartTemplate = document.querySelector("[cart-template]");
     const CartContainer = document.querySelector("[cart-container]");
 
-    if (!CartContainer || !CartTemplate) return;
+    if (!CartContainer) return;
+
+    // Handle Empty Cart State
+    if (!cartList || cartList.length === 0) {
+        CartContainer.innerHTML = `
+            <div class="flex flex-col items-center justify-center py-12 px-4 text-center">
+        
+                <h3 class="text-xl font-semibold text-white mb-1">Your cart is empty</h3>
+                <p class="text-sm text-gray-400 max-w-xs">Looks like you haven't added anything to your cart yet.</p>
+            </div>
+        `;
+
+        if (numberItems) numberItems.textContent = "0";
+        if (priceTotal) priceTotal.textContent = "0.00";
+
+        // Optional: Disable checkout button if present
+        const checkoutBtn = document.getElementById("checkout-button");
+        if (checkoutBtn) {
+            checkoutBtn.disabled = true;
+            checkoutBtn.classList.add("opacity-50", "cursor-not-allowed");
+        }
+        return;
+    }
+
+    // Enable checkout button if items are in cart
+    const checkoutBtn = document.getElementById("checkout-button");
+    if (checkoutBtn) {
+        checkoutBtn.disabled = false;
+        checkoutBtn.classList.remove("opacity-50", "cursor-not-allowed");
+    }
+
+    if (!CartTemplate) return;
 
     let totalCost = 0;
     let totalItemsCount = 0;
@@ -94,7 +116,7 @@ function loadProductsFromList(cartList) {
         if (photo) photo.src = item.image;
         if (quantityCount) quantityCount.textContent = itemQuantity;
 
-        // Attach event listeners for quantity buttons and remove button
+        // Attach event listeners
         if (btnDecrease) btnDecrease.addEventListener("click", () => changeQuantity(index, -1));
         if (btnIncrease) btnIncrease.addEventListener("click", () => changeQuantity(index, 1));
         if (btnRemove) btnRemove.addEventListener("click", () => remove(index));
@@ -106,9 +128,7 @@ function loadProductsFromList(cartList) {
     if (priceTotal) priceTotal.textContent = totalCost.toFixed(2);
 }
 
-/**
- * Adds a product to the cart or increments its quantity if already present
- */
+
 async function addCart(id) {
     try {
         const response = await fetch(path);
@@ -136,9 +156,7 @@ async function addCart(id) {
     }
 }
 
-/**
- * Adjusts item quantity (+1 or -1) and re-renders the cart
- */
+
 function changeQuantity(index, delta) {
     if (cart[index]) {
         cart[index].quantity = (cart[index].quantity || 1) + delta;
@@ -152,9 +170,6 @@ function changeQuantity(index, delta) {
     }
 }
 
-/**
- * Removes an item from the cart array by index
- */
 function remove(index) {
     const arrayIndex = parseInt(index);
     if (!isNaN(arrayIndex) && cart[arrayIndex]) {

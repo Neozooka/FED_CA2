@@ -18,6 +18,7 @@
 
         <link rel="stylesheet" href="css/style.css">
         <script src="javascript/header-footer.js"></script>
+        <script src="javascript/reveal-on-scroll.js" defer></script>
         <style>
             h1 {
                 font-family: 'Oxanium', 'Roboto', sans-serif;
@@ -33,24 +34,24 @@
 
         <!-- Main Body -->
 
+        <section class="reveal-on-scroll h-[calc(100vh-80px)] min-h-[500px] tagline flex flex-col items-center justify-center text-center px-4 relative">
+            <!-- Slogan -->
+            <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-center">Only the <span>best</span> products,</h1>
+            <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-center">Made for gamers, by gamers</h1>
+        </section>
+
         <article class="container mx-auto max-w-full overflow-hidden">
 
-            <section class="my-24 md:my-48 lg:my-80 tagline px-4">
-                <!-- Slogan -->
-                <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-center">Only the <span>best</span> products,</h1>
-                <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-center">Made for gamers, by gamers</h1>
-            </section>
-
-
-            <section class="actionView relative w-full">
+            <!-- Carousel / Showcase -->
+            <section class="reveal-on-scroll actionView relative w-full">
                 <div class="list relative h-[450px] md:h-[600px] lg:h-[800px] w-full overflow-hidden"> 
                     <div style="background-image: url('../images/keyboardwhite3.webp');" class="action w-full h-3/4 bg-cover bg-center 
                     bg-no-repeat absolute left-1/2 top-1/2 z-20 -translate-x-1/2 -translate-y-1/2 opacity-0 pointer-events-none">
                     </div>
-                    <div style="background-image: url('../images/KeyboardGreen.webp');" class="action  w-full h-3/4 bg-cover bg-center 
+                    <div style="background-image: url('../images/KeyboardGreen.webp');" class="action w-full h-3/4 bg-cover bg-center 
                     bg-no-repeat absolute left-1/2 top-1/2 z-20 -translate-x-1/2 -translate-y-1/2 opacity-100 pointer-events-none">
                     </div>
-                    <div style="background-image: url('../images/WhatsApp\ Image\ 2026-07-08\ at\ 10.28.12.jpeg');" class="action  w-full h-3/4 bg-cover bg-center 
+                    <div style="background-image: url('../images/WhatsApp\ Image\ 2026-07-08\ at\ 10.28.12.jpeg');" class="action w-full h-3/4 bg-cover bg-center 
                     left-1/2 top-1/2 z-20 -translate-x-1/2 -translate-y-1/2 opacity-0 absolute pointer-events-none">
                     </div>
                     <div class="absolute bottom-12 md:bottom-24 left-1/2 -translate-x-1/2 flex justify-center items-center gap-2 z-30" id="carousel-indicator">
@@ -71,23 +72,25 @@
                     hover:text-white" onclick="next()">&#8594;</button>
                 </div>
             </section>
-            
 
-            <section class="tagline text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-center my-24 md:my-48 lg:my-80 px-4">
+            <!-- Tagline 2 -->
+            <section class="reveal-on-scroll tagline text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-center my-24 md:my-48 lg:my-80 px-4">
                 <!-- Slogan -->
                 <h1>Our <span>best</span> products, just <span>for you</span></h1>
             </section>
 
+            <!-- Product Showcase -->
             <section class="flex flex-col md:flex-row items-center text-center max-w-full">
-                <!-- Product showcase with two products -->
-                <section class="w-full md:w-1/2 h-[350px] md:h-[500px] bg-cover bg-center bg-no-repeat flex flex-col justify-between items-center py-8 md:py-10" style="background-image: url('images/eewewe.jpeg');">
+                <!-- Product 1 -->
+                <section class="reveal-on-scroll w-full md:w-1/2 h-[350px] md:h-[500px] bg-cover bg-center bg-no-repeat flex flex-col justify-between items-center py-8 md:py-10" style="background-image: url('images/eewewe.jpeg');">
                     <h3 class="text-xl md:text-2xl font-bold bg-black/50 text-white px-4 py-1 rounded">! Best Seller</h3>
                     <button class="px-4 py-2 md:py-1 bg-red-500 rounded-xl text-white font-bold hover:bg-red-600 transition">
                         <a href="html/neXus-60HE/keyboard-intro.html" class="block w-full h-full">Learn More</a>
                     </button>
                 </section>
 
-                <section class="w-full md:w-1/2 h-[350px] md:h-[500px] bg-cover bg-center bg-no-repeat flex flex-col justify-between items-center py-8 md:py-10" style="background-image: url('images/neXuslogo.png');">
+                <!-- Product 2 -->
+                <section class="reveal-on-scroll w-full md:w-1/2 h-[350px] md:h-[500px] bg-cover bg-center bg-no-repeat flex flex-col justify-between items-center py-8 md:py-10" style="background-image: url('images/neXuslogo.png');">
                     <h3 class="text-xl md:text-2xl font-bold bg-black/50 text-white px-4 py-1 rounded">! Best Seller</h3>
                     <button class="px-4 py-2 md:py-1 bg-red-500 rounded-xl text-white font-bold hover:bg-red-600 transition">
                         <a href="html/neXos/nexos-intro.html" class="block w-full h-full">Learn More</a>
@@ -95,17 +98,20 @@
                 </section>
             </section>
 
-            <section class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-center my-24 md:my-48 lg:my-80 tagline px-4">
+            <!-- Tagline 3 -->
+            <section class="reveal-on-scroll text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-center my-24 md:my-48 lg:my-80 tagline px-4">
                 <!-- Slogan -->
                 <h1>Quality so <span>good</span>, it's built to</h1>
                 <h1>last a lifetime</h1>
             </section>
-            
-            <section class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-center px-4">
+
+            <!-- Quality Control Text -->
+            <section class="reveal-on-scroll text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-center px-4">
                 <!-- Text for quality control -->
             </section>
 
-            <section class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-center tagline my-24 md:my-48 lg:my-80 px-4">
+            <!-- Tagline 4 -->
+            <section class="reveal-on-scroll text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-center tagline my-24 md:my-48 lg:my-80 px-4">
                 <!-- Slogan -->
                 <h1>Built <span>For Gamers, By Gamers</span></h1>
             </section>

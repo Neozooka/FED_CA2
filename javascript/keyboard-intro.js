@@ -141,3 +141,5 @@ window.addEventListener('scroll', () => {
 
     lastScrollY = currentScrollY
 })
+
+//fix the header disappearing
