@@ -4,7 +4,7 @@
 
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>neXos Pro | We gave your computer wings.</title>
+        <title>neXos Pro | Unleash your computer's wings.</title>
         <script src="https://cdn.tailwindcss.com"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="icon" type="image/x-icon" href="/images/neXuslogo2.png">
@@ -156,7 +156,7 @@
                                      class="layout-view absolute inset-0 w-full h-full object-cover opacity-100 transition-opacity duration-500">
 
                                 <img id="layout-tiling" 
-                                     src="../../images/desktop-tiling.jpg" 
+                                     src="../../images/desktop-tiling.png" 
                                      alt="Tiling Coding Layout" 
                                      class="layout-view absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-500 pointer-events-none">
 
@@ -361,21 +361,16 @@
 
                     <div class="relative w-full max-w-4xl mx-auto flex flex-col items-center reveal-on-scroll">
                         
-                        <div class="relative w-full max-w-[850px]">
+                        <!-- Scaled container matching the 3576x2764 ratio -->
+                        <div class="relative w-full aspect-[3576/2764] max-w-[850px]">
                             
-                            <img src="../../images/monitor-stand.png" alt="Monitor Display" class="w-full h-auto object-contain pointer-events-none relative z-30 block">
-
-                            <div class="absolute top-[1.6%] left-[1.6%] w-[96.8%] h-[79.2%] rounded-sm overflow-hidden bg-black z-10 pointer-events-none">
-                                
-                                <div class="relative w-full h-full scale-[1.02]">
-                                    <div class="absolute inset-0 w-full h-full pointer-events-none">
-
-                                        <img src="../../images/nexos-pro-obs-desktop.jpg" alt="NexOS Desktop with OBS" class="w-full h-full object-fill select-none">
-
-                                    </div>
-                                </div>
-
+                            <!-- Desktop Preview Image Container mapped behind the monitor frame -->
+                            <div class="absolute top-[1.2%] left-[1.1%] w-[97.8%] h-[68.8%] rounded-sm overflow-hidden bg-black z-10 pointer-events-none">
+                                <img src="../../images/nexos-pro-obs-desktop.jpg" alt="NexOS Desktop with OBS" class="w-full h-full object-cover select-none">
                             </div>
+
+                            <!-- 3576x2764 Monitor Cutout Overlay -->
+                            <img src="../../images/monitor-stand.webp" alt="Monitor Display" class="w-full h-full object-contain pointer-events-none relative z-30 block">
 
                         </div>
 

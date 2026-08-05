@@ -194,48 +194,51 @@ function loadHeaderAndFooter() {
     if (headerContainer) {
         headerContainer.innerHTML = `
         <div id="menu-overlay" class="fixed inset-0 bg-black/20 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300 z-40 hidden md:block"></div>
-        <header class="relative w-full overflow-x-clip bg-[var(--background)] z-50">
-            <nav class="w-full px-6 flex justify-between items-center">
+        <header class="relative w-full overflow-x-clip bg-[var(--background)] z-[70]">
+            <nav class="w-full px-6 flex justify-between items-center relative">
 
-                <a href="${root}index.html" class="flex flex-row items-center cursor-pointer group">
+                <!-- Added relative and z-[60] to keep the logo above the mobile menu -->
+                <a href="${root}index.html" class="flex flex-row items-center cursor-pointer group relative z-[60]">
                     <img class="w-25 h-20 transition-transform group-hover:scale-105" src="${root}images/neXuslogo2.png" alt="neXus logo">
                     <h2 class="ml-4 text-xl text-center font-black">${dynamicTitle}</h2>
                 </a>
 
-                <div class="flex flex-row items-center space-x-6">
+                <div class="flex flex-row items-center space-x-6 relative z-[60]">
                     <a href="${root}html/payment.html" aria-label="Shopping Cart" class="relative text-white hover:text-[var(--maingreen)] transition-colors p-2 flex items-center">
                         <i class="fa fa-shopping-cart text-2xl"></i>
                         <span class="cart-badge-count absolute -top-1 -right-1 bg-red-600 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center hidden">0</span>
                     </a>
 
-                    <button id="menu-btn" class="w-10 h-10 relative cursor-pointer focus:outline-none z-[60] flex items-center justify-center" aria-label="Menu">
+                    <button id="menu-btn" class="w-10 h-10 relative cursor-pointer focus:outline-none flex items-center justify-center" aria-label="Menu">
                         <div class="hamburger-line line-1"></div>
                         <div class="hamburger-line line-2"></div>
                         <div class="hamburger-line line-3"></div>
                     </button>
                 </div>
                 
-                <div id="mobile-menu" class="fixed inset-0 bg-[var(--background)] p-6 pt-28 flex flex-col shadow-xl z-40 transform translate-y-full opacity-0 pointer-events-none transition-all duration-300 ease-in-out md:hidden overflow-y-auto">
-                    <div class="flex flex-col text-left">
-                        <a href="${root}index.html" class="py-4 text-2xl font-bold tagline text-white hover:text-neutral-300 border-b border-neutral-800">Home</a>
-                        <a href="${root}html/find-your-product.html" class="py-4 text-2xl font-bold tagline text-white hover:text-neutral-300 border-b border-neutral-800">Find your product</a>
+                <div id="mobile-menu" class="fixed inset-0 bg-[var(--background)] p-6 pt-24 pb-6 flex flex-col justify-between shadow-xl z-40 transform translate-y-full opacity-0 pointer-events-none transition-all duration-300 ease-in-out md:hidden">
+                    <div class="flex flex-col text-left overflow-y-auto flex-1 pr-1">
+                        <a href="${root}index.html" class="py-3 text-xl font-bold tagline text-white hover:text-neutral-300 border-b border-neutral-800">Home</a>
+                        <a href="${root}html/find-your-product.html" class="py-3 text-xl font-bold tagline text-white hover:text-neutral-300 border-b border-neutral-800">Find your product</a>
                         
-                        <span class="pt-4 text-sm font-semibold text-neutral-500 uppercase tracking-wider">Keyboard Options</span>
-                        <a href="${root}html/neXus-60HE/keyboard-intro.html" class="py-3 pl-4 text-xl font-medium text-white hover:text-neutral-300 border-b border-neutral-800">Intro</a>
-                        <a href="${root}html/neXus-60HE/keyboard-creator.html" class="py-3 pl-4 text-xl font-medium text-white hover:text-neutral-300 border-b border-neutral-800">About</a>
-                        <a href="${root}html/neXus-60HE/keyboard-shop.html" class="py-3 pl-4 text-xl font-medium text-white hover:text-neutral-300 border-b border-neutral-800">Keyboard Shop</a>
-                        <a href="${root}html/neXus-60HE/keyboard-tech.html" class="py-3 pl-4 text-xl font-medium text-white hover:text-neutral-300 border-b border-neutral-800">Technical Specs</a>
+                        <span class="pt-3 text-xs font-semibold text-neutral-500 uppercase tracking-wider">Keyboard Options</span>
+                        <a href="${root}html/neXus-60HE/keyboard-intro.html" class="py-2 pl-4 text-lg font-medium text-white hover:text-neutral-300 border-b border-neutral-800">Intro</a>
+                        <a href="${root}html/neXus-60HE/keyboard-creator.html" class="py-2 pl-4 text-lg font-medium text-white hover:text-neutral-300 border-b border-neutral-800">About</a>
+                        <a href="${root}html/neXus-60HE/keyboard-shop.html" class="py-2 pl-4 text-lg font-medium text-white hover:text-neutral-300 border-b border-neutral-800">Keyboard Shop</a>
+                        <a href="${root}html/neXus-60HE/keyboard-tech.html" class="py-2 pl-4 text-lg font-medium text-white hover:text-neutral-300 border-b border-neutral-800">Technical Specs</a>
                         
-                        <span class="pt-4 text-sm font-semibold text-neutral-500 uppercase tracking-wider">Software Options</span>
-                        <a href="${root}html/neXos/nexos-intro.html" class="py-3 pl-4 text-xl font-medium text-white hover:text-neutral-300 border-b border-neutral-800">NexOS</a>
-                        <a href="${root}html/neXos/nexos-pro.html" class="py-3 pl-4 text-xl font-medium text-white hover:text-neutral-300 border-b border-neutral-800">Pro</a>
-                        <a href="${root}html/neXos/nexos-computer.html" class="py-3 pl-4 text-xl font-medium text-white hover:text-neutral-300 border-b border-neutral-800">Computers</a>
-                        <a href="${root}html/neXos/nexos-shop.html" class="py-3 pl-4 text-xl font-medium text-white hover:text-neutral-300 border-b border-neutral-800 mb-6">Downloads</a>
+                        <span class="pt-3 text-xs font-semibold text-neutral-500 uppercase tracking-wider">Software Options</span>
+                        <a href="${root}html/neXos/nexos-intro.html" class="py-2 pl-4 text-lg font-medium text-white hover:text-neutral-300 border-b border-neutral-800">NexOS</a>
+                        <a href="${root}html/neXos/nexos-pro.html" class="py-2 pl-4 text-lg font-medium text-white hover:text-neutral-300 border-b border-neutral-800">Pro</a>
+                        <a href="${root}html/neXos/nexos-computer.html" class="py-2 pl-4 text-lg font-medium text-white hover:text-neutral-300 border-b border-neutral-800">Computers</a>
+                        <a href="${root}html/neXos/nexos-shop.html" class="py-2 pl-4 text-lg font-medium text-white hover:text-neutral-300 border-b border-neutral-800 mb-4">Downloads</a>
                     </div>
                     
-                    <a href="${root}html/shop-main.html" class="inline-block px-6 py-3 rounded-xl font-bold text-white text-center main-button w-full text-lg shadow-md">
-                        Shop
-                    </a>
+                    <div class="pt-3 shrink-0">
+                        <a href="${root}html/shop-main.html" class="inline-block px-6 py-3 rounded-xl font-bold text-white text-center main-button w-full text-lg shadow-md">
+                            Shop
+                        </a>
+                    </div>
                 </div>
             </nav>
         </header>
