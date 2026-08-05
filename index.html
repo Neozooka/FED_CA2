@@ -127,20 +127,74 @@
                 <p class="text-sm md:text-base text-gray-400 max-w-xl mx-auto mb-8">
                     Get early access to drops, exclusive discounts, and behind-the-scenes looks at what we're building next.
                 </p>
-                <form class="flex flex-col sm:flex-row items-center justify-center gap-3 max-w-md mx-auto" onsubmit="event.preventDefault();">
-                    <input type="email" required placeholder="Enter your email" class="w-full sm:w-auto flex-1 px-4 py-3 bg-black/50 border border-white/20 rounded-xl text-sm focus:outline-none focus:border-[var(--maingreen)] transition">
+                <form class="flex flex-col sm:flex-row items-center justify-center gap-3 max-w-md mx-auto" onsubmit="handleSignup(event);">
+                    <input type="email" id="inputEmail" required placeholder="Enter your email" class="w-full sm:w-auto flex-1 px-4 py-3 bg-black/50 border border-white/20 rounded-xl text-sm focus:outline-none focus:border-[var(--maingreen)] transition">
                     <button type="submit" class="w-full sm:w-auto px-6 py-3 bg-[var(--maingreen)] hover:bg-[var(--hovergreen)] rounded-xl text-white font-bold transition whitespace-nowrap">
                         Sign Up
                     </button>
                 </form>
+
+                
             </div>
         </section>
+
+        <div id="emailModal" onclick="closeOnOutsideClick(event)" class="fixed inset-0 bg-black/80 z-40 hidden flex items-center justify-center p-4">
+            <div class="bg-[var(--background)] border border-gray-700 rounded-xl p-6 sm:p-8 relative max-w-xl w-full text-center shadow-xl">
+                <button onclick="closeEmail()" class="absolute top-3 right-4 text-gray-400 hover:text-white text-4xl font-thin leading-none p-1 transition-colors">
+                    &times;
+                </button>
+                <img src="images/neXuslogo2.png">
+                <p>Thank you for Signing Up!</p>
+                
+                <div id="emailTitle">
+
+                </div>
+                
+            </div>
+        </div>
         
     </main>
 
     <div id="footer-container"></div>
 
     <script>
+
+        function showEmail(email) {
+            const modal = document.getElementById("emailModal")
+            const titleContainer = document.getElementById("emailTitle")
+
+            titleContainer.innerHTML = ""
+
+            const title = document.createElement("h3")
+            title.textContent = `New updates will be sent to ${email}` 
+            title.className = "text-xl sm:text-2xl font-medium text-white mb-6"
+
+            titleContainer.appendChild(title)
+
+            modal.classList.remove("hidden")
+        }
+
+        function closeEmail() {
+            document.getElementById("emailModal").classList.add("hidden")
+        }
+
+        function closeOnOutsideClick(event) {
+            if (event.target.id === "emailModal") {
+                closeEmail()
+            }
+        }
+
+
+        function handleSignup(event) {
+            event.preventDefault();
+            
+            const form = event.target;
+            const currentText = document.getElementById("inputEmail").value
+            showEmail(currentText)
+            
+            form.reset();
+        }
+
         (function () {
             const slides = Array.from(document.querySelectorAll(".action"));
             const indicators = Array.from(document.querySelectorAll(".carouselbutton"));

@@ -80,11 +80,21 @@ window.addEventListener('scroll', () => {
     updateFeelAndPlaySection()
 })
 
+const soundSwitches = {
+    linear: '../../images/TechPage/LinearSwitchIntro.webp',
+    tactile: '../../images/TechPage/TactileSwitchIntro.webp',
+    clicky: '../../images/TechPage/ClickySwitchIntro.webp',
+}
+
+
+
 const photos = {
     linear: '../../images/TechPage/LinearSwitchIntro.webp',
     tactile: '../../images/TechPage/TactileSwitchIntro.webp',
     clicky: '../../images/TechPage/ClickySwitchIntro.webp',
 }
+
+let active = 'linear'
 
 function updateFeelAndPlaySection() {
     const imageSwitch = document.getElementById('switch-image')
@@ -98,7 +108,7 @@ function updateFeelAndPlaySection() {
     progress = Math.max(0, Math.min(1, progress))
 
     if (rect.top <= 0 && rect.bottom >= window.innerHeight) {
-        let active = 'linear'
+        
         if (progress > 0.66) { 
             
             active = 'clicky'
@@ -115,6 +125,7 @@ function updateFeelAndPlaySection() {
         
         const sounds = { linear: '"Snappy clack"', tactile: '"Deep thock"', clicky: '"Crisp click"' }
         const specSound = document.getElementById('spec-sound')
+
         if (specSound) { 
             specSound.innerText = sounds[active]
         };
@@ -128,6 +139,12 @@ function updateFeelAndPlaySection() {
             }
         })
     }
+}
+
+function playSounds() {
+    const playSound = new Audio(`../../sounds/${active}.mp3`)
+    playSound.currentTime = 0
+    playSound.play()
 }
 
 window.addEventListener('resize', resize)
