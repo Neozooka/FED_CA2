@@ -14,82 +14,119 @@
         <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@200..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
         <link rel="stylesheet" href="../../css/style.css">
+
         <script src="../../javascript/header-footer.js" defer></script>
+        <script src="../../javascript/reveal-on-scroll.js" defer></script>
+        <script src="../../javascript/main-shop.js" defer></script>
+        <script src="../../javascript/shop-only.js" defer></script>
     </head>
 
     <body>
 
-        <div id="header-container"></div>
-
-        <!-- Mini header -->
-        
-        <div id="sub-nav-wrapper" class="sticky top-0 w-full px-4 py-3 z-30 transition-all duration-300">
-            <div id="sub-nav" class="max-w-7xl mx-auto bg-neutral-900/70 backdrop-blur-md rounded-2xl border border-neutral-800/60 px-6 py-3 flex justify-between items-center transition-all duration-300">
-                
-                <div class="items-center hidden sm:flex">
-                    <img class="w-[6vw] min-w-[128px] max-w-[156px] h-auto object-contain" src="../../images/nexos-logo.png" alt="neXus logo">
-                </div>
-
-                <div class="flex items-center space-x-6 md:space-x-8 grow justify-end">
-                    <div class="flex space-x-6 md:space-x-8 mr-6 md:mr-8">
-                        <a href="#" class="text-white font-semibold hover:text-blue-400 text-sm md:text-base">Overview</a>
-                        <a href="#" class="text-neutral-400 font-medium hover:text-white text-sm md:text-base">Pro</a>
-                    </div>
-
-                    <a href="#" class="main-button text-white font-bold px-5 py-2 rounded-xl hover:bg-green transition-colors shadow-sm text-sm md:text-base">
-                        Download
-                    </a>
-                </div>
-            </div>
-        </div>
+        <div id="header-container" class="sticky top-0 z-50"></div>
 
         <!-- Main Body -->
 
         <article class="container mx-auto max-w-full text-center">
 
-            <!-- Hero -->
-            <section id="hero" class="w-full bg-[--background] py-20 flex flex-col items-center">
-                <div class="container mx-auto text-center" style="overflow: visible;">
-                    <h1 class="flex flex-col items-center justify-center text-4xl tracking-tight md:text-6xl text-white font-black">
-                        <span class="mb-2">YOUR COMPUTER,</span>
-                        <span class="text-[--maingreen] min-h-[1.2em] inline-flex items-center justify-center relative">
-                            <span id="typewriter"></span>
-                            <span class="animate-pulse ml-1 border-r-4 border-[--maingreen] h-[1em]">
-                        </span>
-                    </h1>
+            <section id="nexos-editions" class="w-full bg-[--background] py-16 px-4 md:px-8 flex flex-col items-center">
+                
+                <!-- Header -->
+                <div class="max-w-4xl w-full text-center mb-12 reveal-on-scroll">
+                    <h2 class="text-4xl sm:text-5xl md:text-6xl font-black text-white tracking-tight mb-3">
+                        TIME TO LEVEL UP.
+                    </h2>
+                    <p class="text-neutral-300 text-lg sm:text-xl">
+                        Join the 4M+ users who have downloaded NexOS.
+                    </p>
                 </div>
 
-                <p class="text-lg md:text-xl max-w-2xl mx-auto leading-relaxed text-center mt-6">
-                    Say goodbye to OS bloat, forced updates, and input lag.
-                    NexOS is the lightweight, hyper-optimised Linux operating system
-                    built by competitive players, for competitive players.
-                </p>
+                <div class="max-w-5xl w-full space-y-10">
 
-                <a href="#" class="inline-block px-6 py-2 m-4 rounded-xl font-bold text-white text-center main-button">
-                    Download NexOS
-                </a>
+                    <!-- Card 1: NexOS PRO -->
+                    <div class="bg-neutral-900/80 backdrop-blur-xl border border-neutral-800 hover:border-[--maingreen]/50 text-white rounded-[40px] p-8 md:p-12 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-8 transition-all duration-300 reveal-on-scroll">
+                        
+                        <!-- Left Content: Titles & CTA -->
+                        <div class="w-full md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left justify-between space-y-6">
+                            <div>
+                                <p class="text-xl md:text-2xl font-bold text-neutral-300 tracking-wide">NexOS 26.07</p>
+                                <h3 class="text-6xl md:text-8xl font-black text-white tracking-tight">PRO</h3>
+                                <p class="text-neutral-300">Unleash your computer's wings.</p>
+                            </div>
 
-                <!-- insert image here -->
-
-            </section>
-
-            <!-- User reviews -->
-            <section id="reviews" class="w-full bg-neutral-100 py-20 flex flex-col">
-                <h1 class="text-3xl font-bold tracking-tight md:text-5xl text-[--background]">
-                    SEE WHAT GAMERS ARE SAYING ABOUT NexOS.
-                </h1>
-
-                <div class="relative w-full overflow-hidden cursor-grab active:cursor-grabbing" id="carousel-window">
-                    <blockquote class="bg-white p-6 rounded-xl shadow-lg border border-neutral-800 flex flex-col justify-between h-full pointer-events-none">
-                        <div class="flex items-center justify-end gap-3 mt-auto">
-                            <p class="text-neutral-300 italic mb-6">"NexOS is great for gaming!"</p>
-                            <div class="flex items-center justify-end gap-3 mt-auto">
-                                <p class="text-sm font-semibold text-neutral-400">&mdash; Steve Jobs</p>
+                            <div class="pt-2 flex flex-col items-center md:items-start space-y-2">
+                                <p class="text-sm text-neutral-400 font-medium">
+                                    <span class="text-base font-bold text-white">$39.99</span> including tax
+                                </p>
+                                <button 
+                                    type="button" 
+                                    onclick="addCart('nexos-pro-26-07')" 
+                                    class="main-button px-8 py-3 rounded-full shadow-lg inline-block cursor-pointer">
+                                    Add to cart
+                                </button>
                             </div>
                         </div>
-                    </blockquote>
+
+                        <!-- Right Content: Monitor & Learn More -->
+                        <div class="w-full md:w-1/2 flex flex-col items-center md:items-end justify-center space-y-4">
+
+                            <div class="relative w-full aspect-[3576/2764] max-w-[850px]">
+                                
+                                <!-- Desktop Preview Image Container mapped behind the monitor frame -->
+                                <div class="absolute top-[1.2%] left-[1.1%] w-[97.8%] h-[68.8%] rounded-sm overflow-hidden bg-black z-10 pointer-events-none">
+                                    <img src="../../images/desktop-tiling.png" alt="NexOS Desktop Tiling Environment" class="w-full h-full object-cover select-none">
+                                </div>
+
+                                <!-- 3576x2764 Monitor Cutout Overlay -->
+                                <img src="../../images/monitor-stand.webp" alt="Monitor Display" class="w-full h-full object-contain pointer-events-none relative z-30 block">
+
+                            </div>
+                            <div class="w-full text-center md:text-right pr-4">
+                                <a href="nexos-pro.html" class="inline-flex items-center text-lg md:text-xl font-bold text-white hover:text-[--maingreen] transition-colors underline underline-offset-4 decoration-2">
+                                    &gt; Learn more
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Card 2: NexOS CORE -->
+                    <div class="bg-neutral-900/80 backdrop-blur-xl border border-neutral-800 hover:border-[--maingreen]/50 text-white rounded-[40px] p-8 md:p-12 shadow-2xl flex flex-col-reverse md:flex-row items-center justify-between gap-8 transition-all duration-300 reveal-on-scroll">
+                        
+                        <!-- Left Content: Monitor -->
+                        <div class="w-full md:w-1/2 flex justify-center items-center">
+                            <div class="relative w-full aspect-[3576/2764] max-w-[850px]">
+                                
+                                <!-- Desktop Preview Image Container mapped behind the monitor frame -->
+                                <div class="absolute top-[1.2%] left-[1.1%] w-[97.8%] h-[68.8%] rounded-sm overflow-hidden bg-black z-10 pointer-events-none">
+                                    <img src="../../images/desktop-mode.jpg" alt="NexOS Desktop" class="w-full h-full object-cover select-none">
+                                </div>
+
+                                <!-- 3576x2764 Monitor Cutout Overlay -->
+                                <img src="../../images/monitor-stand.webp" alt="Monitor Display" class="w-full h-full object-contain pointer-events-none relative z-30 block">
+
+                            </div>
+                        </div>
+
+                        <!-- Right Content: Titles & Download -->
+                        <div class="w-full md:w-1/2 flex flex-col items-center md:items-end text-center md:text-right justify-between space-y-8">
+                            <div>
+                                <p class="text-xl md:text-2xl font-bold text-neutral-300 tracking-wide">NexOS 26.07</p>
+                                <h3 class="text-6xl md:text-8xl font-black text-white tracking-tight">CORE</h3>
+                                <p class="text-neutral-300">The world's best gaming OS. Made even better.</p>
+                            </div>
+
+                            <div class="pt-2">
+                                <a href="#" class="main-button px-8 py-3 rounded-full shadow-lg inline-block">
+                                    Download NexOS
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+
                 </div>
-            </section> 
+            </section>
             
         </article>
 
@@ -99,65 +136,7 @@
 
 
 
-        <script>
-            // For the typing text at the top
-            document.addEventListener('DOMContentLoaded', () => {
-                const words = ["BETTER.", "FASTER.", "EASIER.", "FOR GAMING.", "FOR PRIVACY.", "MORE RELIABLE."];
-                let wordIdx = 0;
-                let charIdx = 0;
-                let isDeleting = false;
-                const typewriterElement = document.getElementById('typewriter');
-
-                function type() {
-                    const currentWord = words[wordIdx];
-
-                    if (isDeleting) {
-                        typewriterElement.textContent = currentWord.substring(0, charIdx - 1);
-                        charIdx --;
-                    } else {
-                        typewriterElement.textContent =  currentWord.substring(0, charIdx + 1);
-                        charIdx ++;
-                    }
-
-                    let typeSpeed = isDeleting ? 60 : 120;
-
-                    if (!isDeleting && charIdx === currentWord.length) {
-                        typeSpeed = 1800;
-                        isDeleting = true;
-                    } 
-                    
-                    else if (isDeleting && charIdx === 0) {
-                        isDeleting = false;
-                        wordIdx = (wordIdx + 1) % words.length;
-                        typeSpeed = 400;
-                    }
-                    
-                    setTimeout(type, typeSpeed);
-                }
-
-                setTimeout(type, 500);
-            })
-            
-            const subNavWrapper = document.getElementById('sub-nav-wrapper');
-            const subNav = document.getElementById('sub-nav');
-
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 80) {
-                    subNavWrapper.classList.remove('py-3');
-                    subNavWrapper.classList.add('py-2');
-                    subNav.classList.add('shadow-xl', 'shadow-black/40', 'bg-neutral-900');
-                    subNav.classList.remove('bg-neutral-900/70');
-                } else {
-                    subNavWrapper.classList.remove('py-2');
-                    subNavWrapper.classList.add('py-3');
-                    subNav.classList.remove('shadow-xl', 'shadow-black/40', 'bg-neutral-900');
-                    subNav.classList.add('bg-neutral-900/70');
-                }
-            });
-
-
-
-        </script>
+        <script></script>
 
     </body>
 

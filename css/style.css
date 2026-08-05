@@ -39,6 +39,27 @@ h1, h2, h3, header, #desktop-drawer {
     font-family: 'Oxanium', 'Roboto', sans-serif;
 }
 
+.main-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--maingreen);
+    color: var(--text);
+    font-weight: 800;
+    border-radius: 0.75rem; /* 12px / rounded-xl */
+    box-shadow: 0 0 20px rgba(18, 209, 75, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.main-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(18, 209, 75, 0.6);
+}
+
+.main-button:active {
+    transform: scale(0.95);
+}
+
 .hamburger-line {
     position: absolute;
     left: 50%;
