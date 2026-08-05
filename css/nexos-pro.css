@@ -1,10 +1,13 @@
 /* Pre-promote scroll-animated elements to their own compositor layer
     so the browser isn't allocating/painting a new layer mid-scroll,
     which is a common cause of scroll-jank on pinned sections. */
+#scroll-story,
+#sticky-viewport,
 #game-screen,
 #helix-zoom,
 #helix-scrim,
 .story-text {
+    transition: none !important;
     will-change: transform;
     backface-visibility: hidden;
     transform: translateZ(0);
@@ -15,9 +18,8 @@
 }
 
 /* ----------------------------------------------------------------
-    Double-helix background (adapted from double-helix-gallery.html)
-    Scoped under helix- prefixed classes so nothing here collides
-    with the rest of the site's styles.
+    Double-helix background
+    Scoped under helix- prefixed classes to prevent style collisions.
     ---------------------------------------------------------------- */
 :root {
     --helix-card-width: 225px;
@@ -32,8 +34,9 @@
     height: 100%;
     transform-style: preserve-3d;
     transform-origin: 50% 50%;
-    /* Initial fallback before JS runs */
-    transform: translate3d(0, 0, 550px);
+    transform: scale(3.8);
+    will-change: transform;
+    backface-visibility: hidden;
 }
 
 .helix-scene {
@@ -54,7 +57,7 @@
     transform-origin: 50% 50%;
 }
 
-/* Ensure no CSS transition interfere with active frame transforms */
+/* Ensure CSS transitions do not interfere with active frame transforms */
 #game-screen,
 #helix-zoom,
 #helix-scrim,
@@ -85,25 +88,7 @@
         radial-gradient(ellipse 90% 80% at 50% 50%, transparent 55%, rgba(13, 13, 12, 0.9) 100%);
 }
 
-/* The site-wide `* { transition: 150ms }` reset in style.css applies
-    to transform/opacity/filter on every element, including these.
-    Both the rAF loop (per-card transform + filter) and GSAP (scale on
-    #helix-zoom, opacity on #helix-scrim) already update these
-    properties every frame — a CSS transition layered on top means the
-    browser is constantly easing toward a target that's already been
-    superseded, which reads as jitter. Opt out so JS has sole control,
-    same reasoning as the #game-screen / .story-text opt-out below. */
-#helix-zoom,
-#helix-scrim,
-.helix-scene,
-.helix-world,
-.helix-card {
-    transition: none;
-}
-
-/* Full-bleed scrim that keeps phrases 1-3 reading as "helix as a
-    dark backdrop" — it starts opaque-ish and is faded out by GSAP
-    as we zoom out into the full reveal. */
+/* Full-bleed scrim fading out during scroll-driven zoom out */
 #helix-scrim {
     position: absolute;
     inset: 0;
