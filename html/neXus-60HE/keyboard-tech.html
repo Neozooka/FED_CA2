@@ -1,277 +1,379 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
+<head>
 
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-        <script src="https://cdn.tailwindcss.com"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <script src="../../javascript/header-footer.js" defer></script>
-        <script src="../../javascript/accordion.js" defer></script>
-        <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@200..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@200..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/style.css">
 
-        <link rel="stylesheet" href="../../css/style.css">
-    </head>
+    <script src="../../javascript/header-footer.js" defer></script>
+    <script src="../../javascript/shop-only.js" defer></script>
+    <script src="../../javascript/accordion.js" defer></script>
 
-    <body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://assets.codepen.io/16327/SplitText3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/TextPlugin.min.js"></script>
+    
+</head>
+
+<body>
+    <div id="header-container" class="sticky top-0 z-50"></div>
+
+    <section class="flex max-w-8xl w-full h-[calc(100vh-80px)] min-h-[500px] flex-col items-center justify-center text-center px-4 relative select-none gap-8" >
+            
+        <div class="main-headline flex flex-col items-center justify-center gap-6">
+            <h1 class="text-5xl sm:text-7xl md:text-8xl font-black text-white tracking-wider ">
+                Technical <span class="text-[var(--maingreen)]">Specifications</span>
+            </h1>
+            <p class="tagline text-xs sm:text-sm md:text-base font-semibold text-gray-400 tracking-[0.25em] uppercase">
+                Everything that you need to know for the neXus-60he
+            </p>
+        </div>
+    </section>
+
+    <section class="relative">
+        <!-- Main Scroll Zone -->
+        <div class="relative w-full max-w-[100rem] mx-auto">
         
-
-        <div id="header-container" class="sticky top-0 z-50"></div>
-
-        <article>
-            <article class="w-full  text-white py-16 px-4 sm:px-8 flex flex-col items-center">
-                <div class="max-w-6xl w-full space-y-12">
+        <!-- STICKY CENTER VISUAL -->
+            <div class="absolute top-0 left-0 w-full h-full z-0 pointer-events-none block pt-[120px]">
+                <div class="sticky top-0 h-screen w-full flex items-center justify-center">
+                    <div class="w-[90%] lg:w-[33%] h-[50vh] relative rounded-[2rem] border border-slate-800 bg-slate-900/60 backdrop-blur-xl shadow-2xl shadow-slate-900/50 overflow-hidden">
                     
-                    <!-- MAIN TITLE HEADER -->
-                    <div class="text-center md:text-left">
-                        <h2 class="text-2xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight text-white">
-                            Technical Specifications for the neXus-60HE
-                        </h2>
-                    </div>
-
-                    <!-- MAIN LAYOUT GRID (Increased X-axis spacing with md:gap-20 lg:gap-24) -->
-                    <div class="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-20 lg:gap-24 items-start">
-                        
-                        <!-- LEFT SIDE: Text Navigation Buttons -->
-                        <div class="md:col-span-4 flex flex-col justify-center border-t border-neutral-800">
-                            
-                            <button data-part="keyboard" class="part-btn active group w-full text-left py-6 border-b border-neutral-800 transition-all duration-300">
-                                <span class="part-text inline-block transition-all duration-300 text-2xl sm:text-3xl font-black text-white tracking-wide uppercase">
-                                    Full Keyboard
-                                </span>
-                            </button>
-
-                            <button data-part="keycaps" class="part-btn group w-full text-left py-6 border-b border-neutral-800 transition-all duration-300">
-                                <span class="part-text inline-block transition-all duration-300 text-lg sm:text-xl font-medium text-neutral-500 group-hover:text-neutral-300 tracking-wide uppercase">
-                                    Key Caps
-                                </span>
-                            </button>
-
-                            <button data-part="switches" class="part-btn group w-full text-left py-6 border-b border-neutral-800 transition-all duration-300">
-                                <span class="part-text inline-block transition-all duration-300 text-lg sm:text-xl font-medium text-neutral-500 group-hover:text-neutral-300 tracking-wide uppercase">
-                                    Switches
-                                </span>
-                            </button>
-
-                            <button data-part="case" class="part-btn group w-full text-left py-6 border-b border-neutral-800 transition-all duration-300">
-                                <span class="part-text inline-block transition-all duration-300 text-lg sm:text-xl font-medium text-neutral-500 group-hover:text-neutral-300 tracking-wide uppercase">
-                                    Bottom Case
-                                </span>
-                            </button>
-
+                        <div data-graphic="1" class="absolute inset-0 flex flex-col items-center justify-center p-8 transition-all duration-700 ease-out opacity-100 scale-100">
+                            <div class="w-24 h-24 rounded-3xl bg-teal-500/10 border border-teal-500/30 flex items-center justify-center mb-6 shadow-lg shadow-teal-500/20 text-teal-400 text-4xl">💬</div>
+                            <h4 class="text-2xl font-bold text-white text-center"></h4>
                         </div>
 
-                        <!-- RIGHT SIDE: Image Display & Specs Card (Centered in grid column using mx-auto) -->
-                        <div class="md:col-span-8 flex flex-col space-y-8 w-full max-w-lg mx-auto">
-                            
-                            <!-- IMAGE DISPLAY SLIDER TRACK -->
-                            <div class="relative w-full h-72 sm:h-80 overflow-hidden bg-transparent">
-                                <div id="slider-track" class="flex h-full w-[400%] transition-transform duration-500 ease-out">
-                                    <!-- Slide 0: Full Keyboard -->
-                                    <div class="w-1/4 h-full flex items-center justify-center p-2">
-                                        <img src="https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&w=800&q=80" alt="Full Keyboard" class="h-full object-contain filter drop-shadow-2xl" />
-                                    </div>
-                                    <!-- Slide 1: Keycaps -->
-                                    <div class="w-1/4 h-full flex items-center justify-center p-2">
-                                        <img src="https://images.unsplash.com/photo-1618384887929-16ec33fab9ef?auto=format&fit=crop&w=800&q=80" alt="Keycaps" class="h-full object-contain filter drop-shadow-2xl" />
-                                    </div>
-                                    <!-- Slide 2: Switches -->
-                                    <div class="w-1/4 h-full flex items-center justify-center p-2">
-                                        <img src="https://images.unsplash.com/photo-1595225476474-87563907a212?auto=format&fit=crop&w=800&q=80" alt="Switches" class="h-full object-contain filter drop-shadow-2xl" />
-                                    </div>
-                                    <!-- Slide 3: Bottom Case -->
-                                    <div class="w-1/4 h-full flex items-center justify-center p-2">
-                                        <img src="https://images.unsplash.com/photo-1541140532154-b024d705b909?auto=format&fit=crop&w=800&q=80" alt="Bottom Case" class="h-full object-contain filter drop-shadow-2xl" />
-                                    </div>
-                                </div>
-                            </div>
+                        <div data-graphic="2" class="absolute inset-0 flex flex-col items-center justify-center p-8 transition-all duration-700 ease-out opacity-0 scale-95">
+                            <div class="w-24 h-24 rounded-3xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center mb-6 shadow-lg shadow-purple-500/20 text-purple-400 text-4xl">🖼️</div>
+                            <h4 class="text-2xl font-bold text-white text-center"></h4>
+                        </div>
 
-                            <!-- SPECIFICATIONS SECTION -->
-                            <div class="w-full space-y-6">
-                                
-                                <!-- Title Header -->
-                                <div class="border-b border-neutral-800 pb-3 text-xs tracking-widest uppercase font-semibold">
-                                    <span id="spec-title" class="text-white border-b-2 border-white pb-3 -mb-[14px] inline-block">
-                                        00 / FULL KEYBOARD BUILD
-                                    </span>
-                                </div>
+                        <div data-graphic="3" class="absolute inset-0 flex flex-col items-center justify-center p-8 transition-all duration-700 ease-out opacity-0 scale-95">
+                            <div class="w-24 h-24 rounded-3xl bg-blue-500/10 border border-blue-500/30 flex items-center justify-center mb-6 shadow-lg shadow-blue-500/20 text-blue-400 text-4xl">🛡️</div>
+                            <h4 class="text-2xl font-bold text-white text-center"></h4>
+                        </div>
 
-                                <!-- Dynamic Spec Details -->
-                                <div class="space-y-3 text-xs sm:text-sm font-light">
-                                    <div class="flex justify-between border-b border-neutral-800/60 pb-2">
-                                        <span id="label-1" class="text-neutral-500 uppercase">LAYOUT</span>
-                                        <span id="val-1" class="text-neutral-200 font-medium">75% Exploded Layout</span>
-                                    </div>
-                                    <div class="flex justify-between border-b border-neutral-800/60 pb-2">
-                                        <span id="label-2" class="text-neutral-500 uppercase">MOUNTING</span>
-                                        <span id="val-2" class="text-neutral-200 font-medium">Gasket Mount System</span>
-                                    </div>
-                                    <div class="flex justify-between border-b border-neutral-800/60 pb-2">
-                                        <span id="label-3" class="text-neutral-500 uppercase">WEIGHT</span>
-                                        <span id="val-3" class="text-neutral-200 font-medium">1.45 kg (Built)</span>
-                                    </div>
-                                </div>
-
-                            </div>
-
+                        <div data-graphic="4" class="absolute inset-0 flex flex-col items-center justify-center p-8 transition-all duration-700 ease-out opacity-0 scale-95">
+                            <div class="w-24 h-24 rounded-3xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center mb-6 shadow-lg shadow-amber-500/20 text-amber-400 text-4xl">📈</div>
+                            <h4 class="text-2xl font-bold text-white text-center"></h4>
                         </div>
                     </div>
                 </div>
-        </article>
+            </div>
 
-            <section id="faq" class="w-full bg-[--background] py-20 px-4 md:px-8 flex flex-col items-center overflow-hidden z-20">
-                <div class="max-w-5xl w-full">
-                    
-                    <div class="text-left mb-12">
-                        <h2 class="text-4xl sm:text-5xl md:text-6xl font-black text-white tracking-tight uppercase mb-4">
-                            Specifications
-                        </h2>
-                        <p class="text-neutral-300 text-lg sm:text-xl leading-relaxed max-w-3xl mb-6">
-                            Everything you need to know about our flagship keyboard
-                        </p>
+            <!-- FOREGROUND SCROLLING TEXT -->
+            <div class="relative z-10 w-full px-6 lg:px-12 pointer-events-auto">
+            
+                <div data-feature="1" class="flex flex-col lg:flex-row items-center justify-between min-h-screen py-24 transition-opacity duration-700 opacity-30">
+                    <div class="w-full lg:w-[30%] text-center lg:text-right mb-8 lg:mb-0">
+                        <span class="text-teal-400 font-mono text-sm tracking-widest uppercase block mb-3">01 / Disassembly</span>
+                        <h2 class="text-5xl lg:text-6xl font-extrabold leading-tight text-white drop-shadow-md">Disassembly</h2>
                     </div>
-
-                    <div class="space-y-4" id="faq-accordion">
-
-                        <div class="faq-item bg-neutral-900 border border-neutral-800 rounded-2xl overflow-hidden transition-colors">
-                            <button class="faq-trigger w-full px-6 py-5 flex justify-between items-center text-left text-white font-bold text-lg sm:text-xl focus:outline-none">
-                                <span class="font-medium text-lg">Dimension and weight</span>
-                                <i class="fa fa-chevron-down text-neutral-400 text-sm transition-transform duration-300 faq-icon"></i>
-                            </button>
-                            <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out px-6">
-                                <div class="p-4 text-gray-300 text-sm bg-white/5 space-y-2">
-                                    <p><strong class="text-white">Dimensions (L x W x H):</strong> 315 mm x 135 mm x 40 mm</p>
-                                    <p><strong class="text-white">Weight:</strong> 0.3 kg (300g)</p>
-                                    <p><strong class="text-white">Form Factor:</strong> Compact / 75% Layout</p>
-                                </div>
+                    <div class="hidden lg:block lg:w-[33%]"></div>
+                    <div class="w-full lg:w-[30%] text-center lg:text-left bg-slate-950/80 lg:bg-transparent backdrop-blur-md lg:backdrop-blur-none p-6 lg:p-0 rounded-2xl">
+                        <div class="space-y-3 text-xs sm:text-sm font-light">
+                            <div class="flex justify-between border-b border-neutral-800/60 pb-2">
+                                <span id="label-1" class="text-neutral-500 uppercase">LAYOUT</span>
+                                <span id="val-1" class="text-neutral-200 font-medium">75% Exploded Layout</span>
                             </div>
-                        </div>
-
-                        <div class="faq-item bg-neutral-900 border border-neutral-800 rounded-2xl overflow-hidden transition-colors">
-                            <button class="faq-trigger w-full px-6 py-5 flex justify-between items-center text-left text-white font-bold text-lg sm:text-xl focus:outline-none">
-                                <span class="font-medium text-lg">Power and Connection</span>
-                                <i class="fa fa-chevron-down text-neutral-400 text-sm transition-transform duration-300 faq-icon"></i>
-                            </button>
-                            <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out px-6">
-                                <div class="p-4 text-gray-300 text-sm bg-white/5 space-y-2">
-                                    <p><strong class="text-white">Regular Cleaning:</strong> Unplug the keyboard before cleaning. Use a compressed air duster to clear debris between the keys.</p>
-                                    <p><strong class="text-white">Surface Care:</strong> Wipe down keycaps with a soft, lint-free microfiber cloth slightly dampened with water or mild isopropyl alcohol. Avoid harsh chemicals.</p>
-                                    <p><strong class="text-white">Liquid Protection:</strong> Keep liquids away from the keyboard surface. In case of spills, disconnect immediately and allow to dry completely for 24–48 hours.</p>
-                                    <p><strong class="text-white">Storage:</strong> Store in a cool, dry place away from direct sunlight and extreme temperatures when not in use.</p>
-                                </div>
+                            <div class="flex justify-between border-b border-neutral-800/60 pb-2">
+                                <span id="label-2" class="text-neutral-500 uppercase">MOUNTING</span>
+                                <span id="val-2" class="text-neutral-200 font-medium">Gasket Mount System</span>
                             </div>
-                        </div>
-
-                        <div class="faq-item bg-neutral-900 border border-neutral-800 rounded-2xl overflow-hidden transition-colors">
-                            <button class="faq-trigger w-full px-6 py-5 flex justify-between items-center text-left text-white font-bold text-lg sm:text-xl focus:outline-none">
-                                <span class="font-medium text-lg">Care and Maintenance</span>
-                                <i class="fa fa-chevron-down text-neutral-400 text-sm transition-transform duration-300 faq-icon"></i>
-                            </button>
-                            <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out px-6">
-                                <div class="p-4 text-gray-300 text-sm bg-white/5 space-y-2">
-                                    <p><strong class="text-white">Regular Cleaning:</strong> Unplug the keyboard before cleaning. Use a compressed air duster to clear debris between the keys.</p>
-                                    <p><strong class="text-white">Surface Care:</strong> Wipe down keycaps with a soft, lint-free microfiber cloth slightly dampened with water or mild isopropyl alcohol. Avoid harsh chemicals.</p>
-                                    <p><strong class="text-white">Liquid Protection:</strong> Keep liquids away from the keyboard surface. In case of spills, disconnect immediately and allow to dry completely for 24–48 hours.</p>
-                                    <p><strong class="text-white">Storage:</strong> Store in a cool, dry place away from direct sunlight and extreme temperatures when not in use.</p>
-                                </div>
+                            <div class="flex justify-between border-b border-neutral-800/60 pb-2">
+                                <span id="label-3" class="text-neutral-500 uppercase">WEIGHT</span>
+                                <span id="val-3" class="text-neutral-200 font-medium">0.85 kg (Built)</span>
                             </div>
                         </div>
                     </div>
                 </div>
-            </section>
-        </article>
 
-        <div id="footer-container"></div>
+                <div data-feature="2" class="flex flex-col lg:flex-row items-center justify-between min-h-screen py-24 transition-opacity duration-700 opacity-30">
+                    <div class="w-full lg:w-[30%] text-center lg:text-right mb-8 lg:mb-0">
+                        <span class="text-purple-400 font-mono text-sm tracking-widest uppercase block mb-3">02 / Key Caps</span>
+                        <h2 class="text-5xl lg:text-6xl font-extrabold leading-tight text-white drop-shadow-md">Key Caps</h2>
+                    </div>
+                    <div class="hidden lg:block lg:w-[33%]"></div>
+                    <div class="w-full lg:w-[30%] text-center lg:text-left bg-slate-950/80 lg:bg-transparent backdrop-blur-md lg:backdrop-blur-none p-6 lg:p-0 rounded-2xl">
+                        <div class="space-y-3 text-xs sm:text-sm font-light">
+                            <div class="flex justify-between border-b border-neutral-800/60 pb-2">
+                                <span id="label-1" class="text-neutral-500 uppercase">PROFILE</span>
+                                <span id="val-1" class="text-neutral-200 font-medium">Cherry Profile</span>
+                            </div>
+                            <div class="flex justify-between border-b border-neutral-800/60 pb-2">
+                                <span id="label-2" class="text-neutral-500 uppercase">MATERIAL</span>
+                                <span id="val-2" class="text-neutral-200 font-medium">Double-shot PBT (1.5mm)</span>
+                            </div>
+                            <div class="flex justify-between border-b border-neutral-800/60 pb-2">
+                                <span id="label-3" class="text-neutral-500 uppercase">LEGENDS</span>
+                                <span id="val-3" class="text-neutral-200 font-medium">Seamless Dye-Sublimated</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-        <script>
+                <div data-feature="3" class="flex flex-col lg:flex-row items-center justify-between min-h-screen py-24 transition-opacity duration-700 opacity-30">
+                    <div class="w-full lg:w-[30%] text-center lg:text-right mb-8 lg:mb-0">
+                        <span class="text-blue-400 font-mono text-sm tracking-widest uppercase block mb-3">03 / Switches</span>
+                        <h2 class="text-5xl lg:text-6xl font-extrabold leading-tight text-white drop-shadow-md">Switches</h2>
+                    </div>
+                    <div class="hidden lg:block lg:w-[33%]"></div>
+                    <div class="w-full lg:w-[30%] text-center lg:text-left bg-slate-950/80 lg:bg-transparent backdrop-blur-md lg:backdrop-blur-none p-6 lg:p-0 rounded-2xl">
+                        <div class="space-y-3 text-xs sm:text-sm font-light">
+                            <div class="flex justify-between border-b border-neutral-800/60 pb-2">
+                                <span id="label-1" class="text-neutral-500 uppercase">TYPE</span>
+                                <span id="val-1" class="text-neutral-200 font-medium">Pre-Lubed Linear</span>
+                            </div>
+                            <div class="flex justify-between border-b border-neutral-800/60 pb-2">
+                                <span id="label-2" class="text-neutral-500 uppercase">OPERATING FORCE</span>
+                                <span id="val-2" class="text-neutral-200 font-medium">45 cN Actuation</span>
+                            </div>
+                            <div class="flex justify-between border-b border-neutral-800/60 pb-2">
+                                <span id="label-3" class="text-neutral-500 uppercase">SOUND</span>
+                                <span id="val-3" class="text-neutral-200 font-medium">Snappy & Deep Thock</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-            const specData = {
+                <div data-feature="4" class="flex flex-col lg:flex-row items-center justify-between min-h-screen py-24 transition-opacity duration-700 opacity-30">
+                    <div class="w-full lg:w-[30%] text-center lg:text-right mb-8 lg:mb-0">
+                        <span class="text-amber-400 font-mono text-sm tracking-widest uppercase block mb-3">04 / Bottom Case</span>
+                        <h2 class="text-5xl lg:text-6xl font-extrabold leading-tight text-white drop-shadow-md">Bottom Case</h2>
+                    </div>
+                    <div class="hidden lg:block lg:w-[33%]"></div>
+                    <div class="w-full lg:w-[30%] text-center lg:text-left bg-slate-950/80 lg:bg-transparent backdrop-blur-md lg:backdrop-blur-none p-6 lg:p-0 rounded-2xl">
+                        <div class="space-y-3 text-xs sm:text-sm font-light">
+                            <div class="flex justify-between border-b border-neutral-800/60 pb-2">
+                                <span id="label-1" class="text-neutral-500 uppercase">MATERIAL</span>
+                                <span id="val-1" class="text-neutral-200 font-medium">6063 Anodized Aluminum</span>
+                            </div>
+                            <div class="flex justify-between border-b border-neutral-800/60 pb-2">
+                                <span id="label-2" class="text-neutral-500 uppercase">DAMPENING</span>
+                                <span id="val-2" class="text-neutral-200 font-medium">Poron Case Foam + PET Sheet</span>
+                            </div>
+                            <div class="flex justify-between border-b border-neutral-800/60 pb-2">
+                                <span id="label-3" class="text-neutral-500 uppercase">WEIGHT BAR</span>
+                                <span id="val-3" class="text-neutral-200 font-medium">Brass Accent Weight</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="h-[150px] w-full"></div>
+
+            </div>
+        </div>
+    </section>
+
+
+
+    <section id="faq" class="w-full bg-[--background] py-20 px-4 md:px-8 flex flex-col items-center overflow-hidden z-20">
+        <div class="max-w-5xl w-full">
+            
+            <div class="text-left mb-12">
+                <h2 class="text-4xl sm:text-5xl md:text-6xl font-black text-white tracking-tight uppercase mb-4">
+                    Other Specifications
+                </h2>
+                <p class="text-neutral-300 text-lg sm:text-xl leading-relaxed max-w-3xl mb-6">
+                    Everything you need to know about our flagship keyboard
+                </p>
+            </div>
+
+            <div class="space-y-4" id="faq-accordion">
+
+                <div class="faq-item bg-neutral-900 border border-neutral-800 rounded-2xl overflow-hidden transition-colors">
+                    <button class="faq-trigger w-full px-6 py-5 flex justify-between items-center text-left text-white font-bold text-lg sm:text-xl focus:outline-none">
+                        <span class="font-medium text-lg">Dimension and weight</span>
+                        <i class="fa fa-chevron-down text-neutral-400 text-sm transition-transform duration-300 faq-icon"></i>
+                    </button>
+                    <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out px-6">
+                        <div class="p-4 text-gray-300 text-sm  space-y-2 mb-4">
+                            <p><strong class="text-white">Dimensions (L x W x H):</strong> 315 mm x 135 mm x 40 mm</p>
+                            <p><strong class="text-white">Weight:</strong> 0.3 kg (300g)</p>
+                            <p><strong class="text-white">Form Factor:</strong> Compact / 75% Layout</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item bg-neutral-900 border border-neutral-800 rounded-2xl overflow-hidden transition-colors">
+                    <button class="faq-trigger w-full px-6 py-5 flex justify-between items-center text-left text-white font-bold text-lg sm:text-xl focus:outline-none">
+                        <span class="font-medium text-lg">Power and Connection</span>
+                        <i class="fa fa-chevron-down text-neutral-400 text-sm transition-transform duration-300 faq-icon"></i>
+                    </button>
+                    <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out px-6">
+                        <div class="p-4 text-gray-300 text-sm space-y-2 mb-4">
+                            <p><strong class="text-white">Regular Cleaning:</strong> Unplug the keyboard before cleaning. Use a compressed air duster to clear debris between the keys.</p>
+                            <p><strong class="text-white">Surface Care:</strong> Wipe down keycaps with a soft, lint-free microfiber cloth slightly dampened with water or mild isopropyl alcohol. Avoid harsh chemicals.</p>
+                            <p><strong class="text-white">Liquid Protection:</strong> Keep liquids away from the keyboard surface. In case of spills, disconnect immediately and allow to dry completely for 24–48 hours.</p>
+                            <p><strong class="text-white">Storage:</strong> Store in a cool, dry place away from direct sunlight and extreme temperatures when not in use.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item bg-neutral-900 border border-neutral-800 rounded-2xl overflow-hidden transition-colors">
+                    <button class="faq-trigger w-full px-6 py-5 flex justify-between items-center text-left text-white font-bold text-lg sm:text-xl focus:outline-none">
+                        <span class="font-medium text-lg">Care and Maintenance</span>
+                        <i class="fa fa-chevron-down text-neutral-400 text-sm transition-transform duration-300 faq-icon"></i>
+                    </button>
+                    <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out px-6">
+                        <div class="p-4 text-gray-300 text-sm space-y-2 mb-4">
+                            <p><strong class="text-white">Regular Cleaning:</strong> Unplug the keyboard before cleaning. Use a compressed air duster to clear debris between the keys.</p>
+                            <p><strong class="text-white">Surface Care:</strong> Wipe down keycaps with a soft, lint-free microfiber cloth slightly dampened with water or mild isopropyl alcohol. Avoid harsh chemicals.</p>
+                            <p><strong class="text-white">Liquid Protection:</strong> Keep liquids away from the keyboard surface. In case of spills, disconnect immediately and allow to dry completely for 24–48 hours.</p>
+                            <p><strong class="text-white">Storage:</strong> Store in a cool, dry place away from direct sunlight and extreme temperatures when not in use.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="footer-container"></div>
+
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.39/dist/lenis.min.js"></script> 
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const lenis = new Lenis({
+                duration: 1.2,
+                easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
+            })
+
+            function raf(time) {
+                lenis.raf(time)
+                requestAnimationFrame(raf)
+            }
+            requestAnimationFrame(raf)
+
+            const rows = document.querySelectorAll("[data-feature]")
+            const graphics = document.querySelectorAll("[data-graphic]")
+
+            const observer = new IntersectionObserver(
+                (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                    const id = entry.target.getAttribute("data-feature")
+
+                    rows.forEach((row) => {
+                        if (row.getAttribute("data-feature") === id) {
+                        row.classList.remove("opacity-30")
+                        row.classList.add("opacity-100")
+                        } else {
+                        row.classList.add("opacity-30")
+                        row.classList.remove("opacity-100")
+                        }
+                    })
+
+                    graphics.forEach((graphic) => {
+                        if (graphic.getAttribute("data-graphic") === id) {
+                        graphic.classList.remove("opacity-0", "scale-95")
+                        graphic.classList.add("opacity-100", "scale-100")
+                        } else {
+                        graphic.classList.add("opacity-0", "scale-95")
+                        graphic.classList.remove("opacity-100", "scale-100")
+                        }
+                    })
+                    }
+                })
+                },
+                { rootMargin: "-40% 0px -40% 0px", threshold: 0 } 
+            )
+            
+            rows.forEach((row) => {
+                observer.observe(row)
+            })
+
+            const partData = {
                 keyboard: {
-                    index: 0,
-                    title: "00 / FULL KEYBOARD BUILD",
-                    labels: ["LAYOUT", "MOUNTING", "WEIGHT"],
-                    values: ["75% Exploded Layout", "Gasket Mount System", "1.45 kg (Built)"],
+                index: 0,
+                title: "00 / FULL KEYBOARD BUILD",
+                specs: [
+                    { label: "LAYOUT", val: "75% Exploded Layout" },
+                    { label: "MOUNTING", val: "Gasket Mount System" },
+                    { label: "WEIGHT", val: "1.45 kg (Built)" }
+                ]
                 },
                 keycaps: {
-                    index: 1,
-                    title: "01 / KEYCAP SPECIFICATIONS",
-                    labels: ["PROFILE", "MATERIAL", "LEGENDS"],
-                    values: ["Cherry Profile", "Double-shot PBT (1.5mm)", "Seamless Dye-Sublimated"],
+                index: 1,
+                title: "01 / KEY CAPS",
+                specs: [
+                    { label: "PROFILE", val: "Cherry Profile" },
+                    { label: "MATERIAL", val: "Double-shot PBT" },
+                    { label: "THICKNESS", val: "1.5mm" }
+                ]
                 },
                 switches: {
-                    index: 2,
-                    title: "02 / SWITCH SPECIFICATIONS",
-                    labels: ["TYPE", "OPERATING FORCE", "SOUND CHARACTER"],
-                    values: ["Pre-Lubed Linear", "45 cN Actuation / 53 cN Bottom-out", "Snappy & Deep Thock"],
+                index: 2,
+                title: "02 / SWITCHES",
+                specs: [
+                    { label: "TYPE", val: "Linear" },
+                    { label: "ACTUATION", val: "45g Force" },
+                    { label: "TRAVEL", val: "3.2mm Total" }
+                ]
                 },
                 case: {
-                    index: 3,
-                    title: "03 / BOTTOM CASE SPECIFICATIONS",
-                    labels: ["MATERIAL", "DAMPENING", "WEIGHT BAR"],
-                    values: ["6063 Anodized Aluminum", "Poron Case Foam + PET Sheet", "Brass Accent Weight"],
+                index: 3,
+                title: "03 / BOTTOM CASE",
+                specs: [
+                    { label: "MATERIAL", val: "CNC Aluminum 6063" },
+                    { label: "FINISH", val: "Anodized Matte" },
+                    { label: "FOAM", val: "Poron Dampening" }
+                ]
                 }
             }
 
-            document.addEventListener("DOMContentLoaded", () => {
-                const buttons = document.querySelectorAll(".part-btn")
-                const sliderTrack = document.getElementById("slider-track")
-                const specTitle = document.getElementById("spec-title")
+            const partBtns = document.querySelectorAll('.part-btn')
+            const sliderTrack = document.getElementById('slider-track')
+            
+            const activeTextClasses = ['text-2xl', 'sm:text-3xl', 'font-black', 'text-white']
+            const inactiveTextClasses = ['text-lg', 'sm:text-xl', 'font-medium', 'text-neutral-500', 'group-hover:text-neutral-300']
 
-                const label1 = document.getElementById("label-1")
-                const val1 = document.getElementById("val-1")
-                const label2 = document.getElementById("label-2")
-                const val2 = document.getElementById("val-2")
-                const label3 = document.getElementById("label-3")
-                const val3 = document.getElementById("val-3")
+            partBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                
+                partBtns.forEach(b => {
+                    b.classList.remove('active')
+                    const span = b.querySelector('.part-text')
+                    span.classList.remove(...activeTextClasses)
+                    span.classList.add(...inactiveTextClasses)
+                })
 
-                buttons.forEach(btn => {
-                    btn.addEventListener("click", () => {
-                        const partKey = btn.getAttribute("data-part")
-                        const data = specData[partKey]
+                btn.classList.add('active')
+                const activeSpan = btn.querySelector('.part-text')
+                activeSpan.classList.remove(...inactiveTextClasses)
+                activeSpan.classList.add(...activeTextClasses)
 
-                        if (!data) return
+                const partKey = btn.getAttribute('data-part')
+                const data = partData[partKey]
 
-                        // 1. Reset all buttons to inactive styling
-                        buttons.forEach(b => {
-                            b.classList.remove("active")
-                            const textSpan = b.querySelector(".part-text")
-                            if (textSpan) {
-                                textSpan.className = "part-text inline-block transition-all duration-300 text-lg sm:text-xl font-medium text-neutral-500 group-hover:text-neutral-300 tracking-wide uppercase"
-                            }
-                        })
+                sliderTrack.style.transform = `translateX(-${data.index * 25}%)`
 
-                        // 2. Set clicked button to Active state (Bold & Larger text)
-                        btn.classList.add("active")
-                        const activeTextSpan = btn.querySelector(".part-text")
-                        if (activeTextSpan) {
-                            activeTextSpan.className = "part-text inline-block transition-all duration-300 text-2xl sm:text-3xl font-black text-white tracking-wide uppercase"
-                        }
+                document.getElementById('spec-title').textContent = data.title
+                
+                document.getElementById('label-1').textContent = data.specs[0].label
+                document.getElementById('val-1').textContent = data.specs[0].val
+                
+                document.getElementById('label-2').textContent = data.specs[1].label
+                document.getElementById('val-2').textContent = data.specs[1].val
+                
+                document.getElementById('label-3').textContent = data.specs[2].label
+                document.getElementById('val-3').textContent = data.specs[2].val
 
-                        // 3. Slide Carousel Track (4 slides total, each moves 25%)
-                        sliderTrack.style.transform = `translateX(-${data.index * 25}%)`
-                        // 4. Update Specs Card Content
-                        specTitle.textContent = data.title
-                        
-                        label1.textContent = data.labels[0]
-                        val1.textContent = data.values[0]
+                })
+            })
 
-                        label2.textContent = data.labels[1]
-                        val2.textContent = data.values[1]
+        })
+    </script>
 
-                        label3.textContent = data.labels[2]
-                        val3.textContent = data.values[2]
-
-                    });
-                });
-            });
-
-          
-        </script>
-        
-    </body>
-
+</body>
 </html>

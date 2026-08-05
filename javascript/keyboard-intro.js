@@ -80,7 +80,14 @@ window.addEventListener('scroll', () => {
     updateFeelAndPlaySection()
 })
 
+const photos = {
+    linear: '../../images/TechPage/LinearSwitchIntro.webp',
+    tactile: '../../images/TechPage/TactileSwitchIntro.webp',
+    clicky: '../../images/TechPage/ClickySwitchIntro.webp',
+}
+
 function updateFeelAndPlaySection() {
+    const imageSwitch = document.getElementById('switch-image')
     const track = document.getElementById('feel-and-play-track')
     if (!track) return
     
@@ -92,17 +99,27 @@ function updateFeelAndPlaySection() {
 
     if (rect.top <= 0 && rect.bottom >= window.innerHeight) {
         let active = 'linear'
-        if (progress > 0.66) active = 'clicky'
-        else if (progress > 0.33) active = 'tactile'
+        if (progress > 0.66) { 
+            
+            active = 'clicky'
+        } else if (progress > 0.33) {
+            active = 'tactile'
+        }
+
+        imageSwitch.src = photos[active]
 
         const badge = document.getElementById('active-badge')
-        if (badge) badge.innerText = `Switch: ${active.toUpperCase()}`
+        if (badge) {
+            badge.innerText = `Switch: ${active.toUpperCase()}`
+        }
         
         const sounds = { linear: '"Snappy clack"', tactile: '"Deep thock"', clicky: '"Crisp click"' }
         const specSound = document.getElementById('spec-sound')
-        if (specSound) specSound.innerText = sounds[active]
-
-        ;['linear', 'tactile', 'clicky'].forEach(t => {
+        if (specSound) { 
+            specSound.innerText = sounds[active]
+        };
+        
+        ['linear', 'tactile', 'clicky'].forEach(t => {
             const tab = document.getElementById(`tab-${t}`)
             if (tab) {
                 tab.className = (t === active) 
@@ -117,8 +134,7 @@ window.addEventListener('resize', resize)
 window.addEventListener('load', resize)
 
 let lastScrollY = window.scrollY
-// const header = document.getElementById('header-container')
-const header = document.querySelector('#header-container header');
+const header = document.getElementById('header-container')
 
 window.addEventListener('scroll', () => {
     const currentScrollY = window.scrollY

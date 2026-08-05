@@ -106,7 +106,7 @@ function checkFormValidity() {
     }
 }
 
-checkFormValidity();
+checkFormValidity()
 
 function print() {
     // console.log(cart)
@@ -125,4 +125,43 @@ function choosePayment(id) {
     exactButton.classList.remove( "border-gray-700", "text-gray-500")
     exactButton.classList.add("border-red-500", "text-red-500", "font-medium")
     
+
+}
+
+const qrImages = {
+    paynow: "../images/PaymentQr/PayNowFakeQr.png",
+    paylah: "../images/PaymentQr/PayLahFakeQr.png"
+}
+
+function showQR(type) {
+    const modal = document.getElementById("qrModal")
+    const titleContainer = document.getElementById("qrTitle")
+    const img = document.getElementById("qrImage")
+
+    titleContainer.innerHTML = ""
+
+    const title = document.createElement("h3")
+    title.className = "text-xl sm:text-2xl font-medium text-white mb-6"
+
+    if (type === "paylah") {
+        title.textContent = "DBS PayLah!"
+        img.src = qrImages.paylah
+    } else {
+        title.textContent = "PayNow"
+        img.src = qrImages.paynow
+    }
+
+    titleContainer.appendChild(title)
+
+    modal.classList.remove("hidden")
+}
+
+function closeQR() {
+    document.getElementById("qrModal").classList.add("hidden")
+}
+
+function closeOnOutsideClick(event) {
+    if (event.target.id === "qrModal") {
+        closeQR()
+    }
 }

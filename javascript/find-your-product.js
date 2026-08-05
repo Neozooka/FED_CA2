@@ -23,7 +23,7 @@
         btn.addEventListener('click', e=>{
             choice1 = e.currentTarget.dataset.value
             fadeOut(q1)
-            setTimeout(()=> fadeIn(q2), 350)
+            setTimeout(() => fadeIn(q2), 350)
         })
     })
 
