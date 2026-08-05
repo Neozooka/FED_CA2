@@ -30,10 +30,9 @@
     inset: 0;
     width: 100%;
     height: 100%;
-    transform-style: preserve-3d;
     transform-origin: 50% 50%;
-    /* Initial fallback before JS runs */
-    transform: translate3d(0, 0, 550px);
+    /* Initial fallback before JS runs — zoomed-in state */
+    transform: scale(1.6);
 }
 
 .helix-scene {
@@ -54,13 +53,18 @@
     transform-origin: 50% 50%;
 }
 
-/* Ensure no CSS transition interfere with active frame transforms */
+/* Ensure no CSS transition interfere with active frame transforms.
+    .story-text is included here too — it still carries Tailwind's
+    `transition-all duration-300` class, which was fighting the
+    scroll-driven opacity updates below and meant phrases never
+    visually reached full opacity. */
 #game-screen,
 #helix-zoom,
 #helix-scrim,
 .helix-scene,
 .helix-world,
-.helix-card {
+.helix-card,
+.story-text {
     transition: none !important;
 }
 
@@ -102,8 +106,9 @@
 }
 
 /* Full-bleed scrim that keeps phrases 1-3 reading as "helix as a
-    dark backdrop" — it starts opaque-ish and is faded out by GSAP
-    as we zoom out into the full reveal. */
+    dark backdrop" — it starts opaque-ish and is faded out by the
+    scroll-story handler in nexos-pro.html (plain scroll listener,
+    not GSAP) as we zoom out into the full reveal. */
 #helix-scrim {
     position: absolute;
     inset: 0;

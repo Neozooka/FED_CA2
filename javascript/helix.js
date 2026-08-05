@@ -1,4 +1,4 @@
-            // ----------------------------------------------------------------
+// ----------------------------------------------------------------
             // Double-helix background engine
             // Ambient-only: the drag/momentum interaction from the original
             // gallery is dropped here since this instance lives behind a
@@ -13,7 +13,7 @@
                         strands: 2,
                         perStrand: 20,
                         turns: 2,
-                        speed: 0.18,
+                        speed: 0.07,
                         spanFactor: 1.5
                     },
                     appearance: {
@@ -138,10 +138,28 @@
                 world.appendChild(fragment); // Single DOM insert for all 40 elements!
 
                 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-                const start = performance.now();
+                // Keep in sync with ZOOM_OUT_START in the scroll-story script
+                // in nexos-pro.html. Below this progress, the camera is meant
+                // to be locked on the helix, so the ambient rotation is frozen
+                // — otherwise it drifts on its own real-time clock regardless
+                // of scroll position, which reads as the camera panning.
+                const ZOOM_OUT_START = 0.54;
+
+                let virtualElapsed = 0;
+                let lastFrameTime = performance.now();
 
                 const frame = (now) => {
-                    const elapsed = reducedMotion.matches ? 0 : (now - start) / 1000;
+                    const dt = (now - lastFrameTime) / 1000;
+                    lastFrameTime = now;
+
+                    const scrollProgress = window.__helixScrollProgress ?? 0;
+                    const isLocked = scrollProgress < ZOOM_OUT_START;
+
+                    if (!reducedMotion.matches && !isLocked) {
+                        virtualElapsed += dt;
+                    }
+                    const elapsed = virtualElapsed;
+
                     for (const card of cards) {
                         const progress = wrap(card.base + elapsed * config.scene.speed, perStrand) / perStrand;
                         const angle = helixAngle(progress, card.phase);
