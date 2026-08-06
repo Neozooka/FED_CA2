@@ -345,7 +345,7 @@ function loadHeaderAndFooter() {
                 </div>
             </section>
 
-            <button id="back-to-top" aria-label="Back to top" class="fixed bottom-6 right-6 z-50 p-3 bg-neutral-800/90 text-white rounded-full shadow-lg backdrop-blur-md border border-neutral-700 opacity-0 pointer-events-none transition-all duration-300 hover:bg-neutral-700 hover:scale-110 focus:outline-none">
+            <button id="back-to-top" aria-label="Back to top" class="fixed bottom-24 right-6 z-50 p-3 bg-neutral-800/90 text-white rounded-full shadow-lg backdrop-blur-md border border-neutral-700 opacity-0 pointer-events-none transition-all duration-300 hover:bg-neutral-700 hover:scale-110 focus:outline-none">
                 <i class="fa fa-arrow-up text-lg"></i>
             </button>
         </footer>

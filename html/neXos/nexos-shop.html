@@ -119,18 +119,219 @@
                             </div>
 
                             <div class="pt-2">
-                                <a href="#" class="main-button px-8 py-3 rounded-full shadow-lg inline-block">
+                                <button type="button" onclick="openDownloadModal()" class="main-button px-8 py-3 rounded-full shadow-lg inline-block cursor-pointer">
                                     Download NexOS
-                                </a>
+                                </button>
                             </div>
                         </div>
 
                     </div>
 
                 </div>
+
+                <!-- Section: Comparison Table -->
+                <div class="max-w-5xl w-full mt-20 reveal-on-scroll">
+                    
+                    <!-- Main Text and Subtext -->
+                    <div class="text-center mb-10">
+                        <h3 class="text-3xl sm:text-5xl font-black text-white tracking-tight mb-3">
+                            COMPARE EDITIONS
+                        </h3>
+                        <p class="text-neutral-400 text-base sm:text-lg max-w-2xl mx-auto">
+                            Choose the operating system that fits your gaming setup or unleashes your full creative potential.
+                        </p>
+                    </div>
+                    
+                    <!-- Table Container -->
+                    <div class="overflow-x-auto rounded-[30px] border border-neutral-800 bg-neutral-900/80 backdrop-blur-xl shadow-2xl text-left">
+                        <table class="w-full border-collapse">
+                            <thead>
+                                <tr class="border-b border-neutral-800 text-white text-lg sm:text-xl">
+                                    <th class="py-6 px-6 font-bold w-1/2">Feature</th>
+                                    <th class="py-6 px-6 font-bold text-center w-1/4 text-neutral-300">NexOS CORE</th>
+                                    <th class="py-6 px-6 font-bold text-center w-1/4 text-[--maingreen]">NexOS PRO</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-neutral-300 text-sm sm:text-base">
+                                <!-- Row 1 -->
+                                <tr class="border-b border-neutral-800/50 hover:bg-neutral-800/30 transition-colors">
+                                    <td class="py-4 px-6">
+                                        <div class="font-bold text-white text-base sm:text-lg">Pricing</div>
+                                        <div class="text-xs sm:text-sm text-neutral-400 mt-0.5">One-time purchase license options.</div>
+                                    </td>
+                                    <td class="py-4 px-6 text-center font-bold text-white text-lg">Free</td>
+                                    <td class="py-4 px-6 text-center font-bold text-white text-lg">$39.99</td>
+                                </tr>
+                                <!-- Row 2 -->
+                                <tr class="border-b border-neutral-800/50 hover:bg-neutral-800/30 transition-colors">
+                                    <td class="py-4 px-6">
+                                        <div class="font-bold text-white">Performance Core & Zero Telemetry</div>
+                                        <div class="text-xs sm:text-sm text-neutral-400 mt-0.5">100% CPU/RAM allocated to games with no corporate tracking or forced updates.</div>
+                                    </td>
+                                    <td class="py-4 px-6 text-center"><i class="fa fa-check text-green-500 text-xl"></i></td>
+                                    <td class="py-4 px-6 text-center"><i class="fa fa-check text-green-500 text-xl"></i></td>
+                                </tr>
+                                <!-- Row 3 -->
+                                <tr class="border-b border-neutral-800/50 hover:bg-neutral-800/30 transition-colors">
+                                    <td class="py-4 px-6">
+                                        <div class="font-bold text-white">Apex Mode & Desktop Mode</div>
+                                        <div class="text-xs sm:text-sm text-neutral-400 mt-0.5">Seamless transition between a clean desktop workspace and a console launcher.</div>
+                                    </td>
+                                    <td class="py-4 px-6 text-center"><i class="fa fa-check text-green-500 text-xl"></i></td>
+                                    <td class="py-4 px-6 text-center"><i class="fa fa-check text-green-500 text-xl"></i></td>
+                                </tr>
+                                <!-- Row 4 -->
+                                <tr class="border-b border-neutral-800/50 hover:bg-neutral-800/30 transition-colors">
+                                    <td class="py-4 px-6">
+                                        <div class="font-bold text-white">Proton+ & Day-One Drivers</div>
+                                        <div class="text-xs sm:text-sm text-neutral-400 mt-0.5">Pre-compiled graphics drivers and maximum AAA/indie game compatibility.</div>
+                                    </td>
+                                    <td class="py-4 px-6 text-center"><i class="fa fa-check text-green-500 text-xl"></i></td>
+                                    <td class="py-4 px-6 text-center"><i class="fa fa-check text-green-500 text-xl"></i></td>
+                                </tr>
+                                <!-- Row 5 -->
+                                <tr class="border-b border-neutral-800/50 hover:bg-neutral-800/30 transition-colors">
+                                    <td class="py-4 px-6">
+                                        <div class="font-bold text-white">neXus 60HE Hardware Synergy</div>
+                                        <div class="text-xs sm:text-sm text-neutral-400 mt-0.5">Kernel-level integration for zero-overhead Hall Effect trigger & actuation settings.</div>
+                                    </td>
+                                    <td class="py-4 px-6 text-center"><i class="fa fa-check text-green-500 text-xl"></i></td>
+                                    <td class="py-4 px-6 text-center"><i class="fa fa-check text-green-500 text-xl"></i></td>
+                                </tr>
+                                <!-- Row 6 -->
+                                <tr class="border-b border-neutral-800/50 hover:bg-neutral-800/30 transition-colors">
+                                    <td class="py-4 px-6">
+                                        <div class="font-bold text-white">Aerodynamic Layout Engine</div>
+                                        <div class="text-xs sm:text-sm text-neutral-400 mt-0.5">1-click layout morphing including macOS style, tiling workspace, and handheld setups.</div>
+                                    </td>
+                                    <td class="py-4 px-6 text-center"><i class="fa fa-times text-neutral-600 text-xl"></i></td>
+                                    <td class="py-4 px-6 text-center"><i class="fa fa-check text-green-500 text-xl"></i></td>
+                                </tr>
+                                <!-- Row 7 -->
+                                <tr class="border-b border-neutral-800/50 hover:bg-neutral-800/30 transition-colors">
+                                    <td class="py-4 px-6">
+                                        <div class="font-bold text-white">Hardware Mastery & AI Scheduling</div>
+                                        <div class="text-xs sm:text-sm text-neutral-400 mt-0.5">Zen-optimized kernels, AI task prioritization, and native power/undervolt tuning.</div>
+                                    </td>
+                                    <td class="py-4 px-6 text-center"><i class="fa fa-times text-neutral-600 text-xl"></i></td>
+                                    <td class="py-4 px-6 text-center"><i class="fa fa-check text-green-500 text-xl"></i></td>
+                                </tr>
+                                <!-- Row 8 -->
+                                <tr class="border-b border-neutral-800/50 hover:bg-neutral-800/30 transition-colors">
+                                    <td class="py-4 px-6">
+                                        <div class="font-bold text-white">Creator & Streamer Suite</div>
+                                        <div class="text-xs sm:text-sm text-neutral-400 mt-0.5">Low-latency PipeWire audio and custom OBS Studio saving up to 40% system resources.</div>
+                                    </td>
+                                    <td class="py-4 px-6 text-center"><i class="fa fa-times text-neutral-600 text-xl"></i></td>
+                                    <td class="py-4 px-6 text-center"><i class="fa fa-check text-green-500 text-xl"></i></td>
+                                </tr>
+                                <!-- Row 9 -->
+                                <tr class="hover:bg-neutral-800/30 transition-colors">
+                                    <td class="py-4 px-6">
+                                        <div class="font-bold text-white">Pre-Loaded Open Source Tools & Priority Support</div>
+                                        <div class="text-xs sm:text-sm text-neutral-400 mt-0.5">Curated creative software suite (Blender, DaVinci Resolve) + direct developer support.</div>
+                                    </td>
+                                    <td class="py-4 px-6 text-center"><i class="fa fa-times text-neutral-600 text-xl"></i></td>
+                                    <td class="py-4 px-6 text-center"><i class="fa fa-check text-green-500 text-xl"></i></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
             </section>
             
         </article>
+
+        <!-- Download Configurator Modal -->
+        <div id="download-modal" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
+            <div id="modal-card" class="bg-neutral-900 border border-neutral-800 rounded-[30px] p-6 sm:p-8 max-w-lg w-full text-left relative shadow-2xl modal-pop">
+                
+                <!-- Close Button -->
+                <button type="button" onclick="closeDownloadModal()" class="absolute top-5 right-5 text-neutral-400 hover:text-white text-xl transition-colors">
+                    <i class="fa fa-times"></i>
+                </button>
+
+                <h3 class="text-2xl font-black text-white mb-1">ONE MORE THING...</h3>
+                <p class="text-sm text-neutral-400 mb-6">For the best version of NexOS tailored for your hardware, answer a few quick questions. No personal data is collected or harvested.</p>
+
+                <form id="iso-config-form" onsubmit="handleIsoDownload(event)" class="space-y-5">
+                    
+                    <!-- Step 1: Device Hardware Type -->
+                    <div id="step-hardware">
+                        <label class="block text-xs font-bold uppercase tracking-wider text-neutral-300 mb-2">1. Select Your Hardware</label>
+                            <select id="hardware-select" onchange="handleHardwareChange()" class="w-full bg-neutral-800 border border-neutral-700 text-white rounded-xl px-4 py-3 focus:outline-none focus:border-[--maingreen] transition-colors" required>
+                                <option value="" disabled selected>-- Choose your device --</option>
+                                <optgroup label="PCs">
+                                    <option value="desktop">Desktop / Home Theatre PC</option>
+                                </optgroup>
+                                <optgroup label="Handhelds">
+                                    <option value="steam-deck">Steam Deck</option>
+                                    <option value="onexplayer">OneXPlayer</option>
+                                    <option value="legion-go">Lenovo Legion Go</option>
+                                    <option value="rog-ally">Asus ROG Ally & Ally X</option>
+                                    <option value="msi-handheld">MSI Handheld</option>
+                                    <option value="other-handheld">Other Handheld PC</option>
+                                </optgroup>
+                                <optgroup label="Laptops & Framework">
+                                    <option value="framework">Framework Devices</option>
+                                    <option value="other-laptop">Other Laptop</option>
+                                </optgroup>
+                                <optgroup label="Other">
+                                    <option value="vm">Virtual Machine</option>
+                                </optgroup>
+                            </select>
+
+                        <!-- Dynamic Experience Description Box -->
+                        <div id="hardware-description" class="hidden mt-3 p-3.5 bg-neutral-800/60 border border-neutral-700/60 rounded-xl text-xs text-neutral-300 step-fade-in">
+                            <!-- Content inserted via JS -->
+                        </div>
+                    </div>
+
+                    <!-- Step 2: GPU Selection (Hidden initially, shown for Desktop / Other Laptop) -->
+                     <div id="step-gpu" class="hidden step-fade-in">
+                        <select id="gpu-select" onchange="handleGpuChange()" class="w-full bg-neutral-800 border border-neutral-700 text-white rounded-xl px-4 py-3 focus:outline-none focus:border-[--maingreen] transition-colors">
+                            <option value="" disabled selected>-- Choose GPU vendor --</option>
+                            <optgroup label="Newer GPUs">
+                                <option value="nvidia">Nvidia (RTX Series | GTX 16xx Series+)</option>
+                                <option value="amd">AMD (RX 4xx+ | AI)</option>
+                                <option value="intel-arc">Intel Arc / Integrated (Tigerlake | ARC+)</option>
+                            </optgroup>
+                            <optgroup label="Older GPUs">
+                                <option value="legacy-nvidia">Legacy Nvidia (GTX 9xx-10xx Series)</option>
+                                <option value="legacy-amd">Legacy AMD (HD/200/300/R9)</option>
+                                <option value="legacy-intel">Legacy Intel Integrated (Skylake - Icelake)</option>
+                            </optgroup>
+                        </select>
+
+                        <!-- Dynamic Experience Description Box -->
+                        <div id="gpu-support" class="hidden mt-3 p-3.5 bg-neutral-800/60 border border-neutral-700/60 rounded-xl text-xs text-neutral-300 step-fade-in">
+                            <!-- Content inserted via JS -->
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Newsletter Opt-In (Hidden initially until previous required steps are done) -->
+                    <div id="step-newsletter" class="hidden step-fade-in pt-2 border-t border-neutral-800">
+                        <label class="block text-xs font-bold uppercase tracking-wider text-neutral-300 mb-2">Stay Updated with NexOS</label>
+                        <p class="text-xs text-neutral-400 mb-3">Get release updates, performance patches, and optimization tips.</p>
+                        <input type="email" id="newsletter-email" placeholder="Enter your email address" class="w-full bg-neutral-800 border border-neutral-700 text-white rounded-xl px-4 py-3 focus:outline-none focus:border-[--maingreen] transition-colors mb-3" required>
+                        
+                        <label class="flex items-center space-x-2 text-xs text-neutral-400 cursor-pointer">
+                            <input type="checkbox" id="newsletter-consent" class="rounded bg-neutral-800 border-neutral-700 text-[--maingreen] focus:ring-0" required>
+                            <span>I agree to receive Nexus product updates. Unsubscribe anytime.</span>
+                        </label>
+                    </div>
+
+                    <!-- Submit Button (Hidden initially) -->
+                    <div id="step-submit" class="hidden step-fade-in">
+                        <button type="submit" class="main-button w-full py-3.5 rounded-full font-bold text-center mt-2 cursor-pointer hover:opacity-90 transition-opacity">
+                            Get Optimized ISO <i class="fa fa-download ml-2"></i>
+                        </button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
 
         <div id="footer-container"></div>
 
@@ -138,11 +339,120 @@
 
 
 
-        <script></script>
+        <script>
+            function openDownloadModal() {
+                const modal = document.getElementById('download-modal');
+                modal.classList.remove('hidden');
+                resetDownloadModal();
+            }
+
+            function closeDownloadModal() {
+                document.getElementById('download-modal').classList.add('hidden');
+            }
+
+            // Unified Framework text description
+            const hardwareDescriptions = {
+                'desktop': '<strong>Desktop & HTPC Experience:</strong> Unlocks maximum desktop frame-pacing, raw GPU passthrough, and zero-latency display server hooks. Configured for multi-monitor setups, high-refresh rates, and couch TV setups.',
+                'framework': '<strong>Framework Experience:</strong> NexOS is officially supported by Framework, with out-of-box support for all hardware models. Enjoy an enhanced d-GPU support on Framework 16 without the hassle. And if you are on <span class="font-bold">Framework Desktop</span>, enjoy the best home theatre PC when you switch to Apex Mode.',
+                'other-laptop': '<strong>Laptop Experience:</strong> Features hybrid-GPU switching controls (MUX switch support), dynamic fan curves, and battery optimization profiles to keep heat low during high-load gaming sessions.'
+            };
+
+            const gpuCompatibilityDescriptions = {
+                'legacy-nvidia': '<strong>Warning!</strong> Due to issues with drivers, we are unfortunately unable to get Apex Mode working at the moment for legacy GPUs. Stay tuned for a future update!',
+                'legacy-amd': '<strong>Warning!</strong> Due to issues with drivers, we are unfortunately unable to get Apex Mode working at the moment for legacy GPUs. Stay tuned for a future update!',
+                'legacy-intel': '<strong>Warning!</strong> Due to issues with drivers, we are unfortunately unable to get Apex Mode working at the moment for legacy GPUs. Stay tuned for a future update!'
+            };
+
+            function handleHardwareChange() {
+                const hardware = document.getElementById('hardware-select').value;
+                const gpuStep = document.getElementById('step-gpu');
+                const gpuSelect = document.getElementById('gpu-select');
+                const descBox = document.getElementById('hardware-description');
+                const gpuBox = document.getElementById('gpu-support');
+                
+                // Reset GPU value and warning box
+                gpuSelect.value = "";
+                gpuBox.classList.add('hidden');
+                gpuBox.innerHTML = '';
+
+                // Render hardware description
+                if (hardwareDescriptions[hardware]) {
+                    descBox.innerHTML = hardwareDescriptions[hardware];
+                    descBox.classList.remove('hidden');
+                } else {
+                    descBox.classList.add('hidden');
+                    descBox.innerHTML = '';
+                }
+
+                // Show GPU step for Desktops, Framework, and Other Laptops
+                if (hardware === 'desktop' || hardware === 'other-laptop' || hardware === 'framework') {
+                    gpuStep.classList.remove('hidden');
+                    gpuSelect.setAttribute('required', 'true');
+                    
+                    document.getElementById('step-newsletter').classList.add('hidden');
+                    document.getElementById('step-submit').classList.add('hidden');
+                } else {
+                    // Direct handhelds or VMs to newsletter step
+                    gpuStep.classList.add('hidden');
+                    gpuSelect.removeAttribute('required');
+                    
+                    showNewsletterStep();
+                }
+            }
+
+            function handleGpuChange() {
+                const gpuVal = document.getElementById('gpu-select').value;
+                const gpuBox = document.getElementById('gpu-support');
+
+                if (gpuCompatibilityDescriptions[gpuVal]) {
+                    gpuBox.innerHTML = gpuCompatibilityDescriptions[gpuVal];
+                    gpuBox.classList.remove('hidden');
+                } else {
+                    gpuBox.classList.add('hidden');
+                    gpuBox.innerHTML = '';
+                }
+                
+                if (gpuVal) {
+                    showNewsletterStep();
+                }
+            }
+
+            function resetDownloadModal() {
+                document.getElementById('iso-config-form').reset();
+                document.getElementById('step-gpu').classList.add('hidden');
+                document.getElementById('step-newsletter').classList.add('hidden');
+                document.getElementById('step-submit').classList.add('hidden');
+                
+                const descBox = document.getElementById('hardware-description');
+                descBox.classList.add('hidden');
+                descBox.innerHTML = '';
+
+                const gpuBox = document.getElementById('gpu-support');
+                gpuBox.classList.add('hidden');
+                gpuBox.innerHTML = '';
+
+                document.getElementById('gpu-select').removeAttribute('required');
+            }
+
+            function showNewsletterStep() {
+                document.getElementById('step-newsletter').classList.remove('hidden');
+                document.getElementById('step-submit').classList.remove('hidden');
+            }
+
+            function handleIsoDownload(event) {
+                event.preventDefault();
+                
+                const hardware = document.getElementById('hardware-select').value;
+                const gpu = document.getElementById('gpu-select').value || 'generic';
+                const email = document.getElementById('newsletter-email').value;
+
+                const isoFilename = `nexos-26.07-core-${hardware}-${gpu}.iso`;
+                window.location.href = `/downloads/${isoFilename}`;
+                
+                closeDownloadModal();
+            }
+        </script>
 
     </body>
 
 </html>
-
-
-
