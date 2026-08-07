@@ -22,6 +22,8 @@
         <script src="../../javascript/helix.js" defer></script>
         <script src="../../javascript/reveal-on-scroll.js" defer></script>
         <script src="../../javascript/perf-slider.js" defer></script>
+        <script src="../../javascript/review.js" defer></script>
+        <script src="../../javascript/cta-card.js" defer></script>
         <script src="../../javascript/accordion.js" defer></script>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
@@ -121,69 +123,71 @@
 
             </div>
 
-            <section id="layout-engine" class="w-full bg-[--background] pt-20 pb-20 px-4 md:px-8 flex flex-col items-center overflow-hidden">
-                <div class="max-w-5xl w-full">
+            <section id="layout-engine" class="w-full bg-[--background] pt-12 pb-12 px-4 md:px-8 flex flex-col items-center overflow-hidden">
+                <div class="max-w-4xl w-full">
 
-                    <div class="text-left mb-12 reveal-on-scroll">
-                        <h2 class="text-4xl sm:text-5xl md:text-6xl font-black text-white tracking-tight mb-4 uppercase">
+                    <div class="text-left mb-8 reveal-on-scroll">
+                        <h2 class="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight mb-3 uppercase">
                             Aerodynamic Layout Engine.
                         </h2>
 
-                        <p class="text-neutral-300 text-lg sm:text-xl leading-relaxed max-w-3xl mb-6">
+                        <p class="text-neutral-300 text-base sm:text-lg leading-relaxed max-w-2xl mb-4">
                             Experience complete interface freedom. NexOS Pro unlocks premium, one-click desktop configurations that instantly morph your workspace. Effortlessly swap between a polished macOS style, a hyper-efficient modern coding environment, a minimalist handheld layout, and classic Windows environments.
                         </p>
                     </div>
 
-                    <div class="relative w-full max-w-[1920px] mx-auto group reveal-on-scroll">
+                    <!-- Reduced max-width container for a smaller window size -->
+                    <div class="relative w-full max-w-3xl mx-auto group reveal-on-scroll">
                         
-                        <div id="layout-glow" class="absolute -inset-4 bg-gradient-to-r bg-[--maingreen] rounded-3xl blur-2xl opacity-30 group-hover:opacity-50 transition-all duration-700"></div>
+                        <div id="layout-glow" class="absolute -inset-3 bg-gradient-to-r bg-[--maingreen] rounded-2xl blur-xl opacity-30 group-hover:opacity-50 transition-all duration-700"></div>
 
-                        <div class="relative z-10 bg-neutral-950 border border-neutral-800 rounded-2xl shadow-2xl overflow-hidden aspect-video flex flex-col">
+                        <!-- Keeps 16:9 aspect ratio (matches 1920x1080 perfectly) in a smaller frame -->
+                        <div class="relative z-10 bg-neutral-950 border border-neutral-800 rounded-xl shadow-xl overflow-hidden aspect-video flex flex-col w-full">
                             
-                            <div class="bg-neutral-900/80 border-b border-neutral-800/80 px-4 py-3 flex items-center justify-between">
-                                <span id="current-layout-label" class="text-xs uppercase tracking-widest text-neutral-400 font-bold">
+                            <div class="bg-neutral-900/80 border-b border-neutral-800/80 px-3 py-2 flex items-center justify-between shrink-0">
+                                <span id="current-layout-label" class="text-[10px] sm:text-xs uppercase tracking-widest text-neutral-400 font-bold">
                                     macOS Style
                                 </span>
                             </div>
 
-                            <div id="desktop-viewport" class="relative grow bg-neutral-950 overflow-hidden flex items-center justify-center">
+                            <div id="desktop-viewport" class="relative w-full h-full bg-neutral-950 overflow-hidden flex items-center justify-center">
                                 
                                 <img id="layout-macos" 
-                                     src="../../images/desktop-macos.jpg" 
-                                     alt="macOS Layout" 
-                                     class="layout-view absolute inset-0 w-full h-full object-cover opacity-100 transition-opacity duration-500">
+                                    src="../../images/desktop-macos.png" 
+                                    alt="macOS Layout" 
+                                    class="layout-view absolute inset-0 w-full h-full object-contain opacity-100 transition-opacity duration-500">
 
                                 <img id="layout-tiling" 
-                                     src="../../images/desktop-tiling.png" 
-                                     alt="Tiling Coding Layout" 
-                                     class="layout-view absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-500 pointer-events-none">
+                                    src="../../images/desktop-tiling.png" 
+                                    alt="Tiling Coding Layout" 
+                                    class="layout-view absolute inset-0 w-full h-full object-contain opacity-0 transition-opacity duration-500 pointer-events-none">
 
                                 <img id="layout-handheld" 
-                                     src="../../images/gaming-mode.jpg" 
-                                     alt="Handheld Layout" 
-                                     class="layout-view absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-500 pointer-events-none">
+                                    src="../../images/gaming-mode.jpg" 
+                                    alt="Handheld Layout" 
+                                    class="layout-view absolute inset-0 w-full h-full object-contain opacity-0 transition-opacity duration-500 pointer-events-none">
 
                                 <img id="layout-classic" 
-                                     src="../../images/desktop-mode.jpg" 
-                                     alt="Classic Windows Layout" 
-                                     class="layout-view absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-500 pointer-events-none">
+                                    src="../../images/desktop-mode.jpg" 
+                                    alt="Classic Windows Layout" 
+                                    class="layout-view absolute inset-0 w-full h-full object-contain opacity-0 transition-opacity duration-500 pointer-events-none">
 
                             </div>
                         </div>
                     </div>
 
-                    <div class="flex flex-wrap justify-center gap-3 sm:gap-4 mt-8">
-                        <button onclick="switchLayout('macos', 'macOS Style')" class="layout-pill active border border-[--maingreen] bg-[--maingreen]/10 text-white font-bold px-5 py-2.5 rounded-xl hover:bg-[--maingreen]/20 transition-all text-sm md:text-base">
-                        macOS
+                    <div class="flex flex-wrap justify-center gap-2 sm:gap-3 mt-6">
+                        <button onclick="switchLayout('macos', 'macOS Style')" class="layout-pill active border border-[--maingreen] bg-[--maingreen]/10 text-white font-bold px-4 py-2 rounded-lg hover:bg-[--maingreen]/20 transition-all text-xs sm:text-sm">
+                            macOS
                         </button>
-                        <button onclick="switchLayout('tiling', 'Tiling / Coding')" class="layout-pill border border-neutral-800 bg-neutral-900/60 text-neutral-400 font-bold px-5 py-2.5 rounded-xl hover:text-white hover:border-neutral-600 transition-all text-sm md:text-base">
-                        Tiling
+                        <button onclick="switchLayout('tiling', 'Tiling / Coding')" class="layout-pill border border-neutral-800 bg-neutral-900/60 text-neutral-400 font-bold px-4 py-2 rounded-lg hover:text-white hover:border-neutral-600 transition-all text-xs sm:text-sm">
+                            Tiling
                         </button>
-                        <button onclick="switchLayout('handheld', 'Handheld Mode')" class="layout-pill border border-neutral-800 bg-neutral-900/60 text-neutral-400 font-bold px-5 py-2.5 rounded-xl hover:text-white hover:border-neutral-600 transition-all text-sm md:text-base">
-                        Handheld
+                        <button onclick="switchLayout('handheld', 'Handheld Mode')" class="layout-pill border border-neutral-800 bg-neutral-900/60 text-neutral-400 font-bold px-4 py-2 rounded-lg hover:text-white hover:border-neutral-600 transition-all text-xs sm:text-sm">
+                            Handheld
                         </button>
-                        <button onclick="switchLayout('classic', 'Classic Windows')" class="layout-pill border border-neutral-800 bg-neutral-900/60 text-neutral-400 font-bold px-5 py-2.5 rounded-xl hover:text-white hover:border-neutral-600 transition-all text-sm md:text-base">
-                        Classic
+                        <button onclick="switchLayout('classic', 'Classic Windows')" class="layout-pill border border-neutral-800 bg-neutral-900/60 text-neutral-400 font-bold px-4 py-2 rounded-lg hover:text-white hover:border-neutral-600 transition-all text-xs sm:text-sm">
+                            Classic
                         </button>
                     </div>
 
@@ -378,6 +382,8 @@
             </section>
 
             <section id="preloaded-suite" class="w-full bg-[--background] py-20 overflow-hidden flex flex-col items-center border-t border-neutral-800/60">
+                
+                <!-- Text Content Block -->
                 <div class="max-w-5xl w-full px-4 md:px-8 mb-12 text-left reveal-on-scroll">
                     <h2 class="text-4xl sm:text-5xl md:text-6xl font-black text-white tracking-tight mb-4 uppercase">
                         PRE-LOADED.<br>
@@ -389,22 +395,99 @@
                     </p>
                 </div>
 
-                <div id="preloaded-carousel" class="relative w-full h-[60vmin] min-h-[350px] max-h-[600px] my-6 flex items-center justify-center select-none overflow-hidden border-y border-neutral-900 bg-black/40">
-                    <div 
-                        id="image-track" 
-                        data-mouse-down-at="0" 
-                        data-prev-percentage="0" 
-                        class="flex gap-[4vmin] absolute left-1/2 top-1/2 -translate-y-1/2 select-none cursor-grab active:cursor-grabbing"
-                    >
-                        <img class="image w-[40vmin] h-[56vmin] max-h-[500px] object-cover [object-position:100%_center] rounded-2xl border border-neutral-800 shadow-2xl" src="https://images.unsplash.com/photo-1524781289445-ddf8f5695861?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80" draggable="false" alt="Creative Tool Preview 1" />
-                        <img class="image w-[40vmin] h-[56vmin] max-h-[500px] object-cover [object-position:100%_center] rounded-2xl border border-neutral-800 shadow-2xl" src="https://images.unsplash.com/photo-1610194352361-4c81a6a8967e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1674&q=80" draggable="false" alt="Creative Tool Preview 2" />
-                        <img class="image w-[40vmin] h-[56vmin] max-h-[500px] object-cover [object-position:100%_center] rounded-2xl border border-neutral-800 shadow-2xl" src="https://images.unsplash.com/photo-1618202133208-2907bebba9e1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80" draggable="false" alt="Creative Tool Preview 3" />
-                        <img class="image w-[40vmin] h-[56vmin] max-h-[500px] object-cover [object-position:100%_center] rounded-2xl border border-neutral-800 shadow-2xl" src="https://images.unsplash.com/photo-1495805442109-bf1cf975750b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80" draggable="false" alt="Creative Tool Preview 4" />
-                        <img class="image w-[40vmin] h-[56vmin] max-h-[500px] object-cover [object-position:100%_center] rounded-2xl border border-neutral-800 shadow-2xl" src="https://images.unsplash.com/photo-1548021682-1720ed403a5b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80" draggable="false" alt="Creative Tool Preview 5" />
-                        <img class="image w-[40vmin] h-[56vmin] max-h-[500px] object-cover [object-position:100%_center] rounded-2xl border border-neutral-800 shadow-2xl" src="https://images.unsplash.com/photo-1496753480864-3e588e0269b3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2134&q=80" draggable="false" alt="Creative Tool Preview 6" />
-                        <img class="image w-[40vmin] h-[56vmin] max-h-[500px] object-cover [object-position:100%_center] rounded-2xl border border-neutral-800 shadow-2xl" src="https://images.unsplash.com/photo-1613346945084-35cccc812dd5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1759&q=80" draggable="false" alt="Creative Tool Preview 7" />
-                        <img class="image w-[40vmin] h-[56vmin] max-h-[500px] object-cover [object-position:100%_center] rounded-2xl border border-neutral-800 shadow-2xl" src="https://images.unsplash.com/photo-1516681100942-77d8e7f9dd97?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80" draggable="false" alt="Creative Tool Preview 8" />
+                <!-- Integrated Carousel Gallery -->
+                <div class="relative w-full max-w-6xl overflow-hidden cursor-grab active:cursor-grabbing select-none px-4 md:px-8 reveal-on-scroll" id="carousel-window">
+                    
+                    <!-- Edge Gradient Fade Masks -->
+                    <div class="pointer-events-none absolute left-0 top-0 bottom-0 w-12 sm:w-24 bg-gradient-to-r from-[--background] to-transparent z-10"></div>
+                    <div class="pointer-events-none absolute right-0 top-0 bottom-0 w-12 sm:w-24 bg-gradient-to-l from-[--background] to-transparent z-10"></div>
+
+                    <div id="carousel-track" class="flex gap-6 will-change-transform py-4">
+                        
+                        <div class="w-[85vw] sm:w-[380px] md:w-[420px] h-[260px] sm:h-[280px] shrink-0 bg-neutral-900 rounded-2xl shadow-md border border-neutral-800 overflow-hidden pointer-events-none">
+                            <img src="../../images/screenshot1.jpeg" alt="Blender Preset Preview" class="w-full h-full object-cover">
+                        </div>
+
+                        <div class="w-[85vw] sm:w-[380px] md:w-[420px] h-[260px] sm:h-[280px] shrink-0 bg-neutral-900 rounded-2xl shadow-md border border-neutral-800 overflow-hidden pointer-events-none">
+                            <img src="../../images/screenshot2.jpeg" alt="DaVinci Resolve Setup" class="w-full h-full object-cover">
+                        </div>
+
+                        <div class="w-[85vw] sm:w-[380px] md:w-[420px] h-[260px] sm:h-[280px] shrink-0 bg-neutral-900 rounded-2xl shadow-md border border-neutral-800 overflow-hidden pointer-events-none">
+                            <img src="../../images/screenshot3.jpeg" alt="Krita Custom Workspace" class="w-full h-full object-cover">
+                        </div>
+
+                        <div class="w-[85vw] sm:w-[380px] md:w-[420px] h-[260px] sm:h-[280px] shrink-0 bg-neutral-900 rounded-2xl shadow-md border border-neutral-800 overflow-hidden pointer-events-none">
+                            <img src="../../images/screenshot4.jpeg" alt="Ardour Workspace" class="w-full h-full object-cover">
+                        </div>
+
                     </div>
+                </div>
+
+            </section>
+
+            <section id="nexos-support" class="w-full bg-[--background] pt-20 pb-8 overflow-hidden flex flex-col items-center border-t border-neutral-800/60">
+                <div class="max-w-5xl w-full">
+                    <div class="text-center mb-6 reveal-on-scroll">
+                        <h2 class="text-4xl sm:text-5xl md:text-6xl font-black text-white tracking-tight mb-4">
+                            GET SUPPORT FROM OUR TEAM.
+                        </h2>
+                        <p class="text-neutral-300 text-lg sm:text-xl leading-relaxed max-w-3xl mx-auto">
+                            Have questions or queries about installing NexOS Pro? When you purchase a copy of NexOS Pro, you are able to utilize our NexOS Installation Support service for one device. It lets you receive technical support from our team via a call.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="os-values" class="w-full bg-[--background] pt-8 pb-20 px-4 md:px-8 flex flex-col items-center">
+                <div class="max-w-5xl w-full reveal-on-scroll mx-auto">
+
+                    <div class="bg-[#f04f43] text-white p-8 sm:p-12 rounded-3xl border border-neutral-800 shadow-xl">
+
+                        <div class="flex flex-col items-center md:items-start">
+
+                            <div class="w-14 h-14 rounded-full bg-black/10 backdrop-blur-sm flex items-center justify-center mb-6">
+                                <i class="fa fa-heart text-2xl text-white"></i>
+                            </div>
+
+                            <h2 class="text-3xl sm:text-4xl font-black tracking-tight mb-3 text-white text-center md:text-left">
+                                WHY BUY NexOS PRO?
+                            </h2>
+
+                            <p class="text-center md:text-left text-white/90 text-base sm:text-lg leading-relaxed mb-6">
+                                Just like you, we are a team of gamers who simply wanted a better operating system tailored for gaming, privacy and peace of mind. We have spent countless hours pouring over details in this passion project.
+                                By purchasing a copy of NexOS, you are supporting our team and allowing us to improve NexOS for the benefit of everyone.
+                            </p>
+
+                            <a href="https://youtu.be/OF_5EKNX0Eg?si=TGYUn9XCKnCol4td" target="_blank" class="inline-flex items-center gap-2 font-bold text-white hover:text-black transition-colors text-sm">
+                                &gt; Why pay for NexOS
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="download-cta" class="w-full bg-[--background] py-20 px-4 md:px-8 flex flex-col items-center">
+                <div class="max-w-5xl w-full reveal-on-scroll">
+                    
+                    <div id="cta-card" class="relative overflow-hidden bg-[#dcdcdc] rounded-[2.5rem] p-10 sm:p-16 md:p-20 text-black flex flex-col items-center justify-center text-center transition-shadow duration-500 shadow-2xl group cursor-default">
+                        
+                        <div id="cta-glow" class="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 bg-[radial-gradient(circle_at_var(--mouse-x,50%)_var(--mouse-y,50%),rgba(255,255,255,0.8)_0%,rgba(220,220,220,0)_60%)]"></div>
+
+                        <div class="relative z-10 max-w-3xl flex flex-col items-center">
+                            <h2 class="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-neutral-900 leading-tight mb-10">
+                                IT'S TIME TO UNLEASH YOUR COMPUTER'S WINGS.
+                            </h2>
+
+                            <p class="text-center text-neutral-700 text-base mb-6">$39.99 including tax</p>
+                            <a href="nexos-shop.html" id="download-btn" class="relative overflow-hidden inline-flex items-center justify-center px-10 py-4 rounded-2xl bg-[--maingreen] text-black font-extrabold text-lg sm:text-xl tracking-wide shadow-lg transition-transform duration-200 active:scale-95 group-hover:scale-105">
+                                <span id="btn-glow" class="absolute inset-0 bg-white/40 opacity-0 transition-opacity duration-200 pointer-events-none"></span>
+                                <span class="relative z-10 pointer-events-none text-white">Buy NexOS Pro</span>
+                            </a>
+
+                        </div>
+
+                    </div>
+
                 </div>
             </section>
             
@@ -503,7 +586,6 @@
         </script>
 
         <script>
-            // In nexos-pro.html: Replace updateScrollStory script with this:
             document.addEventListener('DOMContentLoaded', () => {
                 const wrapper = document.getElementById('scroll-story-wrapper');
                 const phrases = [
@@ -538,7 +620,6 @@
                     phrases[3].style.opacity = getFadeOpacity(progress, 0.54, 0.63, 0.75);
                     phrases[4].style.opacity = getFadeOpacity(progress, 0.75, 0.85, 0.95);
 
-                    // Replace the zoom section in updateScrollStory() inside nexos-pro.html:
 
                     const SCALE_START = 3.2; // Zoomed-in state
                     const SCALE_END = 0.78;  // Wider full reveal
