@@ -97,7 +97,7 @@
                         const el = document.createElement("div");
                         el.className = "helix-card";
                         el.style.backgroundColor = placeholderColor(strand, index);
-                        el.style.backgroundImage = `url(${imageUrl(strand, index)})`;
+                        el.style.backgroundImage = `url("${encodeURI(imageUrl(strand, index))}")`;
                         
                         fragment.appendChild(el); // Added in-memory (0 DOM reflows)
                         cards.push({ el, base: index, phase: (strand / strands) * 2 * Math.PI });
