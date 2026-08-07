@@ -80,13 +80,6 @@ window.addEventListener('scroll', () => {
     updateFeelAndPlaySection()
 })
 
-const soundSwitches = {
-    linear: '../../sounds/',
-    tactile: '../../images/TechPage/TactileSwitchIntro.webp',
-    clicky: '../../images/TechPage/ClickySwitchIntro.webp',
-}
-
-
 
 const photos = {
     linear: '../../images/TechPage/LinearSwitchIntro.webp',
@@ -150,29 +143,29 @@ function playSounds() {
 window.addEventListener('resize', resize)
 window.addEventListener('load', resize)
 
-let lastScrollY = window.scrollY
-const header = document.getElementById('header-container')
+// let lastScrollY = window.scrollY
+// const header = document.getElementById('header-container')
 
-window.addEventListener('scroll', () => {
-    const currentScrollY = window.scrollY
+// window.addEventListener('scroll', () => {
+//     const currentScrollY = window.scrollY
 
-    // always shows
-    if (currentScrollY <= 0) {
-        header.classList.remove('-translate-y-full')
-        lastScrollY = currentScrollY
-        return
-    }
+//     // always shows
+//     if (currentScrollY <= 0) {
+//         header.classList.remove('-translate-y-full')
+//         lastScrollY = currentScrollY
+//         return
+//     }
 
-    // hide header
-    if (currentScrollY > lastScrollY && currentScrollY > 50) {
-        header.classList.add('-translate-y-full')
-    } 
-    // show header
-    else if (currentScrollY < lastScrollY-50) {
-        header.classList.remove('-translate-y-full')
-    }
+//     // hide header
+//     if (currentScrollY > lastScrollY && currentScrollY > 50) {
+//         header.classList.add('-translate-y-full')
+//     } 
+//     // show header
+//     else if (currentScrollY < lastScrollY-50) {
+//         header.classList.remove('-translate-y-full')
+//     }
 
-    lastScrollY = currentScrollY
-})
+//     lastScrollY = currentScrollY
+// })
 
 //fix the header disappearing

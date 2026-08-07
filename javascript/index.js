@@ -1,0 +1,198 @@
+function showEmail(email) {
+    const modal = document.getElementById("emailModal")
+    const titleContainer = document.getElementById("emailTitle")
+
+    titleContainer.innerHTML = ""
+
+    const title = document.createElement("h3")
+    title.textContent = `New updates will be sent to ${email}` 
+    title.className = "text-xl sm:text-2xl font-medium text-white mb-6"
+
+    titleContainer.appendChild(title)
+
+    modal.classList.remove("hidden")
+}
+
+function closeEmail() {
+    document.getElementById("emailModal").classList.add("hidden")
+}
+
+function closeOnOutsideClick(event) {
+    if (event.target.id === "emailModal") {
+        closeEmail()
+    }
+}
+
+
+function handleSignup(event) {
+    event.preventDefault();
+    
+    const form = event.target;
+    const currentText = document.getElementById("inputEmail").value
+    showEmail(currentText)
+    
+    form.reset();
+}
+
+(function () {
+    const slides = Array.from(document.querySelectorAll(".action"));
+    const indicators = Array.from(document.querySelectorAll(".carouselbutton"));
+    const nextBtn = document.getElementById("next");
+    const prevBtn = document.getElementById("previous");
+    const actionView = document.querySelector(".actionView");
+
+    if (!slides.length) return;
+
+    const total = slides.length;
+    const AUTOPLAY_MS = 4000;
+    const TRANSITION_MS = 500;
+
+    let current = Math.max(0, slides.findIndex((s) => s.classList.contains("opacity-100")));
+    let isAnimating = false;
+    let autoplayId = null;
+
+    function render() {
+        slides.forEach((slide, i) => {
+            if (i === current) {
+                slide.classList.replace("opacity-0", "opacity-100");
+                slide.classList.replace("pointer-events-none", "pointer-events-auto");
+            } else {
+                slide.classList.replace("opacity-100", "opacity-0");
+                slide.classList.replace("pointer-events-auto", "pointer-events-none");
+            }
+        });
+
+        indicators.forEach((btn, i) => {
+            if (i === current) {
+                btn.classList.replace("bg-white/40", "bg-white");
+                btn.setAttribute("aria-current", "true");
+            } else {
+                btn.classList.replace("bg-white", "bg-white/40");
+                btn.removeAttribute("aria-current");
+            }
+        });
+    }
+
+    function goTo(index, { restartAutoplay: shouldRestart = true } = {}) {
+        if (isAnimating || total <= 1) return;
+        isAnimating = true;
+        current = ((index % total) + total) % total;
+        render();
+        setTimeout(() => { isAnimating = false; }, TRANSITION_MS);
+        if (shouldRestart) restartAutoplay();
+    }
+
+    function next() { goTo(current + 1); }
+    function previous() { goTo(current - 1); }
+
+    function startAutoplay() {
+        if (total <= 1) return;
+        autoplayId = setInterval(() => goTo(current + 1, { restartAutoplay: false }), AUTOPLAY_MS);
+    }
+
+    function stopAutoplay() {
+        if (autoplayId) {
+            clearInterval(autoplayId);
+            autoplayId = null;
+        }
+    }
+
+    function restartAutoplay() {
+        stopAutoplay();
+        startAutoplay();
+    }
+
+    if (nextBtn) nextBtn.addEventListener("click", next);
+    if (prevBtn) prevBtn.addEventListener("click", previous);
+    indicators.forEach((btn, i) => btn.addEventListener("click", () => goTo(i)));
+
+    if (actionView) {
+        actionView.addEventListener("mouseenter", stopAutoplay);
+        actionView.addEventListener("mouseleave", startAutoplay);
+    }
+
+    render();
+    startAutoplay();
+})();
+
+gsap.registerPlugin(SplitText)
+gsap.registerPlugin(TextPlugin)
+
+// Target the text elements directly
+const mainHeadline = document.querySelector(".main-headline h1");
+const tagline = document.querySelector(".tagline");
+
+if (mainHeadline && tagline) {
+    const splitHeadline = new SplitText(mainHeadline, { type: "chars" });
+    const fullTaglineText = tagline.textContent.trim()
+    tagline.textContent = ""
+
+    const tl = gsap.timeline({
+        defaults: { duration: 0.8, ease: "expo.out" },
+    });
+
+    tl.from(splitHeadline.chars, {
+        y: 100,
+        rotationX: 90,
+        opacity: 0,
+        color: "#FFFFFF",
+        stagger: 0.07,
+        transformOrigin: "center top",
+        perspective: 700,
+    })
+    .to(
+        tagline,
+        {
+            text: fullTaglineText,
+            duration: 1,
+            ease: "none"
+        },
+        "<0.4"
+    )
+}
+
+function makeGreen () {
+    const introductionTtile = document.getElementById("introTitle")
+    introductionTtile.innerHTML = ""
+    introductionTtile.innerHTML= `Only the <span id="introTitleBest"> best </span> products,`
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+
+    gsap.registerPlugin(TextPlugin);
+    const introductionTitle = document.getElementById("introTitle")
+    const introductionTitle2 = document.getElementById("introTitle2")
+
+    gsap.to(introductionTitle, {
+        duration: 3,
+        text: {
+            value: "Only the XXXX products,"
+        }
+    })    
+    
+    gsap.to(introductionTitle2, {
+        duration: 3,
+        text: {
+            value: "Made for gamers, by gamers"
+        },
+    })
+
+    .add(() => {
+        makeGreen();
+    })
+
+    .from(() => {
+        // Target dynamically created element chars
+        const introductionTitle3 = document.getElementById("introTitleBest");
+        return new SplitText(introductionTitle3, { type: "chars" }).chars;
+    }, {
+            y: 100,
+            rotationX: 90,
+            opacity: 0,
+            color: "#23D042",
+            stagger: 0.07,
+            transformOrigin: "center top",
+            perspective: 700,
+        })  
+
+})
