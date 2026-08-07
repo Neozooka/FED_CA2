@@ -48,26 +48,24 @@
         <!-- STICKY CENTER VISUAL -->
             <div class="absolute top-0 left-0 w-full h-full z-0 pointer-events-none block pt-[120px]">
                 <div class="sticky top-0 h-screen w-full flex items-center justify-center">
-                    <div class="w-[90%] lg:w-[33%] h-[50vh] relative rounded-[2rem] border border-slate-800 bg-slate-900/60 backdrop-blur-xl shadow-2xl shadow-slate-900/50 overflow-hidden">
+                    <div class="w-[90%] lg:w-[33%] h-[50vh] relative">
                     
                         <div data-graphic="1" class="absolute inset-0 flex flex-col items-center justify-center p-8 transition-all duration-700 ease-out opacity-100 scale-100">
-                            <div class="w-24 h-24 rounded-3xl bg-teal-500/10 border border-teal-500/30 flex items-center justify-center mb-6 shadow-lg shadow-teal-500/20 text-teal-400 text-4xl">💬</div>
-                            <h4 class="text-2xl font-bold text-white text-center"></h4>
+                         
+                            <img src="../../images/TechPage/keyboardDisassembled.webp">
+                 
                         </div>
 
                         <div data-graphic="2" class="absolute inset-0 flex flex-col items-center justify-center p-8 transition-all duration-700 ease-out opacity-0 scale-95">
-                            <div class="w-24 h-24 rounded-3xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center mb-6 shadow-lg shadow-purple-500/20 text-purple-400 text-4xl">🖼️</div>
-                            <h4 class="text-2xl font-bold text-white text-center"></h4>
+                            <img src="../../images/TechPage/keyCaps.webp">
                         </div>
 
                         <div data-graphic="3" class="absolute inset-0 flex flex-col items-center justify-center p-8 transition-all duration-700 ease-out opacity-0 scale-95">
-                            <div class="w-24 h-24 rounded-3xl bg-blue-500/10 border border-blue-500/30 flex items-center justify-center mb-6 shadow-lg shadow-blue-500/20 text-blue-400 text-4xl">🛡️</div>
-                            <h4 class="text-2xl font-bold text-white text-center"></h4>
+                            <img src="../../images/TechPage/keyboardSwitch.webp">
                         </div>
 
                         <div data-graphic="4" class="absolute inset-0 flex flex-col items-center justify-center p-8 transition-all duration-700 ease-out opacity-0 scale-95">
-                            <div class="w-24 h-24 rounded-3xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center mb-6 shadow-lg shadow-amber-500/20 text-amber-400 text-4xl">📈</div>
-                            <h4 class="text-2xl font-bold text-white text-center"></h4>
+                            <img src="../../images/TechPage/keyboadBottom.webp">
                         </div>
                     </div>
                 </div>
@@ -78,7 +76,7 @@
             
                 <div data-feature="1" class="flex flex-col lg:flex-row items-center justify-between min-h-screen py-24 transition-opacity duration-700 opacity-30">
                     <div class="w-full lg:w-[30%] text-center lg:text-right mb-8 lg:mb-0">
-                        <span class="text-teal-400 font-mono text-sm tracking-widest uppercase block mb-3">01 / Disassembly</span>
+                        <span class="text-amber-400 font-mono text-sm tracking-widest uppercase block mb-3">01 / Disassembly</span>
                         <h2 class="text-5xl lg:text-6xl font-extrabold leading-tight text-white drop-shadow-md">Disassembly</h2>
                     </div>
                     <div class="hidden lg:block lg:w-[33%]"></div>
@@ -102,7 +100,7 @@
 
                 <div data-feature="2" class="flex flex-col lg:flex-row items-center justify-between min-h-screen py-24 transition-opacity duration-700 opacity-30">
                     <div class="w-full lg:w-[30%] text-center lg:text-right mb-8 lg:mb-0">
-                        <span class="text-purple-400 font-mono text-sm tracking-widest uppercase block mb-3">02 / Key Caps</span>
+                        <span class="text-amber-400 font-mono text-sm tracking-widest uppercase block mb-3">02 / Key Caps</span>
                         <h2 class="text-5xl lg:text-6xl font-extrabold leading-tight text-white drop-shadow-md">Key Caps</h2>
                     </div>
                     <div class="hidden lg:block lg:w-[33%]"></div>
@@ -126,7 +124,7 @@
 
                 <div data-feature="3" class="flex flex-col lg:flex-row items-center justify-between min-h-screen py-24 transition-opacity duration-700 opacity-30">
                     <div class="w-full lg:w-[30%] text-center lg:text-right mb-8 lg:mb-0">
-                        <span class="text-blue-400 font-mono text-sm tracking-widest uppercase block mb-3">03 / Switches</span>
+                        <span class="text-amber-400 font-mono text-sm tracking-widest uppercase block mb-3">03 / Switches</span>
                         <h2 class="text-5xl lg:text-6xl font-extrabold leading-tight text-white drop-shadow-md">Switches</h2>
                     </div>
                     <div class="hidden lg:block lg:w-[33%]"></div>
@@ -255,7 +253,7 @@
                 lenis.raf(time)
                 requestAnimationFrame(raf)
             }
-            
+
             requestAnimationFrame(raf)
 
             const rows = document.querySelectorAll("[data-feature]")
