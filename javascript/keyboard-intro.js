@@ -81,7 +81,7 @@ window.addEventListener('scroll', () => {
 })
 
 const soundSwitches = {
-    linear: '../../images/TechPage/LinearSwitchIntro.webp',
+    linear: '../../sounds/',
     tactile: '../../images/TechPage/TactileSwitchIntro.webp',
     clicky: '../../images/TechPage/ClickySwitchIntro.webp',
 }
