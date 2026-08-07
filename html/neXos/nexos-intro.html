@@ -18,7 +18,9 @@
         <script src="../../javascript/header-footer.js" defer></script>
         <script src="../../javascript/sub-nav.js" defer></script>
         <script src="../../javascript/reveal-on-scroll.js" defer></script>
+        <script src="../../javascript/review.js" defer></script>
         <script src="../../javascript/perf-slider.js" defer></script>
+        <script src="../../javascript/cta-card.js" defer></script>
         <script src="../../javascript/accordion.js" defer></script>
     </head>
 
@@ -352,7 +354,7 @@
                                 <div class="relative w-full h-full scale-[1.02]">
                                     <iframe 
                                         class="w-full h-full object-cover border-0"
-                                        src="https://www.youtube-nocookie.com/embed/7t2ebLRAN6Y?autoplay=1&mute=1&controls=0&loop=1&playlist=7t2ebLRAN6Y&disablekb=1&modestbranding=1&rel=0&playsinline=1&enablejsapi=1" 
+                                        src="https://www.youtube-nocookie.com/embed/hhHDFnjhlfQ?autoplay=1&mute=1&controls=0&loop=1&playlist=hhHDFnjhlfQ&disablekb=1&modestbranding=1&rel=0&playsinline=1&enablejsapi=1" 
                                         title="Gameplay Preview" 
                                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                                         tabindex="-1">
@@ -628,94 +630,6 @@
                 setTimeout(type, 500);
             })
 
-            // For the reviews (Auto-scroll, Drag & Seamless Infinite Loop)
-            document.addEventListener('DOMContentLoaded', () => {
-                const windowEl = document.getElementById('carousel-window');
-                const track = document.getElementById('carousel-track');
-                if (!windowEl || !track) return;
-
-                // Clone child elements to enable infinite seamless looping
-                const originalCards = Array.from(track.children);
-                originalCards.forEach(card => {
-                    const clone = card.cloneNode(true);
-                    track.appendChild(clone);
-                });
-
-                let currentX = 0;
-                const speed = 1.0; // Auto-scroll speed (pixels per frame)
-                let isPaused = false;
-                let isDragging = false;
-                let startX = 0;
-                let dragStartX = 0;
-                let animationFrameId;
-
-                // Calculate width of one complete set of original cards + gaps
-                function getHalfWidth() {
-                    return track.scrollWidth / 2;
-                }
-
-                function step() {
-                    if (!isDragging && !isPaused) {
-                        currentX -= speed;
-                    }
-
-                    const halfWidth = getHalfWidth();
-                    
-                    // Wrap around seamlessly
-                    if (Math.abs(currentX) >= halfWidth) {
-                        currentX += halfWidth;
-                    } else if (currentX > 0) {
-                        currentX -= halfWidth;
-                    }
-
-                    track.style.transform = `translateX(${currentX}px)`;
-                    animationFrameId = requestAnimationFrame(step);
-                }
-
-                // Event Handlers for Dragging & Hovering
-                function getPointerX(e) {
-                    return e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
-                }
-
-                function onPointerDown(e) {
-                    isDragging = true;
-                    startX = getPointerX(e);
-                    dragStartX = currentX;
-                    windowEl.classList.add('cursor-grabbing');
-                }
-
-                function onPointerMove(e) {
-                    if (!isDragging) return;
-                    const deltaX = getPointerX(e) - startX;
-                    currentX = dragStartX + deltaX;
-                }
-
-                function onPointerUp() {
-                    if (!isDragging) return;
-                    isDragging = false;
-                    windowEl.classList.remove('cursor-grabbing');
-                }
-
-                // Hover listeners to pause on hover
-                windowEl.addEventListener('mouseenter', () => isPaused = true);
-                windowEl.addEventListener('mouseleave', () => {
-                    isPaused = false;
-                    onPointerUp();
-                });
-
-                // Touch & Mouse Drag Listeners
-                windowEl.addEventListener('mousedown', onPointerDown);
-                window.addEventListener('mousemove', onPointerMove);
-                window.addEventListener('mouseup', onPointerUp);
-
-                windowEl.addEventListener('touchstart', onPointerDown, { passive: true });
-                window.addEventListener('touchmove', onPointerMove, { passive: true });
-                window.addEventListener('touchend', onPointerUp);
-
-                // Start auto loop
-                animationFrameId = requestAnimationFrame(step);
-            });
-
             // For the comparison 
             document.addEventListener('DOMContentLoaded', () => {
                 const container = document.getElementById('screen-slider-container');
@@ -773,69 +687,6 @@
                         updateSliderPosition(e.clientX);
                         onPointerDown(e);
                     }
-                });
-            });
-
-            document.addEventListener('DOMContentLoaded', () => {
-                const ctaCard = document.getElementById('cta-card');
-                const ctaGlow = document.getElementById('cta-glow');
-                const downloadBtn = document.getElementById('download-btn');
-                const btnGlow = document.getElementById('btn-glow');
-
-                if (!ctaCard || !ctaGlow || !downloadBtn) return;
-
-                // 1. Mouse Tracking Gradient & Proximity Glow
-                ctaCard.addEventListener('mousemove', (e) => {
-                    const rect = ctaCard.getBoundingClientRect();
-                    const x = e.clientX - rect.left;
-                    const y = e.clientY - rect.top;
-
-                    // Set CSS Variables for the cursor-tracking gradient
-                    ctaCard.style.setProperty('--mouse-x', `${x}px`);
-                    ctaCard.style.setProperty('--mouse-y', `${y}px`);
-
-                    // Calculate Proximity to Download Button Center
-                    const btnRect = downloadBtn.getBoundingClientRect();
-                    const btnCenterX = btnRect.left + btnRect.width / 2;
-                    const btnCenterY = btnRect.top + btnRect.height / 2;
-
-                    const distance = Math.hypot(e.clientX - btnCenterX, e.clientY - btnCenterY);
-                    const maxDistance = 250; // Distance in pixels where glow starts intensifying
-
-                    if (distance < maxDistance) {
-                        const intensity = 1 - distance / maxDistance;
-                        btnGlow.style.opacity = intensity.toFixed(2);
-                    } else {
-                        btnGlow.style.opacity = '0';
-                    }
-                });
-
-                // Fade gradient in/out on enter/leave
-                ctaCard.addEventListener('mouseenter', () => {
-                    ctaGlow.style.opacity = '1';
-                });
-
-                ctaCard.addEventListener('mouseleave', () => {
-                    ctaGlow.style.opacity = '0';
-                    btnGlow.style.opacity = '0';
-                });
-
-                // 2. Cool Shockwave Ripple Effect on Click
-                downloadBtn.addEventListener('click', (e) => {
-                    const rect = downloadBtn.getBoundingClientRect();
-                    const ripple = document.createElement('span');
-                    ripple.className = 'cta-shockwave';
-
-                    // Position ripple relative to click point inside the button
-                    ripple.style.left = `${e.clientX - rect.left}px`;
-                    ripple.style.top = `${e.clientY - rect.top}px`;
-
-                    downloadBtn.appendChild(ripple);
-
-                    // Remove element after animation finishes
-                    setTimeout(() => {
-                        ripple.remove();
-                    }, 650);
                 });
             });
         </script>
