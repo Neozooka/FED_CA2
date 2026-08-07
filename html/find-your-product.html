@@ -1,70 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+    <head>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet"> -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <!-- <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet"> -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <script src="../javascript/header-footer.js" defer></script>
-    <script src="../javascript/find-your-product.js" defer></script> 
-    <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@200..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <script src="../javascript/header-footer.js" defer></script>
+        <script src="../javascript/find-your-product.js" defer></script> 
+        <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@200..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="../css/style.css">
-</head>
+        <link rel="stylesheet" href="../css/style.css">
+    </head>
 
-<!-- DONE BY CEPHEUS -->
+    <script src = "../javascript/find-your-product.js"></script>
+  
+    <body>
 
-<body>
+        <div id="header-container"></div>
 
-    <div id="header-container"></div>
-
-    <article class="flex flex-col items-center justify-center p-8 text-white min-h-screen font-sans" style="background-color: var(--background);">
-        <div class="w-full max-w-2xl">
-            <div id="quiz" class="bg-white/10 backdrop-blur rounded-lg p-8 mx-auto text-center transition-opacity duration-500">
-                <div id="q1" class="question">
-                    <h2 class="text-2xl font-semibold mb-6">What are you looking for?</h2>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                        <button class="option btn w-full border border-white/20 rounded-xl px-4 py-3 transition hover:bg-white/10" data-value="Mouse">Mouse</button>
-                        <button class="option btn w-full border border-white/20 rounded-xl px-4 py-3 transition hover:bg-white/10" data-value="Keyboard">Keyboard</button>
-                        <button class="option btn w-full border border-white/20 rounded-xl px-4 py-3 transition hover:bg-white/10" data-value="Headsets">Headsets</button>
-                    </div>
-                </div>
-
-                <div id="q2" class="question hidden opacity-0 mt-6">
-                    <h2 class="text-2xl font-semibold mb-6">What is your budget like?</h2>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <button class="option btn w-full border border-white/20 rounded-xl px-4 py-3 transition hover:bg-white/10" data-value="Affordable">Affordable</button>
-                        <button class="option btn w-full border border-white/20 rounded-xl px-4 py-3 transition hover:bg-white/10" data-value="Luxury">Money is of no<br>concern to me</button>
-                    </div>
-                </div>
-
-                <div id="results" class="hidden opacity-0 mt-6">
-                    <h2 class="text-2xl font-semibold mb-4">Recommendation</h2>
-                    <div id="result-images" class="grid grid-cols-1 gap-4 mb-4">
-                        <div class="bg-white/10 rounded-lg p-4">
-                            <!-- Placeholder image will be replaced in JS -->
-                            <img id="result-img" src="https://via.placeholder.com/400x200?text=PlaceholderImage1" alt="Product placeholder" class="w-full h-40 object-cover rounded-lg mb-4">
-                            <p class="text-lg font-semibold">Product: <span id="result-name" class="text-white/70">PlaceholderText1</span></p>
+        <article class="flex flex-col items-center justify-center p-8 text-white min-h-screen font-sans" style="background-color: var(--background);">
+            <div class="w-full max-w-2xl">
+                <div id="quiz" class="bg-white/10 backdrop-blur rounded-lg p-8 mx-auto text-center transition-opacity duration-500">
+                    <div id="q1" class="question">
+                        <h2 class="text-2xl font-semibold mb-6">What are you looking for?</h2>
+                        <div class="grid grid-cols-1 gap-4">
+                            <button class="option btn w-full border border-white/20 rounded-xl px-4 py-3 transition hover:bg-white/10" data-value="Mouse">Mouse</button>
+                            <button class="option btn w-full border border-white/20 rounded-xl px-4 py-3 transition hover:bg-white/10" data-value="Keyboard">Keyboard</button>
+                            <button class="option btn w-full border border-white/20 rounded-xl px-4 py-3 transition hover:bg-white/10" data-value="Headsets">Headsets</button>
                         </div>
                     </div>
-                    <!-- Placeholder text will be replaced in JS -->
-                    <p id="result-text" class="mb-4">PlaceholderText1 description</p>
-                    <button id="restart" class="btn outline outline-2 outline-white/50 hover:outline-white">Start Over</button>
+
+                    <div id="q2" class="question hidden opacity-0 mt-6">
+                        <h2 class="text-2xl font-semibold mb-6">Which of these genres do you play most?</h2>
+                        <div class="grid grid-cols-1 gap-4">
+                            <button class="option btn w-full border border-white/20 rounded-xl px-4 py-3 transition hover:bg-white/10" data-value="FPS">FPS</button>
+                            <button class="option btn w-full border border-white/20 rounded-xl px-4 py-3 transition hover:bg-white/10" data-value="MMO">MMO</button>
+                            <button class="option btn w-full border border-white/20 rounded-xl px-4 py-3 transition hover:bg-white/10" data-value="MOBA">MOBA</button>
+                            <button class="option btn w-full border border-white/20 rounded-xl px-4 py-3 transition hover:bg-white/10" data-value="A bit of everything">A bit of everything</button>
+                        </div>
+                    </div>
+
+                    <div id="q3" class="question hidden opacity-0 mt-6">
+                        <h2 class="text-2xl font-semibold mb-6">What matters to you most?</h2>
+                        <div class="grid grid-cols-1 gap-4">
+                            <button class="option btn w-full border border-white/20 rounded-xl px-4 py-3 transition hover:bg-white/10" data-value="Performance">Performance</button>
+                            <button class="option btn w-full border border-white/20 rounded-xl px-4 py-3 transition hover:bg-white/10" data-value="Ergonomics">Ergonomics</button>
+                            <button class="option btn w-full border border-white/20 rounded-xl px-4 py-3 transition hover:bg-white/10" data-value="Appearance">Appearance</button>
+                            <button class="option btn w-full border border-white/20 rounded-xl px-4 py-3 transition hover:bg-white/10" data-value="Customisation">Customisation</button>
+                        </div>
+                    </div>
+
+                    <div id="q4" class="question hidden opacity-0 mt-6">
+                        <h2 class="text-2xl font-semibold mb-6">What is your budget like?</h2>
+                        <div class="grid grid-cols-1 gap-4">
+                            <button class="option btn w-full border border-white/20 rounded-xl px-4 py-3 transition hover:bg-white/10" data-value="Affordable">Affordable</button>
+                            <button class="option btn w-full border border-white/20 rounded-xl px-4 py-3 transition hover:bg-white/10" data-value="Luxury">Money is of no<br>concern to me</button>
+                        </div>
+                    </div>
+
+                    <div id="results" class="hidden opacity-0 mt-6">
+                        <h2 class="text-2xl font-semibold mb-4">Recommendation</h2>
+                        <div id="result-images" class="grid grid-cols-1 gap-4 mb-4">
+                            <div class="bg-white/10 rounded-lg p-4">
+                                <!-- Placeholder image will be replaced in JS -->
+                                <img id="result-img" src="https://via.placeholder.com/400x200?text=PlaceholderImage1" alt="Product placeholder" class="w-full h-40 object-cover rounded-lg mb-4">
+                                <p class="text-lg font-semibold">Product: <span id="result-name" class="text-white/70">PlaceholderText1</span></p>
+                            </div>
+                        </div>
+                        <!-- Placeholder text will be replaced in JS -->
+                        <p id="result-text" class="mb-4">PlaceholderText1 description</p>
+                        <button id="restart" class="btn outline outline-2 outline-white/50 hover:outline-white">Start Over</button>
+                    </div>
                 </div>
             </div>
-        </div>
-    </article>
+        </article>
 
 
-    <div id="footer-container"></div>
+        <div id="footer-container"></div>
 
 
-</body>
+    </body>
 
 </html>

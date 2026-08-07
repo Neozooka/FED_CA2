@@ -1,6 +1,8 @@
 (function(){
     const q1 = document.getElementById('q1')
     const q2 = document.getElementById('q2')
+    const q3 = document.getElementById('q3')
+    const q4 = document.getElementById('q4')
     const results = document.getElementById('results')
     const resultImg = document.getElementById('result-img')
     const resultName = document.getElementById('result-name')
@@ -8,6 +10,8 @@
     const restart = document.getElementById('restart')
 
     let choice1 = null
+    let choice2 = null
+    let choice3 = null
 
     function fadeOut(el){
         el.classList.add('opacity-0')
@@ -23,42 +27,58 @@
         btn.addEventListener('click', e=>{
             choice1 = e.currentTarget.dataset.value
             fadeOut(q1)
-            setTimeout(() => fadeIn(q2), 350)
+            setTimeout(()=> fadeIn(q2), 350)
         })
     })
 
     document.querySelectorAll('#q2 .option').forEach(btn=>{
         btn.addEventListener('click', e=>{
-            const choice2 = e.currentTarget.dataset.value
+            choice2 = e.currentTarget.dataset.value
             fadeOut(q2)
+            setTimeout(()=> fadeIn(q3), 350)
+        })
+    })
+
+    document.querySelectorAll('#q3 .option').forEach(btn=>{
+        btn.addEventListener('click', e=>{
+            choice3 = e.currentTarget.dataset.value
+            fadeOut(q3)
+            setTimeout(()=> fadeIn(q4), 350)
+        })
+    })
+
+    document.querySelectorAll('#q4 .option').forEach(btn=>{
+        btn.addEventListener('click', e=>{
+            const choice4 = e.currentTarget.dataset.value
+            fadeOut(q4)
 
             setTimeout(()=>{
-                if(choice1 === 'Mouse' && choice2 === 'Affordable'){
+                if(choice1 === 'Mouse' && choice4 === 'Affordable'){
                     resultImg.src = "../images/PythonV1_372.png"
                     resultName.innerText = 'neXus Python'
                     resultText.innerText = 'The neXus Python is an affordable gaming mouse designed for precision and comfort.'
                 }
-                else if (choice1 === 'Mouse' && choice2 === 'Luxury'){
+                else if (choice1 === 'Mouse' && choice4 === 'Luxury'){
                     resultImg.src = "../images/PythonV2_372.png"
                     resultName.innerText = 'neXus PythonV2'
                     resultText.innerText = 'A premium version of the neXus Python with advanced features and performance for serious gamers.'
                 }
-                else if (choice1 === 'Keyboard' && choice2 === 'Affordable'){
+                else if (choice1 === 'Keyboard' && choice4 === 'Affordable'){
                     resultImg.src = "../images/"
                     resultName.innerText = 'neXus 60HE'
                     resultText.innerText = 'The neXus KeyLite is an affordable hall-effect keyboard that offers a great responsive feel without breaking the bank.'
                 }
-                else if (choice1 === 'Keyboard' && choice2 === 'Luxury'){
+                else if (choice1 === 'Keyboard' && choice4 === 'Luxury'){
                     resultImg.src = "../images/"
                     resultName.innerText = 'neXus 60HE'
                     resultText.innerText = 'The neXus KeyPro is a high-end hall-effect keyboard with customizable RGB lighting and premium switches for maximum performance.'
                 }
-                else if (choice1 === 'Headset' && choice2 === 'Affordable'){
+                else if (choice1 === 'Headset' && choice4 === 'Affordable'){
                     resultImg.src = "../images/"
                     resultName.innerText = 'neXus Kraken'
                     resultText.innerText = 'The neXus Kreaken is an affordable gaming headset that delivers clear audio and comfort for long gaming sessions.'
                 }
-                else if (choice1 === 'Headset' && choice2 === 'Luxury'){
+                else if (choice1 === 'Headset' && choice4 === 'Luxury'){
                     resultImg.src = "../images/Lochness_372.png"
                     resultName.innerText = 'neXus Lochness'
                     resultText.innerText = 'The neXus  is a premium gaming headset with surround sound and noise-canceling features for an immersive gaming experience.'
@@ -73,6 +93,8 @@
 
         setTimeout(()=>{
             choice1 = null
+            choice2 = null
+            choice3 = null
             results.classList.add('hidden')
             results.classList.add('opacity-0')
             q1.classList.remove('hidden')
@@ -83,6 +105,10 @@
 
     q2.classList.add('hidden')
     q2.classList.add('opacity-0')
+    q3.classList.add('hidden')
+    q3.classList.add('opacity-0')
+    q4.classList.add('hidden')
+    q4.classList.add('opacity-0')
     results.classList.add('hidden')
     results.classList.add('opacity-0')
 })()
