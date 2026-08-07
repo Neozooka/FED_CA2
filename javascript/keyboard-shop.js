@@ -138,3 +138,40 @@ document.addEventListener('DOMContentLoaded', () => {
 
     animationFrameId = requestAnimationFrame(step);
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const words = ["GAMING", "WORKING", "EVERYDAY LIFE"];
+    let wordIdx = 0;
+    let charIdx = 0;
+    let isDeleting = false;
+    const typewriterElement = document.getElementById('typewriter');
+
+    function type() {
+        if (!typewriterElement) return;
+
+        const currentWord = words[wordIdx];
+
+        if (isDeleting) {
+            typewriterElement.textContent = currentWord.substring(0, charIdx - 1);
+            charIdx--;
+        } else {
+            typewriterElement.textContent = currentWord.substring(0, charIdx + 1);
+            charIdx++;
+        }
+
+        let typeSpeed = isDeleting ? 60 : 120;
+
+        if (!isDeleting && charIdx === currentWord.length) {
+            typeSpeed = 1800;
+            isDeleting = true;
+        } else if (isDeleting && charIdx === 0) {
+            isDeleting = false;
+            wordIdx = (wordIdx + 1) % words.length;
+            typeSpeed = 400;
+        }
+
+        setTimeout(type, typeSpeed);
+    }
+
+    setTimeout(type, 1600); 
+});

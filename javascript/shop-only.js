@@ -1,14 +1,14 @@
-gsap.registerPlugin(SplitText)
-gsap.registerPlugin(TextPlugin)
+gsap.registerPlugin(SplitText);
+gsap.registerPlugin(TextPlugin);
 
 // Target the text elements directly
 const mainHeadline = document.querySelector(".main-headline h1");
-const tagline = document.querySelector(".tagline");
+const tagline = document.querySelector("[tagline]");
 
 if (mainHeadline && tagline) {
     const splitHeadline = new SplitText(mainHeadline, { type: "chars" });
-    const fullTaglineText = tagline.textContent.trim()
-    tagline.textContent = ""
+    const fullTaglineText = tagline.textContent.trim();
+    tagline.textContent = "";
 
     const tl = gsap.timeline({
         defaults: { duration: 0.8, ease: "expo.out" },
@@ -31,5 +31,5 @@ if (mainHeadline && tagline) {
             ease: "none"
         },
         "<0.4"
-    )
+    );
 }

@@ -154,45 +154,45 @@ if (mainHeadline && tagline) {
 function makeGreen () {
     const introductionTtile = document.getElementById("introTitle")
     introductionTtile.innerHTML = ""
-    introductionTtile.innerHTML= `Only the <span id="introTitleBest"> best </span> products,`
+    introductionTtile.innerHTML= `Only the <span id="introTitleBest" class="text-[#23D042]"> best </span> products,`
 }
 
 document.addEventListener('DOMContentLoaded', () => {
 
     gsap.registerPlugin(TextPlugin);
+    gsap.registerPlugin(SplitText);
     const introductionTitle = document.getElementById("introTitle")
     const introductionTitle2 = document.getElementById("introTitle2")
 
-    gsap.to(introductionTitle, {
-        duration: 3,
-        text: {
-            value: "Only the XXXX products,"
-        }
-    })    
-    
-    gsap.to(introductionTitle2, {
-        duration: 3,
-        text: {
-            value: "Made for gamers, by gamers"
-        },
-    })
+    const tl = gsap.timeline();
 
+    tl.to(introductionTitle, {
+        duration: 3,
+        text: { value: "Only the XXXX products," }
+    })
+    .to(introductionTitle2, {
+        duration: 3,
+        text: { value: "Made for gamers, by gamers" }
+    }, "<")
     .add(() => {
+        // Inject HTML element into DOM
         makeGreen();
-    })
 
-    .from(() => {
-        // Target dynamically created element chars
+        // Target the element after it enters the DOM
         const introductionTitle3 = document.getElementById("introTitleBest");
-        return new SplitText(introductionTitle3, { type: "chars" }).chars;
-    }, {
+        const splitHeadline = new SplitText(introductionTitle3, { type: "chars" });
+
+        // Run character animation
+        gsap.from(splitHeadline.chars, {
+            duration: 0.8,
+            ease: "expo.out",
             y: 100,
             rotationX: 90,
             opacity: 0,
-            color: "#23D042",
             stagger: 0.07,
             transformOrigin: "center top",
-            perspective: 700,
-        })  
+            perspective: 700
+        });
+    });
 
 })

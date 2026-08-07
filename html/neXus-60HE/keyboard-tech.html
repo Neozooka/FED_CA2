@@ -255,6 +255,7 @@
                 lenis.raf(time)
                 requestAnimationFrame(raf)
             }
+            
             requestAnimationFrame(raf)
 
             const rows = document.querySelectorAll("[data-feature]")
@@ -294,86 +295,6 @@
             rows.forEach((row) => {
                 observer.observe(row)
             })
-
-            const partData = {
-                keyboard: {
-                index: 0,
-                title: "00 / FULL KEYBOARD BUILD",
-                specs: [
-                    { label: "LAYOUT", val: "75% Exploded Layout" },
-                    { label: "MOUNTING", val: "Gasket Mount System" },
-                    { label: "WEIGHT", val: "1.45 kg (Built)" }
-                ]
-                },
-                keycaps: {
-                index: 1,
-                title: "01 / KEY CAPS",
-                specs: [
-                    { label: "PROFILE", val: "Cherry Profile" },
-                    { label: "MATERIAL", val: "Double-shot PBT" },
-                    { label: "THICKNESS", val: "1.5mm" }
-                ]
-                },
-                switches: {
-                index: 2,
-                title: "02 / SWITCHES",
-                specs: [
-                    { label: "TYPE", val: "Linear" },
-                    { label: "ACTUATION", val: "45g Force" },
-                    { label: "TRAVEL", val: "3.2mm Total" }
-                ]
-                },
-                case: {
-                index: 3,
-                title: "03 / BOTTOM CASE",
-                specs: [
-                    { label: "MATERIAL", val: "CNC Aluminum 6063" },
-                    { label: "FINISH", val: "Anodized Matte" },
-                    { label: "FOAM", val: "Poron Dampening" }
-                ]
-                }
-            }
-
-            const partBtns = document.querySelectorAll('.part-btn')
-            const sliderTrack = document.getElementById('slider-track')
-            
-            const activeTextClasses = ['text-2xl', 'sm:text-3xl', 'font-black', 'text-white']
-            const inactiveTextClasses = ['text-lg', 'sm:text-xl', 'font-medium', 'text-neutral-500', 'group-hover:text-neutral-300']
-
-            partBtns.forEach(btn => {
-                btn.addEventListener('click', () => {
-                
-                partBtns.forEach(b => {
-                    b.classList.remove('active')
-                    const span = b.querySelector('.part-text')
-                    span.classList.remove(...activeTextClasses)
-                    span.classList.add(...inactiveTextClasses)
-                })
-
-                btn.classList.add('active')
-                const activeSpan = btn.querySelector('.part-text')
-                activeSpan.classList.remove(...inactiveTextClasses)
-                activeSpan.classList.add(...activeTextClasses)
-
-                const partKey = btn.getAttribute('data-part')
-                const data = partData[partKey]
-
-                sliderTrack.style.transform = `translateX(-${data.index * 25}%)`
-
-                document.getElementById('spec-title').textContent = data.title
-                
-                document.getElementById('label-1').textContent = data.specs[0].label
-                document.getElementById('val-1').textContent = data.specs[0].val
-                
-                document.getElementById('label-2').textContent = data.specs[1].label
-                document.getElementById('val-2').textContent = data.specs[1].val
-                
-                document.getElementById('label-3').textContent = data.specs[2].label
-                document.getElementById('val-3').textContent = data.specs[2].val
-
-                })
-            })
-
         })
     </script>
 
