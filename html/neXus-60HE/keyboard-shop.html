@@ -426,16 +426,157 @@
 
         </section>
 
-        <section>
-            <h1>Book a live-viewing session with us</h1>
-            <!-- email -->
-            <!-- date chooser -->
-            <!-- location on map -->
+        <!-- SECTION 3: BOOK A LIVE VIEWING SESSION -->
+        <section class="w-full max-w-5xl mx-auto bg-white rounded-2xl shadow-sm overflow-hidden flex flex-col mb-12">
+            
+            <h2 class="w-full px-6 py-3 bg-[var(--hovergreen)] text-white font-bold text-lg">
+                Book a Live Viewing Session
+            </h2>
+
+            <div class="p-6 md:p-8">
+                <form id="booking-form" onsubmit="event.preventDefault(); alert('Booking submitted successfully!');" class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    
+                    <!-- Left Column: Form Inputs -->
+                    <div class="flex flex-col gap-4">
+                        <p class="text-sm text-neutral-600 mb-2">
+                            Experience the neXus 60HE in person. Select your preferred shopping mall and schedule a demo.
+                        </p>
+
+                        <!-- Name Input -->
+                        <div class="flex flex-col gap-1">
+                            <label for="user-name" class="text-sm font-semibold text-neutral-700">Full Name</label>
+                            <input 
+                                type="text" 
+                                id="user-name" 
+                                name="name" 
+                                placeholder="John Doe" 
+                                required 
+                                class="w-full px-4 py-2 border border-neutral-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--maingreen)] text-sm text-black"
+                            >
+                        </div>
+
+                        <!-- Email Input -->
+                        <div class="flex flex-col gap-1">
+                            <label for="user-email" class="text-sm font-semibold text-neutral-700">Email Address</label>
+                            <input 
+                                type="email" 
+                                id="user-email" 
+                                name="email" 
+                                placeholder="john@example.com" 
+                                required 
+                                class="w-full px-4 py-2 border border-neutral-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--maingreen)] text-sm text-black"
+                            >
+                        </div>
+
+                        <!-- Date Input -->
+                        <div class="flex flex-col gap-1">
+                            <label for="booking-date" class="text-sm font-semibold text-neutral-700">Preferred Date</label>
+                            <input 
+                                type="date" 
+                                id="booking-date" 
+                                name="date" 
+                                required 
+                                class="w-full px-4 py-2 border border-neutral-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--maingreen)] text-sm text-black"
+                            >
+                        </div>
+
+                        <!-- Location Dropdown Selection -->
+                        <div class="flex flex-col gap-1">
+                            <label for="mall-location" class="text-sm font-semibold text-neutral-700">Select Shopping Mall</label>
+                            <select 
+                                id="mall-location" 
+                                name="location" 
+                                onchange="updateMapLocation(this.value)"
+                                class="w-full px-4 py-2 border border-neutral-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--maingreen)] text-sm bg-white text-black"
+                            >
+                                <option value="ion_orchard">ION Orchard</option>
+                                <option value="vivocity">VivoCity</option>
+                                <option value="jewel_changi">Jewel Changi Airport</option>
+                                <option value="funan">Funan Mall</option>
+                                <option value="nex">NEX Shopping Mall</option>
+                            </select>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <button 
+                            type="submit" 
+                            class="mt-2 w-full h-[45px] bg-[var(--maingreen)] hover:bg-[var(--hovergreen)] text-white font-semibold rounded-lg transition-all duration-300 shadow-sm"
+                        >
+                            Confirm Booking
+                        </button>
+                    </div>
+
+                    <!-- Right Column: Interactive Map -->
+                    <div class="flex flex-col gap-2 h-full min-h-[300px]">
+                        <label class="text-sm font-semibold text-neutral-700">Viewing Location Map</label>
+                        <div class="w-full h-full min-h-[300px] rounded-lg overflow-hidden border border-neutral-200 shadow-inner">
+                            <iframe 
+                                id="google-map-iframe"
+                                width="100%" 
+                                height="100%" 
+                                style="border:0;" 
+                                allowfullscreen="" 
+                                loading="lazy" 
+                                referrerpolicy="no-referrer-when-downgrade"
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.791557008779!2d103.83226487588133!3d1.304033061730076!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da198e3b07044f%3A0xe7212009d115e8f4!2sION%20Orchard!5e0!3m2!1sen!2ssg!4v1710000000000">
+                            </iframe>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+
         </section>
 
     </article>
 
     <div id="footer-container"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+        const dateInput = document.getElementById('booking-date');
+        if (!dateInput) return;
+
+        const today = new Date();
+
+        // Helper to format Date object into YYYY-MM-DD format
+        const formatDate = (dateObj) => {
+            const year = dateObj.getFullYear();
+            const month = String(dateObj.getMonth() + 1).padStart(2, '0');
+            const day = String(dateObj.getDate()).padStart(2, '0');
+            return `${year}-${month}-${day}`;
+        };
+
+        // Calculate Minimum Date (Today)
+        const minDate = formatDate(today);
+
+        // Calculate Maximum Date (1 Year from Today)
+        const maxDateObj = new Date(today);
+        maxDateObj.setFullYear(today.getFullYear() + 1);
+        const maxDate = formatDate(maxDateObj);
+
+        // Set attributes on the date input
+        dateInput.min = minDate;
+        dateInput.max = maxDate;
+    });
+    
+        function updateMapLocation(selectedMall) {
+        const mapIframe = document.getElementById('google-map-iframe');
+        
+        // Google Maps Embed Links for Singapore Shopping Malls
+        const mapLocations = {
+            'ion_orchard': 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.791557008779!2d103.83226487588133!3d1.304033061730076!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da198e3b07044f%3A0xe7212009d115e8f4!2sION%20Orchard!5e0!3m2!1sen!2ssg!4v1710000000000',
+            'vivocity': 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.8351659858343!2d103.82025177588126!3d1.2642533618167735!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da1c2017770db1%3A0x6b2e3f52b82d46e3!2sVivoCity!5e0!3m2!1sen!2ssg!4v1710000000000',
+            'jewel_changi': 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.7408795551325!2d103.98711417588135!3d1.3602130616288721!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da3b355fa91bb7%3A0xe104326f5d2ec757!2sJewel%20Changi%20Airport!5e0!3m2!1sen!2ssg!4v1710000000000',
+            'funan': 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.8058281146604!2d103.84759627588126!3d1.2909408617586524!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da19a0a0ce9a0f%3A0xbebc2e0d37e1cb2a!2sFunan!5e0!3m2!1sen!2ssg!4v1710000000000',
+            'nex': 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.7303038144215!2d103.87023157588135!3d1.3503254616077366!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da1775798dbfa3%3A0x673be7c87cbb9796!2sNEX!5e0!3m2!1sen!2ssg!4v1710000000000'
+        };
+
+        if (mapLocations[selectedMall]) {
+            mapIframe.src = mapLocations[selectedMall];
+        }
+    }
+    </script>
 
 </body>
 </html>
