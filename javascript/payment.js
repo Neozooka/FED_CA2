@@ -129,8 +129,8 @@ function choosePayment(id) {
 }
 
 const qrImages = {
-    paynow: "../images/PaymentQr/PayNowFakeQr.png",
-    paylah: "../images/PaymentQr/PayLahFakeQr.png"
+    paynow: "../images/payment-qr/PayNowFakeQr.png",
+    paylah: "../images/payment-qr/PayLahFakeQr.png"
 }
 
 function showQR(type) {

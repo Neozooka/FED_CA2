@@ -137,9 +137,6 @@
                         <h3 class="text-3xl sm:text-5xl font-black text-white tracking-tight mb-3">
                             COMPARE EDITIONS
                         </h3>
-                        <p class="text-neutral-400 text-base sm:text-lg max-w-2xl mx-auto">
-                            Choose the operating system that fits your gaming setup or unleashes your full creative potential.
-                        </p>
                     </div>
                     
                     <!-- Table Container -->
@@ -153,15 +150,6 @@
                                 </tr>
                             </thead>
                             <tbody class="text-neutral-300 text-sm sm:text-base">
-                                <!-- Row 1 -->
-                                <tr class="border-b border-neutral-800/50 hover:bg-neutral-800/30 transition-colors">
-                                    <td class="py-4 px-6">
-                                        <div class="font-bold text-white text-base sm:text-lg">Pricing</div>
-                                        <div class="text-xs sm:text-sm text-neutral-400 mt-0.5">One-time purchase license options.</div>
-                                    </td>
-                                    <td class="py-4 px-6 text-center font-bold text-white text-lg">Free</td>
-                                    <td class="py-4 px-6 text-center font-bold text-white text-lg">$39.99</td>
-                                </tr>
                                 <!-- Row 2 -->
                                 <tr class="border-b border-neutral-800/50 hover:bg-neutral-800/30 transition-colors">
                                     <td class="py-4 px-6">
@@ -264,6 +252,7 @@
                                 <option value="" disabled selected>-- Choose your device --</option>
                                 <optgroup label="PCs">
                                     <option value="desktop">Desktop / Home Theatre PC</option>
+                                    <option value="framework">Framework Desktop</option>
                                 </optgroup>
                                 <optgroup label="Handhelds">
                                     <option value="steam-deck">Steam Deck</option>
@@ -274,7 +263,7 @@
                                     <option value="other-handheld">Other Handheld PC</option>
                                 </optgroup>
                                 <optgroup label="Laptops & Framework">
-                                    <option value="framework">Framework Devices</option>
+                                    <option value="framework">Framework Laptop</option>
                                     <option value="other-laptop">Other Laptop</option>
                                 </optgroup>
                                 <optgroup label="Other">
@@ -384,8 +373,8 @@
                     descBox.innerHTML = '';
                 }
 
-                // Show GPU step for Desktops, Framework, and Other Laptops
-                if (hardware === 'desktop' || hardware === 'other-laptop' || hardware === 'framework') {
+                // Show GPU step for Desktops, and Other Laptops
+                if (hardware === 'desktop' || hardware === 'other-laptop') {
                     gpuStep.classList.remove('hidden');
                     gpuSelect.setAttribute('required', 'true');
                     
