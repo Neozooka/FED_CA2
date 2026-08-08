@@ -11,7 +11,7 @@ let currentFrame = 0
 function getFramePath(index) {
     // Pads number with zeros (e.g., 001, 012, 100)
     const paddedIndex = String(index + 1).padStart(4, '0') 
-    return `../../images/images-keyboard/keyboard${paddedIndex}.png` 
+    return `../../images/images-keyboard-final/keyboard${paddedIndex}.webp` 
 }
 
 // Preload all real images into memory
