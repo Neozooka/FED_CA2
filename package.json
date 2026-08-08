@@ -1,7 +1,4 @@
 {
-  "scripts": {
-    "update:helix-images": "node scripts/generate-helix-images.js"
-  },
   "dependencies": {
     "tailwindcss": "^1.9.6"
   }

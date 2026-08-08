@@ -19,6 +19,7 @@
         <script src="../../javascript/reveal-on-scroll.js" defer></script>
         <script src="../../javascript/main-shop.js" defer></script>
         <script src="../../javascript/shop-only.js" defer></script>
+        <script src="../../javascript/hardware-detector.js" defer></script>
     </head>
 
     <!-- DONE BY SING SIANG -->
@@ -132,7 +133,7 @@
                 <!-- Section: Comparison Table -->
                 <div class="max-w-5xl w-full mt-20 reveal-on-scroll">
                     
-                    <!-- Main Text and Subtext -->
+                    <!-- Main Text -->
                     <div class="text-center mb-10">
                         <h3 class="text-3xl sm:text-5xl font-black text-white tracking-tight mb-3">
                             COMPARE EDITIONS
@@ -150,16 +151,16 @@
                                 </tr>
                             </thead>
                             <tbody class="text-neutral-300 text-sm sm:text-base">
-                                <!-- Row 2 -->
+                                <!-- Row 1 -->
                                 <tr class="border-b border-neutral-800/50 hover:bg-neutral-800/30 transition-colors">
-                                    <td class="py-4 px-6">
+                                    <td class="py-4 px-6"> 
                                         <div class="font-bold text-white">Performance Core & Zero Telemetry</div>
                                         <div class="text-xs sm:text-sm text-neutral-400 mt-0.5">100% CPU/RAM allocated to games with no corporate tracking or forced updates.</div>
                                     </td>
                                     <td class="py-4 px-6 text-center"><i class="fa fa-check text-green-500 text-xl"></i></td>
                                     <td class="py-4 px-6 text-center"><i class="fa fa-check text-green-500 text-xl"></i></td>
                                 </tr>
-                                <!-- Row 3 -->
+                                <!-- Row 2 -->
                                 <tr class="border-b border-neutral-800/50 hover:bg-neutral-800/30 transition-colors">
                                     <td class="py-4 px-6">
                                         <div class="font-bold text-white">Apex Mode & Desktop Mode</div>
@@ -168,7 +169,7 @@
                                     <td class="py-4 px-6 text-center"><i class="fa fa-check text-green-500 text-xl"></i></td>
                                     <td class="py-4 px-6 text-center"><i class="fa fa-check text-green-500 text-xl"></i></td>
                                 </tr>
-                                <!-- Row 4 -->
+                                <!-- Row 3 -->
                                 <tr class="border-b border-neutral-800/50 hover:bg-neutral-800/30 transition-colors">
                                     <td class="py-4 px-6">
                                         <div class="font-bold text-white">Proton+ & Day-One Drivers</div>
@@ -177,7 +178,7 @@
                                     <td class="py-4 px-6 text-center"><i class="fa fa-check text-green-500 text-xl"></i></td>
                                     <td class="py-4 px-6 text-center"><i class="fa fa-check text-green-500 text-xl"></i></td>
                                 </tr>
-                                <!-- Row 5 -->
+                                <!-- Row 4 -->
                                 <tr class="border-b border-neutral-800/50 hover:bg-neutral-800/30 transition-colors">
                                     <td class="py-4 px-6">
                                         <div class="font-bold text-white">neXus 60HE Hardware Synergy</div>
@@ -186,7 +187,7 @@
                                     <td class="py-4 px-6 text-center"><i class="fa fa-check text-green-500 text-xl"></i></td>
                                     <td class="py-4 px-6 text-center"><i class="fa fa-check text-green-500 text-xl"></i></td>
                                 </tr>
-                                <!-- Row 6 -->
+                                <!-- Row 5 -->
                                 <tr class="border-b border-neutral-800/50 hover:bg-neutral-800/30 transition-colors">
                                     <td class="py-4 px-6">
                                         <div class="font-bold text-white">Aerodynamic Layout Engine</div>
@@ -195,7 +196,7 @@
                                     <td class="py-4 px-6 text-center"><i class="fa fa-times text-neutral-600 text-xl"></i></td>
                                     <td class="py-4 px-6 text-center"><i class="fa fa-check text-green-500 text-xl"></i></td>
                                 </tr>
-                                <!-- Row 7 -->
+                                <!-- Row 6 -->
                                 <tr class="border-b border-neutral-800/50 hover:bg-neutral-800/30 transition-colors">
                                     <td class="py-4 px-6">
                                         <div class="font-bold text-white">Hardware Mastery & AI Scheduling</div>
@@ -204,7 +205,7 @@
                                     <td class="py-4 px-6 text-center"><i class="fa fa-times text-neutral-600 text-xl"></i></td>
                                     <td class="py-4 px-6 text-center"><i class="fa fa-check text-green-500 text-xl"></i></td>
                                 </tr>
-                                <!-- Row 8 -->
+                                <!-- Row 7 -->
                                 <tr class="border-b border-neutral-800/50 hover:bg-neutral-800/30 transition-colors">
                                     <td class="py-4 px-6">
                                         <div class="font-bold text-white">Creator & Streamer Suite</div>
@@ -213,7 +214,7 @@
                                     <td class="py-4 px-6 text-center"><i class="fa fa-times text-neutral-600 text-xl"></i></td>
                                     <td class="py-4 px-6 text-center"><i class="fa fa-check text-green-500 text-xl"></i></td>
                                 </tr>
-                                <!-- Row 9 -->
+                                <!-- Row 8 -->
                                 <tr class="hover:bg-neutral-800/30 transition-colors">
                                     <td class="py-4 px-6">
                                         <div class="font-bold text-white">Pre-Loaded Open Source Tools & Priority Support</div>
@@ -228,57 +229,152 @@
                 </div>
 
             </section>
+
+            <section id="system-requirements" class="w-full bg-[--background] py-16 px-4 md:px-8 flex flex-col items-center">
+                
+                <!-- Section Header -->
+                <div class="max-w-5xl w-full text-center mb-10 reveal-on-scroll">
+                    <h2 class="text-4xl sm:text-5xl md:text-6xl font-black text-white tracking-tight mb-3">
+                        CHECK WHETHER YOUR HARDWARE IS COMPATIBLE.
+                    </h2>
+                    <p class="text-neutral-300 text-lg sm:text-xl max-w-3xl mx-auto">
+                        Use our system checker to gauge whether your system meets the requirements to fully utilize NexOS. Note that this browser estimation only provides an approximate profile.
+                    </p>
+                </div>
+
+                <div class="max-w-5xl w-full space-y-8 reveal-on-scroll">
+
+                    <!-- Dedicated Hardware Detector Card -->
+                    <div class="bg-neutral-900/80 backdrop-blur-xl border border-neutral-800 hover:border-[--maingreen]/50 rounded-[30px] p-6 sm:p-8 shadow-2xl transition-all duration-300">
+                        <div class="flex flex-col items-start sm:items-center justify-between gap-4 pb-6 border-b border-neutral-800">
+                            <div id="pro-system-status" class="self-start sm:self-auto">
+                                <h3 id="status-badge" class="text-lg sm:text-xl md:text-3xl text-neutral-400">
+                                    SCANNING SYSTEM...
+                                </h3>
+                            </div>
+
+                            <!-- Detailed Status Breakdown -->
+                            <div id="status-summary" class="text-sm sm:text-base md:text-lg text-neutral-400 mt-4 space-y-1">
+                                <p>Evaluating system capabilities against baseline parameters...</p>
+                            </div>
+                        </div>
+
+
+                        <!-- Detector Results Details Grid -->
+                        <div id="status-details" class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-6 text-neutral-300">
+                            <div class="bg-neutral-800/40 p-4 rounded-2xl border border-neutral-800">
+                                <p class="text-xs text-neutral-400 uppercase font-semibold">CPU Cores / Threads</p>
+                                <p id="cpu-detail" class="text-lg font-bold text-white mt-1">Detecting...</p>
+                            </div>
+                            <div class="bg-neutral-800/40 p-4 rounded-2xl border border-neutral-800">
+                                <p class="text-xs text-neutral-400 uppercase font-semibold">Memory (RAM)</p>
+                                <p id="ram-detail" class="text-lg font-bold text-white mt-1">Detecting...</p>
+                            </div>
+                            <div class="bg-neutral-800/40 p-4 rounded-2xl border border-neutral-800">
+                                <p class="text-xs text-neutral-400 uppercase font-semibold">Graphics Adapter</p>
+                                <p id="gpu-detail" class="text-lg font-bold text-white mt-1 truncate">Detecting...</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- System Requirements Table -->
+                    <div class="overflow-x-auto rounded-[30px] border border-neutral-800 bg-neutral-900/80 backdrop-blur-xl shadow-2xl text-left">
+                        <table class="w-full border-collapse">
+                            <thead>
+                                <tr class="border-b border-neutral-800 text-white text-lg sm:text-xl">
+                                    <th class="py-6 px-6 font-bold w-1/3">Component</th>
+                                    <th class="py-6 px-6 font-bold w-1/3 text-neutral-300">Minimum</th>
+                                    <th class="py-6 px-6 font-bold w-1/3 text-[--maingreen]">Recommended</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-neutral-300 text-sm sm:text-base divide-y divide-neutral-800/50">
+                                <tr class="hover:bg-neutral-800/30 transition-colors">
+                                    <td class="py-4 px-6 font-bold text-white">Processor (CPU)</td>
+                                    <td class="py-4 px-6">64-bit Dual-Core (2 Cores / Threads)</td>
+                                    <td class="py-4 px-6 font-semibold text-white">64-bit Hexa-Core (6+ Cores / Threads)</td>
+                                </tr>
+                                <tr class="hover:bg-neutral-800/30 transition-colors">
+                                    <td class="py-4 px-6 font-bold text-white">Memory (RAM)</td>
+                                    <td class="py-4 px-6">4 GB RAM</td>
+                                    <td class="py-4 px-6 font-semibold text-white">16 GB RAM</td>
+                                </tr>
+                                <tr class="hover:bg-neutral-800/30 transition-colors">
+                                    <td class="py-4 px-6 font-bold text-white">Graphics (GPU)</td>
+                                    <td class="py-4 px-6">
+                                        Nvidia GTX 950 / AMD Radeon R9 270X
+                                    </td>
+                                    <td class="py-4 px-6 font-semibold text-white">
+                                        Nvidia GTX 1650 / AMD Radeon RX 580
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-neutral-800/30 transition-colors">
+                                    <td class="py-4 px-6 font-bold text-white">Storage Space</td>
+                                    <td class="py-4 px-6">25 GB Free Space (HDD)</td>
+                                    <td class="py-4 px-6 font-semibold text-white">50 GB+ Free Space (NVMe M.2 SSD)</td>
+                                </tr>
+                                <tr class="hover:bg-neutral-800/30 transition-colors">
+                                    <td class="py-4 px-6 font-bold text-white">Display Resolution</td>
+                                    <td class="py-4 px-6">1280 x 720 HD</td>
+                                    <td class="py-4 px-6 font-semibold text-white">1920 x 1080 FHD</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </section>
             
         </article>
 
         <!-- Download Configurator Modal -->
-        <div id="download-modal" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
-            <div id="modal-card" class="bg-neutral-900 border border-neutral-800 rounded-[30px] p-6 sm:p-8 max-w-lg w-full text-left relative shadow-2xl modal-pop">
+        <div id="download-modal" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 hidden flex items-start sm:items-center justify-center p-4 overflow-y-auto">
+            <div id="modal-card" class="bg-neutral-900 border border-neutral-800 rounded-[30px] p-6 sm:p-8 max-w-3xl w-full text-left relative shadow-2xl modal-pop my-auto max-h-[90vh] overflow-y-auto">
                 
                 <!-- Close Button -->
-                <button type="button" onclick="closeDownloadModal()" class="absolute top-5 right-5 text-neutral-400 hover:text-white text-xl transition-colors">
+                <button type="button" onclick="closeDownloadModal()" class="absolute top-5 right-5 text-neutral-400 hover:text-[--maingreen] text-xl transition-colors">
                     <i class="fa fa-times"></i>
                 </button>
 
-                <h3 class="text-2xl font-black text-white mb-1">ONE MORE THING...</h3>
-                <p class="text-sm text-neutral-400 mb-6">For the best version of NexOS tailored for your hardware, answer a few quick questions. No personal data is collected or harvested.</p>
+                <h3 class="text-2xl sm:text-3xl md:text-4xl font-black text-white mb-1">ONE MORE THING...</h3>
+                <p class="text-sm sm:text-base md:text-lg text-neutral-400 mb-6">For the best version of NexOS tailored for your hardware, answer a few quick questions. No personal data is collected or harvested.</p>
 
                 <form id="iso-config-form" onsubmit="handleIsoDownload(event)" class="space-y-5">
                     
                     <!-- Step 1: Device Hardware Type -->
                     <div id="step-hardware">
-                        <label class="block text-xs font-bold uppercase tracking-wider text-neutral-300 mb-2">1. Select Your Hardware</label>
-                            <select id="hardware-select" onchange="handleHardwareChange()" class="w-full bg-neutral-800 border border-neutral-700 text-white rounded-xl px-4 py-3 focus:outline-none focus:border-[--maingreen] transition-colors" required>
-                                <option value="" disabled selected>-- Choose your device --</option>
-                                <optgroup label="PCs">
-                                    <option value="desktop">Desktop / Home Theatre PC</option>
-                                    <option value="framework">Framework Desktop</option>
-                                </optgroup>
-                                <optgroup label="Handhelds">
-                                    <option value="steam-deck">Steam Deck</option>
-                                    <option value="onexplayer">OneXPlayer</option>
-                                    <option value="legion-go">Lenovo Legion Go</option>
-                                    <option value="rog-ally">Asus ROG Ally & Ally X</option>
-                                    <option value="msi-handheld">MSI Handheld</option>
-                                    <option value="other-handheld">Other Handheld PC</option>
-                                </optgroup>
-                                <optgroup label="Laptops & Framework">
-                                    <option value="framework">Framework Laptop</option>
-                                    <option value="other-laptop">Other Laptop</option>
-                                </optgroup>
-                                <optgroup label="Other">
-                                    <option value="vm">Virtual Machine</option>
-                                </optgroup>
-                            </select>
+                        <label class="block text-sm sm:text-base md:text-lg font-bold uppercase tracking-wider text-neutral-300 mb-2">1. Select Your Hardware</label>
+                        <select id="hardware-select" onchange="handleHardwareChange()" class="w-full bg-neutral-800 border border-neutral-700 text-white rounded-xl px-4 py-3 focus:outline-none focus:border-[--maingreen] transition-colors" required>
+                            <option value="" disabled selected>-- Choose your device --</option>
+                            <optgroup label="PCs">
+                                <option value="desktop">Desktop / Home Theatre PC</option>
+                                <option value="framework">Framework Desktop</option>
+                            </optgroup>
+                            <optgroup label="Handhelds">
+                                <option value="steam-deck">Steam Deck</option>
+                                <option value="onexplayer">OneXPlayer</option>
+                                <option value="legion-go">Lenovo Legion Go</option>
+                                <option value="rog-ally">Asus ROG Ally & Ally X</option>
+                                <option value="msi-handheld">MSI Handheld</option>
+                                <option value="other-handheld">Other Handheld PC</option>
+                            </optgroup>
+                            <optgroup label="Laptops & Framework">
+                                <option value="framework">Framework Laptop</option>
+                                <option value="other-laptop">Other Laptop</option>
+                            </optgroup>
+                            <optgroup label="Other">
+                                <option value="vm">Virtual Machine</option>
+                            </optgroup>
+                        </select>
 
                         <!-- Dynamic Experience Description Box -->
-                        <div id="hardware-description" class="hidden mt-3 p-3.5 bg-neutral-800/60 border border-neutral-700/60 rounded-xl text-xs text-neutral-300 step-fade-in">
+                        <div id="hardware-description" class="hidden mt-3 p-3.5 bg-neutral-800/60 border border-neutral-700/60 rounded-xl text-xs md:text-sm text-neutral-300 step-fade-in">
                             <!-- Content inserted via JS -->
                         </div>
                     </div>
 
                     <!-- Step 2: GPU Selection (Hidden initially, shown for Desktop / Other Laptop) -->
-                     <div id="step-gpu" class="hidden step-fade-in">
+                    <div id="step-gpu" class="hidden step-fade-in">
                         <select id="gpu-select" onchange="handleGpuChange()" class="w-full bg-neutral-800 border border-neutral-700 text-white rounded-xl px-4 py-3 focus:outline-none focus:border-[--maingreen] transition-colors">
                             <option value="" disabled selected>-- Choose GPU vendor --</option>
                             <optgroup label="Newer GPUs">
@@ -294,15 +390,15 @@
                         </select>
 
                         <!-- Dynamic Experience Description Box -->
-                        <div id="gpu-support" class="hidden mt-3 p-3.5 bg-neutral-800/60 border border-neutral-700/60 rounded-xl text-xs text-neutral-300 step-fade-in">
+                        <div id="gpu-support" class="hidden mt-3 p-3.5 bg-neutral-800/60 border border-neutral-700/60 rounded-xl text-xs md:text-sm text-neutral-300 step-fade-in">
                             <!-- Content inserted via JS -->
                         </div>
                     </div>
 
                     <!-- Step 3: Newsletter Opt-In (Hidden initially until previous required steps are done) -->
                     <div id="step-newsletter" class="hidden step-fade-in pt-2 border-t border-neutral-800">
-                        <label class="block text-xs font-bold uppercase tracking-wider text-neutral-300 mb-2">Stay Updated with NexOS</label>
-                        <p class="text-xs text-neutral-400 mb-3">Get release updates, performance patches, and optimization tips.</p>
+                        <label class="block text-sm sm:text-base md:text-lg font-bold uppercase tracking-wider text-neutral-300 mb-2">2. Stay Updated with NexOS</label>
+                        <p class="text-xs sm:text-sm md:text-base text-neutral-400 mb-3">Get release updates, performance patches, and optimization tips.</p>
                         <input type="email" id="newsletter-email" placeholder="Enter your email address" class="w-full bg-neutral-800 border border-neutral-700 text-white rounded-xl px-4 py-3 focus:outline-none focus:border-[--maingreen] transition-colors mb-3" required>
                         
                         <label class="flex items-center space-x-2 text-xs text-neutral-400 cursor-pointer">
@@ -343,7 +439,14 @@
             const hardwareDescriptions = {
                 'desktop': '<strong>Desktop & HTPC Experience:</strong> Unlocks maximum desktop frame-pacing, raw GPU passthrough, and zero-latency display server hooks. Configured for multi-monitor setups, high-refresh rates, and couch TV setups.',
                 'framework': '<strong>Framework Experience:</strong> NexOS is officially supported by Framework, with out-of-box support for all hardware models. Enjoy an enhanced d-GPU support on Framework 16 without the hassle. And if you are on <span class="font-bold">Framework Desktop</span>, enjoy the best home theatre PC when you switch to Apex Mode.',
-                'other-laptop': '<strong>Laptop Experience:</strong> Features hybrid-GPU switching controls (MUX switch support), dynamic fan curves, and battery optimization profiles to keep heat low during high-load gaming sessions.'
+                'other-laptop': '<strong>Laptop Experience:</strong> Features hybrid-GPU switching controls (MUX switch support), dynamic fan curves, and battery optimization profiles to keep heat low during high-load gaming sessions.',
+                'steam-deck': '<strong>Steam Deck Experience:</strong> NexOS provides an alternative to SteamOS, with fine-tuned optimization, tailored audio drivers, and battery efficiency profiless designed for Valve&#39;s handheld architecture.',
+                'onexplayer': '<strong>OneXPlayer Experience:</strong> As an official hardware supplier, OneXPlayer handhelds run beautifully on NexOS. Pre-configured with custom controller mapping support and power management profiles to maximize performance on high-resolution displays.',
+                'legion-go': '<strong>Lenovo Legion Go Experience:</strong> Includes built-in support for native portrait display rotation, detachable controller bindings, and Legion Space hardware optimizations.',
+                'rog-ally': '<strong>Asus ROG Ally Experience:</strong> Features dynamic TDP controls, optimized Armoury Crate compatibility layer, and enhanced power efficiency for both original and extended battery revisions.',
+                'msi-handheld': '<strong>MSI Handheld Experience:</strong> Experience a fine-tuned version of NexOS designed for MSI Claw and Intel, with built-in trigger calibrration and MSI Center controller integration. Support may be limited.',
+                'other-handheld': '<strong>Note: Intel may not function as intended.</strong> Generic handheld profile loading universal controller mappings, touchscreen layout optimizations, and balanced power profiles.',
+                'vm': '<strong>VM Experience:</strong> Lightweight distribution footprint with full guest utilities pre-installed, disabled hardware-accelerated desktop bloat, and optimized virtual display drivers.'
             };
 
             const gpuCompatibilityDescriptions = {
@@ -374,7 +477,7 @@
                 }
 
                 // Show GPU step for Desktops, and Other Laptops
-                if (hardware === 'desktop' || hardware === 'other-laptop') {
+                if (hardware === 'desktop' || hardware === 'other-laptop' || hardware === 'vm') {
                     gpuStep.classList.remove('hidden');
                     gpuSelect.setAttribute('required', 'true');
                     
