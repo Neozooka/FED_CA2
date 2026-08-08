@@ -82,9 +82,9 @@ window.addEventListener('scroll', () => {
 
 
 const photos = {
-    linear: '../../images/TechPage/LinearSwitchIntro.webp',
-    tactile: '../../images/TechPage/TactileSwitchIntro.webp',
-    clicky: '../../images/TechPage/ClickySwitchIntro.webp',
+    linear: '../../images/tech-page/LinearSwitchIntro.webp',
+    tactile: '../../images/tech-page/TactileSwitchIntro.webp',
+    clicky: '../../images/tech-page/ClickySwitchIntro.webp',
 }
 
 let active = 'linear'
@@ -142,30 +142,3 @@ function playSounds() {
 
 window.addEventListener('resize', resize)
 window.addEventListener('load', resize)
-
-// let lastScrollY = window.scrollY
-// const header = document.getElementById('header-container')
-
-// window.addEventListener('scroll', () => {
-//     const currentScrollY = window.scrollY
-
-//     // always shows
-//     if (currentScrollY <= 0) {
-//         header.classList.remove('-translate-y-full')
-//         lastScrollY = currentScrollY
-//         return
-//     }
-
-//     // hide header
-//     if (currentScrollY > lastScrollY && currentScrollY > 50) {
-//         header.classList.add('-translate-y-full')
-//     } 
-//     // show header
-//     else if (currentScrollY < lastScrollY-50) {
-//         header.classList.remove('-translate-y-full')
-//     }
-
-//     lastScrollY = currentScrollY
-// })
-
-//fix the header disappearing
