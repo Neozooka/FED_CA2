@@ -142,13 +142,23 @@
                     <div class="list relative h-[300px] w-full overflow-hidden rounded-lg border border-neutral-200"> 
                         
                         <!-- Slide 1 -->
-                        <div style="background-image: url('../../images/keyboard-shop/keyboardshop1.webp');" class="action w-full h-full bg-cover bg-center bg-no-repeat absolute left-1/2 top-1/2 z-20 -translate-x-1/2 -translate-y-1/2 opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+                        <div role="img" 
+                            aria-label="Keyboard on display with monitor and keyboard"
+                            style="background-image: url('../../images/keyboard-shop/keyboardshop1.webp');" class="action w-full h-full bg-cover bg-center bg-no-repeat absolute left-1/2 top-1/2 z-20 -translate-x-1/2 -translate-y-1/2 opacity-100 transition-opacity duration-500 pointer-events-none">
+                        </div>
 
                         <!-- Slide 2 -->
-                        <div style="background-image: url('../../images/keyboard-shop/keyboardshop2.webp');" class="action w-full h-full bg-cover bg-center bg-no-repeat absolute left-1/2 top-1/2 z-20 -translate-x-1/2 -translate-y-1/2 opacity-0 transition-opacity duration-500 pointer-events-none"></div>
+                        <div role="img" 
+                            aria-label="Keyboard on display"
+                            style="background-image: url('../../images/keyboard-shop/keyboardshop2.webp');" class="action w-full h-full bg-cover bg-center bg-no-repeat absolute left-1/2 top-1/2 z-20 -translate-x-1/2 -translate-y-1/2 opacity-0 transition-opacity duration-500 pointer-events-none">
+                        </div>
 
                         <!-- Slide 3 -->
-                        <div style="background-image: url('../../images/keyboard-shop/keyboardshop3.webp');" class="action w-full h-full bg-cover bg-center bg-no-repeat absolute left-1/2 top-1/2 z-20 -translate-x-1/2 -translate-y-1/2 opacity-0 transition-opacity duration-500 pointer-events-none"></div>
+                        <div role="img" 
+                            aria-label="Keyboard on display with strap"
+                            style="background-image: url('../../images/keyboard-shop/keyboardshop3.webp');" c
+                            lass="action w-full h-full bg-cover bg-center bg-no-repeat absolute left-1/2 top-1/2 z-20 -translate-x-1/2 -translate-y-1/2 opacity-0 transition-opacity duration-500 pointer-events-none">
+                        </div>
 
                     </div>
 
@@ -161,6 +171,7 @@
 
                     <!-- CONTROLS: PREV | THUMBNAILS | NEXT -->
                     <div class="flex items-center justify-between w-full gap-2 mt-2">
+                        
                         <button id="previous" class="h-[45px] w-[35px] shrink-0 bg-neutral-800 text-white rounded-lg flex items-center justify-center font-bold text-xl hover:bg-neutral-900 transition-all duration-300" onclick="previous(); resetInterval();">
                             &#10094;
                         </button>
@@ -174,20 +185,25 @@
                         <button id="next" class="h-[45px] w-[35px] shrink-0 bg-neutral-800 text-white rounded-lg flex items-center justify-center font-bold text-xl hover:bg-neutral-900 transition-all duration-300" onclick="next(); resetInterval();">
                             &#10095;
                         </button>
+
                     </div>
 
                 </div>
 
                 <!-- Right Column: Purchase Info & Action Buttons -->
                 <div class="flex flex-col gap-6">
+
                     <h1 class="text-xl md:text-2xl font-bold text-neutral-900 leading-snug">
                         neXus 60HE Magnetic Keyboard 8000Hz Polling Adjustable Actuation RGB Rapid Trigger
                     </h1>
 
                     <!-- Ratings & Stats Bar -->
                     <div class="flex items-center text-sm text-neutral-700">
+
                         <div class="flex items-center gap-1 font-semibold text-neutral-900">
+
                             <span>5.0</span>
+
                             <div class="flex text-amber-400">
                                 <span>&#9733;</span>
                                 <span>&#9733;</span>
@@ -195,40 +211,56 @@
                                 <span>&#9733;</span>
                                 <span>&#9733;</span>
                             </div>
+
                         </div>
 
                         <div class="h-4 w-[1px] bg-neutral-300 mx-4"></div>
+
                         <span class="text-neutral-600">100 ratings</span>
 
                         <div class="h-4 w-[1px] bg-neutral-300 mx-4"></div>
+
                         <span class="text-neutral-600">1000 sold</span>
+
                     </div>
 
                     <!-- Price Block -->
                     <div class="bg-neutral-100 p-4 rounded-lg border border-neutral-200">
+
                         <h2 class="text-red-600 text-3xl font-bold">$167</h2>
+
                     </div>
 
                     <!-- Options Grid -->
                     <div class="grid grid-cols-3 gap-y-6 text-sm">
+
                         <span class="text-neutral-500 font-medium">Shipping</span>
+
                         <span class="col-span-2 text-neutral-900 font-semibold">By 10th June</span>
 
                         <span class="text-neutral-500 font-medium">Shopping Guarantee</span>
+
                         <span class="col-span-2 text-neutral-900 font-semibold">16 Days</span>
 
                         <span class="text-neutral-500 font-medium pt-2">Version</span>
+
                         <div class="col-span-2">
+
                             <div class="flex flex-wrap gap-2">
+
                                 <button class="Product-Button text-neutral-900 bg-neutral-100 hover:bg-neutral-200 py-2 px-4 rounded-lg border border-neutral-300 font-medium transition" id="neXus-60HE-Magnetic-Keyboard-8000Hz-Polling-Adjustable" onclick="activeProduct('neXus-60HE-Magnetic-Keyboard-8000Hz-Polling-Adjustable')">
                                     Product 1
                                 </button>
+
                             </div>
+
                         </div>
+
                     </div>
 
                     <!-- Action Buttons -->
                     <div class="flex justify-start gap-4 pt-4">
+
                         <button class="bg-[var(--maingreen)] flex-1 h-[50px] px-4 rounded-lg transition hover:bg-[var(--hovergreen)] font-semibold text-white shadow-sm" onclick="addCart('nexus-60he-magnetic-keyboard-8000hz-polling-adjustable')">
                             Add to Cart
                         </button>
@@ -236,10 +268,13 @@
                         <a class="bg-[var(--maingreen)] flex-1 h-[50px] px-4 rounded-lg transition hover:bg-[var(--hovergreen)] font-semibold text-white flex items-center justify-center shadow-sm" onclick="addCart('nexus-60he-magnetic-keyboard-8000hz-polling-adjustable')" href="../payment.html">
                             Buy Now
                         </a>
+
                     </div>
+
                 </div>
 
             </div>
+
         </section>
 
         <!-- SECTION 2: PRODUCT DETAILS & SPECIFICATIONS -->
@@ -247,74 +282,125 @@
             
             <!-- Specifications Block -->
             <div class="bg-white rounded-2xl shadow-sm overflow-hidden flex flex-col">
+
                 <h2 class="w-full px-6 py-3 bg-[var(--hovergreen)] text-white font-bold text-lg">Product Specifications</h2>
 
                 <div class="flex flex-col gap-3 p-6 text-neutral-800 text-sm">
+
                     <div class="flex justify-between border-b border-neutral-100 pb-2">
+
                         <span class="text-neutral-500">Stock</span>
+
                         <span class="font-medium">44</span>
+
                     </div>
+
                     <div class="flex justify-between border-b border-neutral-100 pb-2">
+
                         <span class="text-neutral-500">Bundle Set</span>
+
                         <span class="font-medium">No</span>
+
                     </div>
+
                     <div class="flex justify-between border-b border-neutral-100 pb-2">
+
                         <span class="text-neutral-500">Keyboard Key Type</span>
+
                         <span class="font-medium">Mechanical Key</span>
+
                     </div>
+
                     <div class="flex justify-between border-b border-neutral-100 pb-2">
+
                         <span class="text-neutral-500">Warranty Duration</span>
+
                         <span class="font-medium">12 Months</span>
+
                     </div>
+
                     <div class="flex justify-between border-b border-neutral-100 pb-2">
+
                         <span class="text-neutral-500">Warranty Type</span>
+
                         <span class="font-medium">Manufacturer Warranty</span>
+
                     </div>
+
                     <div class="flex justify-between border-b border-neutral-100 pb-2">
+
                         <span class="text-neutral-500">Gaming Focused</span>
+
                         <span class="font-medium">Yes</span>
+
                     </div>
+
                     <div class="flex justify-between border-b border-neutral-100 pb-2">
+
                         <span class="text-neutral-500">Dimension (L x W x H)</span>
+
                         <span class="font-medium">315mm x 135mm x 40mm</span>
+
                     </div>
+
                     <div class="flex justify-between pb-2">
+
                         <span class="text-neutral-500">Ships From</span>
+
                         <span class="font-medium">Malaysia</span>
+
                     </div>
+
                 </div>
+
             </div>
 
             <!-- Description Block -->
             <div class="bg-white rounded-2xl shadow-sm overflow-hidden flex flex-col">
+
                 <h2 class="w-full px-6 py-3 bg-[var(--hovergreen)] text-white font-bold text-lg">Description</h2>
 
                 <div class="p-6 text-neutral-800 text-sm leading-relaxed space-y-4">
+
                     <p class="font-semibold text-red-500">[READY STOCK]</p>
+
                     <div class="space-y-1">
+
                         <p><strong>Product Name:</strong> neXUs-60HE</p>
+
                         <p><strong>Number of Keys:</strong> 61 (60%) keys</p>
+
                         <p><strong>Item Condition:</strong> Brand New</p>
+
                         <p><strong>Packaging:</strong> Boxed</p>
+
                     </div>
 
                     <div class="pt-2">
+
                         <p class="font-semibold text-neutral-900 mb-1">In the Box:</p>
+
                         <ul class="list-disc list-inside space-y-1 text-neutral-600 pl-2">
                             <li>1x neXUs-60HE Keyboard</li>
                             <li>1x Strap</li>
                             <li>1x USB Type A to Type C Cable</li>
                             <li>1x 2 in 1 Switch-Keycap Puller</li>
                         </ul>
+
                     </div>
 
                     <div class="pt-2">
+
                         <p class="font-semibold text-neutral-900">Introducing the neXUs-60HE Series: The Ultimate Gaming Mechanical Keyboard</p>
+                        
                         <p class="text-neutral-600 mt-1">In today’s competitive gaming landscape, choosing a high-performance keyboard is crucial. The neXUs-60HE series mechanical keyboards are specifically designed for players who demand excellence, making them the ideal choice for mainstream gamers.</p>
+                    
                     </div>
 
                     <div class="pt-2">
+
                         <p class="font-semibold text-neutral-900 mb-1">Features:</p>
+
                         <ul class="list-disc list-inside space-y-1 text-neutral-600 pl-2">
                             <li>60/65% Layout for Gaming</li>
                             <li>Customizable actuation point</li>
@@ -331,8 +417,11 @@
                             <li>Compatible with MAC and Windows System</li>
                             <li>Easy to use, plug & play</li>
                         </ul>
+
                     </div>
+
                 </div>
+
             </div>
 
         </section>
@@ -343,8 +432,10 @@
             <!-- date chooser -->
             <!-- location on map -->
         </section>
+
     </article>
 
     <div id="footer-container"></div>
+
 </body>
 </html>

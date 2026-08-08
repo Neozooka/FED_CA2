@@ -1,4 +1,4 @@
-const path = "../../javascript/products.json";
+const path = "../../javascript/shop-products.json";
 
 let cart = JSON.parse(localStorage.getItem("userCart")) || [];
 cart = cart.map(item => ({
@@ -54,7 +54,9 @@ function loadProductsFromList(cartList) {
     const CartTemplate = document.querySelector("[cart-template]");
     const CartContainer = document.querySelector("[cart-container]");
 
-    if (!CartContainer) return;
+    if (!CartContainer) {
+        return;
+    }
 
     // Handle Empty Cart State
     if (!cartList || cartList.length === 0) {
@@ -66,8 +68,12 @@ function loadProductsFromList(cartList) {
             </div>
         `;
 
-        if (numberItems) numberItems.textContent = "0";
-        if (priceTotal) priceTotal.textContent = "0.00";
+        if (numberItems) { 
+            numberItems.textContent = "0";
+        }
+        if (priceTotal) { 
+            priceTotal.textContent = "0.00";
+        }
 
         // Optional: Disable checkout button if present
         const checkoutBtn = document.getElementById("checkout-button");
@@ -110,22 +116,43 @@ function loadProductsFromList(cartList) {
         const btnIncrease = card.querySelector(".quantity-increase");
         const btnRemove = card.querySelector(".remove");
 
-        if (containerDiv) containerDiv.setAttribute("id", `cart-item-${index}`);
-        if (title) title.textContent = item.title;
-        if (price) price.textContent = "$" + itemTotalPrice.toFixed(2);
-        if (photo) photo.src = item.image;
-        if (quantityCount) quantityCount.textContent = itemQuantity;
+        if (containerDiv) { 
+            containerDiv.setAttribute("id", `cart-item-${index}`);
+        }
+        if (title) { 
+            title.textContent = item.title;
+        }
+        if (price) { 
+            price.textContent = "$" + itemTotalPrice.toFixed(2);
+        }
+        if (photo) { 
+            photo.src = item.image;
+        }
 
-        // Attach event listeners
-        if (btnDecrease) btnDecrease.addEventListener("click", () => changeQuantity(index, -1));
-        if (btnIncrease) btnIncrease.addEventListener("click", () => changeQuantity(index, 1));
-        if (btnRemove) btnRemove.addEventListener("click", () => remove(index));
+        if (quantityCount) {
+            quantityCount.textContent = itemQuantity;
+        }
+
+        if (btnDecrease) {
+            btnDecrease.addEventListener("click", () => changeQuantity(index, -1));
+        }
+        if (btnIncrease) {
+            btnIncrease.addEventListener("click", () => changeQuantity(index, 1));
+        }
+        if (btnRemove) {
+            btnRemove.addEventListener("click", () => remove(index));
+        }
 
         CartContainer.appendChild(card);
     });
 
-    if (numberItems) numberItems.textContent = totalItemsCount;
-    if (priceTotal) priceTotal.textContent = totalCost.toFixed(2);
+    if (numberItems) {
+        numberItems.textContent = totalItemsCount;
+    }
+
+    if (priceTotal) {
+        priceTotal.textContent = totalCost.toFixed(2);
+    }
 }
 
 

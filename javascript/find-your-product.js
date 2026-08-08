@@ -54,12 +54,12 @@
 
             setTimeout(()=>{
                 if(choice1 === 'Mouse' && choice4 === 'Affordable'){
-                    resultImg.src = "../images/PythonV1_372.png"
+                    resultImg.src = "../images/main-shop/PythonV1_372.png"
                     resultName.innerText = 'neXus Python'
                     resultText.innerText = 'The neXus Python is an affordable gaming mouse designed for precision and comfort.'
                 }
                 else if (choice1 === 'Mouse' && choice4 === 'Luxury'){
-                    resultImg.src = "../images/PythonV2_372.png"
+                    resultImg.src = "../images/main-shop/PythonV2_372.png"
                     resultName.innerText = 'neXus PythonV2'
                     resultText.innerText = 'A premium version of the neXus Python with advanced features and performance for serious gamers.'
                 }
