@@ -64,22 +64,22 @@
                     resultText.innerText = 'A premium version of the neXus Python with advanced features and performance for serious gamers.'
                 }
                 else if (choice1 === 'Keyboard' && choice4 === 'Affordable'){
-                    resultImg.src = "../images/"
-                    resultName.innerText = 'neXus 60HE'
+                    resultImg.src = "../images/main-shop/Hunter_372.png"
+                    resultName.innerText = 'neXus Hunter'
                     resultText.innerText = 'The neXus KeyLite is an affordable hall-effect keyboard that offers a great responsive feel without breaking the bank.'
                 }
                 else if (choice1 === 'Keyboard' && choice4 === 'Luxury'){
-                    resultImg.src = "../images/"
+                    resultImg.src = "../images/keyboard-shop/keyboardshop2.webp"
                     resultName.innerText = 'neXus 60HE'
                     resultText.innerText = 'The neXus KeyPro is a high-end hall-effect keyboard with customizable RGB lighting and premium switches for maximum performance.'
                 }
                 else if (choice1 === 'Headset' && choice4 === 'Affordable'){
-                    resultImg.src = "../images/"
-                    resultName.innerText = 'neXus Kraken'
-                    resultText.innerText = 'The neXus Kreaken is an affordable gaming headset that delivers clear audio and comfort for long gaming sessions.'
+                    resultImg.src = "../images/main-shop/Spectre_372.png"
+                    resultName.innerText = 'neXus Spectre'
+                    resultText.innerText = 'The neXus Spectre is an affordable gaming headset that delivers clear audio and comfort for long gaming sessions.'
                 }
                 else if (choice1 === 'Headset' && choice4 === 'Luxury'){
-                    resultImg.src = "../images/Lochness_372.png"
+                    resultImg.src = "../images/main-shop/Lochness_372.png"
                     resultName.innerText = 'neXus Lochness'
                     resultText.innerText = 'The neXus  is a premium gaming headset with surround sound and noise-canceling features for an immersive gaming experience.'
                 }

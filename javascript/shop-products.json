@@ -58,5 +58,15 @@
   "image": "../images/desktop-tiling.png",
   "title": "nexos-pro-26-07",
   "price": 39.99
+  },
+  {
+  "image": "../images/main-shop/Spectre_372.png",
+  "title": "nexos-spectre-gaming-headset-50mm-drivers-clearcast-microphone",
+  "price": 165
+  },
+  {
+  "image": "../images/main-shop/Hunter_372.png",
+  "title": "nexos-hunter-gaming-keyboard-1000hz-polling",
+  "price": 130
   }
 ]
