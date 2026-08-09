@@ -17,6 +17,7 @@
     <script src="../../javascript/chatbot.js"></script>
     <script src="../../javascript/shop-only.js" defer></script>
     <script src="../../javascript/accordion.js" defer></script>
+    <script src="../../javascript/keyboard-tech.js" defer></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
@@ -30,51 +31,58 @@
 <body>
     <div id="header-container" class="sticky top-0 z-50"></div>
 
+    <!-- Hero section displaying page title and tagline -->
     <section class="flex max-w-8xl w-full h-[calc(100vh-80px)] min-h-[500px] flex-col items-center justify-center text-center px-4 relative select-none gap-8" >
             
         <div class="main-headline flex flex-col items-center justify-center gap-6">
             <h1 class="text-5xl sm:text-4xl md:text-5xl flex flex-col font-black text-white tracking-wider uppercase">
                 <span>Technical</span> <span class="text-[var(--maingreen)]">Specifications</span>
             </h1>
-            <p tagline class="text-xs sm:text-sm md:text-base font-semibold text-gray-400 tracking-[0.25em] uppercase">
+            <p class="tagline text-xs sm:text-sm md:text-base font-semibold text-gray-400 tracking-[0.25em] uppercase">
                 Everything that you need to know for the neXus-60he
             </p>
         </div>
     </section>
 
+    <!-- Scroll-driven visual breakdown section -->
     <section class="relative">
         <!-- Main Scroll Zone -->
         <div class="relative w-full max-w-[100rem] mx-auto">
         
-        <!-- STICKY CENTER VISUAL -->
+        <!-- Sticky background images that change on scroll -->
             <div class="absolute top-0 left-0 w-full h-full z-0 pointer-events-none block pt-[120px]">
                 <div class="sticky top-0 h-screen w-full flex items-center justify-center">
                     <div class="w-[90%] lg:w-[33%] h-[50vh] relative">
                     
+                        <!-- Graphic 1: Disassembled layout image -->
                         <div data-graphic="1" class="absolute inset-0 flex flex-col items-center justify-center p-8 transition-all duration-700 ease-out opacity-100 scale-100">
                          
-                            <img src="../../images/tech-page/keyboardDisassembled.webp">
+                            <img src="../../images/tech-page/keyboardDisassembled.webp" alt="keyboard disassembly">
                  
                         </div>
 
+                        <!-- Graphic 2: Keycaps image -->
                         <div data-graphic="2" class="absolute inset-0 flex flex-col items-center justify-center p-8 transition-all duration-700 ease-out opacity-0 scale-95">
-                            <img src="../../images/tech-page/keyCapsBlender.webp">
+                            <img src="../../images/tech-page/keyCapsBlender.webp" alt="keycaps">
                         </div>
 
+                        <!-- Graphic 3: Switch detail image -->
                         <div data-graphic="3" class="absolute inset-0 flex flex-col items-center justify-center p-8 transition-all duration-700 ease-out opacity-0 scale-95">
-                            <img src="../../images/tech-page/keyboardSwitch.webp">
+                            <img src="../../images/tech-page/keyboardSwitch.webp" alt="keyboard switches">
                         </div>
 
+                        <!-- Graphic 4: Bottom case image -->
                         <div data-graphic="4" class="absolute inset-0 flex flex-col items-center justify-center p-8 transition-all duration-700 ease-out opacity-0 scale-95">
-                            <img src="../../images/tech-page/keyboadBottom.webp">
+                            <img src="../../images/tech-page/keyboadBottom.webp" alt="bottom of the keyboard">
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- FOREGROUND SCROLLING TEXT -->
+            <!-- Foreground text specifications triggered during scroll -->
             <div class="relative z-10 w-full px-6 lg:px-12 pointer-events-auto">
             
+                <!-- Feature 01: Disassembly specifications -->
                 <div data-feature="1" class="flex flex-col lg:flex-row items-center justify-between min-h-screen py-24 transition-opacity duration-700 opacity-30">
                     
                     <div class="w-full lg:w-[30%] text-center lg:text-right mb-8 lg:mb-0">
@@ -89,18 +97,18 @@
                         <div class="space-y-3 text-xs sm:text-sm lg:text-lg font-light">
 
                             <div class="flex justify-between border-b border-neutral-800/60 pb-2">
-                                <span id="label-1" class="text-neutral-500 uppercase">LAYOUT</span>
-                                <span id="val-1" class="text-neutral-200 font-medium">75% Exploded Layout</span>
+                                <span  class="text-neutral-500 uppercase">LAYOUT</span>
+                                <span  class="text-neutral-200 font-medium">75% Exploded Layout</span>
                             </div>
 
                             <div class="flex justify-between border-b border-neutral-800/60 pb-2">
-                                <span id="label-2" class="text-neutral-500 uppercase">MOUNTING</span>
-                                <span id="val-2" class="text-neutral-200 font-medium">Gasket Mount System</span>
+                                <span  class="text-neutral-500 uppercase">MOUNTING</span>
+                                <span  class="text-neutral-200 font-medium">Gasket Mount System</span>
                             </div>
 
                             <div class="flex justify-between border-b border-neutral-800/60 pb-2">
-                                <span id="label-3" class="text-neutral-500 uppercase">WEIGHT</span>
-                                <span id="val-3" class="text-neutral-200 font-medium">0.85 kg (Built)</span>
+                                <span  class="text-neutral-500 uppercase">WEIGHT</span>
+                                <span  class="text-neutral-200 font-medium">0.85 kg (Built)</span>
                             </div>
                         
                         </div>
@@ -109,6 +117,7 @@
 
                 </div>
 
+                <!-- Feature 02: Keycaps specifications -->
                 <div data-feature="2" class="flex flex-col lg:flex-row items-center justify-between min-h-screen py-24 transition-opacity duration-700 opacity-30">
                     
                     <div class="w-full lg:w-[30%] text-center lg:text-right mb-8 lg:mb-0">
@@ -123,18 +132,18 @@
                         <div class="space-y-3 text-xs sm:text-sm lg:text-lg font-light">
                            
                             <div class="flex justify-between border-b border-neutral-800/60 pb-2">
-                                <span id="label-1" class="text-neutral-500 uppercase">PROFILE</span>
-                                <span id="val-1" class="text-neutral-200 font-medium">Cherry Profile</span>
+                                <span  class="text-neutral-500 uppercase">PROFILE</span>
+                                <span  class="text-neutral-200 font-medium">Cherry Profile</span>
                             </div>
 
                             <div class="flex justify-between border-b border-neutral-800/60 pb-2">
-                                <span id="label-2" class="text-neutral-500 uppercase">MATERIAL</span>
-                                <span id="val-2" class="text-neutral-200 font-medium">Double-shot PBT (1.5mm)</span>
+                                <span  class="text-neutral-500 uppercase">MATERIAL</span>
+                                <span  class="text-neutral-200 font-medium">Double-shot PBT (1.5mm)</span>
                             </div>
 
                             <div class="flex justify-between border-b border-neutral-800/60 pb-2">
-                                <span id="label-3" class="text-neutral-500 uppercase">LEGENDS</span>
-                                <span id="val-3" class="text-neutral-200 font-medium">Seamless Dye-Sublimated</span>
+                                <span  class="text-neutral-500 uppercase">LEGENDS</span>
+                                <span  class="text-neutral-200 font-medium">Seamless Dye-Sublimated</span>
                             </div>
 
                         </div>
@@ -143,6 +152,7 @@
 
                 </div>
 
+                <!-- Feature 03: Switches specifications -->
                 <div data-feature="3" class="flex flex-col lg:flex-row items-center justify-between min-h-screen py-24 transition-opacity duration-700 opacity-30">
                     
                     <div class="w-full lg:w-[30%] text-center lg:text-right mb-8 lg:mb-0">
@@ -157,18 +167,18 @@
                         <div class="space-y-3 text-xs sm:text-sm lg:text-lg font-light">
                             
                             <div class="flex justify-between border-b border-neutral-800/60 pb-2">
-                                <span id="label-1" class="text-neutral-500 uppercase">TYPE</span>
-                                <span id="val-1" class="text-neutral-200 font-medium">Pre-Lubed Linear</span>
+                                <span  class="text-neutral-500 uppercase">TYPE</span>
+                                <span  class="text-neutral-200 font-medium">Pre-Lubed Linear</span>
                             </div>
 
                             <div class="flex justify-between border-b border-neutral-800/60 pb-2">
-                                <span id="label-2" class="text-neutral-500 uppercase">OPERATING FORCE</span>
-                                <span id="val-2" class="text-neutral-200 font-medium">45 cN Actuation</span>
+                                <span  class="text-neutral-500 uppercase">OPERATING FORCE</span>
+                                <span  class="text-neutral-200 font-medium">45 cN Actuation</span>
                             </div>
 
                             <div class="flex justify-between border-b border-neutral-800/60 pb-2">
-                                <span id="label-3" class="text-neutral-500 uppercase">SOUND</span>
-                                <span id="val-3" class="text-neutral-200 font-medium">Snappy & Deep Thock</span>
+                                <span  class="text-neutral-500 uppercase">SOUND</span>
+                                <span  class="text-neutral-200 font-medium">Snappy & Deep Thock</span>
                             </div>
 
                         </div>
@@ -177,6 +187,7 @@
 
                 </div>
 
+                <!-- Feature 04: Bottom case specifications -->
                 <div data-feature="4" class="flex flex-col lg:flex-row items-center justify-between min-h-screen py-24 transition-opacity duration-700 opacity-30">
                     
                     <div class="w-full lg:w-[30%] text-center lg:text-right mb-8 lg:mb-0">
@@ -190,18 +201,18 @@
                         
                         <div class="space-y-3 text-xs sm:text-sm lg:text-lg font-light">
                             <div class="flex justify-between border-b border-neutral-800/60 pb-2">
-                                <span id="label-1" class="text-neutral-500 uppercase">MATERIAL</span>
-                                <span id="val-1" class="text-neutral-200 font-medium">6063 Anodized Aluminum</span>
+                                <span  class="text-neutral-500 uppercase">MATERIAL</span>
+                                <span  class="text-neutral-200 font-medium">6063 Anodized Aluminum</span>
                             </div>
 
                             <div class="flex justify-between border-b border-neutral-800/60 pb-2">
-                                <span id="label-2" class="text-neutral-500 uppercase">DAMPENING</span>
-                                <span id="val-2" class="text-neutral-200 font-medium">Poron Case Foam + PET Sheet</span>
+                                <span  class="text-neutral-500 uppercase">DAMPENING</span>
+                                <span  class="text-neutral-200 font-medium">Poron Case Foam + PET Sheet</span>
                             </div>
 
                             <div class="flex justify-between border-b border-neutral-800/60 pb-2">
-                                <span id="label-3" class="text-neutral-500 uppercase">WEIGHT BAR</span>
-                                <span id="val-3" class="text-neutral-200 font-medium">Brass Accent Weight</span>
+                                <span  class="text-neutral-500 uppercase">WEIGHT BAR</span>
+                                <span  class="text-neutral-200 font-medium">Brass Accent Weight</span>
                             </div>
 
                         </div>
@@ -210,6 +221,7 @@
 
                 </div>
 
+                <!-- Spacer element to extend scroll length -->
                 <div class="h-[150px] w-full"></div>
 
             </div>
@@ -218,8 +230,7 @@
 
     </section>
 
-
-
+    <!-- Additional specifications accordion list section -->
     <section id="faq" class="w-full bg-[--background] py-20 px-4 md:px-8 flex flex-col items-center overflow-hidden z-20">
 
         <div class="max-w-5xl w-full">
@@ -233,8 +244,10 @@
                 </p>
             </div>
 
+            <!-- Accordion items container -->
             <div class="space-y-4" id="faq-accordion">
 
+                <!-- Accordion item: Dimensions and weight -->
                 <div class="faq-item bg-neutral-900 border border-neutral-800 rounded-2xl overflow-hidden transition-colors">
                     <button class="faq-trigger w-full px-6 py-5 flex justify-between items-center text-left text-white font-bold text-lg sm:text-xl focus:outline-none">
                         <span class="font-medium text-lg">Dimension and weight</span>
@@ -249,6 +262,7 @@
                     </div>
                 </div>
 
+                <!-- Accordion item: Power and Connection -->
                 <div class="faq-item bg-neutral-900 border border-neutral-800 rounded-2xl overflow-hidden transition-colors">
                     <button class="faq-trigger w-full px-6 py-5 flex justify-between items-center text-left text-white font-bold text-lg sm:text-xl focus:outline-none">
                         <span class="font-medium text-lg">Power and Connection</span>
@@ -264,6 +278,7 @@
                     </div>
                 </div>
 
+                <!-- Accordion item: Care and Maintenance -->
                 <div class="faq-item bg-neutral-900 border border-neutral-800 rounded-2xl overflow-hidden transition-colors">
                     <button class="faq-trigger w-full px-6 py-5 flex justify-between items-center text-left text-white font-bold text-lg sm:text-xl focus:outline-none">
                         <span class="font-medium text-lg">Care and Maintenance</span>
@@ -290,59 +305,6 @@
     <div id="footer-container"></div>
 
     <script src="https://unpkg.com/@studio-freight/lenis@1.0.39/dist/lenis.min.js"></script> 
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const lenis = new Lenis({
-                duration: 1.2,
-                easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
-            })
-
-            function raf(time) {
-                lenis.raf(time)
-                requestAnimationFrame(raf)
-            }
-
-            requestAnimationFrame(raf)
-
-            const rows = document.querySelectorAll("[data-feature]")
-            const graphics = document.querySelectorAll("[data-graphic]")
-
-            const observer = new IntersectionObserver(
-                (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                    const id = entry.target.getAttribute("data-feature")
-
-                    rows.forEach((row) => {
-                        if (row.getAttribute("data-feature") === id) {
-                        row.classList.remove("opacity-30")
-                        row.classList.add("opacity-100")
-                        } else {
-                        row.classList.add("opacity-30")
-                        row.classList.remove("opacity-100")
-                        }
-                    })
-
-                    graphics.forEach((graphic) => {
-                        if (graphic.getAttribute("data-graphic") === id) {
-                        graphic.classList.remove("opacity-0", "scale-95")
-                        graphic.classList.add("opacity-100", "scale-100")
-                        } else {
-                        graphic.classList.add("opacity-0", "scale-95")
-                        graphic.classList.remove("opacity-100", "scale-100")
-                        }
-                    })
-                    }
-                })
-                },
-                { rootMargin: "-40% 0px -40% 0px", threshold: 0 } 
-            )
-            
-            rows.forEach((row) => {
-                observer.observe(row)
-            })
-        })
-    </script>
 
 </body>
 </html>

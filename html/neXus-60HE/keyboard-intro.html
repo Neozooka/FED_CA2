@@ -24,10 +24,13 @@
 
 <body class="bg-[var(--background2)] text-[var(--text)] font-roboto">
 
-    <div id="loading-screen" class="fixed inset-0 z-[9999] bg-black transition-opacity duration-500 opacity-100 pointer-events-auto"></div>
+    <!-- Loading screen code -->
+    <div id="loading-screen" class="fixed inset-0 z-[9999] bg-black transition-opacity duration-500 opacity-0 pointer-events-none"></div>
 
+    <!-- Sticky header navigation container -->
     <div id="header-container" class="sticky top-0 z-50 transition-transform duration-300 ease-in-out"></div>
 
+    <!-- Fixed background canvas for 3D/animated keyboard with radial dark overlay -->
     <div class="fixed inset-0 w-screen h-screen z-0 pointer-events-none flex items-center justify-center overflow-hidden">
         
         <canvas id="global-keyboard-canvas" class="block w-full h-full opacity-80"></canvas>
@@ -36,20 +39,24 @@
 
     </div>
 
+    <!-- Main content area -->
     <main class="relative z-10 w-full">
 
-        <!-- Fully Centered Screen Layout -->
-        <section class="h-screen flex flex-col justify-center items-center text-center p-8 md:p-16 max-w-7xl mx-auto">                
+        <!-- Initial hero section prompting the user to scroll -->
+        <section class="min-h-[100dvh] flex flex-col justify-center items-center text-center p-8 md:p-16 max-w-7xl mx-auto">                
             
             <div class="h-[50vh]"></div>
 
-            <div class="text-xs text-neutral-500 tracking-widest uppercase animate-pulse">
+            <div class="text-xs text-neutral-500 tracking-widest uppercase animate-pulse mt-auto mb-8">
                 &#8595; Scroll to animate keyboard
             </div>
 
         </section>
 
+        <!-- Feature showcase cards (Craftsmanship, Design, Limited Edition) -->
         <section class="min-h-screen flex flex-col justify-start p-8 md:p-16 max-w-7xl mx-auto gap-[500px] mb-[500px]">
+            
+            <!-- Feature 02: Craftsmanship -->
             <div class="max-w-md bg-transparent p-8 rounded-2xl backdrop-blur-sm">
 
                 <p class="font-oxanium text-xs font-medium uppercase tracking-widest text-neutral-200 mb-4">02 — Our Craft</p>
@@ -62,6 +69,7 @@
 
             </div>
 
+            <!-- Feature 03: Design -->
             <div class="max-w-md bg-transparent p-8 rounded-2xl backdrop-blur-sm">
                 
                 <p class="font-oxanium text-xs font-medium uppercase tracking-widest text-neutral-200 mb-4">03 — Design</p>
@@ -74,6 +82,7 @@
 
             </div>
 
+            <!-- Feature 04: Limited Edition -->
             <div class="max-w-md bg-transparent p-8 rounded-2xl backdrop-blur-sm">
                 
                 <p class="font-oxanium text-xs font-medium uppercase tracking-widest text-neutral-200 mb-4">04 — Limited Edition</p>
@@ -88,12 +97,15 @@
 
         </section>
 
+        <!-- Interactive section for switch sound and type customization -->
         <div id="feel-and-play-track" class="relative w-full h-[200vh]">
 
+            <!-- Sticky wrapper to keep content centered while scrolling through this section -->
             <div class="sticky top-0 h-[100dvh] w-full flex items-center justify-center p-6 md:p-12 lg:p-16 overflow-hidden">
                 
                 <div class="w-full max-w-7xl flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12">
 
+                    <!-- Description column -->
                     <div class="w-full lg:w-1/3 p-6 md:p-8 rounded-2xl bg-transparent">
                         
                         <p class="font-oxanium text-xs font-medium uppercase tracking-widest text-neutral-200 mb-4">03 — FEEL & PLAY</p>
@@ -111,9 +123,10 @@
                         </div>
                     </div>
 
+                    <!-- Interactive control column for switch preview -->
                     <div class="w-full lg:w-5/12 flex flex-col gap-4">
 
-                        <!-- Picture Container -->
+                        <!-- Switch image preview box -->
                         <div class="w-full h-[200px] sm:h-[250px] lg:h-[240px] rounded-2xl bg-slate-300 backdrop-blur-sm flex items-end p-4 relative shrink-0">
                             
                             <img id="switch-image" src="../../images/tech-page/LinearSwitchIntro.webp" class="mx-auto h-[250px]" alt="images of keyboard switches">
@@ -124,8 +137,10 @@
 
                         </div>
 
+                        <!-- Switch selector tabs, specs, and audio preview button -->
                         <div class="lg:col-span-5 bg-transparent p-8 rounded-2xl backdrop-blur-sm space-y-6 text-white">
 
+                            <!-- Category selection tabs -->
                             <div class="flex space-x-4 pb-3 font-oxanium font-semibold text-xs tracking-wider uppercase">
 
                                 <span id="tab-linear" class="text-white">
@@ -142,6 +157,7 @@
 
                             </div>
 
+                            <!-- Selected switch specifications -->
                             <div class="space-y-3 text-xs font-light">
 
                                 <div class="flex justify-between pb-2 border-b border-white/10">
@@ -156,6 +172,7 @@
 
                             </div>
 
+                            <!-- Button to trigger audio preview -->
                             <button class="w-full py-3 text-white font-oxanium font-semibold text-xs tracking-wider uppercase transition rounded-lg bg-white/10 hover:bg-white/20 active:scale-[0.98]" onclick="playSounds()">
                                 Play Switch Sound
                             </button>
@@ -170,6 +187,7 @@
 
         </div>      
 
+        <!-- Section linking to full technical specifications -->
         <section id="section-tech-spec" class="min-h-screen w-full flex flex-col justify-center items-center text-center p-8 max-w-2xl mx-auto">
             <p class="font-oxanium text-xs font-medium uppercase tracking-widest text-neutral-200 mb-4">05 — TECH & SPEC</p>
             <h2 class="font-oxanium font-bold uppercase text-neutral-100 tracking-tight leading-none text-balance text-4xl md:text-6xl mb-6">Engineered for Precision</h2>
@@ -178,6 +196,7 @@
             </a>
         </section>
 
+        <!-- Call-to-action section directing to the product purchase page -->
         <section class="min-h-screen w-full flex flex-col justify-center items-center text-center p-8 max-w-2xl mx-auto">
             <p class="font-oxanium text-xs font-medium uppercase tracking-widest text-neutral-200 mb-4">06 — PRE-ORDER</p>
             <h2 class="font-oxanium font-bold uppercase text-neutral-100 tracking-tight leading-none text-balance text-4xl md:text-6xl mb-6">Pre-Order Now Open</h2>

@@ -2,12 +2,13 @@ const canvas = document.getElementById('global-keyboard-canvas')
 const ctx = canvas.getContext('2d')
 
 // Set total frame count to match your image files
+
 const frameCount = 100 
 const images = []
 let currentFrame = 0
 
-// Helper function to dynamically format image file paths
-// Example: frame 1 -> /images/keyboard/frame_001.webp
+// Makes sures that file path is correct
+
 function getFramePath(index) {
     // Pads number with zeros (e.g., 001, 012, 100)
     const paddedIndex = String(index + 1).padStart(4, '0') 
@@ -15,6 +16,7 @@ function getFramePath(index) {
 }
 
 // Preload all real images into memory
+
 function preloadImages() {
     for (let i = 0; i < frameCount; i++) {
         const img = new Image()
@@ -30,7 +32,10 @@ function preloadImages() {
 }
 
 // Call preloader immediately
+
 preloadImages()
+
+// Resize the image to fit the screen 
 
 function resize() {
     canvas.width = window.innerWidth * window.devicePixelRatio
@@ -60,6 +65,7 @@ function renderGlobalFrame(index) {
 }
 
 // Scroll scrub event listener
+
 window.addEventListener('scroll', () => {
     const scrollTop = window.scrollY
     const sectionTechSpec = document.getElementById('section-tech-spec')
@@ -80,6 +86,7 @@ window.addEventListener('scroll', () => {
     updateFeelAndPlaySection()
 })
 
+// Linking the photos
 
 const photos = {
     linear: '../../images/tech-page/LinearSwitchIntro.webp',
@@ -88,6 +95,8 @@ const photos = {
 }
 
 let active = 'linear'
+
+// Code for scroll scrub
 
 function updateFeelAndPlaySection() {
     const imageSwitch = document.getElementById('switch-image')
@@ -134,6 +143,8 @@ function updateFeelAndPlaySection() {
     }
 }
 
+// Code to play sound
+
 function playSounds() {
     const playSound = new Audio(`../../sounds/${active}.mp3`)
     playSound.currentTime = 0
@@ -142,6 +153,8 @@ function playSounds() {
 
 window.addEventListener('resize', resize)
 window.addEventListener('load', resize)
+
+// Code for Loading Screen
 
 window.addEventListener("load", () => {
     const loader = document.getElementById("loading-screen")

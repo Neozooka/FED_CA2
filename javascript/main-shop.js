@@ -1,12 +1,7 @@
 const path = "../../javascript/shop-products.json"
 
 
-
-
-
-
-
-// Payment stuff
+// Payment.html stuff
 
 let totalCost = 0
 let isApplied = false
@@ -41,11 +36,13 @@ function checkPromo() {
     alert('INVALID PROMO CODE!')
 }
 
+// Loading products for payment.html
+
 function loadProductsFromList(cartList) {
     const priceTotal = document.getElementById("checkout-total-price")
     const numberItems = document.getElementById("checkout-item-count")
-    const CartTemplate = document.querySelector("[cart-template]")
-    const CartContainer = document.querySelector("[cart-container]")
+    const CartTemplate = document.querySelector("[data-cart-template]")
+    const CartContainer = document.querySelector("[data-cart-container]")
 
     // Reset total before recalculating
     totalCost = 0
@@ -159,7 +156,7 @@ const search2Input = document.getElementById("search2") || (typeof search2 !== "
 if (search2Input) {
     search2Input.addEventListener("input", e => {
         const value = e.target.value.toLowerCase()
-        const CartContainer = document.querySelector("[cart-container]")
+        const CartContainer = document.querySelector("[data-cart-container]")
         if (!CartContainer) return
 
         const cartCards = CartContainer.querySelectorAll(".container")
@@ -191,7 +188,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
 
 
-
+// Creates the cart
 
 let cart = JSON.parse(localStorage.getItem("userCart")) || []
 
@@ -206,6 +203,8 @@ function saveCart() {
         updateCartCount()
     }
 }
+
+// Shows what you ordered after clicking
 
 function showToastNotification(productName) {
     let container = document.getElementById('toast-container')
@@ -240,6 +239,8 @@ function showToastNotification(productName) {
     }, 3000)
 }
 
+// Add cart using JSON file and input from shop
+
 async function addCart(id) {
     
     try {
@@ -269,6 +270,8 @@ async function addCart(id) {
     }
 }
 
+// Tweeks the quantity
+
 function changeQuantity(index, delta) {
     if (cart[index]) {
         cart[index].quantity = (cart[index].quantity || 1) + delta
@@ -281,6 +284,8 @@ function changeQuantity(index, delta) {
         loadProductsFromList(cart)
     }
 }
+
+// Removes item from page
 
 function remove(index) {
     const arrayIndex = parseInt(index)
@@ -304,6 +309,7 @@ function remove(index) {
 
 
 // Shop Product List
+
 const shop_list = [
     "nexus-60he-magnetic-keyboard-8000hz-polling-adjustable",
     "nexus-single-monitor-arm-gas-spring-desk-mount-usb-ports",
@@ -322,6 +328,8 @@ const shop_list = [
 ]
 
 const searchInput = document.getElementById("search") || (typeof search !== "undefined" ? search : null);
+
+// Search input for mainshop
 
 if (searchInput) {
 
@@ -370,6 +378,8 @@ if (searchInput) {
 
 let productsList = []
 
+//Loading the products from JSON
+
 async function loadProducts() {
     try {
         const response = await fetch(path) // Update path to match your JSON file location
@@ -381,6 +391,7 @@ async function loadProducts() {
         productsList = await response.json()
 
         // Initial render and sort setup
+
         loadingProductShop(productsList)
         productSort(productsList)
 
@@ -388,6 +399,8 @@ async function loadProducts() {
         console.error("Failed to load products from JSON:", error)
     }
 }
+
+//Loading onto the template and creating child elements
 
 function loadingProductShop(products) {
     const gridContainer = document.getElementById("product-grid")
@@ -443,6 +456,8 @@ function loadingProductShop(products) {
     });
 }
 
+// Sorting function
+
 function productSort(products) {
     const sortSelect = document.getElementById("sort-select")
     if (!sortSelect) return
@@ -462,6 +477,7 @@ function productSort(products) {
 }
 
 // Initialize on load
+
 document.addEventListener("DOMContentLoaded", () => {
     loadingProductShop(productsList)
     productSort(productsList)

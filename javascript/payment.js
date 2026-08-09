@@ -3,6 +3,8 @@ const expiry = document.getElementById("expiry")
 const cvv = document.getElementById("CVV")
 const cardName = document.getElementById("cardName")
 
+// Checking which button is active
+
 function showAlert(inputElement, alertElement, msg, isValid) {
     if (isValid) {
         inputElement.classList.remove("border-red-500", "focus:border-red-500")
@@ -16,6 +18,8 @@ function showAlert(inputElement, alertElement, msg, isValid) {
         alertElement.innerText = msg
     }
 }
+
+// Checks for to make sure the number, cvv, date, and name is correct
 
 let cardNumberList = []
 let ExpiryList = []
@@ -107,11 +111,6 @@ function checkFormValidity() {
 }
 
 checkFormValidity()
-
-function print() {
-    // console.log(cart)
-    alert(`Credit Card Number: ${cardNumberList.pop()} Expiry: ${ExpiryList.pop()} CVV: ${CVVList.pop()} Name: ${NameList.pop()}`)
-}
 
 function choosePayment(id) {
     element = document.querySelectorAll(".pay-button")

@@ -15,18 +15,22 @@
 
         <script src="../javascript/header-footer.js"></script>
         <script src="../javascript/chatbot.js"></script>
-        <script src="../javascript/find-your-product.js" defer></script> 
+        <script src="../javascript/find-your-product.js" defer></script>
+        <script src = "../javascript/find-your-product.js" defer></script>
+   
     </head>
-
-    <script src = "../javascript/find-your-product.js"></script>
   
     <body>
 
         <div id="header-container"></div>
 
+        <!-- Interactive product recommendation quiz container -->
         <article class="flex flex-col items-center justify-center p-8 text-white min-h-screen" style="background-color: var(--background);">
             <div class="w-full max-w-2xl">
+                <!-- Quiz card box -->
                 <div id="quiz" class="bg-white/10 backdrop-blur rounded-lg p-8 mx-auto text-center transition-opacity duration-500">
+                    
+                    <!-- Question 1: Product category choice -->
                     <div id="q1" class="question">
                         <h2 class="text-2xl font-semibold mb-6">What are you looking for?</h2>
                         <div class="grid grid-cols-1 gap-4">
@@ -36,6 +40,7 @@
                         </div>
                     </div>
 
+                    <!-- Question 2: Preferred game genre (hidden by default) -->
                     <div id="q2" class="question hidden opacity-0 mt-6">
                         <h2 class="text-2xl font-semibold mb-6">Which of these genres do you play most?</h2>
                         <div class="grid grid-cols-1 gap-4">
@@ -46,6 +51,7 @@
                         </div>
                     </div>
 
+                    <!-- Question 3: Key priority selection (hidden by default) -->
                     <div id="q3" class="question hidden opacity-0 mt-6">
                         <h2 class="text-2xl font-semibold mb-6">What matters to you most?</h2>
                         <div class="grid grid-cols-1 gap-4">
@@ -56,6 +62,7 @@
                         </div>
                     </div>
 
+                    <!-- Question 4: Budget tier selection (hidden by default) -->
                     <div id="q4" class="question hidden opacity-0 mt-6">
                         <h2 class="text-2xl font-semibold mb-6">What is your budget like?</h2>
                         <div class="grid grid-cols-1 gap-4">
@@ -64,20 +71,26 @@
                         </div>
                     </div>
 
+                    <!-- Results section displaying the recommended product (hidden by default) -->
                     <div id="results" class="hidden opacity-0 mt-6">
                         <h2 class="text-2xl font-semibold mb-4">Recommendation</h2>
                         <div id="result-images" class="grid grid-cols-1 gap-4 mb-4">
                             <div class="bg-white/10 rounded-lg p-4">
                             
+                            <!-- Recommended product image box -->
                             <div class="w-full max-h-64 aspect-video bg-black/20 rounded-lg mb-4 overflow-hidden flex items-center justify-center">
                                 <img id="result-img" src="https://via.placeholder.com/400x200?text=PlaceholderImage1" alt="Product placeholder" class="max-w-full max-h-full object-contain">
                             </div>
 
+                            <!-- Recommended product title -->
                             <p class="text-lg font-semibold">Product: <span id="result-name" class="text-white/70">PlaceholderText1</span></p>
                             </div>
                         </div>
 
+                        <!-- Recommended product details -->
                         <p id="result-text" class="mb-4">PlaceholderText1 description</p>
+                        
+                        <!-- Reset button to restart the quiz -->
                         <button id="restart" class="btn outline outline-2 outline-white/50 hover:outline-white">Start Over</button>
                     </div>
                 </div>
