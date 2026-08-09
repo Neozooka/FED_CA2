@@ -1,0 +1,45 @@
+WEBSITE FEATURES
+================
+
+FEATURES BY PAGE
+----------------
+
+| Page | Main features |
+
+|---|---|
+
+| index.html | Product image carousel, animated headings, best sellers, quality highlights, newsletter form and success modal. |
+| html/find-your-product.html | Four-step product quiz, automatic recommendation and restart button. |
+| html/neXos/nexos-computer.html | Partner navigation, smooth scrolling and computer showcase cards. |
+| html/neXos/nexos-intro.html | Typewriter hero, review carousel, performance slider, before/after comparison, video, CTA effects and FAQ. |
+| html/neXos/nexos-pro.html | 3D helix, scroll story, desktop-layout switcher, performance slider, software carousel, CTA and FAQ. |
+| html/neXos/nexos-shop.html | Add to cart, two comparison tables, hardware scanner, download modal and validated ISO form. |
+| html/neXus-60HE/keyboard-creator.html | Creator biography, profile image and contact details. |
+| html/neXus-60HE/keyboard-intro.html | 100-frame canvas animation, Linear/Tactile/Clicky selector, live specifications and switch sounds. |
+| html/neXus-60HE/keyboard-shop.html | Review carousel, product gallery, variation selector, cart buttons, booking form, date limits and dynamic Google Map. |
+| html/neXus-60HE/keyboard-tech.html | Scroll-linked technical images, smooth scrolling and FAQ accordion. |
+| html/shop-main.html | JSON product grid, search, price sorting, result count, cart actions and toast messages. |
+| html/payment.html | Cart search, quantity controls, item removal, promo code, card validation, payment selector, QR modal and totals. |
+
+SHARED FEATURES
+---------------
+
+| Feature | Found in |
+
+|---|---|
+
+| Responsive mobile menu and desktop drawer | javascript/header-footer.js; all pages |
+| Shared header, footer and cart badge | javascript/header-footer.js; all pages |
+| Support chatbot with saved chat history | javascript/header-footer.js + javascript/bot-data.json; all pages |
+| Back-to-top button | javascript/header-footer.js; all pages |
+| Scroll-reveal effects | javascript/reveal-on-scroll.js + css/style.css |
+| FAQ accordion | javascript/accordion.js |
+| Review carousel | javascript/review.js |
+| Performance slider | javascript/perf-slider.js |
+| Shopping cart and product rendering | javascript/main-shop.js + javascript/shop-products.json |
+| Global colours, fonts and animations | css/style.css |
+
+EXTRA FEATURES BEYOND THE MINIMUM
+---------------------------------
+
+The website also includes a persistent chatbot, localStorage cart, JSON product data, WebGL hardware detection, a 100-frame canvas sequence, 3D helix animation, QR payment simulation, Google Maps, keyboard audio samples, toast messages
