@@ -27,16 +27,16 @@
     <div id="header-container" class="sticky top-0 z-50"></div>
 
     <div id="qrModal" onclick="closeOnOutsideClick(event)" class="fixed inset-0 bg-black/80 z-40 hidden flex items-center justify-center p-4">
-        
-        <div class="bg-[var(--background)] border border-gray-700 rounded-xl p-6 sm:p-8 relative max-w-xl w-full text-center shadow-xl">
+    
+        <div class="bg-[var(--background)] border border-gray-700 rounded-xl p-6 sm:p-8 relative max-w-sm w-full text-center shadow-xl max-h-[85vh] flex flex-col items-center justify-center">
             
             <button onclick="closeQR()" class="absolute top-3 right-4 text-gray-400 hover:text-white text-4xl font-thin leading-none p-1 transition-colors">
                 &times;
             </button>
             
-            <div id="qrTitle"></div>
+            <div id="qrTitle" class="mb-4"></div>
             
-            <img id="qrImage" src="" alt="QR Code" class="w-[300px] h-[300px] sm:w-[500px] sm:h-[500px] mx-auto bg-white p-3 rounded-lg object-contain">
+            <img id="qrImage" src="" alt="QR Code" class="w-full max-w-[280px] sm:max-w-[360px] max-h-[50vh] aspect-square mx-auto bg-white p-3 rounded-lg object-contain">
         </div>
 
     </div>

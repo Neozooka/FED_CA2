@@ -8,30 +8,33 @@ const path = "../../javascript/shop-products.json"
 
 // Payment stuff
 
-
-
 let totalCost = 0
 let isApplied = false
+let currentDiscount = 0 // Track applied discount amount
 
 const VALID_PROMOS = [{
     "code": "HUATAH61",
     "promo": 10
-}
-]
+}]
 
 function checkPromo() {
-    const code = document.getElementById('promoInput').value.trim().toUpperCase();
+    const code = document.getElementById('promoInput').value.trim().toUpperCase()
     const priceTotal = document.getElementById("checkout-total-price")
+
+    if (isApplied) {
+        alert('A promo code has already been applied!')
+        return
+    }
+
     for (let i = 0; i < VALID_PROMOS.length; i++) {
-        if (isApplied) {
-            alert('A promo code has already been applied!')
-            return
-        }
         if (code === VALID_PROMOS[i]["code"]) {
-            totalCost -= VALID_PROMOS[i]["promo"]
+            currentDiscount = VALID_PROMOS[i]["promo"]
+            totalCost = Math.max(0, totalCost - currentDiscount)
             isApplied = true
             alert('APPLIED!')
-            priceTotal.textContent = totalCost.toFixed(2)
+            if (priceTotal) {
+                priceTotal.textContent = totalCost.toFixed(2)
+            }
             return
         } 
     }
@@ -44,6 +47,9 @@ function loadProductsFromList(cartList) {
     const CartTemplate = document.querySelector("[cart-template]")
     const CartContainer = document.querySelector("[cart-container]")
 
+    // Reset total before recalculating
+    totalCost = 0
+
     if (!CartContainer) {
         return
     }
@@ -52,39 +58,37 @@ function loadProductsFromList(cartList) {
     if (!cartList || cartList.length === 0) {
         CartContainer.innerHTML = `
             <div class="flex flex-col items-center justify-center py-12 px-4 text-center">
-        
                 <h3 class="text-xl font-semibold text-white mb-1">Your cart is empty</h3>
                 <p class="text-sm text-gray-400 max-w-xs">Looks like you haven't added anything to your cart yet.</p>
             </div>
         `
 
-        if (numberItems) { 
+        if (numberItems) {
             numberItems.textContent = "0"
         }
-        if (priceTotal) { 
+        if (priceTotal) {
             priceTotal.textContent = "0.00"
         }
 
-        // Optional: Disable checkout button if present
         const checkoutBtn = document.getElementById("checkout-button")
         if (checkoutBtn) {
             checkoutBtn.disabled = true
             checkoutBtn.classList.add("opacity-50", "cursor-not-allowed")
         }
-        return;
+        return
     }
 
-    // Enable checkout button if items are in cart
     const checkoutBtn = document.getElementById("checkout-button")
     if (checkoutBtn) {
         checkoutBtn.disabled = false
         checkoutBtn.classList.remove("opacity-50", "cursor-not-allowed")
     }
 
-    if (!CartTemplate) return
+    if (!CartTemplate) {
+        return
+    }
 
     let totalItemsCount = 0
-
     CartContainer.innerHTML = ""
 
     cartList.forEach((item, index) => {
@@ -105,23 +109,23 @@ function loadProductsFromList(cartList) {
         const btnIncrease = card.querySelector(".quantity-increase")
         const btnRemove = card.querySelector(".remove")
 
-        if (containerDiv) { 
+        if (containerDiv) {
             containerDiv.setAttribute("id", `cart-item-${index}`)
         }
-        if (title) { 
+        if (title) {
             title.textContent = item.title
         }
-        if (price) { 
+        if (price) {
             price.textContent = "$" + itemTotalPrice.toFixed(2)
         }
-        if (photo) { 
+        if (photo) {
             photo.src = item.image
         }
-
         if (quantityCount) {
             quantityCount.textContent = itemQuantity
         }
 
+        // Attach event listeners
         if (btnDecrease) {
             btnDecrease.addEventListener("click", () => changeQuantity(index, -1))
         }
@@ -133,7 +137,11 @@ function loadProductsFromList(cartList) {
         }
 
         CartContainer.appendChild(card)
-    });
+    })
+
+    if (isApplied) {
+        totalCost = Math.max(0, totalCost - currentDiscount)
+    }
 
     if (numberItems) {
         numberItems.textContent = totalItemsCount
@@ -143,6 +151,8 @@ function loadProductsFromList(cartList) {
         priceTotal.textContent = totalCost.toFixed(2)
     }
 }
+
+
 
 // Searchbar input functionality for cart checkout
 const search2Input = document.getElementById("search2") || (typeof search2 !== "undefined" ? search2 : null)
