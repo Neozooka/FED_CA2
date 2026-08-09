@@ -28,11 +28,12 @@
 <body class="min-h-screen flex flex-col">
     <div id="header-container" class="sticky top-0 z-50"></div>
 
-    <section class="w-full h-[calc(100vh-80px)] min-h-[500px] flex flex-col items-center justify-center text-center px-4 relative  select-none gap-8">
+    <!-- Hero Banner Section -->
+    <section class="w-full h-[calc(100vh-80px)] min-h-[500px] flex flex-col items-center justify-center text-center px-4 relative select-none gap-8">
 
         <!-- Title & Subtitle Container -->
         <div class="main-headline flex flex-col items-center justify-center gap-3">
-            <h1 class="text-5xl sm:text-7xl md:text-8xl font-black text-white tracking-wider ">
+            <h1 class="text-5xl sm:text-7xl md:text-8xl font-black text-white tracking-wider">
                 neXus <span class="text-[var(--maingreen)]">SHOP</span>
             </h1>
             <p class="tagline text-xs sm:text-sm md:text-base font-semibold text-gray-400 tracking-[0.25em] uppercase">
@@ -41,13 +42,16 @@
         </div>
     </section>
 
+    <!-- Reusable Product Card Template -->
     <template id="product-card-template">
         <div class="product-card w-full max-w-[280px] bg-[var(--shop-item)] rounded-xl border border-gray-200 hover:shadow-md transition-all duration-200 flex flex-col items-center overflow-hidden cursor-pointer">
             <div class="w-full p-2.5 flex flex-col h-full justify-between">
                 <div>
+                    <!-- Product Image -->
                     <div class="w-full rounded-lg aspect-square overflow-hidden bg-gray-50">
                         <img data-image src="" alt="" class="w-full h-full object-cover">
                     </div>
+                    <!-- Product Information -->
                     <div class="py-2 text-left w-full flex flex-col gap-1.5">
                         <p data-title class="text-xs sm:text-sm font-normal text-white line-clamp-2 leading-tight"></p>
                         <div class="flex flex-row justify-between items-center gap-1">
@@ -56,6 +60,7 @@
                         </div>
                     </div>
                 </div>
+                <!-- Action Buttons -->
                 <div class="flex flex-row justify-between w-full gap-1.5 mt-2">
                     <button data-add-cart class="rounded-md bg-[var(--maingreen)] flex-1 h-8 px-1.5 transition hover:bg-[var(--hovergreen)] text-xs font-medium text-white">
                         Add to Cart
@@ -68,7 +73,7 @@
         </div>
     </template>
 
-
+    <!-- Main Store Catalog Content -->
     <main class="flex-grow flex flex-col items-center w-full px-4 sm:px-6 lg:px-8 py-6">
         <div class="z-10 flex w-full max-w-7xl flex-col items-center">
             
@@ -77,8 +82,9 @@
                 <input id="search" class="w-full h-12 rounded border border-gray-300 p-3 text-base shadow-inner outline-none sm:max-w-md" type="text" placeholder="Search products here" style="background-color: var(--background)">
             </div>
 
-            <!-- Count Indicator -->
+            <!-- Filter, Sorting & Results Counter Bar -->
             <div class="flex flex-row justify-between w-3/4 mb-4">
+                <!-- Price Sorting Dropdown -->
                 <div class="flex flex-row items-center gap-4">
                     <label for="sort-select" class="text-sm font-medium text-white">Sort by Price:</label>
                     <select id="sort-select" class="bg-[var(--background)] text-white border border-gray-700 rounded-md p-1.5 text-sm">
@@ -88,17 +94,18 @@
                     </select>
                 </div>
 
+                <!-- Product Count Indicator -->
                 <h2 class="mb-6 text-sm sm:text-base font-medium">
                     <span id="current-count">14</span> out of <span id="max-count">14</span> found
                 </h2>
 
             </div>
             
-            <!-- Product Grid (4 columns on md screens and up) -->
+            <!-- Dynamic Product Grid -->
             <div class="w-full">
                 <section id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 justify-items-center">
 
-                </section>                   
+                </section>                  
             </div>
         </div>
     </main>
