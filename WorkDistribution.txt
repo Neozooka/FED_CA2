@@ -1,0 +1,23 @@
+1. Intro Page (index.html) done by Sing Siang and Liang Jun
+
+2. neXos-intro (neXos-intro.html) done by Sing Siang
+
+3. neXos-pro (neXos-pro.html) done by Sing Siang
+
+4. neXos-computer (neXos-computer.html) done by Sing Siang and Cephues
+
+5. neXos-shop (neXos-shop.html) done by Sing Siang
+
+6. keyboard-creator (keyboard-creator.html) done by Liang Jun and Jia Jun
+
+7. keyboard-intro (keyboard-intro.html) done by Liang Jun
+
+8. keyboard-shop (keyboard-shop.html) done by Liang Jun
+
+9. keyboard-tech (keyboard-tech.html) done by Liang Jun
+
+10. payment page (payment.html) done by Liang Jun and Jia Jun
+
+11. main shop page (shop-main.html) done by Liang Jun
+
+12. find your product page (find-your-product.html) done by Cephues
