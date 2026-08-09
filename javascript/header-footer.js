@@ -41,33 +41,28 @@ document.addEventListener('DOMContentLoaded', () => {
             if (window.innerWidth >= 768) {
                 const isClosing = desktopDrawer.classList.contains('translate-x-0');
                 
-                desktopDrawer.classList.toggle('translate-x-full');
-                desktopDrawer.classList.toggle('translate-x-0');
+                desktopDrawer.classList.toggle('translate-x-full', isClosing);
+                desktopDrawer.classList.toggle('translate-x-0', !isClosing);
                 
-                if (!isClosing) {
-                    menuOverlay.classList.remove('pointer-events-none');
-                    menuOverlay.classList.add('opacity-100');
-                    setScrollLock(true);
-                } else {
-                    menuOverlay.classList.add('pointer-events-none');
-                    menuOverlay.classList.remove('opacity-100');
-                    setScrollLock(false);
-                }
+                menuOverlay.classList.toggle('pointer-events-none', isClosing);
+                menuOverlay.classList.toggle('opacity-100', !isClosing);
+                setScrollLock(!isClosing);
                 
                 mobileMenu.classList.add('translate-y-full', 'pointer-events-none');
                 mobileMenu.classList.remove('translate-y-0', 'opacity-100');
             } else {
-                const isClosing = mobileMenu.classList.contains('translate-y-0');
+                const isOpen = mobileMenu.classList.contains('translate-y-0');
                 
-                mobileMenu.classList.toggle('translate-y-full');
-                mobileMenu.classList.toggle('translate-y-0');
-                mobileMenu.classList.toggle('opacity-100');
-                mobileMenu.classList.toggle('pointer-events-none');
-                
-                if (!isClosing) {
-                    setScrollLock(true);
-                } else {
+                if (isOpen) {
+                    // Close Menu
+                    mobileMenu.classList.add('translate-y-full', 'pointer-events-none');
+                    mobileMenu.classList.remove('translate-y-0', 'opacity-100');
                     setScrollLock(false);
+                } else {
+                    // Open Menu
+                    mobileMenu.classList.remove('translate-y-full', 'pointer-events-none');
+                    mobileMenu.classList.add('translate-y-0', 'opacity-100');
+                    setScrollLock(true);
                 }
 
                 desktopDrawer.classList.add('translate-x-full');
@@ -181,7 +176,7 @@ function loadHeaderAndFooter() {
     if (headerContainer) {
         headerContainer.innerHTML = `
         <div id="menu-overlay" class="fixed inset-0 bg-black/20 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300 z-40 hidden md:block"></div>
-        <header class="relative w-full overflow-x-clip bg-[var(--background)] z-[70]">
+        <header class="relative w-full bg-[var(--background)] z-[70]">
             <nav class="w-full px-6 flex justify-between items-center relative">
 
                 <a href="${root}index.html" class="flex flex-row items-center cursor-pointer group relative z-[60]">
@@ -201,33 +196,33 @@ function loadHeaderAndFooter() {
                         <div class="hamburger-line line-3"></div>
                     </button>
                 </div>
-                
-                <div id="mobile-menu" class="fixed inset-0 bg-[var(--background)] p-6 pt-24 pb-6 flex flex-col justify-between shadow-xl z-40 transform translate-y-full opacity-0 pointer-events-none transition-all duration-300 ease-in-out md:hidden">
-                    <div class="flex flex-col text-left overflow-y-auto flex-1 pr-1">
-                        <a href="${root}index.html" class="py-3 text-xl font-bold tagline text-white hover:text-neutral-300 border-b border-neutral-800">Home</a>
-                        <a href="${root}html/find-your-product.html" class="py-3 text-xl font-bold tagline text-white hover:text-neutral-300 border-b border-neutral-800">Find your product</a>
-                        
-                        <span class="pt-3 text-xs font-semibold text-neutral-500 uppercase tracking-wider">Keyboard Options</span>
-                        <a href="${root}html/neXus-60HE/keyboard-intro.html" class="py-2 pl-4 text-lg font-medium text-white hover:text-neutral-300 border-b border-neutral-800">Intro</a>
-                        <a href="${root}html/neXus-60HE/keyboard-creator.html" class="py-2 pl-4 text-lg font-medium text-white hover:text-neutral-300 border-b border-neutral-800">About</a>
-                        <a href="${root}html/neXus-60HE/keyboard-shop.html" class="py-2 pl-4 text-lg font-medium text-white hover:text-neutral-300 border-b border-neutral-800">Keyboard Shop</a>
-                        <a href="${root}html/neXus-60HE/keyboard-tech.html" class="py-2 pl-4 text-lg font-medium text-white hover:text-neutral-300 border-b border-neutral-800">Technical Specs</a>
-                        
-                        <span class="pt-3 text-xs font-semibold text-neutral-500 uppercase tracking-wider">Software Options</span>
-                        <a href="${root}html/neXos/nexos-intro.html" class="py-2 pl-4 text-lg font-medium text-white hover:text-neutral-300 border-b border-neutral-800">NexOS</a>
-                        <a href="${root}html/neXos/nexos-pro.html" class="py-2 pl-4 text-lg font-medium text-white hover:text-neutral-300 border-b border-neutral-800">Pro</a>
-                        <a href="${root}html/neXos/nexos-computer.html" class="py-2 pl-4 text-lg font-medium text-white hover:text-neutral-300 border-b border-neutral-800">Computers</a>
-                        <a href="${root}html/neXos/nexos-shop.html" class="py-2 pl-4 text-lg font-medium text-white hover:text-neutral-300 border-b border-neutral-800 mb-4">Downloads</a>
-                    </div>
-                    
-                    <div class="pt-3 shrink-0">
-                        <a href="${root}html/shop-main.html" class="inline-block px-6 py-3 rounded-xl font-bold text-white text-center main-button w-full text-lg shadow-md">
-                            Shop
-                        </a>
-                    </div>
-                </div>
             </nav>
         </header>
+
+        <div id="mobile-menu" class="fixed top-[80px] left-0 w-full h-[calc(100dvh-80px)] bg-[--background] backdrop-blur-xl p-6 pb-8 flex flex-col justify-between shadow-2xl z-[80] transform translate-y-full opacity-0 pointer-events-none transition-all duration-300 ease-in-out md:hidden">
+            <div class="flex flex-col text-left overflow-y-auto flex-1 pr-1 space-y-1">
+                <a href="${root}index.html" class="py-2 text-xl font-bold tagline text-white hover:text-[var(--maingreen)] border-b border-neutral-800/80 transition-colors">Home</a>
+                <a href="${root}html/find-your-product.html" class="py-2 text-xl font-bold tagline text-white hover:text-[var(--maingreen)] border-b border-neutral-800/80 transition-colors">Find your product</a>
+                
+                <span class="pt-4 pb-1 text-xs font-semibold text-neutral-500 uppercase tracking-widest">Keyboard Options</span>
+                <a href="${root}html/neXus-60HE/keyboard-intro.html" class="py-2 pl-3 text-base font-medium text-neutral-300 hover:text-white border-b border-neutral-800/50 transition-colors">Intro</a>
+                <a href="${root}html/neXus-60HE/keyboard-creator.html" class="py-2 pl-3 text-base font-medium text-neutral-300 hover:text-white border-b border-neutral-800/50 transition-colors">About</a>
+                <a href="${root}html/neXus-60HE/keyboard-shop.html" class="py-2 pl-3 text-base font-medium text-neutral-300 hover:text-white border-b border-neutral-800/50 transition-colors">Keyboard Shop</a>
+                <a href="${root}html/neXus-60HE/keyboard-tech.html" class="py-2 pl-3 text-base font-medium text-neutral-300 hover:text-white border-b border-neutral-800/50 transition-colors">Technical Specs</a>
+                
+                <span class="pt-4 pb-1 text-xs font-semibold text-neutral-500 uppercase tracking-widest">Software Options</span>
+                <a href="${root}html/neXos/nexos-intro.html" class="py-2 pl-3 text-base font-medium text-neutral-300 hover:text-white border-b border-neutral-800/50 transition-colors">NexOS</a>
+                <a href="${root}html/neXos/nexos-pro.html" class="py-2 pl-3 text-base font-medium text-neutral-300 hover:text-white border-b border-neutral-800/50 transition-colors">Pro</a>
+                <a href="${root}html/neXos/nexos-computer.html" class="py-2 pl-3 text-base font-medium text-neutral-300 hover:text-white border-b border-neutral-800/50 transition-colors">Computers</a>
+                <a href="${root}html/neXos/nexos-shop.html" class="py-2 pl-3 text-base font-medium text-neutral-300 hover:text-white border-b border-neutral-800/50 transition-colors mb-4">Downloads</a>
+            </div>
+            
+            <div class="pt-4 shrink-0 border-t border-neutral-800/80">
+                <a href="${root}html/shop-main.html" class="inline-block px-6 py-3.5 rounded-xl font-bold text-white text-center main-button w-full text-base shadow-lg">
+                    Shop
+                </a>
+            </div>
+        </div>
 
         <div id="desktop-drawer" class="fixed top-0 right-0 h-full w-96 bg-neutral-900/95 backdrop-blur-lg border-l border-neutral-800 shadow-2xl z-50 transform translate-x-full transition-transform duration-300 ease-in-out hidden md:flex flex-col p-8 pt-28">
             <div class="flex flex-col text-left space-y-1">

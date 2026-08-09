@@ -24,7 +24,7 @@
 
 <body class="bg-[var(--background2)] text-[var(--text)] font-roboto">
 
-    <div id="loading-screen" class="fixed inset-0 z-[9999] bg-black transition-opacity duration-500 opacity-100 pointer-events-auto"></div>
+    <div id="loading-screen" class="fixed inset-0 z-[9999] bg-black transition-opacity duration-500 opacity-0 pointer-events-none"></div>
 
     <div id="header-container" class="sticky top-0 z-50 transition-transform duration-300 ease-in-out"></div>
 
@@ -39,11 +39,11 @@
     <main class="relative z-10 w-full">
 
         <!-- Fully Centered Screen Layout -->
-        <section class="h-screen flex flex-col justify-center items-center text-center p-8 md:p-16 max-w-7xl mx-auto">                
+        <section class="min-h-[100dvh] flex flex-col justify-center items-center text-center p-8 md:p-16 max-w-7xl mx-auto">                
             
             <div class="h-[50vh]"></div>
 
-            <div class="text-xs text-neutral-500 tracking-widest uppercase animate-pulse">
+            <div class="text-xs text-neutral-500 tracking-widest uppercase animate-pulse mt-auto mb-8">
                 &#8595; Scroll to animate keyboard
             </div>
 
