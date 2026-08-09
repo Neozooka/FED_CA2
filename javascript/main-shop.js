@@ -1,51 +1,16 @@
 const path = "../../javascript/shop-products.json";
 
-let cart = JSON.parse(localStorage.getItem("userCart")) || [];
-cart = cart.map(item => ({
-    ...item,
-    quantity: item.quantity || 1
-}));
-
-function saveCart() {
-    localStorage.setItem("userCart", JSON.stringify(cart));
-    if (typeof updateCartCount === 'function') {
-        updateCartCount();
-    }
-}
 
 
-function showToastNotification(productName) {
-    let container = document.getElementById('toast-container');
-    if (!container) {
-        container = document.createElement('div');
-        container.id = 'toast-container';
-        container.className = 'fixed bottom-5 right-5 z-[100] flex flex-col gap-2 pointer-events-none';
-        document.body.appendChild(container);
-    }
 
-    const toast = document.createElement('div');
-    toast.className = 'pointer-events-auto flex items-center gap-3 bg-neutral-900 border border-[var(--maingreen,#22c55e)] text-white px-4 py-3 rounded-xl shadow-2xl transition-all duration-300 transform translate-y-5 opacity-0';
-    toast.innerHTML = `
-        <div class="flex items-center justify-center w-8 h-8 rounded-full bg-[var(--maingreen,#22c55e)]/20 text-[var(--maingreen,#22c55e)]">
-            <i class="fa fa-shopping-bag text-sm"></i>
-        </div>
-        <div class="flex flex-col">
-            <span class="text-xs text-gray-400 font-semibold uppercase tracking-wider">Added to Cart</span>
-            <span class="text-sm font-medium text-white line-clamp-1 max-w-[220px]">${productName}</span>
-        </div>
-    `;
 
-    container.appendChild(toast);
 
-    requestAnimationFrame(() => {
-        toast.classList.remove('translate-y-5', 'opacity-0');
-    });
 
-    setTimeout(() => {
-        toast.classList.add('opacity-0', 'translate-y-2');
-        setTimeout(() => toast.remove(), 300);
-    }, 3000);
-}
+// Payment stuff
+
+
+
+
 
 
 function loadProductsFromList(cartList) {
@@ -155,6 +120,90 @@ function loadProductsFromList(cartList) {
     }
 }
 
+// Searchbar input functionality for cart checkout
+const search2Input = document.getElementById("search2") || (typeof search2 !== "undefined" ? search2 : null);
+if (search2Input) {
+    search2Input.addEventListener("input", e => {
+        const value = e.target.value.toLowerCase();
+        const CartContainer = document.querySelector("[cart-container]");
+        if (!CartContainer) return;
+
+        const cartCards = CartContainer.querySelectorAll(".container");
+        cartCards.forEach(card => {
+            const titleEl = card.querySelector("[title]");
+            const titleText = titleEl ? titleEl.textContent.toLowerCase() : "";
+            const show = titleText.includes(value);
+            card.classList.toggle("hidden", !show);
+        });
+    });
+}
+
+// Initializer
+window.addEventListener("DOMContentLoaded", () => {
+    loadProductsFromList(cart);
+    if (typeof updateCartCount === 'function') {
+        updateCartCount();
+    }
+});
+
+
+
+
+
+
+
+// Cart stuff
+
+
+
+
+
+
+let cart = JSON.parse(localStorage.getItem("userCart")) || [];
+cart = cart.map(item => ({
+    ...item,
+    quantity: item.quantity || 1
+}));
+
+function saveCart() {
+    localStorage.setItem("userCart", JSON.stringify(cart));
+    if (typeof updateCartCount === 'function') {
+        updateCartCount();
+    }
+}
+
+function showToastNotification(productName) {
+    let container = document.getElementById('toast-container');
+    if (!container) {
+        container = document.createElement('div');
+        container.id = 'toast-container';
+        container.className = 'fixed bottom-5 right-5 z-[100] flex flex-col gap-2 pointer-events-none';
+        document.body.appendChild(container);
+    }
+
+    const toast = document.createElement('div');
+    toast.className = 'pointer-events-auto flex items-center gap-3 bg-neutral-900 border border-[var(--maingreen,#22c55e)] text-white px-4 py-3 rounded-xl shadow-2xl transition-all duration-300 transform translate-y-5 opacity-0';
+    toast.innerHTML = `
+        <div class="flex items-center justify-center w-8 h-8 rounded-full bg-[var(--maingreen,#22c55e)]/20 text-[var(--maingreen,#22c55e)]">
+            <i class="fa fa-shopping-bag text-sm"></i>
+        </div>
+        <div class="flex flex-col">
+            <span class="text-xs text-gray-400 font-semibold uppercase tracking-wider">Added to Cart</span>
+            <span class="text-sm font-medium text-white line-clamp-1 max-w-[220px]">${productName}</span>
+        </div>
+    `;
+
+    container.appendChild(toast);
+
+    requestAnimationFrame(() => {
+        toast.classList.remove('translate-y-5', 'opacity-0');
+    });
+
+    setTimeout(() => {
+        toast.classList.add('opacity-0', 'translate-y-2');
+        setTimeout(() => toast.remove(), 300);
+    }, 3000);
+}
 
 async function addCart(id) {
     try {
@@ -183,7 +232,6 @@ async function addCart(id) {
     }
 }
 
-
 function changeQuantity(index, delta) {
     if (cart[index]) {
         cart[index].quantity = (cart[index].quantity || 1) + delta;
@@ -206,6 +254,18 @@ function remove(index) {
     }
 }
 
+
+
+
+
+
+// MAINLY FOR SHOP-MAIN
+
+
+
+
+
+
 // Shop Product List
 const shop_list = [
     "nexus-60he-magnetic-keyboard-8000hz-polling-adjustable",
@@ -219,7 +279,7 @@ const shop_list = [
     "nexus-gateron-baby-kangaroo-2-0-tactile-switches",
     "nexus-gateron-pro-3-0-yellow-linear-switches",
     "nexus-python-v2-gaming-mouse-30k-dpi-54g-optical-gen-3-switches"
-];
+]
 
 // Searchbar input functionality for shop page
 const searchInput = document.getElementById("search") || (typeof search !== "undefined" ? search : null);
@@ -249,28 +309,87 @@ if (searchInput) {
     }
 }
 
-// Searchbar input functionality for cart checkout
-const search2Input = document.getElementById("search2") || (typeof search2 !== "undefined" ? search2 : null);
-if (search2Input) {
-    search2Input.addEventListener("input", e => {
-        const value = e.target.value.toLowerCase();
-        const CartContainer = document.querySelector("[cart-container]");
-        if (!CartContainer) return;
+let productsList = []
 
-        const cartCards = CartContainer.querySelectorAll(".container");
-        cartCards.forEach(card => {
-            const titleEl = card.querySelector("[title]");
-            const titleText = titleEl ? titleEl.textContent.toLowerCase() : "";
-            const show = titleText.includes(value);
-            card.classList.toggle("hidden", !show);
-        });
+async function loadProducts() {
+    try {
+        const response = await fetch(path) // Update path to match your JSON file location
+        
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        
+        productsList = await response.json()
+
+        // Initial render and sort setup
+        loadingProductShop(productsList)
+        productSort(productsList)
+
+    } catch (error) {
+        console.error("Failed to load products from JSON:", error)
+    }
+}
+
+function loadingProductShop(products) {
+    const gridContainer = document.getElementById("product-grid")
+    const cardTemplate = document.getElementById("product-card-template")
+
+    if (!gridContainer || !cardTemplate) return
+
+    // Clear existing grid items
+    gridContainer.innerHTML = ""
+
+    products.forEach((product) => {
+        const card = cardTemplate.content.cloneNode(true)
+        const cardRoot = card.querySelector(".product-card")
+        const title = card.querySelector("[data-title]")
+        const price = card.querySelector("[data-price]")
+        const image = card.querySelector("[data-image]")
+        const btnAddCart = card.querySelector("[data-add-cart]")
+        const btnBuyNow = card.querySelector("[data-buy-now]")
+
+        if (cardRoot) cardRoot.id = product.id
+        if (title) title.textContent = product.title
+        if (price) price.textContent = "$" + product.price
+        if (image) {
+            image.src = product.image
+            image.alt = product.title
+        }
+
+        if (btnAddCart) {
+            btnAddCart.addEventListener("click", () => addCart(product.id))
+        }
+
+        if (btnBuyNow) {
+            btnBuyNow.addEventListener("click", () => addCart(product.id))
+        }
+
+        gridContainer.appendChild(card);
     });
 }
 
-// Initializer
-window.addEventListener("DOMContentLoaded", () => {
-    loadProductsFromList(cart);
-    if (typeof updateCartCount === 'function') {
-        updateCartCount();
-    }
-});
+function productSort(products) {
+    const sortSelect = document.getElementById("sort-select")
+    if (!sortSelect) return
+
+    sortSelect.addEventListener("change", (e) => {
+        const sortValue = e.target.value
+        let sortedProducts = [...products]
+
+        if (sortValue === "low-high") {
+            sortedProducts.sort((a, b) => a.price - b.price)
+        } else if (sortValue === "high-low") {
+            sortedProducts.sort((a, b) => b.price - a.price)
+        }
+
+        loadingProductShop(sortedProducts)
+    })
+}
+
+// Initialize on load
+document.addEventListener("DOMContentLoaded", () => {
+    loadingProductShop(productsList)
+    productSort(productsList)
+})
+
+document.addEventListener("DOMContentLoaded", loadProducts)
