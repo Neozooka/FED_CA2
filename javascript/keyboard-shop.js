@@ -18,6 +18,7 @@ function updateCarousel(index) {
     }
 
     // 1. Update Top Carousel Images
+
     actions.forEach((card, i) => {
         if (i === currentIndex) {
             card.classList.add("opacity-100", "z-20", "pointer-events-auto")
@@ -64,12 +65,14 @@ function goToSlide(targetIndex) {
 }
 
 // Reset auto-slide timer when user interacts manually
+
 function resetInterval() {
     clearInterval(autoSlide)
     autoSlide = setInterval(next, 4000)
 }
 
 // Start auto-slide on load
+
 autoSlide = setInterval(next, 4000)
 
 function returnId(id) {      
