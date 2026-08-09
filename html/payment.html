@@ -149,6 +149,24 @@
 
                 </div>
 
+                <div class="flex gap-2 max-w-sm mx-auto my-6">
+
+                    <input 
+                        type="text" 
+                        id="promoInput" 
+                        placeholder="PROMO CODE: ENTER CODE" 
+                        class="w-full px-4 py-2 bg-[var(--background)] border border-gray-700 rounded-lg text-gray-200 placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 uppercase"
+                    />
+
+                    <button 
+                        onclick="checkPromo()" 
+                        class="px-5 py-2 bg-[var(--maingreen)] hover:bg-[var(--hovergreen)] text-white font-semibold rounded-lg transition-colors cursor-pointer"
+                    >
+                        Submit
+                    </button>
+
+                </div>
+
                 <div class="space-y-6">
                     
                     <div class="flex flex-col">
@@ -197,6 +215,7 @@
                         <button id="payButton" class="w-full sm:w-auto px-12 py-2 main-button transition-200 font-semibold shadow-md rounded-md" onclick="print()">
                             Pay
                         </button>
+
                     </div>
 
                 </div>
