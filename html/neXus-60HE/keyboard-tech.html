@@ -30,6 +30,7 @@
 <body>
     <div id="header-container" class="sticky top-0 z-50"></div>
 
+    <!-- Hero section displaying page title and tagline -->
     <section class="flex max-w-8xl w-full h-[calc(100vh-80px)] min-h-[500px] flex-col items-center justify-center text-center px-4 relative select-none gap-8" >
             
         <div class="main-headline flex flex-col items-center justify-center gap-6">
@@ -42,29 +43,34 @@
         </div>
     </section>
 
+    <!-- Scroll-driven visual breakdown section -->
     <section class="relative">
         <!-- Main Scroll Zone -->
         <div class="relative w-full max-w-[100rem] mx-auto">
         
-        <!-- STICKY CENTER VISUAL -->
+        <!-- Sticky background images that change on scroll -->
             <div class="absolute top-0 left-0 w-full h-full z-0 pointer-events-none block pt-[120px]">
                 <div class="sticky top-0 h-screen w-full flex items-center justify-center">
                     <div class="w-[90%] lg:w-[33%] h-[50vh] relative">
                     
+                        <!-- Graphic 1: Disassembled layout image -->
                         <div data-graphic="1" class="absolute inset-0 flex flex-col items-center justify-center p-8 transition-all duration-700 ease-out opacity-100 scale-100">
                          
                             <img src="../../images/tech-page/keyboardDisassembled.webp">
                  
                         </div>
 
+                        <!-- Graphic 2: Keycaps image -->
                         <div data-graphic="2" class="absolute inset-0 flex flex-col items-center justify-center p-8 transition-all duration-700 ease-out opacity-0 scale-95">
                             <img src="../../images/tech-page/keyCapsBlender.webp">
                         </div>
 
+                        <!-- Graphic 3: Switch detail image -->
                         <div data-graphic="3" class="absolute inset-0 flex flex-col items-center justify-center p-8 transition-all duration-700 ease-out opacity-0 scale-95">
                             <img src="../../images/tech-page/keyboardSwitch.webp">
                         </div>
 
+                        <!-- Graphic 4: Bottom case image -->
                         <div data-graphic="4" class="absolute inset-0 flex flex-col items-center justify-center p-8 transition-all duration-700 ease-out opacity-0 scale-95">
                             <img src="../../images/tech-page/keyboadBottom.webp">
                         </div>
@@ -72,9 +78,10 @@
                 </div>
             </div>
 
-            <!-- FOREGROUND SCROLLING TEXT -->
+            <!-- Foreground text specifications triggered during scroll -->
             <div class="relative z-10 w-full px-6 lg:px-12 pointer-events-auto">
             
+                <!-- Feature 01: Disassembly specifications -->
                 <div data-feature="1" class="flex flex-col lg:flex-row items-center justify-between min-h-screen py-24 transition-opacity duration-700 opacity-30">
                     
                     <div class="w-full lg:w-[30%] text-center lg:text-right mb-8 lg:mb-0">
@@ -109,6 +116,7 @@
 
                 </div>
 
+                <!-- Feature 02: Keycaps specifications -->
                 <div data-feature="2" class="flex flex-col lg:flex-row items-center justify-between min-h-screen py-24 transition-opacity duration-700 opacity-30">
                     
                     <div class="w-full lg:w-[30%] text-center lg:text-right mb-8 lg:mb-0">
@@ -143,6 +151,7 @@
 
                 </div>
 
+                <!-- Feature 03: Switches specifications -->
                 <div data-feature="3" class="flex flex-col lg:flex-row items-center justify-between min-h-screen py-24 transition-opacity duration-700 opacity-30">
                     
                     <div class="w-full lg:w-[30%] text-center lg:text-right mb-8 lg:mb-0">
@@ -177,6 +186,7 @@
 
                 </div>
 
+                <!-- Feature 04: Bottom case specifications -->
                 <div data-feature="4" class="flex flex-col lg:flex-row items-center justify-between min-h-screen py-24 transition-opacity duration-700 opacity-30">
                     
                     <div class="w-full lg:w-[30%] text-center lg:text-right mb-8 lg:mb-0">
@@ -210,6 +220,7 @@
 
                 </div>
 
+                <!-- Spacer element to extend scroll length -->
                 <div class="h-[150px] w-full"></div>
 
             </div>
@@ -218,8 +229,7 @@
 
     </section>
 
-
-
+    <!-- Additional specifications accordion list section -->
     <section id="faq" class="w-full bg-[--background] py-20 px-4 md:px-8 flex flex-col items-center overflow-hidden z-20">
 
         <div class="max-w-5xl w-full">
@@ -233,8 +243,10 @@
                 </p>
             </div>
 
+            <!-- Accordion items container -->
             <div class="space-y-4" id="faq-accordion">
 
+                <!-- Accordion item: Dimensions and weight -->
                 <div class="faq-item bg-neutral-900 border border-neutral-800 rounded-2xl overflow-hidden transition-colors">
                     <button class="faq-trigger w-full px-6 py-5 flex justify-between items-center text-left text-white font-bold text-lg sm:text-xl focus:outline-none">
                         <span class="font-medium text-lg">Dimension and weight</span>
@@ -249,6 +261,7 @@
                     </div>
                 </div>
 
+                <!-- Accordion item: Power and Connection -->
                 <div class="faq-item bg-neutral-900 border border-neutral-800 rounded-2xl overflow-hidden transition-colors">
                     <button class="faq-trigger w-full px-6 py-5 flex justify-between items-center text-left text-white font-bold text-lg sm:text-xl focus:outline-none">
                         <span class="font-medium text-lg">Power and Connection</span>
@@ -264,6 +277,7 @@
                     </div>
                 </div>
 
+                <!-- Accordion item: Care and Maintenance -->
                 <div class="faq-item bg-neutral-900 border border-neutral-800 rounded-2xl overflow-hidden transition-colors">
                     <button class="faq-trigger w-full px-6 py-5 flex justify-between items-center text-left text-white font-bold text-lg sm:text-xl focus:outline-none">
                         <span class="font-medium text-lg">Care and Maintenance</span>
