@@ -1,0 +1,199 @@
+{
+  "keywords": {
+    "keyboard": "keyboards",
+    "60he": "keyboards",
+    "nexos": "nexos",
+    "software": "nexos",
+    "os": "nexos",
+    "ship": "shop",
+    "shipping": "shop",
+    "payment": "shop",
+    "warranty": "warranty",
+    "return": "warranty",
+    "business": "general",
+    "corporate": "general"
+  },
+  "categories": {
+    "keyboards": {
+      "title": "Keyboard",
+      "subcategories": {
+        "specs": {
+          "label": "Specifications",
+          "keywords": ["specs", "specification", "features", "switches", "actuation", "rapid trigger"],
+          "response": "The neXus 60HE features adjustable magnetic switches, rapid trigger (0.1-4.0mm), and a full aluminum chassis."
+        },
+        "troubleshooting": {
+          "label": "Troubleshooting",
+          "isGroup": true,
+          "keywords": ["troubleshoot", "troubleshooting", "problem", "issue", "not working", "broken"],
+          "options": {
+            "not_connecting": {
+              "label": "Not connecting",
+              "keywords": ["not connecting", "won't connect", "wont connect", "not detected", "unresponsive", "no power", "disconnecting", "disconnects"],
+              "response": "Try reconnecting the braided USB-C cable directly to a motherboard port. Avoid unpowered hubs."
+            },
+            "lighting_issues": {
+              "label": "Lighting issues",
+              "keywords": ["lighting", "rgb", "led", "backlight", "lights not working", "lights off"],
+              "response": "Ensure RGB profiles aren't disabled in NexOS. You can reset lighting profiles using Fn + R."
+            },
+            "firmware_updates": {
+              "label": "Firmware updates",
+              "keywords": ["firmware", "flash firmware", "update firmware"],
+              "response": "Firmware updates can be flashed directly from the NexOS software menu under Device Settings."
+            }
+          }
+        },
+        "compatibility": {
+          "label": "Compatibility",
+          "keywords": ["compatible", "compatibility", "works with", "supported os", "ps5", "xbox"],
+          "response": "Compatible with Windows 10/11, macOS, Linux, PS5, and Xbox Series X/S."
+        },
+        "maintenance": {
+          "label": "Maintenance & Care",
+          "isGroup": true,
+          "keywords": ["maintenance", "care", "upkeep"],
+          "options": {
+            "cleaning": {
+              "label": "Cleaning rec.",
+              "keywords": ["clean", "cleaning", "dust", "dirty"],
+              "response": "Use microfiber cloths and compressed air. Keycaps can be washed in warm soapy water."
+            },
+            "keycaps": {
+              "label": "Replacing keycaps",
+              "keywords": ["keycap", "keycaps", "replace keycap", "mx stem", "custom keycaps"],
+              "response": "Standard MX-stem keycap sets are fully compatible with neXus switches."
+            }
+          }
+        }
+      }
+    },
+    "nexos": {
+      "title": "NexOS",
+      "subcategories": {
+        "installation": {
+          "label": "Installation",
+          "keywords": ["install", "installation", "download nexos", "installer"],
+          "response": "Download the latest executable from our Downloads page and run as Administrator."
+        },
+        "setup": {
+          "label": "Setup",
+          "keywords": ["setup", "set up", "configure", "configuration", "actuation curve", "keybind"],
+          "response": "Launch NexOS with your keyboard plugged in to customize actuation curves and keybindings."
+        },
+        "troubleshooting": {
+          "label": "Troubleshooting",
+          "isGroup": true,
+          "keywords": ["troubleshoot", "troubleshooting", "problem", "issue", "not working", "bug"],
+          "options": {
+            "app_crashing": {
+              "label": "App crashing",
+              "keywords": ["crash", "crashing", "crashes", "keeps crashing", "freezes", "freeze", "freezing", "not responding", "hangs", "hanging", "closes unexpectedly"],
+              "response": "Ensure graphics drivers are updated and check that anti-virus software isn't blocking NexOS background services."
+            },
+            "keyboard_detect": {
+              "label": "Keyboard",
+              "keywords": ["not detected", "won't detect", "wont detect", "keyboard not showing", "detect keyboard", "keyboard not found", "not recognized"],
+              "response": "Re-plug the USB cable while NexOS is running to force hardware re-detection."
+            },
+            "profiles": {
+              "label": "Profiles",
+              "keywords": ["profile", "profiles", "save profile", "onboard memory"],
+              "response": "Profiles can be saved directly to onboard memory slots 1-4 via the Profile Manager."
+            }
+          }
+        },
+        "release_notes": {
+          "label": "Release Notes",
+          "keywords": ["release notes", "changelog", "patch notes", "update log", "whats new", "what's new"],
+          "response": "Check our software updates log on the Downloads page for patch notes and bug fixes."
+        }
+      }
+    },
+    "shop": {
+      "title": "Shop and Payment",
+      "subcategories": {
+        "where_shipment": {
+          "label": "Where is my ship?",
+          "isForm": true,
+          "keywords": ["where is my order", "where is my shipment", "where's my order", "track my order", "tracking number", "shipment status", "where's my package", "order status"],
+          "formType": "Order Tracking / Shipping Enquiry"
+        },
+        "shipping_times": {
+          "label": "Shipping times",
+          "keywords": ["shipping time", "delivery time", "how long shipping", "eta", "how fast shipping"],
+          "response": "Standard shipping: 3-5 business days. Express shipping: 1-2 business days."
+        },
+        "shipping_methods": {
+          "label": "Shipping methods",
+          "keywords": ["shipping method", "courier", "dhl", "fedex", "ups", "delivery partner"],
+          "response": "We partner with DHL, FedEx, and UPS depending on your region."
+        },
+        "payment_methods": {
+          "label": "Payment methods",
+          "keywords": ["payment method", "pay with", "visa", "mastercard", "amex", "paypal", "apple pay", "credit card"],
+          "response": "We accept Visa, MasterCard, AMEX, PayPal, and Apple Pay."
+        },
+        "order_changes": {
+          "label": "Order changes",
+          "isForm": true,
+          "keywords": ["change order", "modify order", "cancel order", "edit order", "update my order"],
+          "formType": "Order Modification Request"
+        }
+      }
+    },
+    "warranty": {
+      "title": "Warranty and Returns",
+      "subcategories": {
+        "coverage": {
+          "label": "Warranty coverage",
+          "keywords": ["warranty coverage", "what does warranty cover", "covered under warranty", "limited warranty"],
+          "response": "All hardware comes with a 2-year limited manufacturer warranty covering factory defects."
+        },
+        "filing_warranty": {
+          "label": "Filing a warranty",
+          "isForm": true,
+          "keywords": ["file warranty", "claim warranty", "warranty claim", "file a claim"],
+          "formType": "Warranty Claim"
+        },
+        "return_refund": {
+          "label": "Return and refund",
+          "keywords": ["refund", "return item", "return policy", "money back", "send back", "exchange"],
+          "response": "30-day money-back guarantee for unopened or defective products in original packaging."
+        },
+        "replacement_parts": {
+          "label": "Replacement Parts",
+          "keywords": ["replacement part", "spare part", "extra cable", "extra switch", "keycap puller", "spare switch"],
+          "response": "Extra cables, switches, and keycap pullers are available in the Accessories section of our shop."
+        }
+      }
+    },
+    "general": {
+      "title": "General and Business",
+      "subcategories": {
+        "corporate_office": {
+          "label": "Corporate office",
+          "keywords": ["office address", "corporate office", "headquarters", "hq", "where are you located"],
+          "response": "8 Temasek Boulevard #29-02 Suntec Tower Three, Singapore."
+        },
+        "bulk_purchase": {
+          "label": "Bulk/B2B purchase",
+          "isForm": true,
+          "keywords": ["bulk", "b2b", "wholesale", "bulk order", "corporate order"],
+          "formType": "B2B / Bulk Inquiry"
+        },
+        "press_sponsorship": {
+          "label": "Press/sponsorship",
+          "isForm": true,
+          "keywords": ["press", "sponsorship", "media inquiry", "partnership", "collab"],
+          "formType": "Press & Sponsorship Request"
+        },
+        "social_media": {
+          "label": "Social media links",
+          "keywords": ["social media", "instagram", "twitter", "facebook", "tiktok", "youtube channel"],
+          "response": "We have a <a href=\"https://www.youtube.com/watch?v=EE8U7U8syuI\" target=\"_blank\" class=\"underline hover:text-[--maingreen]\">YouTube</a> and <a href=\"https://www.youtube.com/watch?v=EE8U7U8syuI\" target=\"_blank\" class=\"underline hover:text-[--maingreen]\">Twitch</a> account! "
+        }
+      }
+    }
+  }
+}
