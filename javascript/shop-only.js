@@ -1,7 +1,8 @@
 gsap.registerPlugin(SplitText);
 gsap.registerPlugin(TextPlugin);
 
-// Target the text elements directly
+// GSAP ANIMATION
+
 const mainHeadline = document.querySelector(".main-headline h1");
 const tagline = document.querySelector(".tagline");
 

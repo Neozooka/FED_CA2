@@ -31,11 +31,17 @@
 
         <!-- Main Body -->
 
+        <!-- =========================================================================
+        PAGE CONTAINER
+        ========================================================================= -->
         <article class="container mx-auto max-w-full text-center">
 
+            <!-- =====================================================================
+                SECTION 1: NEXOS EDITIONS & PRICING OVERVIEW
+                ===================================================================== -->
             <section id="nexos-editions" class="w-full bg-[--background] py-16 px-4 md:px-8 flex flex-col items-center">
                 
-                <!-- Header -->
+                <!-- Hero Title & Subtitle Header -->
                 <div class="max-w-4xl w-full text-center mb-12 reveal-on-scroll">
                     <h2 class="text-4xl sm:text-5xl md:text-6xl font-black text-white tracking-tight mb-3">
                         TIME TO LEVEL UP.
@@ -45,12 +51,15 @@
                     </p>
                 </div>
 
+                <!-- Edition Cards Grid Wrapper -->
                 <div class="max-w-5xl w-full space-y-10">
 
-                    <!-- Card 1: NexOS PRO -->
+                    <!-- -------------------------------------------------------------
+                        CARD 1: NEXOS PRO (PAID EDITION)
+                        ------------------------------------------------------------- -->
                     <div class="bg-neutral-900/80 backdrop-blur-xl border border-neutral-800 hover:border-[--maingreen]/50 text-white rounded-[40px] p-8 md:p-12 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-8 transition-all duration-300 reveal-on-scroll">
                         
-                        <!-- Left Content: Titles & CTA -->
+                        <!-- Left Column: Product Information & Purchase Action -->
                         <div class="w-full md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left justify-between space-y-6">
                             <div>
                                 <p class="text-xl md:text-2xl font-bold text-neutral-300 tracking-wide">NexOS 26.07</p>
@@ -58,10 +67,12 @@
                                 <p class="text-neutral-300">Unleash your computer's wings.</p>
                             </div>
 
+                            <!-- Pricing & Cart Call-To-Action -->
                             <div class="pt-2 flex flex-col items-center md:items-start space-y-2">
                                 <p class="text-sm text-neutral-400 font-medium">
                                     <span class="text-base font-bold text-white">$39.99</span> including tax
                                 </p>
+                                <!-- JavaScript Trigger: Add Pro to Cart -->
                                 <button 
                                     type="button" 
                                     onclick="addCart('nexos-pro-26-07')" 
@@ -71,20 +82,21 @@
                             </div>
                         </div>
 
-                        <!-- Right Content: Monitor & Learn More -->
+                        <!-- Right Column: Monitor Preview Asset & Learn More Link -->
                         <div class="w-full md:w-1/2 flex flex-col items-center md:items-end justify-center space-y-4">
 
+                            <!-- Interactive Monitor Display Composite Component -->
                             <div class="relative w-full aspect-[3576/2764] max-w-[850px]">
-                                
-                                <!-- Desktop Preview Image Container mapped behind the monitor frame -->
+                                <!-- Screenshot Overlay (Placed behind hardware frame) -->
                                 <div class="absolute top-[1.2%] left-[1.1%] w-[97.8%] h-[68.8%] rounded-sm overflow-hidden bg-black z-10 pointer-events-none">
                                     <img src="../../images/desktop-tiling.png" alt="NexOS Desktop Tiling Environment" class="w-full h-full object-cover select-none">
                                 </div>
 
-                                <!-- 3576x2764 Monitor Cutout Overlay -->
+                                <!-- Hardware Frame (Front Overlay) -->
                                 <img src="../../images/monitor-stand.webp" alt="Monitor Display" class="w-full h-full object-contain pointer-events-none relative z-30 block">
-
                             </div>
+
+                            <!-- Product Deep-Dive Link -->
                             <div class="w-full text-center md:text-right pr-4">
                                 <a href="nexos-pro.html" class="inline-flex items-center text-lg md:text-xl font-bold text-white hover:text-[--maingreen] transition-colors underline underline-offset-4 decoration-2">
                                     &gt; Learn more
@@ -94,25 +106,25 @@
 
                     </div>
 
-                    <!-- Card 2: NexOS CORE -->
+                    <!-- -------------------------------------------------------------
+                        CARD 2: NEXOS CORE (FREE EDITION)
+                        ------------------------------------------------------------- -->
                     <div class="bg-neutral-900/80 backdrop-blur-xl border border-neutral-800 hover:border-[--maingreen]/50 text-white rounded-[40px] p-8 md:p-12 shadow-2xl flex flex-col-reverse md:flex-row items-center justify-between gap-8 transition-all duration-300 reveal-on-scroll">
                         
-                        <!-- Left Content: Monitor -->
+                        <!-- Left Column: Monitor Preview Asset -->
                         <div class="w-full md:w-1/2 flex justify-center items-center">
                             <div class="relative w-full aspect-[3576/2764] max-w-[850px]">
-                                
-                                <!-- Desktop Preview Image Container mapped behind the monitor frame -->
+                                <!-- Screenshot Overlay (Placed behind hardware frame) -->
                                 <div class="absolute top-[1.2%] left-[1.1%] w-[97.8%] h-[68.8%] rounded-sm overflow-hidden bg-black z-10 pointer-events-none">
                                     <img src="../../images/desktop-mode.jpg" alt="NexOS Desktop" class="w-full h-full object-cover select-none">
                                 </div>
 
-                                <!-- 3576x2764 Monitor Cutout Overlay -->
+                                <!-- Hardware Frame (Front Overlay) -->
                                 <img src="../../images/monitor-stand.webp" alt="Monitor Display" class="w-full h-full object-contain pointer-events-none relative z-30 block">
-
                             </div>
                         </div>
 
-                        <!-- Right Content: Titles & Download -->
+                        <!-- Right Column: Product Information & Download Trigger -->
                         <div class="w-full md:w-1/2 flex flex-col items-center md:items-end text-center md:text-right justify-between space-y-8">
                             <div>
                                 <p class="text-xl md:text-2xl font-bold text-neutral-300 tracking-wide">NexOS 26.07</p>
@@ -120,6 +132,7 @@
                                 <p class="text-neutral-300">The world's best gaming OS. Made even better.</p>
                             </div>
 
+                            <!-- Modal Trigger: Download Core Edition -->
                             <div class="pt-2">
                                 <button type="button" onclick="openDownloadModal()" class="main-button px-8 py-3 rounded-full shadow-lg inline-block cursor-pointer">
                                     Download NexOS
@@ -131,28 +144,30 @@
 
                 </div>
 
-                <!-- Section: Comparison Table -->
+                <!-- =================================================================
+                    FEATURE COMPARISON TABLE SECTION
+                    ================================================================= -->
                 <div class="max-w-5xl w-full mt-20 reveal-on-scroll">
                     
-                    <!-- Main Text -->
                     <div class="text-center mb-10">
                         <h3 class="text-3xl sm:text-5xl font-black text-white tracking-tight mb-3">
                             COMPARE EDITIONS
                         </h3>
                     </div>
                     
-                    <!-- Table Container -->
+                    <!-- Table Wrapper (Handles Responsive Horizontal Scroll) -->
                     <div class="overflow-x-auto rounded-[30px] border border-neutral-800 bg-neutral-900/80 backdrop-blur-xl shadow-2xl text-left">
                         <table class="w-full border-collapse">
                             <thead>
                                 <tr class="border-b border-neutral-800 text-white text-lg sm:text-xl">
-                                    <th scope='col' class="py-6 px-6 font-bold w-1/2">Feature</th>
-                                    <th class="py-6 px-6 font-bold text-center w-1/4 text-neutral-300">NexOS CORE</th>
-                                    <th class="py-6 px-6 font-bold text-center w-1/4 text-[--maingreen]">NexOS PRO</th>
+                                    <th scope="col" class="py-6 px-6 font-bold w-1/2">Feature</th>
+                                    <th scope="col" class="py-6 px-6 font-bold text-center w-1/4 text-neutral-300">NexOS CORE</th>
+                                    <th scope="col" class="py-6 px-6 font-bold text-center w-1/4 text-[--maingreen]">NexOS PRO</th>
                                 </tr>
                             </thead>
                             <tbody class="text-neutral-300 text-sm sm:text-base">
-                                <!-- Row 1 -->
+                                
+                                <!-- Core OS & Telemetry -->
                                 <tr class="border-b border-neutral-800/50 hover:bg-neutral-800/30 transition-colors">
                                     <td class="py-4 px-6"> 
                                         <div class="font-bold text-white">Performance Core & Zero Telemetry</div>
@@ -161,7 +176,8 @@
                                     <td class="py-4 px-6 text-center"><i class="fa fa-check text-green-500 text-xl"></i></td>
                                     <td class="py-4 px-6 text-center"><i class="fa fa-check text-green-500 text-xl"></i></td>
                                 </tr>
-                                <!-- Row 2 -->
+
+                                <!-- Launchers & UI Modes -->
                                 <tr class="border-b border-neutral-800/50 hover:bg-neutral-800/30 transition-colors">
                                     <td class="py-4 px-6">
                                         <div class="font-bold text-white">Apex Mode & Desktop Mode</div>
@@ -170,7 +186,8 @@
                                     <td class="py-4 px-6 text-center"><i class="fa fa-check text-green-500 text-xl"></i></td>
                                     <td class="py-4 px-6 text-center"><i class="fa fa-check text-green-500 text-xl"></i></td>
                                 </tr>
-                                <!-- Row 3 -->
+
+                                <!-- Drivers & Proton Engine -->
                                 <tr class="border-b border-neutral-800/50 hover:bg-neutral-800/30 transition-colors">
                                     <td class="py-4 px-6">
                                         <div class="font-bold text-white">Proton+ & Day-One Drivers</div>
@@ -179,7 +196,8 @@
                                     <td class="py-4 px-6 text-center"><i class="fa fa-check text-green-500 text-xl"></i></td>
                                     <td class="py-4 px-6 text-center"><i class="fa fa-check text-green-500 text-xl"></i></td>
                                 </tr>
-                                <!-- Row 4 -->
+
+                                <!-- Hardware Integration -->
                                 <tr class="border-b border-neutral-800/50 hover:bg-neutral-800/30 transition-colors">
                                     <td class="py-4 px-6">
                                         <div class="font-bold text-white">neXus 60HE Hardware Synergy</div>
@@ -188,7 +206,8 @@
                                     <td class="py-4 px-6 text-center"><i class="fa fa-check text-green-500 text-xl"></i></td>
                                     <td class="py-4 px-6 text-center"><i class="fa fa-check text-green-500 text-xl"></i></td>
                                 </tr>
-                                <!-- Row 5 -->
+
+                                <!-- Layout Customization Engine (PRO Exclusions Begin) -->
                                 <tr class="border-b border-neutral-800/50 hover:bg-neutral-800/30 transition-colors">
                                     <td class="py-4 px-6">
                                         <div class="font-bold text-white">Aerodynamic Layout Engine</div>
@@ -197,7 +216,8 @@
                                     <td class="py-4 px-6 text-center"><i class="fa fa-times text-neutral-600 text-xl"></i></td>
                                     <td class="py-4 px-6 text-center"><i class="fa fa-check text-green-500 text-xl"></i></td>
                                 </tr>
-                                <!-- Row 6 -->
+
+                                <!-- Kernel Optimization & Scheduling -->
                                 <tr class="border-b border-neutral-800/50 hover:bg-neutral-800/30 transition-colors">
                                     <td class="py-4 px-6">
                                         <div class="font-bold text-white">Hardware Mastery & AI Scheduling</div>
@@ -206,7 +226,8 @@
                                     <td class="py-4 px-6 text-center"><i class="fa fa-times text-neutral-600 text-xl"></i></td>
                                     <td class="py-4 px-6 text-center"><i class="fa fa-check text-green-500 text-xl"></i></td>
                                 </tr>
-                                <!-- Row 7 -->
+
+                                <!-- Audio & Streaming Tools -->
                                 <tr class="border-b border-neutral-800/50 hover:bg-neutral-800/30 transition-colors">
                                     <td class="py-4 px-6">
                                         <div class="font-bold text-white">Creator & Streamer Suite</div>
@@ -215,7 +236,8 @@
                                     <td class="py-4 px-6 text-center"><i class="fa fa-times text-neutral-600 text-xl"></i></td>
                                     <td class="py-4 px-6 text-center"><i class="fa fa-check text-green-500 text-xl"></i></td>
                                 </tr>
-                                <!-- Row 8 -->
+
+                                <!-- Included Software & Developer Support -->
                                 <tr class="hover:bg-neutral-800/30 transition-colors">
                                     <td class="py-4 px-6">
                                         <div class="font-bold text-white">Pre-Loaded Open Source Tools & Priority Support</div>
@@ -224,6 +246,7 @@
                                     <td class="py-4 px-6 text-center"><i class="fa fa-times text-neutral-600 text-xl"></i></td>
                                     <td class="py-4 px-6 text-center"><i class="fa fa-check text-green-500 text-xl"></i></td>
                                 </tr>
+
                             </tbody>
                         </table>
                     </div>
@@ -231,6 +254,9 @@
 
             </section>
 
+            <!-- =========================================================================
+                SECTION 2: HARDWARE COMPATIBILITY & SYSTEM REQUIREMENTS
+                ========================================================================= -->
             <section id="system-requirements" class="w-full bg-[--background] py-16 px-4 md:px-8 flex flex-col items-center">
                 
                 <!-- Section Header -->
@@ -245,8 +271,12 @@
 
                 <div class="max-w-5xl w-full space-y-8 reveal-on-scroll">
 
-                    <!-- Dedicated Hardware Detector Card -->
+                    <!-- -------------------------------------------------------------
+                        DYNAMIC JS HARDWARE DETECTOR CARD
+                        ------------------------------------------------------------- -->
                     <div class="bg-neutral-900/80 backdrop-blur-xl border border-neutral-800 hover:border-[--maingreen]/50 rounded-[30px] p-6 sm:p-8 shadow-2xl transition-all duration-300">
+                        
+                        <!-- Status Header Banner -->
                         <div class="flex flex-col items-start sm:items-center justify-between gap-4 pb-6 border-b border-neutral-800">
                             <div id="pro-system-status" class="self-start sm:self-auto">
                                 <h3 id="status-badge" class="text-lg sm:text-xl md:text-3xl text-neutral-400">
@@ -254,23 +284,25 @@
                                 </h3>
                             </div>
 
-                            <!-- Detailed Status Breakdown -->
+                            <!-- Textual Summary Output -->
                             <div id="status-summary" class="text-sm sm:text-base md:text-lg text-neutral-400 mt-4 space-y-1">
                                 <p>Evaluating system capabilities against baseline parameters...</p>
                             </div>
                         </div>
 
-
-                        <!-- Detector Results Details Grid -->
+                        <!-- Hardware Metric Displays (Populated by JS) -->
                         <div id="status-details" class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-6 text-neutral-300">
+                            <!-- CPU Output Box -->
                             <div class="bg-neutral-800/40 p-4 rounded-2xl border border-neutral-800">
                                 <p class="text-xs text-neutral-400 uppercase font-semibold">CPU Cores / Threads</p>
                                 <p id="cpu-detail" class="text-lg font-bold text-white mt-1">Detecting...</p>
                             </div>
+                            <!-- RAM Output Box -->
                             <div class="bg-neutral-800/40 p-4 rounded-2xl border border-neutral-800">
                                 <p class="text-xs text-neutral-400 uppercase font-semibold">Memory (RAM)</p>
                                 <p id="ram-detail" class="text-lg font-bold text-white mt-1">Detecting...</p>
                             </div>
+                            <!-- GPU Output Box -->
                             <div class="bg-neutral-800/40 p-4 rounded-2xl border border-neutral-800">
                                 <p class="text-xs text-neutral-400 uppercase font-semibold">Graphics Adapter</p>
                                 <p id="gpu-detail" class="text-lg font-bold text-white mt-1 truncate">Detecting...</p>
@@ -279,27 +311,35 @@
 
                     </div>
 
-                    <!-- System Requirements Table -->
+                    <!-- -------------------------------------------------------------
+                        STATIC SYSTEM REQUIREMENTS TABLE
+                        ------------------------------------------------------------- -->
                     <div class="overflow-x-auto rounded-[30px] border border-neutral-800 bg-neutral-900/80 backdrop-blur-xl shadow-2xl text-left">
                         <table class="w-full border-collapse">
                             <thead>
                                 <tr class="border-b border-neutral-800 text-white text-lg sm:text-xl">
-                                    <th class="py-6 px-6 font-bold w-1/3">Component</th>
-                                    <th class="py-6 px-6 font-bold w-1/3 text-neutral-300">Minimum</th>
-                                    <th class="py-6 px-6 font-bold w-1/3 text-[--maingreen]">Recommended</th>
+                                    <th scope="col" class="py-6 px-6 font-bold w-1/3">Component</th>
+                                    <th scope="col" class="py-6 px-6 font-bold w-1/3 text-neutral-300">Minimum</th>
+                                    <th scope="col" class="py-6 px-6 font-bold w-1/3 text-[--maingreen]">Recommended</th>
                                 </tr>
                             </thead>
                             <tbody class="text-neutral-300 text-sm sm:text-base divide-y divide-neutral-800/50">
+                                
+                                <!-- CPU Specs -->
                                 <tr class="hover:bg-neutral-800/30 transition-colors">
                                     <td class="py-4 px-6 font-bold text-white">Processor (CPU)</td>
                                     <td class="py-4 px-6">64-bit Dual-Core (2 Cores / Threads)</td>
                                     <td class="py-4 px-6 font-semibold text-white">64-bit Hexa-Core (6+ Cores / Threads)</td>
                                 </tr>
+
+                                <!-- RAM Specs -->
                                 <tr class="hover:bg-neutral-800/30 transition-colors">
                                     <td class="py-4 px-6 font-bold text-white">Memory (RAM)</td>
                                     <td class="py-4 px-6">4 GB RAM</td>
                                     <td class="py-4 px-6 font-semibold text-white">16 GB RAM</td>
                                 </tr>
+
+                                <!-- GPU Specs -->
                                 <tr class="hover:bg-neutral-800/30 transition-colors">
                                     <td class="py-4 px-6 font-bold text-white">Graphics (GPU)</td>
                                     <td class="py-4 px-6">
@@ -309,16 +349,21 @@
                                         Nvidia GTX 1650 / AMD Radeon RX 580
                                     </td>
                                 </tr>
+
+                                <!-- Storage Specs -->
                                 <tr class="hover:bg-neutral-800/30 transition-colors">
                                     <td class="py-4 px-6 font-bold text-white">Storage Space</td>
                                     <td class="py-4 px-6">25 GB Free Space (HDD)</td>
                                     <td class="py-4 px-6 font-semibold text-white">50 GB+ Free Space (NVMe M.2 SSD)</td>
                                 </tr>
+
+                                <!-- Resolution Specs -->
                                 <tr class="hover:bg-neutral-800/30 transition-colors">
                                     <td class="py-4 px-6 font-bold text-white">Display Resolution</td>
                                     <td class="py-4 px-6">1280 x 720 HD</td>
                                     <td class="py-4 px-6 font-semibold text-white">1920 x 1080 FHD</td>
                                 </tr>
+
                             </tbody>
                         </table>
                     </div>

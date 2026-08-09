@@ -1,4 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
+
+    // lenis scroll
+    
     const lenis = new Lenis({
         duration: 1.2,
         easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
@@ -13,6 +16,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const rows = document.querySelectorAll("[data-feature]")
     const graphics = document.querySelectorAll("[data-graphic]")
+
+    //Grays out those not in view
 
     const observer = new IntersectionObserver(
         (entries) => {

@@ -31,13 +31,16 @@
         
         <div id="header-container"></div>
 
+        <!-- Sub Navigation Wrapper -->
         <div id="sub-nav-wrapper" class="sticky top-0 w-full px-4 py-3 z-30 transition-all duration-300">
             <div id="sub-nav" class="max-w-7xl mx-auto bg-neutral-900/30 backdrop-blur-md rounded-2xl border border-neutral-800/40 px-6 py-3 flex justify-between items-center transition-all duration-300">
                 
-            <a href="#" id="logo-scroll" class="items-center hidden sm:flex hover:opacity-80 transition-opacity cursor-pointer">
-                <img class="w-[6vw] min-w-[128px] max-w-[156px] h-auto object-contain" src="../../images/nexos-logo.png" alt="NexOS logo">
-            </a>
+                <!-- Brand / Logo -->
+                <a href="#" id="logo-scroll" class="items-center hidden sm:flex hover:opacity-80 transition-opacity cursor-pointer">
+                    <img class="w-[6vw] min-w-[128px] max-w-[156px] h-auto object-contain" src="../../images/nexos-logo.png" alt="NexOS logo">
+                </a>
 
+                <!-- Navigation Links & Action Button -->
                 <div class="flex items-center space-x-6 md:space-x-8 grow justify-end">
                     <div class="flex space-x-6 md:space-x-8 mr-6 md:mr-8">
                         <a href="#" class="text-white font-semibold text-sm md:text-base">Overview</a>
@@ -51,9 +54,13 @@
             </div>
         </div>
 
+        <!-- Main Content Area -->
         <article class="container mx-auto max-w-full text-center">
 
+            <!-- Hero Area -->
             <section id="hero" class="w-full bg-[--background] py-20 flex flex-col items-center scroll-mt-24">
+                
+                <!-- Animated Main Headline -->
                 <div class="container mx-auto text-center" style="overflow: visible;">
                     <h1 class="flex flex-col items-center justify-center text-4xl tracking-tight md:text-6xl text-white font-black">
                         <span class="mb-2">YOUR COMPUTER,</span>
@@ -64,35 +71,42 @@
                     </h1>
                 </div>
 
+                <!-- Value Proposition Description -->
                 <p class="text-lg md:text-xl max-w-2xl mx-auto leading-relaxed text-center mt-6">
                     Say goodbye to OS bloat, forced updates, and input lag.
                     NexOS is the lightweight, hyper-optimised Linux operating system
                     built by competitive players, for competitive players.
                 </p>
 
+                <!-- Product Preview Image -->
                 <div class="relative w-full max-w-[850px]">
-                        
-                        <img src="../../images/nexos-intro-hero.png" alt="Hero" class="w-full h-auto object-contain pointer-events-none relative z-10 block">
-
+                    <img src="../../images/nexos-intro-hero.png" alt="Hero" class="w-full h-auto object-contain pointer-events-none relative z-10 block">
                 </div>
 
+                <!-- Primary Call to Action -->
                 <a href="nexos-shop.html" class="main-button px-8 py-3.5 m-4 text-base md:text-lg">
                     Download NexOS
                 </a>
 
-                </section>
+            </section>
 
+            <!-- Testimonials / User Reviews -->
             <section id="reviews" class="w-full bg-neutral-100 py-20 px-4 md:px-8 flex flex-col items-center overflow-hidden">
                 <h2 class="text-3xl font-black tracking-tight md:text-5xl text-neutral-900 text-center mb-12 select-none">
                     SEE WHAT GAMERS ARE SAYING ABOUT <span class="text-[--maingreen]">NexOS.</span>
                 </h2>
 
+                <!-- Testimonial Carousel -->
                 <div class="relative w-full max-w-6xl overflow-hidden cursor-grab active:cursor-grabbing select-none" id="carousel-window">
+                    
+                    <!-- Edge Gradient Overlays for Fade Effect -->
                     <div class="pointer-events-none absolute left-0 top-0 bottom-0 w-12 sm:w-24 bg-gradient-to-r from-neutral-100 to-transparent z-10"></div>
                     <div class="pointer-events-none absolute right-0 top-0 bottom-0 w-12 sm:w-24 bg-gradient-to-l from-neutral-100 to-transparent z-10"></div>
 
+                    <!-- Carousel Cards Container -->
                     <div id="carousel-track" class="flex gap-6 will-change-transform py-4">
                         
+                        <!-- Review Card 1 -->
                         <blockquote class="w-[85vw] sm:w-[380px] md:w-[420px] shrink-0 bg-white p-6 sm:p-8 rounded-2xl shadow-md border border-neutral-200 flex flex-col justify-between min-h-[190px]">
                             <p class="text-base sm:text-lg text-neutral-700 italic mb-6 pointer-events-none">
                                 "NexOS is great for gaming! The responsiveness and low latency give me a huge edge."
@@ -102,6 +116,7 @@
                             </div>
                         </blockquote>
 
+                        <!-- Review Card 2 -->
                         <blockquote class="w-[85vw] sm:w-[380px] md:w-[420px] shrink-0 bg-white p-6 sm:p-8 rounded-2xl shadow-md border border-neutral-200 flex flex-col justify-between min-h-[190px]">
                             <p class="text-base sm:text-lg text-neutral-700 italic mb-6 pointer-events-none">
                                 "The customization options are insane. Best OS tweaks I've used so far."
@@ -111,6 +126,7 @@
                             </div>
                         </blockquote>
 
+                        <!-- Review Card 3 -->
                         <blockquote class="w-[85vw] sm:w-[380px] md:w-[420px] shrink-0 bg-white p-6 sm:p-8 rounded-2xl shadow-md border border-neutral-200 flex flex-col justify-between min-h-[190px]">
                             <p class="text-base sm:text-lg text-neutral-700 italic mb-6 pointer-events-none">
                                 "FPS boosts were noticeable right out of the box. Highly recommended for any gamer."
@@ -120,6 +136,7 @@
                             </div>
                         </blockquote>
 
+                        <!-- Review Card 4 -->
                         <blockquote class="w-[85vw] sm:w-[380px] md:w-[420px] shrink-0 bg-white p-6 sm:p-8 rounded-2xl shadow-md border border-neutral-200 flex flex-col justify-between min-h-[190px]">
                             <p class="text-base sm:text-lg text-neutral-700 italic mb-6 pointer-events-none">
                                 "Zero bloatware and instant boot times. My rig has never felt this snappy."
@@ -133,9 +150,11 @@
                 </div>
             </section>
             
+            <!-- Performance Metrics & Benchmarks -->
             <section id="performance" class="w-full bg-[--background] py-20 px-4 md:px-8 flex flex-col items-center overflow-hidden">
                 <div class="max-w-5xl w-full">
                     
+                    <!-- Performance Header -->
                     <div class="text-left mb-10 reveal-on-scroll">
                         <h2 class="text-4xl sm:text-5xl md:text-6xl font-black text-white tracking-tight mb-4">
                             PERFORMANCE IS PRIORITY.
@@ -145,126 +164,136 @@
                         </p>
                     </div>
 
+                    <!-- Benchmark Slides Container -->
                     <div class="bg-neutral-900 rounded-3xl border border-neutral-800 p-6 sm:p-10 md:p-14 shadow-2xl relative mb-8 reveal-on-scroll">
                         
-                    <div class="overflow-hidden w-full">
-                        <div id="perf-track" class="flex transition-transform duration-700 ease-[cubic-bezier(0.32,0.72,0,1)]">
-                            
-                            <div class="perf-slide w-full shrink-0">
-                                <h3 class="text-white font-bold text-lg sm:text-xl md:text-2xl text-center mb-6 sm:mb-8 tracking-wide">
-                                    Average FPS in Most Played Games
-                                </h3>
-                                <div class="space-y-4 sm:space-y-6 max-w-3xl mx-auto">
-                                    
-                                    <div class="flex flex-col sm:flex-row sm:items-center gap-1.5 sm:gap-6">
-                                        <span class="w-full sm:w-32 text-left sm:text-right font-black text-white text-base sm:text-xl shrink-0">
-                                            NexOS
-                                        </span>
-                                        <div class="grow bg-neutral-950 rounded-xl sm:rounded-2xl h-12 sm:h-16 p-1.5 sm:p-2 border border-neutral-800 relative">
-                                            <div class="perf-bar bg-[--maingreen] h-full rounded-lg sm:rounded-xl flex items-center justify-end pr-3 sm:pr-4 text-[--text] font-extrabold text-sm sm:text-base whitespace-nowrap overflow-hidden" style="width: 0%;" data-width="92%">
-                                                +45% FPS
+                        <div class="overflow-hidden w-full">
+                            <div id="perf-track" class="flex transition-transform duration-700 ease-[cubic-bezier(0.32,0.72,0,1)]">
+                                
+                                <!-- Benchmark 1: FPS Comparison -->
+                                <div class="perf-slide w-full shrink-0">
+                                    <h3 class="text-white font-bold text-lg sm:text-xl md:text-2xl text-center mb-6 sm:mb-8 tracking-wide">
+                                        Average FPS in Most Played Games
+                                    </h3>
+                                    <div class="space-y-4 sm:space-y-6 max-w-3xl mx-auto">
+                                        
+                                        <div class="flex flex-col sm:flex-row sm:items-center gap-1.5 sm:gap-6">
+                                            <span class="w-full sm:w-32 text-left sm:text-right font-black text-white text-base sm:text-xl shrink-0">
+                                                NexOS
+                                            </span>
+                                            <div class="grow bg-neutral-950 rounded-xl sm:rounded-2xl h-12 sm:h-16 p-1.5 sm:p-2 border border-neutral-800 relative">
+                                                <div class="perf-bar bg-[--maingreen] h-full rounded-lg sm:rounded-xl flex items-center justify-end pr-3 sm:pr-4 text-[--text] font-extrabold text-sm sm:text-base whitespace-nowrap overflow-hidden" style="width: 0%;" data-width="92%">
+                                                    +45% FPS
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
 
-                                    <div class="flex flex-col sm:flex-row sm:items-center gap-1.5 sm:gap-6">
-                                        <span class="w-full sm:w-32 text-left sm:text-right font-medium text-neutral-400 text-sm sm:text-lg shrink-0">
-                                            Windows 11
-                                        </span>
-                                        <div class="grow bg-neutral-950 rounded-xl sm:rounded-2xl h-12 sm:h-16 p-1.5 sm:p-2 border border-neutral-800 relative">
-                                            <div class="perf-bar bg-neutral-800 h-full rounded-xl border border-neutral-700/50 transition-all duration-1000 ease-out" style="width: 0%;" data-width="38%"></div>
+                                        <div class="flex flex-col sm:flex-row sm:items-center gap-1.5 sm:gap-6">
+                                            <span class="w-full sm:w-32 text-left sm:text-right font-medium text-neutral-400 text-sm sm:text-lg shrink-0">
+                                                Windows 11
+                                            </span>
+                                            <div class="grow bg-neutral-950 rounded-xl sm:rounded-2xl h-12 sm:h-16 p-1.5 sm:p-2 border border-neutral-800 relative">
+                                                <div class="perf-bar bg-neutral-800 h-full rounded-xl border border-neutral-700/50 transition-all duration-1000 ease-out" style="width: 0%;" data-width="38%"></div>
+                                            </div>
                                         </div>
-                                    </div>
 
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="perf-slide w-full shrink-0">
-                                <h3 class="text-white font-bold text-lg sm:text-xl md:text-2xl text-center mb-6 sm:mb-8 tracking-wide">
-                                    Idle Memory Usage (RAM)
-                                </h3>
-                                <div class="space-y-4 sm:space-y-6 max-w-3xl mx-auto">
-                                    
-                                    <div class="flex flex-col sm:flex-row sm:items-center gap-1.5 sm:gap-6">
-                                        <span class="w-full sm:w-32 text-left sm:text-right font-black text-white text-base sm:text-xl shrink-0">
-                                            NexOS
-                                        </span>
-                                        <div class="grow bg-neutral-950 rounded-xl sm:rounded-2xl h-12 sm:h-16 p-1.5 sm:p-2 border border-neutral-800 relative">
-                                            <div class="perf-bar bg-[--maingreen] h-full rounded-lg sm:rounded-xl flex items-center justify-end pr-3 sm:pr-4 text-[--text] font-extrabold text-sm sm:text-base whitespace-nowrap overflow-hidden" style="width: 0%;" data-width="35%">
-                                                1.8 GB
+                                <!-- Benchmark 2: RAM Usage -->
+                                <div class="perf-slide w-full shrink-0">
+                                    <h3 class="text-white font-bold text-lg sm:text-xl md:text-2xl text-center mb-6 sm:mb-8 tracking-wide">
+                                        Idle Memory Usage (RAM)
+                                    </h3>
+                                    <div class="space-y-4 sm:space-y-6 max-w-3xl mx-auto">
+                                        
+                                        <div class="flex flex-col sm:flex-row sm:items-center gap-1.5 sm:gap-6">
+                                            <span class="w-full sm:w-32 text-left sm:text-right font-black text-white text-base sm:text-xl shrink-0">
+                                                NexOS
+                                            </span>
+                                            <div class="grow bg-neutral-950 rounded-xl sm:rounded-2xl h-12 sm:h-16 p-1.5 sm:p-2 border border-neutral-800 relative">
+                                                <div class="perf-bar bg-[--maingreen] h-full rounded-lg sm:rounded-xl flex items-center justify-end pr-3 sm:pr-4 text-[--text] font-extrabold text-sm sm:text-base whitespace-nowrap overflow-hidden" style="width: 0%;" data-width="35%">
+                                                    1.8 GB
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
 
-                                    <div class="flex flex-col sm:flex-row sm:items-center gap-1.5 sm:gap-6">
-                                        <span class="w-full sm:w-32 text-left sm:text-right font-medium text-neutral-400 text-sm sm:text-lg shrink-0">
-                                            Windows 11
-                                        </span>
-                                        <div class="grow bg-neutral-950 rounded-xl sm:rounded-2xl h-12 sm:h-16 p-1.5 sm:p-2 border border-neutral-800 relative">
-                                            <div class="perf-bar bg-neutral-800 h-full rounded-lg sm:rounded-xl border border-neutral-700/50 flex items-center justify-end pr-3 sm:pr-4 text-neutral-300 font-semibold text-xs sm:text-sm whitespace-nowrap overflow-hidden" style="width: 0%;" data-width="85%">
-                                                3.5 GB
+                                        <div class="flex flex-col sm:flex-row sm:items-center gap-1.5 sm:gap-6">
+                                            <span class="w-full sm:w-32 text-left sm:text-right font-medium text-neutral-400 text-sm sm:text-lg shrink-0">
+                                                Windows 11
+                                            </span>
+                                            <div class="grow bg-neutral-950 rounded-xl sm:rounded-2xl h-12 sm:h-16 p-1.5 sm:p-2 border border-neutral-800 relative">
+                                                <div class="perf-bar bg-neutral-800 h-full rounded-lg sm:rounded-xl border border-neutral-700/50 flex items-center justify-end pr-3 sm:pr-4 text-neutral-300 font-semibold text-xs sm:text-sm whitespace-nowrap overflow-hidden" style="width: 0%;" data-width="85%">
+                                                    3.5 GB
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
 
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="perf-slide w-full shrink-0">
-                                <h3 class="text-white font-bold text-lg sm:text-xl md:text-2xl text-center mb-6 sm:mb-8 tracking-wide">
-                                    DPC Latency (Lower is Better)
-                                </h3>
-                                <div class="space-y-4 sm:space-y-6 max-w-3xl mx-auto">
-                                    
-                                    <div class="flex flex-col sm:flex-row sm:items-center gap-1.5 sm:gap-6">
-                                        <span class="w-full sm:w-32 text-left sm:text-right font-black text-white text-base sm:text-xl shrink-0">
-                                            NexOS
-                                        </span>
-                                        <div class="grow bg-neutral-950 rounded-xl sm:rounded-2xl h-12 sm:h-16 p-1.5 sm:p-2 border border-neutral-800 relative">
-                                            <div class="perf-bar bg-[--maingreen] h-full rounded-lg sm:rounded-xl flex items-center justify-end pr-3 sm:pr-4 text-[--text] font-extrabold text-sm sm:text-base whitespace-nowrap overflow-hidden" style="width: 0%;" data-width="25%">
-                                                12µs
+                                <!-- Benchmark 3: Latency Comparison -->
+                                <div class="perf-slide w-full shrink-0">
+                                    <h3 class="text-white font-bold text-lg sm:text-xl md:text-2xl text-center mb-6 sm:mb-8 tracking-wide">
+                                        DPC Latency (Lower is Better)
+                                    </h3>
+                                    <div class="space-y-4 sm:space-y-6 max-w-3xl mx-auto">
+                                        
+                                        <div class="flex flex-col sm:flex-row sm:items-center gap-1.5 sm:gap-6">
+                                            <span class="w-full sm:w-32 text-left sm:text-right font-black text-white text-base sm:text-xl shrink-0">
+                                                NexOS
+                                            </span>
+                                            <div class="grow bg-neutral-950 rounded-xl sm:rounded-2xl h-12 sm:h-16 p-1.5 sm:p-2 border border-neutral-800 relative">
+                                                <div class="perf-bar bg-[--maingreen] h-full rounded-lg sm:rounded-xl flex items-center justify-end pr-3 sm:pr-4 text-[--text] font-extrabold text-sm sm:text-base whitespace-nowrap overflow-hidden" style="width: 0%;" data-width="25%">
+                                                    12µs
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
 
-                                    <div class="flex flex-col sm:flex-row sm:items-center gap-1.5 sm:gap-6">
-                                        <span class="w-full sm:w-32 text-left sm:text-right font-medium text-neutral-400 text-sm sm:text-lg shrink-0">
-                                            Windows 11
-                                        </span>
-                                        <div class="grow bg-neutral-950 rounded-xl sm:rounded-2xl h-12 sm:h-16 p-1.5 sm:p-2 border border-neutral-800 relative">
-                                            <div class="perf-bar bg-neutral-800 h-full rounded-lg sm:rounded-xl border border-neutral-700/50 flex items-center justify-end pr-3 sm:pr-4 text-neutral-300 font-semibold text-xs sm:text-sm whitespace-nowrap overflow-hidden" style="width: 0%;" data-width="75%">
-                                                84µs
+                                        <div class="flex flex-col sm:flex-row sm:items-center gap-1.5 sm:gap-6">
+                                            <span class="w-full sm:w-32 text-left sm:text-right font-medium text-neutral-400 text-sm sm:text-lg shrink-0">
+                                                Windows 11
+                                            </span>
+                                            <div class="grow bg-neutral-950 rounded-xl sm:rounded-2xl h-12 sm:h-16 p-1.5 sm:p-2 border border-neutral-800 relative">
+                                                <div class="perf-bar bg-neutral-800 h-full rounded-lg sm:rounded-xl border border-neutral-700/50 flex items-center justify-end pr-3 sm:pr-4 text-neutral-300 font-semibold text-xs sm:text-sm whitespace-nowrap overflow-hidden" style="width: 0%;" data-width="75%">
+                                                    84µs
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
 
+                                    </div>
                                 </div>
-                            </div>
 
+                            </div>
                         </div>
-                    </div>
 
                     </div>
 
+                    <!-- Benchmark Navigation & Playback Controls -->
                     <div class="flex justify-center items-center reveal-on-scroll">
                         <div class="inline-flex items-center gap-3 px-4 py-2 bg-neutral-900/80 backdrop-blur-md rounded-full border border-neutral-800/80 shadow-lg">
                             
+                            <!-- Previous Slide Button -->
                             <button id="prev" class="w-6 h-6 flex items-center justify-center text-neutral-400 hover:text-white transition-colors" aria-label="Previous Slide">
                                 <i class="fa fa-chevron-left text-xs"></i>
                             </button>
 
+                            <!-- Slide Indicators -->
                             <div id="dots" class="flex items-center gap-2 px-1">
                                 <button class="w-2 h-2 rounded-full bg-white transition-all duration-300" data-index="0" aria-label="Slide 1"></button>
                                 <button class="w-2 h-2 rounded-full bg-neutral-600 hover:bg-neutral-400 transition-all duration-300" data-index="1" aria-label="Slide 2"></button>
                                 <button class="w-2 h-2 rounded-full bg-neutral-600 hover:bg-neutral-400 transition-all duration-300" data-index="2" aria-label="Slide 3"></button>
                             </div>
 
+                            <!-- Next Slide Button -->
                             <button id="next" class="w-6 h-6 flex items-center justify-center text-neutral-400 hover:text-white transition-colors" aria-label="Next Slide">
                                 <i class="fa fa-chevron-right text-xs"></i>
                             </button>
 
+                            <!-- Control Separator -->
                             <div class="w-[1px] h-3.5 bg-neutral-800 mx-0.5"></div>
 
+                            <!-- Play / Pause Toggle -->
                             <button id="play-pause" class="w-6 h-6 flex items-center justify-center text-neutral-400 hover:text-white transition-colors" aria-label="Pause Slideshow">
                                 <i class="fa fa-pause text-xs"></i>
                             </button>
@@ -274,9 +303,11 @@
                 </div>
             </section>
             
+            <!-- Interactive Screen / Mode Comparison Section -->
             <section id="screen-comparison" class="w-full bg-[--background] py-20 px-4 md:px-8 flex flex-col items-center overflow-hidden">
                 <div class="max-w-5xl w-full">
                     
+                    <!-- Header & Description -->
                     <div class="text-left mb-10 reveal-on-scroll">
                         <h2 class="text-4xl sm:text-5xl md:text-6xl font-black text-white tracking-tight mb-4">
                             GAMING HAS NEVER BEEN EASIER.
@@ -286,16 +317,18 @@
                         </p>
                     </div>
 
+                    <!-- Interactive Monitor & Screen Comparison Slider -->
                     <div class="relative w-full max-w-4xl mx-auto flex flex-col items-center reveal-on-scroll">
                         
-                        <!-- Scaled container matching the 3576x2764 ratio -->
+                        <!-- Scaled Aspect Ratio Frame Container -->
                         <div class="relative w-full aspect-[3576/2764] max-w-[850px]">
                             
-                            <!-- Screen Previews Container mapped behind the monitor frame -->
+                            <!-- Interactive Comparison Slider Viewport -->
                             <div id="screen-slider-container" 
                                 class="absolute top-[1.2%] left-[1.1%] w-[97.8%] h-[68.8%] rounded-sm overflow-hidden select-none bg-black z-10"
                                 style="--pos: 50%;">
                                 
+                                <!-- Base Layer: Desktop Mode Image -->
                                 <div class="absolute inset-0 w-full h-full pointer-events-none">
                                     <img src="../../images/desktop-mode.jpg" alt="Desktop Environment" class="w-full h-full object-cover select-none">
                                     <span class="absolute top-3 left-3 bg-neutral-900/80 backdrop-blur-md text-white text-xs px-2.5 py-1 rounded-md font-medium z-10 pointer-events-none">
@@ -303,6 +336,7 @@
                                     </span>
                                 </div>
 
+                                <!-- Overlay Layer: Gaming Mode Image (Clipped) -->
                                 <div class="screen-overlay-clip absolute inset-0 w-full h-full pointer-events-none z-10">
                                     <img src="../../images/gaming-mode.jpg" alt="Gaming Workspace" class="w-full h-full object-cover select-none">
                                     <span class="absolute top-3 left-3 bg-[--maingreen] text-black font-extrabold text-xs px-2.5 py-1 rounded-md z-10 pointer-events-none shadow-md">
@@ -310,6 +344,7 @@
                                     </span>
                                 </div>
 
+                                <!-- Interactive Slider Divider & Control Handle -->
                                 <div id="screen-handle" class="absolute top-0 bottom-0 -ml-4 w-8 flex items-center justify-center cursor-ew-resize z-20 touch-none" style="left: var(--pos);">
                                     <div class="absolute top-0 bottom-0 w-[2px] bg-[--maingreen] shadow-[0_0_8px_rgba(0,255,100,0.8)]"></div>
                                     
@@ -321,7 +356,7 @@
 
                             </div>
 
-                            <!-- 3576x2764 Monitor Cutout Overlay -->
+                            <!-- Hardware Frame Cutout Overlay -->
                             <img src="../../images/monitor-stand.webp" alt="Monitor Display" class="w-full h-full object-contain pointer-events-none relative z-30 block">
 
                         </div>
@@ -330,9 +365,11 @@
                 </div>
             </section>
 
+            <!-- Gameplay Showcase / Video Demo Section -->
             <section id="games-demo" class="w-full bg-[--background] py-20 px-4 md:px-8 flex flex-col items-center overflow-hidden">
                 <div class="max-w-5xl w-full">
                     
+                    <!-- Section Header -->
                     <div class="text-left mb-12 reveal-on-scroll">
                         <h2 class="text-4xl sm:text-5xl md:text-6xl font-black text-white tracking-tight mb-4">
                             GAMES, UNLIMITED GAMES.
@@ -345,12 +382,13 @@
                         </p>
                     </div>
 
+                    <!-- Video Player Frame Wrapper -->
                     <div class="relative w-full max-w-4xl mx-auto flex flex-col items-center reveal-on-scroll">
                         
-                        <!-- Scaled container matching the 3576x2764 ratio -->
+                        <!-- Scaled Frame Container -->
                         <div class="relative w-full aspect-[3576/2764] max-w-[850px]">
                             
-                            <!-- Video Container mapped behind the monitor frame -->
+                            <!-- Embedded Video Player -->
                             <div class="absolute top-[1.2%] left-[1.1%] w-[97.8%] h-[68.8%] rounded-sm overflow-hidden bg-black z-10 pointer-events-none">
                                 <div class="relative w-full h-full scale-[1.02]">
                                     <iframe 
@@ -363,7 +401,7 @@
                                 </div>
                             </div>
 
-                            <!-- 3576x2764 Monitor Cutout Overlay -->
+                            <!-- Hardware Frame Overlay -->
                             <img src="../../images/monitor-stand.webp" alt="Monitor Display" class="w-full h-full object-contain pointer-events-none relative z-30 block">
 
                         </div>
@@ -373,9 +411,11 @@
                 </div>
             </section>
 
+            <!-- Hardware Integration Section -->
             <section id="keyboard" class="w-full bg-[--background] py-20 px-4 md:px-8 flex flex-col items-center overflow-hidden">
                 <div class="max-w-5xl w-full">
 
+                    <!-- Section Header -->
                     <div class="text-left mb-12 reveal-on-scroll">
                         <h2 class="text-4xl sm:text-5xl md:text-6xl font-black text-white tracking-tight mb-4">
                             WORKS BEST WITH OUR HARDWARE.
@@ -386,17 +426,19 @@
                         </p>
                     </div>
 
+                    <!-- Hardware Showcase Image -->
                     <div class="relative w-full max-w-[1300px]">
-                        
                         <img src="../../images/nexos-intro-keyboard.png" alt="Keybpard" class="w-full h-auto object-cover pointer-events-none relative z-10 block">
-
                     </div>
+
                 </div>
             </section>
 
+            <!-- Core OS Value Pillars Section -->
             <section id="os-values" class="w-full bg-[--background] py-16 px-4 md:px-8 flex flex-col items-center">
                 <div class="max-w-5xl w-full grid grid-cols-1 md:grid-cols-2 gap-6 reveal-on-scroll">
 
+                    <!-- Pillar 1: Reliability -->
                     <div class="bg-[#12d14b] text-black p-8 sm:p-10 rounded-3xl flex flex-col justify-between items-start text-left shadow-lg transition-transform duration-300 hover:-translate-y-1">
                         <div class="flex flex-col items-start text-left w-full">
                             <div class="w-14 h-14 rounded-full bg-black/10 backdrop-blur-sm flex items-center justify-center mb-8">
@@ -412,6 +454,7 @@
                         </div>
                     </div>
 
+                    <!-- Pillar 2: Security -->
                     <div class="bg-[#1ca8e9] text-black p-8 sm:p-10 rounded-3xl flex flex-col justify-between items-start text-left shadow-lg transition-transform duration-300 hover:-translate-y-1">
                         <div class="flex flex-col items-start text-left w-full">
                             <div class="w-14 h-14 rounded-full bg-black/10 backdrop-blur-sm flex items-center justify-center mb-8">
@@ -427,6 +470,7 @@
                         </div>
                     </div>
 
+                    <!-- Pillar 3: Privacy -->
                     <div class="bg-[#383b40] text-white p-8 sm:p-10 rounded-3xl flex flex-col justify-between items-start text-left shadow-lg transition-transform duration-300 hover:-translate-y-1">
                         <div class="flex flex-col items-start text-left w-full">
                             <div class="w-14 h-14 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center mb-8">
@@ -446,6 +490,7 @@
                         </a>
                     </div>
 
+                    <!-- Pillar 4: Accessibility -->
                     <div class="bg-[#f04f43] text-white p-8 sm:p-10 rounded-3xl flex flex-col justify-between items-start text-left shadow-lg transition-transform duration-300 hover:-translate-y-1">
                         <div class="flex flex-col items-start text-left w-full">
                             <div class="w-14 h-14 rounded-full bg-black/10 backdrop-blur-sm flex items-center justify-center mb-8">
@@ -468,13 +513,17 @@
                 </div>
             </section>
 
+            <!-- Download Call to Action Card -->
             <section id="download-cta" class="w-full bg-[--background] py-20 px-4 md:px-8 flex flex-col items-center">
                 <div class="max-w-5xl w-full reveal-on-scroll">
                     
+                    <!-- Interactive CTA Card Container -->
                     <div id="cta-card" class="relative overflow-hidden bg-[#dcdcdc] rounded-[2.5rem] p-10 sm:p-16 md:p-20 text-black flex flex-col items-center justify-center text-center transition-shadow duration-500 shadow-2xl group cursor-default">
                         
+                        <!-- Mouse-driven Radial Lighting Glow Overlay -->
                         <div id="cta-glow" class="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 bg-[radial-gradient(circle_at_var(--mouse-x,50%)_var(--mouse-y,50%),rgba(255,255,255,0.8)_0%,rgba(220,220,220,0)_60%)]"></div>
 
+                        <!-- Card Content & Action Button -->
                         <div class="relative z-10 max-w-3xl flex flex-col items-center">
                             <h2 class="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-neutral-900 leading-tight mb-10">
                                 JOIN THE NEXT EVOLUTION OF GAMING. DOWNLOAD <span class="text-[--maingreen]">NexOS</span>.
@@ -492,9 +541,11 @@
                 </div>
             </section>
 
+            <!-- OEM Partners & Pre-Installed Computers Section -->
             <section id="computer-cta" class="w-full bg-[--background] py-20 px-4 md:px-8 flex flex-col items-center overflow-hidden">
                 <div class="max-w-5xl w-full">
 
+                    <!-- Section Header -->
                     <div class="text-left mb-12 reveal-on-scroll">
                         <h2 class="text-4xl sm:text-5xl md:text-6xl font-black text-white tracking-tight mb-4">
                             CHOOSE A COMPUTER WITH NexOS.
@@ -505,12 +556,12 @@
                         </p>
                     </div>
 
+                    <!-- Partner Computers Showcase Banner -->
                     <div class="relative w-full max-w-[1300px]">
-                        
                         <img src="../../images/nexos-intro-computers.png" alt="Computers" class="w-full h-auto object-contain pointer-events-none relative z-10 block">
-
                     </div>
 
+                    <!-- Navigation Button -->
                     <div class="flex justify-start mt-8 reveal-on-scroll">
                         <a href="nexos-computer.html" class="main-button px-8 py-3.5 text-base md:text-lg gap-2">
                             <span>Explore Powered PCs</span>
@@ -520,9 +571,11 @@
                 </div>
             </section>
 
+            <!-- Frequently Asked Questions Accordion Section -->
             <section id="faq" class="w-full bg-[--background] py-20 px-4 md:px-8 flex flex-col items-center overflow-hidden">
                 <div class="max-w-5xl w-full reveal-on-scroll">
                     
+                    <!-- FAQ Section Header -->
                     <div class="text-left mb-12">
                         <h2 class="text-4xl sm:text-5xl md:text-6xl font-black text-white tracking-tight uppercase mb-4">
                             FREQUENTLY ASKED QUESTIONS.
@@ -532,8 +585,10 @@
                         </p>
                     </div>
 
+                    <!-- FAQ Accordion Container -->
                     <div class="space-y-4" id="faq-accordion">
 
+                        <!-- FAQ Item 1 -->
                         <div class="faq-item bg-neutral-900 border border-neutral-800 rounded-2xl overflow-hidden transition-colors">
                             <button class="faq-trigger w-full px-6 py-5 flex justify-between items-center text-left text-white font-bold text-lg sm:text-xl focus:outline-none">
                                 <span>Can I dual-boot NexOS alongside Windows?</span>
@@ -546,6 +601,7 @@
                             </div>
                         </div>
 
+                        <!-- FAQ Item 2 -->
                         <div class="faq-item bg-neutral-900 border border-neutral-800 rounded-2xl overflow-hidden transition-colors">
                             <button class="faq-trigger w-full px-6 py-5 flex justify-between items-center text-left text-white font-bold text-lg sm:text-xl focus:outline-none">
                                 <span>Will my favorite Anti-Cheat games work?</span>
@@ -558,6 +614,7 @@
                             </div>
                         </div>
 
+                        <!-- FAQ Item 3 -->
                         <div class="faq-item bg-neutral-900 border border-neutral-800 rounded-2xl overflow-hidden transition-colors">
                             <button class="faq-trigger w-full px-6 py-5 flex justify-between items-center text-left text-white font-bold text-lg sm:text-xl focus:outline-none">
                                 <span>Do I need experience with Linux terminal commands?</span>
@@ -570,6 +627,7 @@
                             </div>
                         </div>
 
+                        <!-- FAQ Item 4 -->
                         <div class="faq-item bg-neutral-900 border border-neutral-800 rounded-2xl overflow-hidden transition-colors">
                             <button class="faq-trigger w-full px-6 py-5 flex justify-between items-center text-left text-white font-bold text-lg sm:text-xl focus:outline-none">
                                 <span>How do updates work on NexOS?</span>
