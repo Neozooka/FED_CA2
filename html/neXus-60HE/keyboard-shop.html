@@ -29,7 +29,7 @@
 <!-- DONE BY LIANG JUN -->
 
 <body>
-    
+
     <div id="header-container" class="sticky top-0 z-50"></div>
 
     <article class="flex flex-col items-center gap-10">
@@ -528,52 +528,6 @@
     </article>
 
     <div id="footer-container"></div>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-        const dateInput = document.getElementById('booking-date');
-        if (!dateInput) return;
-
-        const today = new Date();
-
-        // Helper to format Date object into YYYY-MM-DD format
-        const formatDate = (dateObj) => {
-            const year = dateObj.getFullYear();
-            const month = String(dateObj.getMonth() + 1).padStart(2, '0');
-            const day = String(dateObj.getDate()).padStart(2, '0');
-            return `${year}-${month}-${day}`;
-        };
-
-        // Calculate Minimum Date (Today)
-        const minDate = formatDate(today);
-
-        // Calculate Maximum Date (1 Year from Today)
-        const maxDateObj = new Date(today);
-        maxDateObj.setFullYear(today.getFullYear() + 1);
-        const maxDate = formatDate(maxDateObj);
-
-        // Set attributes on the date input
-        dateInput.min = minDate;
-        dateInput.max = maxDate;
-    });
-    
-        function updateMapLocation(selectedMall) {
-        const mapIframe = document.getElementById('google-map-iframe');
-        
-        // Google Maps Embed Links for Singapore Shopping Malls
-        const mapLocations = {
-            'ion_orchard': 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.791557008779!2d103.83226487588133!3d1.304033061730076!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da198e3b07044f%3A0xe7212009d115e8f4!2sION%20Orchard!5e0!3m2!1sen!2ssg!4v1710000000000',
-            'vivocity': 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.8351659858343!2d103.82025177588126!3d1.2642533618167735!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da1c2017770db1%3A0x6b2e3f52b82d46e3!2sVivoCity!5e0!3m2!1sen!2ssg!4v1710000000000',
-            'jewel_changi': 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.7408795551325!2d103.98711417588135!3d1.3602130616288721!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da3b355fa91bb7%3A0xe104326f5d2ec757!2sJewel%20Changi%20Airport!5e0!3m2!1sen!2ssg!4v1710000000000',
-            'funan': 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.8058281146604!2d103.84759627588126!3d1.2909408617586524!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da19a0a0ce9a0f%3A0xbebc2e0d37e1cb2a!2sFunan!5e0!3m2!1sen!2ssg!4v1710000000000',
-            'nex': 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.7303038144215!2d103.87023157588135!3d1.3503254616077366!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da1775798dbfa3%3A0x673be7c87cbb9796!2sNEX!5e0!3m2!1sen!2ssg!4v1710000000000'
-        };
-
-        if (mapLocations[selectedMall]) {
-            mapIframe.src = mapLocations[selectedMall];
-        }
-    }
-    </script>
 
 </body>
 </html>
