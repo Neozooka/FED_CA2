@@ -44,8 +44,8 @@ function checkPromo() {
 function loadProductsFromList(cartList) {
     const priceTotal = document.getElementById("checkout-total-price")
     const numberItems = document.getElementById("checkout-item-count")
-    const CartTemplate = document.querySelector("[cart-template]")
-    const CartContainer = document.querySelector("[cart-container]")
+    const CartTemplate = document.querySelector("[data-cart-template]")
+    const CartContainer = document.querySelector("[data-cart-container]")
 
     // Reset total before recalculating
     totalCost = 0
@@ -159,7 +159,7 @@ const search2Input = document.getElementById("search2") || (typeof search2 !== "
 if (search2Input) {
     search2Input.addEventListener("input", e => {
         const value = e.target.value.toLowerCase()
-        const CartContainer = document.querySelector("[cart-container]")
+        const CartContainer = document.querySelector("[data-cart-container]")
         if (!CartContainer) return
 
         const cartCards = CartContainer.querySelectorAll(".container")
