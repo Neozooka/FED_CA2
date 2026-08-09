@@ -276,9 +276,12 @@ const shop_list = [
     "nexus-python-ultra-light-gaming-mouse-26k-dpi-59g-optical-switches",
     "nexus-kailh-box-jade-clicky-mechanical-switches",
     "nexus-clear-glass-gaming-mousepad-450x400mm-ultra-smooth",
-    "nexus-gateron-baby-kangaroo-2-0-tactile-switches",
-    "nexus-gateron-pro-3-0-yellow-linear-switches",
-    "nexus-python-v2-gaming-mouse-30k-dpi-54g-optical-gen-3-switches"
+    "nexus-gateron-baby-kangaroo-2.0-tactile-switches",
+    "nexus-gateron-pro-3.0-yellow-linear-switches",
+    "nexus-python-v2-gaming-mouse-30k-dpi-54g-optical-gen-3-switches",
+    "nexos-pro-26-07",
+    "nexos-spectre-gaming-headset-50mm-drivers-clearcast-microphone",
+    "nexos-hunter-gaming-keyboard-1000hz-polling"
 ]
 
 // Searchbar input functionality for shop page
