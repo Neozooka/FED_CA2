@@ -45,49 +45,53 @@ function handleSignup(event) {
 
     const total = slides.length;
     const AUTOPLAY_MS = 4000;
-    const TRANSITION_MS = 500;
 
     let current = Math.max(0, slides.findIndex((s) => s.classList.contains("opacity-100")));
-    let isAnimating = false;
     let autoplayId = null;
 
     function render() {
         slides.forEach((slide, i) => {
-            if (i === current) {
-                slide.classList.replace("opacity-0", "opacity-100");
-                slide.classList.replace("pointer-events-none", "pointer-events-auto");
-            } else {
-                slide.classList.replace("opacity-100", "opacity-0");
-                slide.classList.replace("pointer-events-auto", "pointer-events-none");
-            }
+            const isActive = i === current;
+            slide.classList.toggle("opacity-100", isActive);
+            slide.classList.toggle("pointer-events-auto", isActive);
+            slide.classList.toggle("opacity-0", !isActive);
+            slide.classList.toggle("pointer-events-none", !isActive);
         });
 
         indicators.forEach((btn, i) => {
-            if (i === current) {
-                btn.classList.replace("bg-white/40", "bg-white");
+            const isActive = i === current;
+            btn.classList.toggle("bg-white", isActive);
+            btn.classList.toggle("bg-white/40", !isActive);
+            if (isActive) {
                 btn.setAttribute("aria-current", "true");
             } else {
-                btn.classList.replace("bg-white", "bg-white/40");
                 btn.removeAttribute("aria-current");
             }
         });
     }
 
-    function goTo(index, { restartAutoplay: shouldRestart = true } = {}) {
-        if (isAnimating || total <= 1) return;
-        isAnimating = true;
+    function goTo(index) {
+        if (total <= 1) return;
         current = ((index % total) + total) % total;
         render();
-        setTimeout(() => { isAnimating = false; }, TRANSITION_MS);
-        if (shouldRestart) restartAutoplay();
     }
 
-    function next() { goTo(current + 1); }
-    function previous() { goTo(current - 1); }
+    function next() {
+        goTo(current + 1);
+        restartAutoplay();
+    }
+
+    function previous() {
+        goTo(current - 1);
+        restartAutoplay();
+    }
 
     function startAutoplay() {
-        if (total <= 1) return;
-        autoplayId = setInterval(() => goTo(current + 1, { restartAutoplay: false }), AUTOPLAY_MS);
+        if (total <= 1 || autoplayId) return;
+        autoplayId = setInterval(() => {
+            current = (current + 1) % total;
+            render();
+        }, AUTOPLAY_MS);
     }
 
     function stopAutoplay() {
@@ -104,7 +108,13 @@ function handleSignup(event) {
 
     if (nextBtn) nextBtn.addEventListener("click", next);
     if (prevBtn) prevBtn.addEventListener("click", previous);
-    indicators.forEach((btn, i) => btn.addEventListener("click", () => goTo(i)));
+    
+    indicators.forEach((btn, i) => {
+        btn.addEventListener("click", () => {
+            goTo(i);
+            restartAutoplay();
+        });
+    });
 
     if (actionView) {
         actionView.addEventListener("mouseenter", stopAutoplay);
