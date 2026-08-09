@@ -191,9 +191,9 @@ function loadHeaderAndFooter() {
                     </a>
 
                     <button id="menu-btn" class="w-10 h-10 relative cursor-pointer focus:outline-none flex items-center justify-center" aria-label="Menu">
-                        <div class="hamburger-line line-1"></div>
-                        <div class="hamburger-line line-2"></div>
-                        <div class="hamburger-line line-3"></div>
+                        <span class="hamburger-line line-1 block"></span>
+                        <span class="hamburger-line line-2 block"></span>
+                        <span class="hamburger-line line-3 block"></span>
                     </button>
                 </div>
             </nav>
@@ -286,7 +286,7 @@ function loadHeaderAndFooter() {
                     <ul class="space-y-2">
                         <li><a href="https://www.youtube.com/watch?v=EE8U7U8syuI" target="_blank" class="hover:underline">Terms of Service</a></li>
                         <li><a href="https://www.youtube.com/watch?v=EE8U7U8syuI" target="_blank" class="hover:underline">Privacy Policy</a></li>
-                        <p>&copy; 2026 neXus Corporation. All rights reserved.</p>
+                        <li><p>&copy; 2026 neXus Corporation. All rights reserved.</p></li>
                     </ul>
                 </div>
 

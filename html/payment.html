@@ -62,9 +62,9 @@
 
                 <div class="z-10 flex h-[500px] w-full flex-col items-center overflow-y-auto rounded-lg p-t-[60px] pt-[60px]">
                     
-                    <div cart-container class="dbdb text-center flex flex-col gap-4 mb-8 w-full max-w-[1200px] items-center"></div>
+                    <div data-cart-container class="dbdb text-center flex flex-col gap-4 mb-8 w-full max-w-[1200px] items-center"></div>
 
-                    <template cart-template class="z-1">
+                    <template data-cart-template class="z-1">
 
                         <div class="container mx-auto w-full max-w-[1200px] min-h-[90px] sm:min-h-[115px] bg-[var(--shop-item)] flex flex-row items-center justify-between px-2.5 sm:px-8 py-3 border border-gray-600 rounded-xl">
                             <div class="w-full flex flex-row items-center justify-between gap-2.5 sm:gap-8">
@@ -121,15 +121,15 @@
                 <div class="flex flex-wrap sm:flex-row gap-2 sm:gap-4 w-full sm:w-auto">
 
                     <button id="payButton1" class="text-sm pay-button flex-1 sm:flex-none px-4 sm:px-6 py-2.5 rounded-md font-medium border border-red-500 bg-transparent text-red-500 hover:text-gray-300 transition duration-200" onclick="choosePayment('payButton1')">
-                        <p class="text-sm">Credit Card</p>
+                        <span class="text-sm">Credit Card</span>
                     </button>
                     
                     <button id="payButton2" class="pay-button flex-1 sm:flex-none px-4 sm:px-6 py-2.5 rounded-md border border-gray-700 bg-transparent text-gray-500 hover:text-gray-300 transition duration-200" onclick="choosePayment('payButton2'); showQR('PayNow')">
-                        <p class="text-sm">Pay Now</p>
+                        <span class="text-sm">Pay Now</span>
                     </button>
                     
                     <button id="payButton3" class="pay-button flex-1 sm:flex-none px-4 sm:px-6 py-2.5 rounded-md border border-gray-700 bg-transparent text-gray-500 hover:text-gray-300 transition duration-200" onclick="choosePayment('payButton3'); showQR('paylah')">
-                        <p class="text-sm">DBS PayLah!</p>
+                        <span class="text-sm">DBS PayLah!</span>
                     </button>
                 </div>
 
