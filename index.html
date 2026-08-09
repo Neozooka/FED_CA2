@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="css/style.css">
 
     <script src="javascript/header-footer.js"></script>
+    <script src="javascript/chatbot.js"></script>
     <script src="javascript/index.js" defer></script>
     <script src="javascript/reveal-on-scroll.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
@@ -45,20 +46,24 @@
 
         <section class="reveal-on-scroll actionView relative w-full my-12" aria-label="Product Showcase Carousel">
             <div class="list relative h-[450px] md:h-[600px] lg:h-[750px] w-full overflow-hidden rounded-2xl shadow-2xl"> 
+                <div style="background-image: url('images/index-hero-discount.webp');" 
+                     class="action w-full h-full bg-contain bg-center bg-no-repeat bg-black absolute inset-0 z-20 opacity-0 pointer-events-none transition-opacity duration-500 ease-in-out">
+                </div>
                 <div style="background-image: url('images/keyboardwhite3.webp');" 
-                     class="action w-full h-full bg-cover bg-center bg-no-repeat absolute inset-0 z-20 opacity-0 pointer-events-none transition-opacity duration-500 ease-in-out">
+                     class="action w-full h-full bg-contain bg-center bg-no-repeat bg-black absolute inset-0 z-20 opacity-0 pointer-events-none transition-opacity duration-500 ease-in-out">
                 </div>
                 <div style="background-image: url('images/KeyboardGreen.webp');" 
-                     class="action w-full h-full bg-cover bg-center bg-no-repeat absolute inset-0 z-20 opacity-100 pointer-events-auto transition-opacity duration-500 ease-in-out">
+                     class="action w-full h-full bg-contain bg-center bg-no-repeat bg-black absolute inset-0 z-20 opacity-0 pointer-events-auto transition-opacity duration-500 ease-in-out">
                 </div>
                 <div style="background-image: url('images/index-nexos.jpeg');" 
-                     class="action w-full h-full bg-cover bg-center bg-no-repeat absolute inset-0 z-20 opacity-0 pointer-events-none transition-opacity duration-500 ease-in-out">
+                     class="action w-full h-full bg-contain bg-center bg-no-repeat bg-black absolute inset-0 z-20 opacity-0 pointer-events-none transition-opacity duration-500 ease-in-out">
                 </div>
 
                 <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex justify-center items-center gap-3 z-30" id="carousel-indicator">
                     <button class="carouselbutton h-2.5 w-8 rounded-full bg-white transition-all duration-300" aria-current="true" aria-label="Slide 1" id="carouselb1"></button>
                     <button class="carouselbutton h-2.5 w-8 rounded-full bg-white/40 hover:bg-white/70 transition-all duration-300" aria-label="Slide 2" id="carouselb2"></button>
                     <button class="carouselbutton h-2.5 w-8 rounded-full bg-white/40 hover:bg-white/70 transition-all duration-300" aria-label="Slide 3" id="carouselb3"></button>
+                    <button class="carouselbutton h-2.5 w-8 rounded-full bg-white/40 hover:bg-white/70 transition-all duration-300" aria-label="Slide 4" id="carouselb4"></button>
                 </div>
             </div>
 
