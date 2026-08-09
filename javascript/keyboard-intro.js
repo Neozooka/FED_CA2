@@ -142,3 +142,16 @@ function playSounds() {
 
 window.addEventListener('resize', resize)
 window.addEventListener('load', resize)
+
+window.addEventListener("load", () => {
+    const loader = document.getElementById("loading-screen")
+    
+    if (loader) {
+        loader.classList.replace("opacity-100", "opacity-0")
+        loader.classList.replace("pointer-events-auto", "pointer-events-none")
+
+        setTimeout(() => {
+            loader.remove()
+        }, 500)
+    }
+})

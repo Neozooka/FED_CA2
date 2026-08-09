@@ -206,13 +206,15 @@ function showToastNotification(productName) {
 }
 
 async function addCart(id) {
+    
     try {
         const response = await fetch(path);
         const products = await response.json();
         
         const matchedProduct = products.find(item => item.title === id);
-        
+        console.log(products.find(item => item.title === id))
         if (matchedProduct) {
+
             const existingItem = cart.find(item => item.title === id);
 
             if (existingItem) {
@@ -284,32 +286,52 @@ const shop_list = [
     "nexos-hunter-gaming-keyboard-1000hz-polling"
 ]
 
-// Searchbar input functionality for shop page
 const searchInput = document.getElementById("search") || (typeof search !== "undefined" ? search : null);
-if (searchInput) {
-    searchInput.addEventListener("input", e => {
-        const value = e.target.value.toLowerCase();
-        let in_search = [];
-        shop_list.forEach(item => {
-            let itemElement = document.getElementById(item);
-            if (itemElement) {
-                const show = itemElement.id.toLowerCase().includes(value);
-                if (show) {
-                    in_search.push(item);
-                }
-                itemElement.classList.toggle("hidden", !show);
-            }
-        });
-        updateResultCount(in_search);
-    });
 
-    const currentCountEl = document.getElementById('current-count');
-    const maxCountEl = document.getElementById('max-count');
+if (searchInput) {
+
+    searchInput.addEventListener("input", e => {
+
+        const value = e.target.value.toLowerCase()
+
+        let in_search = []
+
+        shop_list.forEach(item => {
+
+            let itemElement = document.getElementById(item);
+
+            if (itemElement) {
+
+                const show = itemElement.id.toLowerCase().includes(value)
+
+                if (show) {
+
+                    in_search.push(item)
+
+                }
+
+                itemElement.classList.toggle("hidden", !show)
+
+            }
+
+        });
+
+        updateResultCount(in_search)
+
+    })
+
+    const currentCountEl = document.getElementById('current-count')
+
+    const maxCountEl = document.getElementById('max-count')
 
     function updateResultCount(list) {
-        if (currentCountEl) currentCountEl.textContent = list.length;
-        if (maxCountEl) maxCountEl.textContent = shop_list.length;
+
+        if (currentCountEl) currentCountEl.textContent = list.length
+
+        if (maxCountEl) maxCountEl.textContent = shop_list.length
+
     }
+
 }
 
 let productsList = []
@@ -319,7 +341,7 @@ async function loadProducts() {
         const response = await fetch(path) // Update path to match your JSON file location
         
         if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
+            throw new Error(`HTTP error! Status: ${response.status}`)
         }
         
         productsList = await response.json()
@@ -327,6 +349,7 @@ async function loadProducts() {
         // Initial render and sort setup
         loadingProductShop(productsList)
         productSort(productsList)
+        setupSearch()
 
     } catch (error) {
         console.error("Failed to load products from JSON:", error)
@@ -337,7 +360,9 @@ function loadingProductShop(products) {
     const gridContainer = document.getElementById("product-grid")
     const cardTemplate = document.getElementById("product-card-template")
 
-    if (!gridContainer || !cardTemplate) return
+    if (!gridContainer || !cardTemplate) {
+        return
+    }
 
     // Clear existing grid items
     gridContainer.innerHTML = ""
@@ -351,20 +376,34 @@ function loadingProductShop(products) {
         const btnAddCart = card.querySelector("[data-add-cart]")
         const btnBuyNow = card.querySelector("[data-buy-now]")
 
-        if (cardRoot) cardRoot.id = product.id
-        if (title) title.textContent = product.title
-        if (price) price.textContent = "$" + product.price
+
+        if (cardRoot) {
+            cardRoot.id = product.title
+        }
+        
+
+        if (title) {
+            title.textContent = product.title
+        }
+        if (price) {
+            price.textContent = "$" + product.price
+        }
         if (image) {
             image.src = product.image
             image.alt = product.title
         }
 
         if (btnAddCart) {
-            btnAddCart.addEventListener("click", () => addCart(product.id))
+            btnAddCart.addEventListener("click", (e) => {
+                addCart(product.title)
+            })
         }
 
         if (btnBuyNow) {
-            btnBuyNow.addEventListener("click", () => addCart(product.id))
+            btnBuyNow.addEventListener("click", (e) => {
+                // If buy now also adds to cart before redirecting
+                addCart(product.title)
+            })
         }
 
         gridContainer.appendChild(card);
