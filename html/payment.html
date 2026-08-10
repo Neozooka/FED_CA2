@@ -33,7 +33,7 @@
         <div class="bg-[var(--background)] border border-gray-700 rounded-xl p-6 sm:p-8 relative max-w-sm w-full text-center shadow-xl max-h-[85vh] flex flex-col items-center justify-center">
             
             <!-- Modal Close Button -->
-            <button onclick="closeQR()" class="absolute top-3 right-4 text-gray-400 hover:text-white text-4xl font-thin leading-none p-1 transition-colors">
+            <button onclick="closeQR()" class="absolute top-3 right-4 text-gray-400 hover:text-white text-4xl font-thin leading-none p-1 transition-colors" aria-label="close the popup">
                 &times;
             </button>
             
@@ -90,14 +90,14 @@
                                     <h3 title class="text-xs sm:text-xl font-medium text-white truncate text-left"></h3>
 
                                     <div class="flex flex-row gap-4 items-center">
-                                    <!-- Quantity Controls -->
-                                    <div class="flex items-center gap-2 px-2.5 py-1 rounded-lg border border-gray-700">
-                                        <button class="quantity-decrease text-white hover:text-red-400 font-bold text-sm sm:text-base px-1 transition-colors" title="Decrease quantity">-</button>
-                                        <span quantity-count class="text-xs sm:text-base font-semibold text-white px-2">1</span>
-                                        <button class="quantity-increase text-white hover:text-green-400 font-bold text-sm sm:text-base px-1 transition-colors" title="Increase quantity">+</button>
-                                    </div>
+                                        <!-- Quantity Controls -->
+                                        <div class="flex items-center gap-2 px-2.5 py-1 rounded-lg border border-gray-700">
+                                            <button class="quantity-decrease text-white hover:text-red-400 font-bold text-sm sm:text-base px-1 transition-colors" aria-label="Decrease quantity" title="Decrease quantity">-</button>
+                                            <span quantity-count class="text-xs sm:text-base font-semibold text-white px-2" aria-live="polite" aria-atomic="true">1</span>
+                                            <button class="quantity-increase text-white hover:text-green-400 font-bold text-sm sm:text-base px-1 transition-colors" aria-label="Increase quantity" title="Increase quantity">+</button>
+                                        </div>
 
-                                    <h3 price class="text-xs sm:text-xl font-medium text-white whitespace-nowrap"></h3>
+                                        <h3 price class="text-xs sm:text-xl font-medium text-white whitespace-nowrap"></h3>
                                     </div>
                                 </div>
                                 
@@ -177,6 +177,7 @@
                         type="text" 
                         id="promoInput" 
                         placeholder="PROMO CODE: ENTER CODE" 
+                        aria-label="Promo code"
                         class="w-full px-4 py-2 bg-[var(--background)] border border-gray-700 rounded-lg text-gray-200 placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 uppercase"
                     />
 
