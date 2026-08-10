@@ -275,7 +275,6 @@ function loadHeaderAndFooter() {
                     <li><a href="${root}html/neXus-60HE/keyboard-intro.html" class="hover:underline">Hardware</a></li>
                     <li><a href="${root}html/neXos/nexos-intro.html" class="hover:underline">Software</a></li>
                     <li><a href="${root}html/find-your-product.html" class="hover:underline">Find your product</a></li>
-                    <li><a href="${root}index.html" class="hover:underline">About Us</a></li>
                 </ul>
             </nav>
             
