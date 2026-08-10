@@ -77,6 +77,7 @@
                                 <button 
                                     type="button" 
                                     onclick="addCart('nexos-pro-26-07')" 
+                                    aria-label="Add NexOS Pro 26.07 to cart"
                                     class="main-button px-8 py-3 rounded-full shadow-lg inline-block cursor-pointer">
                                     Add to cart
                                 </button>
@@ -99,7 +100,7 @@
 
                             <!-- Product Deep-Dive Link -->
                             <div class="w-full text-center md:text-right pr-4">
-                                <a href="nexos-pro.html" class="inline-flex items-center text-lg md:text-xl font-bold text-white hover:text-[--maingreen] transition-colors underline underline-offset-4 decoration-2">
+                                <a href="nexos-pro.html" aria-label="Learn more about NexOS Pro" class="inline-flex items-center text-lg md:text-xl font-bold text-white hover:text-[--maingreen] transition-colors underline underline-offset-4 decoration-2">
                                     &gt; Learn more
                                 </a>
                             </div>
@@ -135,7 +136,7 @@
 
                             <!-- Modal Trigger: Download Core Edition -->
                             <div class="pt-2">
-                                <button type="button" onclick="openDownloadModal()" class="main-button px-8 py-3 rounded-full shadow-lg inline-block cursor-pointer">
+                                <button type="button" onclick="openDownloadModal()" aria-label="Open download modal for NexOS Core" class="main-button px-8 py-3 rounded-full shadow-lg inline-block cursor-pointer">
                                     Download NexOS
                                 </button>
                             </div>
@@ -430,7 +431,7 @@
             <div id="modal-card" class="bg-neutral-900 border border-neutral-800 rounded-[30px] p-6 sm:p-8 max-w-3xl w-full text-left relative shadow-2xl modal-pop my-auto max-h-[90vh] overflow-y-auto">
                 
                 <!-- Close Button -->
-                <button type="button" onclick="closeDownloadModal()" class="absolute top-5 right-5 text-neutral-400 hover:text-[--maingreen] text-xl transition-colors">
+                <button type="button" onclick="closeDownloadModal()" aria-label="Close download configurator modal" class="absolute top-5 right-5 text-neutral-400 hover:text-[--maingreen] text-xl transition-colors">
                     <i class="fa fa-times"></i>
                 </button>
 
@@ -441,8 +442,8 @@
                     
                     <!-- Step 1: Device Hardware Type -->
                     <div id="step-hardware">
-                        <label class="block text-sm sm:text-base md:text-lg font-bold uppercase tracking-wider text-neutral-300 mb-2">1. Select Your Hardware</label>
-                        <select id="hardware-select" onchange="handleHardwareChange()" class="w-full bg-neutral-800 border border-neutral-700 text-white rounded-xl px-4 py-3 focus:outline-none focus:border-[--maingreen] transition-colors" required>
+                        <label for="hardware-select" class="block text-sm sm:text-base md:text-lg font-bold uppercase tracking-wider text-neutral-300 mb-2">1. Select Your Hardware</label>
+                        <select id="hardware-select" aria-label="Select your hardware device" onchange="handleHardwareChange()" class="w-full bg-neutral-800 border border-neutral-700 text-white rounded-xl px-4 py-3 focus:outline-none focus:border-[--maingreen] transition-colors" required>
                             <option value="" disabled selected>-- Choose your device --</option>
                             <optgroup label="PCs">
                                 <option value="desktop">Desktop / Home Theatre PC</option>
@@ -473,7 +474,7 @@
 
                     <!-- Step 2: GPU Selection (Hidden initially, shown for Desktop / Other Laptop) -->
                     <div id="step-gpu" class="hidden step-fade-in">
-                        <select id="gpu-select" onchange="handleGpuChange()" class="w-full bg-neutral-800 border border-neutral-700 text-white rounded-xl px-4 py-3 focus:outline-none focus:border-[--maingreen] transition-colors">
+                        <select id="gpu-select" aria-label="Select GPU vendor" onchange="handleGpuChange()" class="w-full bg-neutral-800 border border-neutral-700 text-white rounded-xl px-4 py-3 focus:outline-none focus:border-[--maingreen] transition-colors">
                             <option value="" disabled selected>-- Choose GPU vendor --</option>
                             <optgroup label="Newer GPUs">
                                 <option value="nvidia">Nvidia (RTX Series | GTX 16xx Series+)</option>
@@ -495,19 +496,19 @@
 
                     <!-- Step 3: Newsletter Opt-In (Hidden initially until previous required steps are done) -->
                     <div id="step-newsletter" class="hidden step-fade-in pt-2 border-t border-neutral-800">
-                        <label class="block text-sm sm:text-base md:text-lg font-bold uppercase tracking-wider text-neutral-300 mb-2">2. Stay Updated with NexOS</label>
+                        <label for="newsletter-email" class="block text-sm sm:text-base md:text-lg font-bold uppercase tracking-wider text-neutral-300 mb-2">2. Stay Updated with NexOS</label>
                         <p class="text-xs sm:text-sm md:text-base text-neutral-400 mb-3">Get release updates, performance patches, and optimization tips.</p>
-                        <input type="email" id="newsletter-email" placeholder="Enter your email address" class="w-full bg-neutral-800 border border-neutral-700 text-white rounded-xl px-4 py-3 focus:outline-none focus:border-[--maingreen] transition-colors mb-3" required>
+                        <input type="email" id="newsletter-email" aria-label="Enter your email address" placeholder="Enter your email address" class="w-full bg-neutral-800 border border-neutral-700 text-white rounded-xl px-4 py-3 focus:outline-none focus:border-[--maingreen] transition-colors mb-3" required>
                         
                         <label class="flex items-center space-x-2 text-xs text-neutral-400 cursor-pointer">
-                            <input type="checkbox" id="newsletter-consent" class="rounded bg-neutral-800 border-neutral-700 text-[--maingreen] focus:ring-0" required>
+                            <input type="checkbox" id="newsletter-consent" aria-label="Agree to receive product updates" class="rounded bg-neutral-800 border-neutral-700 text-[--maingreen] focus:ring-0" required>
                             <span>I agree to receive Nexus product updates. Unsubscribe anytime.</span>
                         </label>
                     </div>
 
                     <!-- Submit Button (Hidden initially) -->
                     <div id="step-submit" class="hidden step-fade-in">
-                        <button type="submit" class="main-button w-full py-3.5 rounded-full font-bold text-center mt-2 cursor-pointer hover:opacity-90 transition-opacity">
+                        <button type="submit" aria-label="Get Optimized ISO Download" class="main-button w-full py-3.5 rounded-full font-bold text-center mt-2 cursor-pointer hover:opacity-90 transition-opacity">
                             Get Optimized ISO <i class="fa fa-download ml-2"></i>
                         </button>
                     </div>

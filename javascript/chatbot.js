@@ -5,11 +5,6 @@
  * markup, loading bot-data.json, matching typed messages to answers, and
  * persisting/restoring chat history across page loads.
  *
- * Depends on header-footer.js being loaded on the same page for
- * getRootPrefix() (used to resolve the path to bot-data.json). Include this
- * script tag alongside header-footer.js on every page, e.g.:
- *   <script src="javascript/header-footer.js"></script>
- *   <script src="javascript/chatbot.js"></script>
  */
 
 function injectChatWidgetMarkup() {
@@ -18,7 +13,7 @@ function injectChatWidgetMarkup() {
     document.body.insertAdjacentHTML('beforeend', `
         <!-- Chat Bubble Container -->
         <div id="chat-bubble-container" class="fixed bottom-6 left-6 z-[9999] flex items-center transition-all duration-300">
-            <button id="open-chat-btn" class="relative flex items-center justify-center w-14 h-14 bg-[var(--maingreen,#10b981)] text-white rounded-full shadow-2xl hover:scale-105 transition-transform duration-200 focus:outline-none">
+            <button id="open-chat-btn" aria-label="Open neXus support chat" class="relative flex items-center justify-center w-14 h-14 bg-[var(--maingreen,#10b981)] text-white rounded-full shadow-2xl hover:scale-105 transition-transform duration-200 focus:outline-none">
                 <i class="fa fa-comments text-2xl"></i>
             </button>
             
@@ -33,7 +28,7 @@ function injectChatWidgetMarkup() {
                 <div class="flex items-center gap-3">
                     <h3 class="font-bold text-white text-base">neXus SUPPORT</h3>
                 </div>
-                <button id="close-chat-btn" class="text-neutral-400 hover:text-white focus:outline-none p-1">
+                <button id="close-chat-btn" aria-label="Close support chat" class="text-neutral-400 hover:text-white focus:outline-none p-1">
                     <i class="fa fa-times text-lg"></i>
                 </button>
             </div>
@@ -45,8 +40,8 @@ function injectChatWidgetMarkup() {
             </div>
 
             <form id="chat-form" class="p-3 border-t border-neutral-800 flex gap-2">
-                <input type="text" id="chat-input" placeholder="Type a message..." class="flex-1 bg-neutral-800 border border-neutral-700 text-white text-sm rounded-xl px-3 py-2 focus:outline-none focus:border-[var(--maingreen,#10b981)]" required />
-                <button type="submit" class="px-4 py-2 main-button rounded-xl text-sm font-semibold">
+                <input type="text" id="chat-input" aria-label="Type your message to support" placeholder="Type a message..." class="flex-1 bg-neutral-800 border border-neutral-700 text-white text-sm rounded-xl px-3 py-2 focus:outline-none focus:border-[var(--maingreen,#10b981)]" required />
+                <button type="submit" aria-label="Send message" class="px-4 py-2 main-button rounded-xl text-sm font-semibold">
                     Send
                 </button>
             </form>
@@ -302,6 +297,7 @@ function renderMainCategories(container) {
     Object.keys(botData.categories).forEach(catKey => {
         const cat = botData.categories[catKey];
         const btn = document.createElement('button');
+        btn.setAttribute('aria-label', `Select category: ${cat.title}`);
         btn.className = 'text-left text-xs bg-neutral-800 hover:bg-neutral-700 text-white p-2.5 rounded-xl border border-neutral-700/80 transition-colors font-medium';
         btn.textContent = cat.title;
         btn.onclick = () => {
@@ -326,7 +322,7 @@ function renderSubcategories(categoryKey, container) {
     Object.keys(category.subcategories).forEach(subKey => {
         const item = category.subcategories[subKey];
         const btn = document.createElement('button');
-        
+        btn.setAttribute('aria-label', `Select subcategory: ${item.label}`);
         btn.className = 'text-left text-xs p-2.5 rounded-xl border transition-colors bg-emerald-950/40 hover:bg-emerald-900/50 text-emerald-200 border-emerald-800/50';
         btn.textContent = item.label;
         btn.onclick = () => {
@@ -354,6 +350,7 @@ function handleSubcategoryClick(item, container) {
         Object.keys(item.options).forEach(optKey => {
             const opt = item.options[optKey];
             const btn = document.createElement('button');
+            btn.setAttribute('aria-label', `Select option: ${opt.label}`);
             btn.className = 'text-left text-xs bg-neutral-800 hover:bg-neutral-700 text-neutral-200 p-2 rounded-lg border border-neutral-700';
             btn.textContent = opt.label;
             btn.onclick = () => {
@@ -381,10 +378,10 @@ function renderInlineEmailForm(formType, container) {
             <p class="font-semibold text-white">Send a Direct Support Request</p>
             <p class="text-xs text-neutral-400 uppercase tracking-wide font-medium">${formType}</p>
             <form id="${formId}" class="space-y-2 mt-2">
-                <input type="text" name="userName" placeholder="Your Name" required class="w-full bg-neutral-900 border border-neutral-700 rounded-lg px-2.5 py-1.5 text-xs text-white focus:outline-none focus:border-[var(--maingreen,#10b981)]" />
-                <input type="email" name="userEmail" placeholder="Your Email" required class="w-full bg-neutral-900 border border-neutral-700 rounded-lg px-2.5 py-1.5 text-xs text-white focus:outline-none focus:border-[var(--maingreen,#10b981)]" />
-                <textarea name="userMessage" rows="3" placeholder="Describe your issue..." required class="w-full bg-neutral-900 border border-neutral-700 rounded-lg px-2.5 py-1.5 text-xs text-white focus:outline-none focus:border-[var(--maingreen,#10b981)]"></textarea>
-                <button type="submit" class="w-full py-1.5 bg-[var(--maingreen,#10b981)] hover:opacity-90 text-white font-bold rounded-lg text-xs transition-opacity">
+                <input type="text" name="userName" aria-label="Your Name" placeholder="Your Name" required class="w-full bg-neutral-900 border border-neutral-700 rounded-lg px-2.5 py-1.5 text-xs text-white focus:outline-none focus:border-[var(--maingreen,#10b981)]" />
+                <input type="email" name="userEmail" aria-label="Your Email" placeholder="Your Email" required class="w-full bg-neutral-900 border border-neutral-700 rounded-lg px-2.5 py-1.5 text-xs text-white focus:outline-none focus:border-[var(--maingreen,#10b981)]" />
+                <textarea name="userMessage" rows="3" aria-label="Describe your issue" placeholder="Describe your issue..." required class="w-full bg-neutral-900 border border-neutral-700 rounded-lg px-2.5 py-1.5 text-xs text-white focus:outline-none focus:border-[var(--maingreen,#10b981)]"></textarea>
+                <button type="submit" aria-label="Send support request email" class="w-full py-1.5 bg-[var(--maingreen,#10b981)] hover:opacity-90 text-white font-bold rounded-lg text-xs transition-opacity">
                     Send Email
                 </button>
             </form>

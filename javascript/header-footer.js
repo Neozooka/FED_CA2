@@ -179,7 +179,7 @@ function loadHeaderAndFooter() {
         <header class="relative w-full bg-[var(--background)] z-[70]">
             <nav class="w-full px-6 flex justify-between items-center relative">
 
-                <a href="${root}index.html" class="flex flex-row items-center cursor-pointer group relative z-[60]">
+                <a href="${root}index.html" aria-label="neXus Home" class="flex flex-row items-center cursor-pointer group relative z-[60]">
                     <img class="w-25 h-20 transition-transform group-hover:scale-105" src="${root}images/neXuslogo2.png" alt="neXus logo">
                     <h2 class="ml-4 text-xl text-center font-black">${dynamicTitle}</h2>
                 </a>
@@ -190,7 +190,7 @@ function loadHeaderAndFooter() {
                         <span class="cart-badge-count absolute -top-1 -right-1 bg-red-600 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center hidden">0</span>
                     </a>
 
-                    <button id="menu-btn" class="w-10 h-10 relative cursor-pointer focus:outline-none flex items-center justify-center" aria-label="Menu">
+                    <button id="menu-btn" class="w-10 h-10 relative cursor-pointer focus:outline-none flex items-center justify-center" aria-label="Toggle navigation menu">
                         <span class="hamburger-line line-1 block"></span>
                         <span class="hamburger-line line-2 block"></span>
                         <span class="hamburger-line line-3 block"></span>
@@ -201,24 +201,24 @@ function loadHeaderAndFooter() {
 
         <div id="mobile-menu" class="fixed top-[80px] left-0 w-full h-[calc(100dvh-80px)] bg-[--background] backdrop-blur-xl p-6 pb-8 flex flex-col justify-between shadow-2xl z-[80] transform translate-y-full opacity-0 pointer-events-none transition-all duration-300 ease-in-out md:hidden">
             <div class="flex flex-col text-left overflow-y-auto flex-1 pr-1 space-y-1">
-                <a href="${root}index.html" class="py-2 text-xl font-bold tagline text-white hover:text-[var(--maingreen)] border-b border-neutral-800/80 transition-colors">Home</a>
-                <a href="${root}html/find-your-product.html" class="py-2 text-xl font-bold tagline text-white hover:text-[var(--maingreen)] border-b border-neutral-800/80 transition-colors">Find your product</a>
+                <a href="${root}index.html" aria-label="Go to Home" class="py-2 text-xl font-bold tagline text-white hover:text-[var(--maingreen)] border-b border-neutral-800/80 transition-colors">Home</a>
+                <a href="${root}html/find-your-product.html" aria-label="Find your product" class="py-2 text-xl font-bold tagline text-white hover:text-[var(--maingreen)] border-b border-neutral-800/80 transition-colors">Find your product</a>
                 
                 <span class="pt-4 pb-1 text-xs font-semibold text-neutral-500 uppercase tracking-widest">Keyboard Options</span>
-                <a href="${root}html/neXus-60HE/keyboard-intro.html" class="py-2 pl-3 text-base font-medium text-neutral-300 hover:text-white border-b border-neutral-800/50 transition-colors">Intro</a>
-                <a href="${root}html/neXus-60HE/keyboard-creator.html" class="py-2 pl-3 text-base font-medium text-neutral-300 hover:text-white border-b border-neutral-800/50 transition-colors">About</a>
-                <a href="${root}html/neXus-60HE/keyboard-shop.html" class="py-2 pl-3 text-base font-medium text-neutral-300 hover:text-white border-b border-neutral-800/50 transition-colors">Keyboard Shop</a>
-                <a href="${root}html/neXus-60HE/keyboard-tech.html" class="py-2 pl-3 text-base font-medium text-neutral-300 hover:text-white border-b border-neutral-800/50 transition-colors">Technical Specs</a>
+                <a href="${root}html/neXus-60HE/keyboard-intro.html" aria-label="Keyboard Intro" class="py-2 pl-3 text-base font-medium text-neutral-300 hover:text-white border-b border-neutral-800/50 transition-colors">Intro</a>
+                <a href="${root}html/neXus-60HE/keyboard-creator.html" aria-label="About Keyboard" class="py-2 pl-3 text-base font-medium text-neutral-300 hover:text-white border-b border-neutral-800/50 transition-colors">About</a>
+                <a href="${root}html/neXus-60HE/keyboard-shop.html" aria-label="Keyboard Shop" class="py-2 pl-3 text-base font-medium text-neutral-300 hover:text-white border-b border-neutral-800/50 transition-colors">Keyboard Shop</a>
+                <a href="${root}html/neXus-60HE/keyboard-tech.html" aria-label="Technical Specs" class="py-2 pl-3 text-base font-medium text-neutral-300 hover:text-white border-b border-neutral-800/50 transition-colors">Technical Specs</a>
                 
                 <span class="pt-4 pb-1 text-xs font-semibold text-neutral-500 uppercase tracking-widest">Software Options</span>
-                <a href="${root}html/neXos/nexos-intro.html" class="py-2 pl-3 text-base font-medium text-neutral-300 hover:text-white border-b border-neutral-800/50 transition-colors">NexOS</a>
-                <a href="${root}html/neXos/nexos-pro.html" class="py-2 pl-3 text-base font-medium text-neutral-300 hover:text-white border-b border-neutral-800/50 transition-colors">Pro</a>
-                <a href="${root}html/neXos/nexos-computer.html" class="py-2 pl-3 text-base font-medium text-neutral-300 hover:text-white border-b border-neutral-800/50 transition-colors">Computers</a>
-                <a href="${root}html/neXos/nexos-shop.html" class="py-2 pl-3 text-base font-medium text-neutral-300 hover:text-white border-b border-neutral-800/50 transition-colors mb-4">Downloads</a>
+                <a href="${root}html/neXos/nexos-intro.html" aria-label="NexOS Intro" class="py-2 pl-3 text-base font-medium text-neutral-300 hover:text-white border-b border-neutral-800/50 transition-colors">NexOS</a>
+                <a href="${root}html/neXos/nexos-pro.html" aria-label="NexOS Pro" class="py-2 pl-3 text-base font-medium text-neutral-300 hover:text-white border-b border-neutral-800/50 transition-colors">Pro</a>
+                <a href="${root}html/neXos/nexos-computer.html" aria-label="Powered Computers" class="py-2 pl-3 text-base font-medium text-neutral-300 hover:text-white border-b border-neutral-800/50 transition-colors">Computers</a>
+                <a href="${root}html/neXos/nexos-shop.html" aria-label="NexOS Downloads" class="py-2 pl-3 text-base font-medium text-neutral-300 hover:text-white border-b border-neutral-800/50 transition-colors mb-4">Downloads</a>
             </div>
             
             <div class="pt-4 shrink-0 border-t border-neutral-800/80">
-                <a href="${root}html/shop-main.html" class="inline-block px-6 py-3.5 rounded-xl font-bold text-white text-center main-button w-full text-base shadow-lg">
+                <a href="${root}html/shop-main.html" aria-label="Go to Main Shop" class="inline-block px-6 py-3.5 rounded-xl font-bold text-white text-center main-button w-full text-base shadow-lg">
                     Shop
                 </a>
             </div>
@@ -226,36 +226,36 @@ function loadHeaderAndFooter() {
 
         <div id="desktop-drawer" class="fixed top-0 right-0 h-full w-96 bg-neutral-900/95 backdrop-blur-lg border-l border-neutral-800 shadow-2xl z-50 transform translate-x-full transition-transform duration-300 ease-in-out hidden md:flex flex-col p-8 pt-28">
             <div class="flex flex-col text-left space-y-1">
-                <a href="${root}index.html" class="py-3 text-2xl font-bold text-white hover:text-[var(--maingreen)] border-b border-neutral-800/60 transition-colors">Home</a>
-                <a href="${root}html/find-your-product.html" class="py-3 text-2xl font-bold text-white hover:text-[var(--maingreen)] border-b border-neutral-800/60 transition-colors">Find your product</a>
+                <a href="${root}index.html" aria-label="Go to Home" class="py-3 text-2xl font-bold text-white hover:text-[var(--maingreen)] border-b border-neutral-800/60 transition-colors">Home</a>
+                <a href="${root}html/find-your-product.html" aria-label="Find your product" class="py-3 text-2xl font-bold text-white hover:text-[var(--maingreen)] border-b border-neutral-800/60 transition-colors">Find your product</a>
                 <div class="relative group border-b border-neutral-800/60 py-3">
-                    <button class="w-full text-left text-2xl font-bold text-white hover:text-[var(--maingreen)] flex justify-between items-center transition-colors focus:outline-none">
+                    <button aria-label="Toggle Keyboard Submenu" class="w-full text-left text-2xl font-bold text-white hover:text-[var(--maingreen)] flex justify-between items-center transition-colors focus:outline-none">
                         <span>Keyboard</span>
                         <i class="fa fa-caret-down text-sm transition-transform duration-200 group-hover:rotate-180"></i>
                     </button>
                     <div class="hidden group-hover:flex flex-col pl-4 mt-2 space-y-1 bg-neutral-950/40 rounded-xl p-2 transition-all">
-                        <a href="${root}html/neXus-60HE/keyboard-intro.html" class="py-2 text-lg text-neutral-300 hover:text-[var(--maingreen)] transition-colors">Intro</a>
-                        <a href="${root}html/neXus-60HE/keyboard-creator.html" class="py-2 text-lg text-neutral-300 hover:text-[var(--maingreen)] transition-colors">About</a>
-                        <a href="${root}html/neXus-60HE/keyboard-shop.html" class="py-2 text-lg text-neutral-300 hover:text-[var(--maingreen)] transition-colors">Keyboard Shop</a>
-                        <a href="${root}html/neXus-60HE/keyboard-tech.html" class="py-2 text-lg text-neutral-300 hover:text-[var(--maingreen)] transition-colors">Technical Specs</a>
+                        <a href="${root}html/neXus-60HE/keyboard-intro.html" aria-label="Keyboard Intro" class="py-2 text-lg text-neutral-300 hover:text-[var(--maingreen)] transition-colors">Intro</a>
+                        <a href="${root}html/neXus-60HE/keyboard-creator.html" aria-label="About Keyboard" class="py-2 text-lg text-neutral-300 hover:text-[var(--maingreen)] transition-colors">About</a>
+                        <a href="${root}html/neXus-60HE/keyboard-shop.html" aria-label="Keyboard Shop" class="py-2 text-lg text-neutral-300 hover:text-[var(--maingreen)] transition-colors">Keyboard Shop</a>
+                        <a href="${root}html/neXus-60HE/keyboard-tech.html" aria-label="Technical Specs" class="py-2 text-lg text-neutral-300 hover:text-[var(--maingreen)] transition-colors">Technical Specs</a>
                     </div>
                 </div>
 
                 <div class="relative group border-b border-neutral-800/60 py-3 mb-6">
-                    <button class="w-full text-left text-2xl font-bold text-white hover:text-[var(--maingreen)] flex justify-between items-center transition-colors focus:outline-none">
+                    <button aria-label="Toggle Software Submenu" class="w-full text-left text-2xl font-bold text-white hover:text-[var(--maingreen)] flex justify-between items-center transition-colors focus:outline-none">
                         <span>Software</span>
                         <i class="fa fa-caret-down text-sm transition-transform duration-200 group-hover:rotate-180"></i>
                     </button>
                     <div class="hidden group-hover:flex flex-col pl-4 mt-2 space-y-1 bg-neutral-950/40 rounded-xl p-2 transition-all">
-                        <a href="${root}html/neXos/nexos-intro.html" class="py-2 text-lg text-neutral-300 hover:text-[var(--maingreen)] transition-colors">Intro</a>
-                        <a href="${root}html/neXos/nexos-pro.html" class="py-2 text-lg text-neutral-300 hover:text-[var(--maingreen)] transition-colors">Pro</a>
-                        <a href="${root}html/neXos/nexos-computer.html" class="py-2 text-lg text-neutral-300 hover:text-[var(--maingreen)] transition-colors">Computers</a>
-                        <a href="${root}html/neXos/nexos-shop.html" class="py-2 text-lg text-neutral-300 hover:text-[var(--maingreen)] transition-colors">Downloads</a>
+                        <a href="${root}html/neXos/nexos-intro.html" aria-label="NexOS Intro" class="py-2 text-lg text-neutral-300 hover:text-[var(--maingreen)] transition-colors">Intro</a>
+                        <a href="${root}html/neXos/nexos-pro.html" aria-label="NexOS Pro" class="py-2 text-lg text-neutral-300 hover:text-[var(--maingreen)] transition-colors">Pro</a>
+                        <a href="${root}html/neXos/nexos-computer.html" aria-label="Powered Computers" class="py-2 text-lg text-neutral-300 hover:text-[var(--maingreen)] transition-colors">Computers</a>
+                        <a href="${root}html/neXos/nexos-shop.html" aria-label="NexOS Downloads" class="py-2 text-lg text-neutral-300 hover:text-[var(--maingreen)] transition-colors">Downloads</a>
                     </div>
                 </div>
             </div>
 
-            <a href="${root}html/shop-main.html" class="inline-block px-6 py-3 rounded-xl font-bold text-white text-center main-button text-lg shadow-md hover:opacity-90 mt-auto">
+            <a href="${root}html/shop-main.html" aria-label="Go to Main Shop" class="inline-block px-6 py-3 rounded-xl font-bold text-white text-center main-button text-lg shadow-md hover:opacity-90 mt-auto">
                 Shop
             </a>
         </div>
@@ -265,16 +265,16 @@ function loadHeaderAndFooter() {
     if (footerContainer) {
         footerContainer.innerHTML = `
         <footer class="relative flex flex-col items-center bg-[--background] text-neutral-200 py-8 px-4 w-full">
-            <a href="${root}index.html" class="mb-6">
+            <a href="${root}index.html" aria-label="neXus Home" class="mb-6">
                 <img class="w-25 h-20 object-contain transition-transform hover:scale-105" src="${root}images/neXuslogo2.png" alt="neXus logo">
             </a>
 
             <nav class="w-full max-w-4xl mb-6">
                 <ul class="flex flex-wrap justify-center gap-x-6 gap-y-3 text-lg md:text-xl font-medium">
-                    <li><a href="${root}index.html" class="hover:underline">Home</a></li>
-                    <li><a href="${root}html/neXus-60HE/keyboard-intro.html" class="hover:underline">Hardware</a></li>
-                    <li><a href="${root}html/neXos/nexos-intro.html" class="hover:underline">Software</a></li>
-                    <li><a href="${root}html/find-your-product.html" class="hover:underline">Find your product</a></li>
+                    <li><a href="${root}index.html" aria-label="Go to Home" class="hover:underline">Home</a></li>
+                    <li><a href="${root}html/neXus-60HE/keyboard-intro.html" aria-label="Go to Hardware" class="hover:underline">Hardware</a></li>
+                    <li><a href="${root}html/neXos/nexos-intro.html" aria-label="Go to Software" class="hover:underline">Software</a></li>
+                    <li><a href="${root}html/find-your-product.html" aria-label="Find your product" class="hover:underline">Find your product</a></li>
                 </ul>
             </nav>
             
@@ -283,8 +283,8 @@ function loadHeaderAndFooter() {
             <section class="w-full max-w-5xl flex flex-col md:flex-row justify-between items-center md:items-start gap-8 pt-4 text-base md:text-lg text-center md:text-left">
                 <div class="flex-1 w-full">
                     <ul class="space-y-2">
-                        <li><a href="https://www.youtube.com/watch?v=EE8U7U8syuI" target="_blank" class="hover:underline">Terms of Service</a></li>
-                        <li><a href="https://www.youtube.com/watch?v=EE8U7U8syuI" target="_blank" class="hover:underline">Privacy Policy</a></li>
+                        <li><a href="https://www.youtube.com/watch?v=EE8U7U8syuI" target="_blank" aria-label="Read Terms of Service on external site" class="hover:underline">Terms of Service</a></li>
+                        <li><a href="https://www.youtube.com/watch?v=EE8U7U8syuI" target="_blank" aria-label="Read Privacy Policy on external site" class="hover:underline">Privacy Policy</a></li>
                         <li><p>&copy; 2026 neXus Corporation. All rights reserved.</p></li>
                     </ul>
                 </div>
@@ -293,13 +293,13 @@ function loadHeaderAndFooter() {
                     <p class="font-semibold text-neutral-400">Socials</p>
                     <ul class="flex flex-row justify-center md:justify-start gap-4">
                         <li>
-                            <a href="https://www.youtube.com/watch?v=EE8U7U8syuI" target="_blank" class="flex items-center gap-2 hover:underline">
+                            <a href="https://www.youtube.com/watch?v=EE8U7U8syuI" target="_blank" aria-label="Visit neXus YouTube Channel" class="flex items-center gap-2 hover:underline">
                                 <i style="font-size:20px; color:red;" class="fa">&#xf16a;</i>
                                 <span>Youtube</span>
                             </a>
                         </li>
                         <li>
-                            <a href="https://www.youtube.com/watch?v=EE8U7U8syuI" target="_blank" class="flex items-center gap-2 hover:underline">
+                            <a href="https://www.youtube.com/watch?v=EE8U7U8syuI" target="_blank" aria-label="Visit neXus Twitch Channel" class="flex items-center gap-2 hover:underline">
                                 <i style="font-size:20px;" class="fa">&#xf1e8;</i>
                                 <span>Twitch</span>
                             </a>

@@ -37,7 +37,7 @@
             <div id="sub-nav" class="max-w-7xl mx-auto bg-neutral-900/30 backdrop-blur-md rounded-2xl border border-neutral-800/40 px-6 py-3 flex justify-between items-center transition-all duration-300">
                 
                 <!-- Brand / Logo -->
-                <a href="#" id="logo-scroll" class="items-center hidden sm:flex hover:opacity-80 transition-opacity cursor-pointer">
+                <a href="#" id="logo-scroll" aria-label="NexOS Home" class="items-center hidden sm:flex hover:opacity-80 transition-opacity cursor-pointer">
                     <img class="w-[6vw] min-w-[128px] max-w-[156px] h-auto object-contain" src="../../images/nexos-logo.png" alt="NexOS logo">
                 </a>
 
@@ -48,7 +48,7 @@
                         <a href="nexos-pro.html" class="text-neutral-400 font-medium hover:text-[--maingreen] text-sm md:text-base">Pro</a>
                     </div>
 
-                    <a href="nexos-shop.html" class="main-button px-5 py-2 text-sm md:text-base">
+                    <a href="nexos-shop.html" aria-label="Download NexOS" class="main-button px-5 py-2 text-sm md:text-base">
                         Download
                     </a>
                 </div>
@@ -85,7 +85,7 @@
                 </div>
 
                 <!-- Primary Call to Action -->
-                <a href="nexos-shop.html" class="main-button px-8 py-3.5 m-4 text-base md:text-lg">
+                <a href="nexos-shop.html" aria-label="Download NexOS from Hero section" class="main-button px-8 py-3.5 m-4 text-base md:text-lg">
                     Download NexOS
                 </a>
 
@@ -98,7 +98,7 @@
                 </h2>
 
                 <!-- Testimonial Carousel -->
-                <div class="relative w-full max-w-6xl overflow-hidden cursor-grab active:cursor-grabbing select-none" id="carousel-window">
+                <div class="relative w-full max-w-6xl overflow-hidden cursor-grab active:cursor-grabbing select-none" id="carousel-window" aria-label="User Reviews Carousel">
                     
                     <!-- Edge Gradient Overlays for Fade Effect -->
                     <div class="pointer-events-none absolute left-0 top-0 bottom-0 w-12 sm:w-24 bg-gradient-to-r from-neutral-100 to-transparent z-10"></div>
@@ -346,7 +346,7 @@
                                 </div>
 
                                 <!-- Interactive Slider Divider & Control Handle -->
-                                <div id="screen-handle" class="absolute top-0 bottom-0 -ml-4 w-8 flex items-center justify-center cursor-ew-resize z-20 touch-none" style="left: var(--pos);">
+                                <div id="screen-handle" role="slider" aria-label="Screen mode comparison slider" class="absolute top-0 bottom-0 -ml-4 w-8 flex items-center justify-center cursor-ew-resize z-20 touch-none" style="left: var(--pos);">
                                     <div class="absolute top-0 bottom-0 w-[2px] bg-[--maingreen] shadow-[0_0_8px_rgba(0,255,100,0.8)]"></div>
                                     
                                     <div class="relative w-8 h-8 rounded-full bg-neutral-900/90 backdrop-blur-md border-2 border-[--maingreen] shadow-xl flex items-center justify-center gap-1 transition-transform active:scale-95">
@@ -486,7 +486,7 @@
                             </p>
                         </div>
 
-                        <a href="#" class="inline-flex items-center gap-2 font-bold text-white hover:text-[--maingreen] transition-colors text-base text-left">
+                        <a href="#" aria-label="Read our stance on privacy" class="inline-flex items-center gap-2 font-bold text-white hover:text-[--maingreen] transition-colors text-base text-left">
                             &gt; Read our stance on privacy
                         </a>
                     </div>
@@ -506,7 +506,7 @@
                             </p>
                         </div>
 
-                        <a href="#" class="inline-flex items-center gap-2 font-bold text-white hover:text-black transition-colors text-base text-left">
+                        <a href="#" aria-label="Learn more about MAGA at neXus" class="inline-flex items-center gap-2 font-bold text-white hover:text-black transition-colors text-base text-left">
                             &gt; Learn more about MAGA@neXus
                         </a>
                     </div>
@@ -530,7 +530,7 @@
                                 JOIN THE NEXT EVOLUTION OF GAMING. DOWNLOAD <span class="text-[--maingreen]">NexOS</span>.
                             </h2>
 
-                            <a href="nexos-shop.html" id="download-btn" class="relative overflow-hidden inline-flex items-center justify-center px-10 py-4 rounded-2xl bg-[--maingreen] text-black font-extrabold text-lg sm:text-xl tracking-wide shadow-lg transition-transform duration-200 active:scale-95 group-hover:scale-105">
+                            <a href="nexos-shop.html" id="download-btn" aria-label="Download NexOS" class="relative overflow-hidden inline-flex items-center justify-center px-10 py-4 rounded-2xl bg-[--maingreen] text-black font-extrabold text-lg sm:text-xl tracking-wide shadow-lg transition-transform duration-200 active:scale-95 group-hover:scale-105">
                                 <span id="btn-glow" class="absolute inset-0 bg-white/40 opacity-0 transition-opacity duration-200 pointer-events-none"></span>
                                 <span class="relative z-10 pointer-events-none text-white">Download NexOS</span>
                             </a>
@@ -564,7 +564,7 @@
 
                     <!-- Navigation Button -->
                     <div class="flex justify-start mt-8 reveal-on-scroll">
-                        <a href="nexos-computer.html" class="main-button px-8 py-3.5 text-base md:text-lg gap-2">
+                        <a href="nexos-computer.html" aria-label="Explore Powered PCs" class="main-button px-8 py-3.5 text-base md:text-lg gap-2">
                             <span>Explore Powered PCs</span>
                             <i class="fa fa-arrow-right text-sm"></i>
                         </a>
@@ -591,7 +591,7 @@
 
                         <!-- FAQ Item 1 -->
                         <div class="faq-item bg-neutral-900 border border-neutral-800 rounded-2xl overflow-hidden transition-colors">
-                            <button class="faq-trigger w-full px-6 py-5 flex justify-between items-center text-left text-white font-bold text-lg sm:text-xl focus:outline-none">
+                            <button aria-expanded="false" aria-label="Toggle FAQ: Can I dual-boot NexOS alongside Windows?" class="faq-trigger w-full px-6 py-5 flex justify-between items-center text-left text-white font-bold text-lg sm:text-xl focus:outline-none">
                                 <span>Can I dual-boot NexOS alongside Windows?</span>
                                 <i class="fa fa-chevron-down text-neutral-400 text-sm transition-transform duration-300 faq-icon"></i>
                             </button>
@@ -604,7 +604,7 @@
 
                         <!-- FAQ Item 2 -->
                         <div class="faq-item bg-neutral-900 border border-neutral-800 rounded-2xl overflow-hidden transition-colors">
-                            <button class="faq-trigger w-full px-6 py-5 flex justify-between items-center text-left text-white font-bold text-lg sm:text-xl focus:outline-none">
+                            <button aria-expanded="false" aria-label="Toggle FAQ: Will my favorite Anti-Cheat games work?" class="faq-trigger w-full px-6 py-5 flex justify-between items-center text-left text-white font-bold text-lg sm:text-xl focus:outline-none">
                                 <span>Will my favorite Anti-Cheat games work?</span>
                                 <i class="fa fa-chevron-down text-neutral-400 text-sm transition-transform duration-300 faq-icon"></i>
                             </button>
@@ -617,7 +617,7 @@
 
                         <!-- FAQ Item 3 -->
                         <div class="faq-item bg-neutral-900 border border-neutral-800 rounded-2xl overflow-hidden transition-colors">
-                            <button class="faq-trigger w-full px-6 py-5 flex justify-between items-center text-left text-white font-bold text-lg sm:text-xl focus:outline-none">
+                            <button aria-expanded="false" aria-label="Toggle FAQ: Do I need experience with Linux terminal commands?" class="faq-trigger w-full px-6 py-5 flex justify-between items-center text-left text-white font-bold text-lg sm:text-xl focus:outline-none">
                                 <span>Do I need experience with Linux terminal commands?</span>
                                 <i class="fa fa-chevron-down text-neutral-400 text-sm transition-transform duration-300 faq-icon"></i>
                             </button>
@@ -630,7 +630,7 @@
 
                         <!-- FAQ Item 4 -->
                         <div class="faq-item bg-neutral-900 border border-neutral-800 rounded-2xl overflow-hidden transition-colors">
-                            <button class="faq-trigger w-full px-6 py-5 flex justify-between items-center text-left text-white font-bold text-lg sm:text-xl focus:outline-none">
+                            <button aria-expanded="false" aria-label="Toggle FAQ: How do updates work on NexOS?" class="faq-trigger w-full px-6 py-5 flex justify-between items-center text-left text-white font-bold text-lg sm:text-xl focus:outline-none">
                                 <span>How do updates work on NexOS?</span>
                                 <i class="fa fa-chevron-down text-neutral-400 text-sm transition-transform duration-300 faq-icon"></i>
                             </button>
