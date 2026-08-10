@@ -23,7 +23,7 @@ A high-performance landing page for **neXus**, a gaming technology brand craftin
 
 ---
 
-##L Libraries Used
+## Libraries Used
 
 GSAP v3.12.5 – High-performance animation engine.
 
