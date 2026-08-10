@@ -192,31 +192,27 @@ LAYOUT
   - CSS 3D transform properties (perspective, transform-style: preserve-3d)
     used to build the rotating double-helix card gallery on nexos-pro.html.
 
-KEYFRAME ANIMATIONS
-  - @keyframes cta-ripple - shockwave ripple effect on call-to-action buttons.
-  - @keyframes modalPop - pop-in entrance animation for modals.
-  - @keyframes stepFadeIn - staggered fade/slide-in for quiz/step content.
-  - @keyframes float - gentle up/down floating animation (nexos-pro.css).
-  - Hamburger icon lines animate (rotate/fade) between open and closed states
-    using transform and opacity transitions.
-
-PERFORMANCE-MINDED CSS
-  - will-change and transform: translateZ(0) are applied to scroll-pinned and
-    GSAP-animated elements to promote them to their own compositor layer and
-    reduce scroll jank, with explanatory comments in the stylesheet.
-  - transition: none !important is deliberately applied to elements driven by
-    GSAP's scroll-scrub animations, to stop the CSS transition and GSAP from
-    fighting over the same property on every frame.
-
+ANIMATIONS
+  - A ripple/shockwave effect plays outward from call-to-action buttons when
+    clicked.
+  - Pop-in animation when modals (pop-up windows) open.
+  - Content on the quiz/step pages fades and slides in smoothly as it appears.
+  - A gentle up-and-down floating animation on nexos-pro.html.
+  - The hamburger menu icon smoothly animates into an "X" shape when opened.
+ 
+SMOOTH SCROLLING PERFORMANCE
+  - Extra CSS rules are used behind the scenes to keep scrolling animations
+    (like the scroll-triggered sections) running smoothly without stuttering,
+    with comments explaining why each rule is there.
+ 
 EXTERNAL STYLESHEETS
   - All custom styling is kept in css/style.css (site-wide) and
-    css/nexos-pro.css (page-specific, loaded only on nexos-pro.html).
-    No inline <style> blocks are used for layout or effects.
-
+    css/nexos-pro.css (used only on nexos-pro.html for its extra effects).
+    No styling is written directly inside the HTML files.
+ 
 COMMENTS
-  - Both stylesheets contain block comments explaining *why* a rule exists
-    (e.g. why transitions are disabled during GSAP scroll-scrubbing, why
-    certain elements are pre-promoted to their own compositor layer).
+  - Both stylesheets contain comments explaining why certain rules were added,
+    especially the ones used to keep scrolling animations smooth.
 
 --------------------------------------------------------------------------------
 JAVASCRIPT FEATURES (Relevant to JS / Interactivity Criteria)
@@ -236,40 +232,40 @@ DOM MANIPULATION (beyond alert())
     field as the user types (payment.js).
 
 FORM VALIDATION LOGIC
-  - Card number: non-digit characters stripped in real time, length-checked,
-    inline valid/invalid message shown.
-  - Expiry date: checked against a regular expression for MM/YY format.
-  - Cardholder name: checked against a regular expression requiring
-    letters/spaces of a minimum length.
-  - Newsletter/ISO/booking forms: use HTML5 required / type="email"
-    attributes combined with JS submit handlers.
-
-DATA PERSISTENCE
-  - localStorage is used to persist the shopping cart across page navigation
-    (main-shop.js, header-footer.js) and to remember chatbot conversation
-    history.
-
+  - Card number: only numbers are kept as the user types, checked for the
+    right length, with an inline message showing if it's valid or not.
+  - Expiry date: checked that it matches the MM/YY format.
+  - Cardholder name: checked that it only contains letters/spaces and is
+    long enough to be a real name.
+  - Newsletter/ISO/booking forms: required fields and email fields must be
+    filled in correctly before the form can be submitted.
+ 
+SAVED DATA
+  - The shopping cart is remembered even after leaving the page or closing
+    the tab, so items stay in the cart when the user comes back.
+  - The chatbot also remembers the conversation history in the same way.
+ 
 DATA-DRIVEN CONTENT
-  - Product listings are stored in javascript/shop-products.json and
-    javascript/bot-data.json and fetched/parsed with fetch() + JSON, rather
-    than being hard-coded into the HTML.
-
+  - Product listings and chatbot replies are stored in separate data files
+    rather than being typed directly into the HTML, so they're easy to
+    update in one place.
+ 
 REUSABLE COMPONENTS
-  - accordion.js (FAQ accordion), review.js (review carousel) and
-    perf-slider.js (before/after slider) are written once and reused across
-    multiple pages.
-
+  - The FAQ accordion, review carousel and before/after slider are each
+    built once and reused across multiple pages instead of being rebuilt
+    from scratch every time.
+ 
 ADVANCED / EXTRA INTERACTIVITY
-  - hardware-detector.js uses the WebGL API to read the visitor's GPU/renderer
-    string and suggest a compatible product.
-  - keyboard-intro.js drives a 100-frame canvas image sequence tied to scroll
-    position, plus a switch-type selector that swaps specs and plays the
-    matching .mp3 sound sample.
-  - helix.js / helix-images.js position and rotate a set of game-cover cards
-    in a 3D double-helix formation using JS-calculated transforms.
-  - GSAP (with ScrollTrigger, SplitText and TextPlugin) and Lenis Smooth
-    Scroll are used for the typewriter hero text, scroll-triggered reveals
-    and buttery smooth-scrolling behaviour.
+  - The site can check the visitor's graphics card and suggest a compatible
+    product based on it.
+  - The keyboard intro page plays a 100-image sequence as the user scrolls,
+    plus a switch-type selector that updates the specs shown and plays a
+    matching sound sample.
+  - A 3D "double helix" animation rotates a set of game-cover cards on
+    nexos-pro.html.
+  - Extra animation and smooth-scrolling libraries are used for the
+    typewriter hero text, scroll-triggered reveals and smooth scrolling
+    behaviour throughout the site.
 
 --------------------------------------------------------------------------------
 DESIGN (Relevant to UX / Responsiveness)
@@ -360,6 +356,89 @@ html/payment.html              Cart search, quantity controls, item removal,
                                 promo code field, live card-detail validation,
                                 payment-method selector, QR-code payment
                                 modal, live order totals.
+
+--------------------------------------------------------------------------------
+APPENDIX: JAVASCRIPT FUNCTIONS USED (for reference / code-checking)
+--------------------------------------------------------------------------------
+The plain-language descriptions above are backed by real functions in the
+code. Listed below by file, for anyone who wants to check the source directly.
+ 
+javascript/header-footer.js
+    `setScrollLock`, `closeAllMenus`, `getRootPrefix`, `getPageTitle`,
+    `updateCartCount`, `loadHeaderAndFooter`, `preventSamePageReloads`
+ 
+javascript/chatbot.js
+    `injectChatWidgetMarkup`, `buildSearchIndex`, `containsKeyword`,
+    `scoreEntry`, `findBestMatch`, `cleanTitle`, `saveChatState`,
+    `isPageReload`, `restoreChatState`, `initChatbot`, `appendUserMessage`,
+    `appendBotMessage`, `renderMainCategories`, `renderSubcategories`,
+    `handleSubcategoryClick`, `renderInlineEmailForm`, `bindFormSubmit`,
+    `rebindDynamicListeners`, `isClearHistoryCommand`, `clearChatHistory`,
+    `respondWithBreadcrumb`, `handleHybridInput`
+ 
+javascript/main-shop.js
+    `checkPromo`, `loadProductsFromList`, `saveCart`,
+    `showToastNotification`, `changeQuantity`, `remove`,
+    `updateResultCount`, `loadingProductShop`, `productSort`
+ 
+javascript/payment.js
+    `showAlert`, `checkFormValidity`, `choosePayment`, `showQR`, `closeQR`,
+    `closeOnOutsideClick`
+ 
+javascript/index.js
+    `showEmail`, `closeEmail`, `closeOnOutsideClick`, `handleSignup`,
+    `render`, `goTo`, `next`, `previous`, `startAutoplay`, `stopAutoplay`,
+    `restartAutoplay`, `makeGreen`
+ 
+javascript/find-your-product.js
+    `fadeOut`, `fadeIn`
+ 
+javascript/hardware-detector.js
+    `getCleanGpuName`, `checkNexosProCompatibility`
+ 
+javascript/keyboard-intro.js
+    `getFramePath`, `preloadImages`, `resize`, `renderGlobalFrame`,
+    `updateFeelAndPlaySection`, `playSounds`
+ 
+javascript/keyboard-shop.js
+    `updateCarousel`, `next`, `previous`, `goToSlide`, `resetInterval`,
+    `returnId`, `activeProduct`, `getHalfWidth`, `step`, `type`,
+    `updateMapLocation`
+ 
+javascript/keyboard-tech.js
+    `raf`
+ 
+javascript/nexos-intro.js
+    `type`, `updateSliderPosition`, `onPointerDown`, `onPointerMove`,
+    `onPointerUp`
+ 
+javascript/nexos-pro.js
+    `switchLayout`, `getMinimumPosition`, `renderTrack`, `startDrag`,
+    `moveDrag`, `endDrag`
+ 
+javascript/nexos-shop.js
+    `openDownloadModal`, `closeDownloadModal`, `handleHardwareChange`,
+    `handleGpuChange`, `resetDownloadModal`, `showNewsletterStep`,
+    `handleIsoDownload`
+ 
+javascript/review.js
+    `getHalfWidth`, `step`, `getPointerX`, `onPointerDown`,
+    `onPointerMove`, `onPointerUp`
+ 
+javascript/helix.js
+    `wrap`, `helixAngle`, `depthOf`, `helixTransform`, `depthFilter`,
+    `pickBreakpoint`, `applyViewport`, `imageUrl`, `placeholderColor`,
+    `frame`
+ 
+javascript/perf-slider.js
+    `PerfSlider` (class) with methods `init`, `next`, `prev`,
+    `startAutoplay`, `stopAutoplay`, `animateSlideBars`
+ 
+javascript/accordion.js, cta-card.js, nexos-computer.js, shop-only.js,
+sub-nav.js
+    These files don't declare separate named functions - they attach their
+    logic directly to click/scroll event listeners (e.g.
+    `addEventListener('click', ...)`, `addEventListener('scroll', ...)`).
 
 ================================================================================
 END OF FEATURES DOCUMENT
