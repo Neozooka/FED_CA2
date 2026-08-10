@@ -6,109 +6,52 @@ Members: Sing Siang, Liang Jun, Cepheus, Jia Jun
 Project: neXus - premium mechanical keyboards & custom gaming OS
 Styling framework used (ONE framework, as required): Tailwind CSS (via CDN)
 --------------------------------------------------------------------------------
-FILE STRUCTURE
+FEATURES FOR EACH PAGE
 --------------------------------------------------------------------------------
 
-    index.html                          - Home page (Sing Siang & Liang Jun)
+index.html                     Product image carousel (Image Gallery), form with validation and success
+                                modal.
 
-    html/
-        find-your-product.html          - Product quiz page (Cepheus)
-        payment.html                    - Checkout / payment page (Liang Jun & Jia Jun)
-        shop-main.html                  - Main shop / product grid page (Liang Jun)
+html/find-your-product.html    4-step interactive product quiz with a restart button.
 
-        neXos/
-            nexos-intro.html            - neXos OS intro page (Sing Siang)
-            nexos-pro.html              - neXos Pro OS page (Sing Siang)
-            nexos-computer.html         - neXos computers page (Sing Siang & Cepheus)
-            nexos-shop.html             - neXos OS shop/download page (Sing Siang)
+html/neXos/nexos-intro.html     Review carousel (Image Gallery), performance
+                                comparison slider, before/after image
+                                comparison, animated CTA,
+                                FAQ accordion.
 
-        neXus-60HE/
-            keyboard-intro.html         - Keyboard switch intro page (Liang Jun)
-            keyboard-tech.html          - Keyboard technical page (Liang Jun)
-            keyboard-shop.html          - Keyboard shop/booking page (Liang Jun)
-            keyboard-creator.html       - Creator bio page (Liang Jun & Jia Jun)
+html/neXos/nexos-pro.html       3D rotating double-helix card animation (Image Gallery),
+                                scroll-driven story sections, software
+                                carousel (Image Gallery), FAQ accordion.
 
-    css/
-        style.css                      - Shared global stylesheet used by all pages
-        nexos-pro.css                  - Extra stylesheet for the 3D helix effect
-                                          on nexos-pro.html only
+html/neXos/nexos-computer.html  Partner/sub navigation, smooth-scroll anchor
+                                links, animated computer showcase cards.
 
-    javascript/
-        header-footer.js               - Injects shared header, nav, footer, cart badge (Sing Siang)
-        chatbot.js + bot-data.json      - Support chatbot logic and its scripted replies (Sing Siang)
-        main-shop.js + shop-products.json - Shop grid rendering, search, sort, cart (Liang Jun)
-        payment.js                     - Payment page cart, promo code, card validation (Liang Jun & Jia Jun)
-        find-your-product.js           - Product quiz logic (Cepehus)
-        hardware-detector.js           - WebGL hardware scanner (Sing Siang)
-        keyboard-intro.js              - Canvas frame animation + switch/sound selector (Liang Jun)
-        keyboard-shop.js               - Keyboard shop gallery, variants, booking form (Liang Jun)
-        keyboard-tech.js               - Scroll-linked technical diagrams (Liang Jun)
-        nexos-intro.js, nexos-pro.js,
-        nexos-computer.js, nexos-shop.js - Page-specific interactivity for NexOS pages (Sing Siang & Cepheus)
-        helix.js + helix-images.js     - 3D "double helix" card animation (Sing Siang)
-        accordion.js                   - Reusable FAQ accordion component (Sing Siang)
-        review.js                      - Reusable review carousel component (Sing Siang)
-        perf-slider.js                 - Reusable before/after performance slider (Sing Siang)
-        cta-card.js                    - Animated call-to-action ripple effect (Sing Siang)
-        reveal-on-scroll.js            - Scroll-reveal fade/slide-in effect (Sing Siang)
-        sub-nav.js                     - Secondary in-page navigation for NexOS (Sing Siang)
-        shop-only.js                   - Shop-only header/footer variant logic (Liang Jun)
+html/neXos/nexos-shop.html      Add-to-cart, TWO comparison HTML tables, WebGL
+                                hardware scanner, download modal, form validation
+                                with multi-step ISO request
 
-    images/                             - Organised into subfolders per page/section
-        index/... , main-shop/, keyboard-shop/, tech-page/, nexos-pro-helix/,
-        images-keyboard-final/ (100-frame canvas sequence), payment-qr/, etc.
+html/neXus-60HE/keyboard-intro.html   100-frame canvas scroll animation,
+                                        Linear/Tactile/Clicky switch selector with
+                                        live audio samples (INTERACTIVITY).
 
-    sounds/                             - clicky.mp3, linear.mp3, tactile.mp3
-                                          (switch-sound samples for keyboard-intro.html)
+html/neXus-60HE/keyboard-tech.html    Scroll-linked technical diagram
+                                images, smooth scrolling, FAQ accordion.
 
---------------------------------------------------------------------------------
-HTML FEATURES (Relevant to HTML Coding Criteria)
---------------------------------------------------------------------------------
+html/neXus-60HE/keyboard-shop.html    Review carousel, product gallery,
+                                colour/variant selector, add-to-cart, booking with dates and 
+                                form validation, dynamically
+                                embedded Google Map.
 
-SEMANTIC STRUCTURE
-  - <header>, <nav>, <footer> are generated once inside javascript/header-footer.js
-    and injected into every page via JavaScript, so the semantic markup is
-    identical and consistent across all 12 pages instead of being copy-pasted.
-  - <section> and <article> elements are used to break up page content
-    (e.g. hero, features, FAQ, comparison sections).
-  - <main>-equivalent wrapper divs hold each page's unique content between the
-    shared header and footer.
+html/neXus-60HE/keyboard-creator.html GSAP animation
 
-NAVIGATION
-  - Shared responsive nav bar (desktop menu bar + collapsible mobile hamburger
-    drawer) appears identically on all 12 pages via header-footer.js.
-  - A persistent cart badge and back-to-top button are part of the same shared
-    component.
-  - Secondary in-page/sub navigation (javascript/sub-nav.js) is used on pages
-    with several sections (e.g. neXos-computer.html) for smooth-scroll jumps.
+html/shop-main.html            JSON-driven product grid, live search (FILTERING),
+                                price sorting, cart actions,
+                                toast messages.
 
-LINKS
-  - Internal navigation between all 12 pages uses relative paths.
-  - Anchor-based smooth scrolling is used for in-page section links
-    (e.g. FAQ, feature jump links) via CSS scroll-smooth / JS scroll handlers.
-
-IMAGES
-  - Meaningful alt text is used on descriptive product/feature images
-    (e.g. alt="NexOS Pro Laptop", alt="Monitor Display").
-  - Images are organised into per-page subfolders under images/
-    (main-shop/, keyboard-shop/, tech-page/, nexos-pro-helix/, payment-qr/, etc).
-  - Every graphic file is kept under 800KB as required.
-  - A 100-frame WebP image sequence (images/images-keyboard-final/) is used to
-    drive the canvas scroll animation on keyboard-intro.html.
-
-SPECIAL ELEMENTS
-  - Two HTML <table> elements on html/neXos/nexos-shop.html for spec/feature
-    comparisons.
-  - <select> dropdowns used for hardware selection (nexos-shop.html) and
-    payment method choice (payment.html).
-  - Checkbox input used for newsletter/consent opt-ins (index.html,
-    nexos-shop.html).
-  - <audio> playback triggered via JS for keyboard switch sound samples.
-  - Embedded/dynamically inserted Google Map on keyboard-shop.html.
-  - Custom favicon using images/neXuslogo2.png.
-  - Google Fonts (Oxanium, Roboto) loaded via <link> with preconnect for
-    performance, plus Font Awesome 4.7.0 for icons.
-  - lang="en" attribute set on every page's <html> element.
+html/payment.html              Cart search  (FILTERING) , quantity controls, item removal,
+                                promo code field (FORM VALIDATION), live card-detail validation,
+                                payment-method selector, QR-code payment
+                                modal, live order totals.
 
 FORMS / INTERACTIVE ELEMENTS (JavaScript-driven)
   - index.html            - newsletter signup form, HTML5 "required"/type="email"
@@ -126,93 +69,60 @@ FORMS / INTERACTIVE ELEMENTS (JavaScript-driven)
   - html/find-your-product.html - 4-step interactive quiz built entirely with
                              JS-driven DOM updates (no form submission needed).
 
-COMMENTS
-  - HTML files contain comments marking page authorship (e.g.
-    "<!-- DONE BY LIANG JUN AND SING SIANG -->") and major section breaks.
+--------------------------------------------------------------------------------
+HOW DATA FROM JSON FILES IS LOADED AND SHOWN ON THE PAGE
+--------------------------------------------------------------------------------
+ 
+Two features load their content from separate JSON data files (instead of the
+content being typed directly into the HTML), then build the actual page
+elements in JavaScript rather than dumping raw HTML text onto the page:
+ 
+SHOP PRODUCT GRID (javascript/main-shop.js + javascript/shop-products.json)
+  - The list of products (title, price, image) is fetched from
+    shop-products.json.
+  - For each product, the page copies a hidden <template> block already sitting
+    in the HTML, fills in that copy's title/price/image, and only then adds it
+    to the page. This is more reliable than typing HTML text into the page
+    with innerHTML, because the layout of each card is defined once in the
+    HTML template and JavaScript just fills in the blanks.
+  - The same approach is used to rebuild the cart items shown on the
+    payment page whenever an item is added, removed, or its quantity changes.
+ 
+SUPPORT CHATBOT (javascript/chatbot.js + javascript/bot-data.json)
+  - The chatbot's categories, questions and answers are stored in
+    bot-data.json rather than being written into the HTML.
+  - When the chatbot needs to show a list of category buttons, it builds each
+    button one at a time in JavaScript (creating the button, giving it text
+    and a click action, then placing it into the chat window) rather than
+    writing out a block of HTML text and inserting it in one go. This is the
+    more "bonus-marks" approach the brief mentions, since each part of the
+    button is created and controlled individually in code.
 
-VALIDATION
-  - Pages have been checked against https://validator.w3.org as required by
-    the brief.
+    e.g 
+        const userMsg = document.createElement('div');
 
 --------------------------------------------------------------------------------
-CSS / STYLING FEATURES (Relevant to CSS Coding Criteria)
+GSAP (ANIMATION LIBRARY)
 --------------------------------------------------------------------------------
-
-FRAMEWORK
-  - Tailwind CSS (loaded via CDN script) is the single styling framework used
-    across all 12 pages, providing the utility classes for layout, spacing,
-    colour, typography and responsiveness.
-  - A small set of hand-written external stylesheets (css/style.css and
-    css/nexos-pro.css) supplements Tailwind for effects Tailwind's utility
-    classes cannot express on their own (custom keyframe animations, 3D
-    transforms, clip-path reveals, GPU-compositing hints).
-
-CSS VARIABLES
-  - Defined in :root in css/style.css: --background, --background2, --text,
-    --maingreen, --hovergreen, --shop-item.
-  - Defined in :root in css/nexos-pro.css: --helix-card-width,
-    --helix-card-height, --helix-perspective.
-  - Used consistently via var() for theming (e.g. the shared green accent
-    colour and dark background across every page).
-
-SELECTORS USED
-  - Element selectors: body, h1-h3, header
-  - Universal reset: * { border, border-radius, padding, margin }
-  - Class selectors: .main-button, .reveal-on-scroll, .hamburger-line,
-    .helix-card, .story-text, .cta-shockwave, etc.
-  - Pseudo-classes: :hover, :active
-  - Class-state combinators: .open .line-1 / .line-2 / .line-3 (hamburger
-    icon morphs into an "X" based on a parent .open class)
-
-TEXT, FONT AND COLOUR
-  - Two Google Fonts loaded: Roboto (body text) and Oxanium (headings/nav).
-  - font-family, font-weight and color set through CSS variables and
-    Tailwind utility classes together.
-  - color-mix() used for the button glow (box-shadow with a translucent
-    tint of --maingreen).
-
-BOX MODEL
-  - Global reset removes default border/margin/padding via the * selector,
-    with Tailwind utilities then re-applying spacing per element.
-  - box-shadow used for the glowing call-to-action button and the
-    helix-vignette overlay gradient.
-
-LAYOUT
-  - Flexbox and CSS Grid are used extensively through Tailwind's flex/grid
-    utility classes (e.g. flex, grid, justify-*, items-*) across every page's
-    header, cards and form layouts.
-  - Responsive breakpoint prefixes (sm:, md:, lg:) are used hundreds of times
-    across the site so layouts adapt from mobile portrait through tablet to
-    desktop/landscape, e.g. sm: used 121 times and md: used 37 times on
-    nexos-intro.html alone.
-  - position: fixed/absolute/relative used for the mobile drawer, modals,
-    the helix 3D scene and scroll-pinned sections.
-  - clip-path: polygon() used for the before/after performance-slider reveal
-    effect (.screen-overlay-clip).
-  - CSS 3D transform properties (perspective, transform-style: preserve-3d)
-    used to build the rotating double-helix card gallery on nexos-pro.html.
-
-ANIMATIONS
-  - A ripple/shockwave effect plays outward from call-to-action buttons when
-    clicked.
-  - Pop-in animation when modals (pop-up windows) open.
-  - Content on the quiz/step pages fades and slides in smoothly as it appears.
-  - A gentle up-and-down floating animation on nexos-pro.html.
-  - The hamburger menu icon smoothly animates into an "X" shape when opened.
+  - On index.html, GSAP's SplitText and TextPlugin add-ons are used to break
+    the hero heading into individual letters and type out the tagline text
+    one character at a time.
+  - On shop-main.html, the same letter-splitting technique animates the main
+    headline into view, then types out the tagline underneath it.
+  - GSAP's ScrollTrigger add-on is also referenced site-wide (via
+    header-footer.js) to keep scrolling smooth and consistent across pages.
  
-SMOOTH SCROLLING PERFORMANCE
-  - Extra CSS rules are used behind the scenes to keep scrolling animations
-    (like the scroll-triggered sections) running smoothly without stuttering,
-    with comments explaining why each rule is there.
- 
-EXTERNAL STYLESHEETS
-  - All custom styling is kept in css/style.css (site-wide) and
-    css/nexos-pro.css (used only on nexos-pro.html for its extra effects).
-    No styling is written directly inside the HTML files.
- 
-COMMENTS
-  - Both stylesheets contain comments explaining why certain rules were added,
-    especially the ones used to keep scrolling animations smooth.
+--------------------------------------------------------------------------------
+LOCALSTORAGE / SESSIONSTORAGE (SAVED DATA IN THE BROWSER)
+--------------------------------------------------------------------------------
+  - The shopping cart is saved using localStorage, which keeps the data even
+    after the browser tab or window is closed. This is why items stay in the
+    cart the next time the visitor returns to the site.
+
+  - The chatbot's open/closed state and conversation history are saved using
+    sessionStorage instead, which only lasts for as long as that browser tab
+    stays open. This means the chat history clears itself once the tab is
+    closed, but stays intact if the visitor just moves between pages.
 
 --------------------------------------------------------------------------------
 JAVASCRIPT FEATURES (Relevant to JS / Interactivity Criteria)
@@ -271,30 +181,6 @@ ADVANCED / EXTRA INTERACTIVITY
 DESIGN (Relevant to UX / Responsiveness)
 --------------------------------------------------------------------------------
 
-CONTRAST
-  - Light text (var(--text) / white) on the shared dark background
-    (var(--background): #1e1e1e) throughout the site.
-  - The green accent colour (var(--maingreen)) is reserved for primary
-    buttons, links and focus states so it stands out against the dark theme.
-
-REPETITION
-  - Identical header, nav and footer are reused on every page via the shared
-    header-footer.js component.
-  - The same FAQ accordion, review carousel and performance-slider components
-    are reused wherever needed instead of being rebuilt per page.
-  - Consistent green/dark colour palette and Oxanium/Roboto type pairing
-    across all 12 pages.
-
-ALIGNMENT
-  - Tailwind's flex/grid utilities keep hero sections, product cards and
-    comparison tables consistently aligned across breakpoints.
-
-PROXIMITY
-  - Related form fields (e.g. card number/expiry/CVV) are grouped together
-    with their inline validation messages directly beneath them.
-  - Product image, price and add-to-cart button are grouped within a single
-    card component in the shop pages.
-
 RESPONSIVENESS / USABILITY
   - Mobile hamburger drawer collapses the desktop nav on small screens.
   - Layouts confirmed responsive from mobile portrait through tablet to
@@ -304,112 +190,188 @@ RESPONSIVENESS / USABILITY
     feedback for cart and form actions instead of blocking alert() pop-ups.
 
 --------------------------------------------------------------------------------
-PAGES AT A GLANCE
+HTML FEATURES (Relevant to HTML Coding Criteria)
 --------------------------------------------------------------------------------
 
-index.html                     Product image carousel, animated typewriter
-                                headings, best-sellers, quality highlights,
-                                newsletter form with validation and success
-                                modal.
+SEMANTIC STRUCTURE
+  - <header>, <nav>, <footer> are generated once inside javascript/header-footer.js
+    and injected into every page via JavaScript, so the semantic markup is
+    identical and consistent across all 12 pages instead of being copy-pasted.
+  - <section> and <article> elements are used to break up page content
+    (e.g. hero, features, FAQ, comparison sections).
 
-html/find-your-product.html    4-step interactive product quiz with a
-                                dynamically generated recommendation and a
-                                restart button.
+NAVIGATION
+  - Shared responsive nav bar (desktop menu bar + collapsible mobile hamburger
+    drawer) appears identically on all 12 pages via header-footer.js.
+  - A persistent cart badge and back-to-top button are part of the same shared
+    component.
+  - Secondary in-page/sub navigation (javascript/sub-nav.js) is used on pages
+    with several sections (e.g. neXos-computer.html) for smooth-scroll jumps.
 
-html/neXos/nexos-intro.html    Typewriter hero, review carousel, performance
-                                comparison slider, before/after image
-                                comparison, embedded video, animated CTA,
-                                FAQ accordion.
+IMAGES
+  - Meaningful alt text is used on descriptive product/feature images
+    (e.g. alt="NexOS Pro Laptop", alt="Monitor Display").
+  - Every graphic file is kept under 800KB as required.
+  - A 100-frame WebP image sequence (images/images-keyboard-final/) is used to
+    drive the canvas scroll animation on keyboard-intro.html.
 
-html/neXos/nexos-pro.html      3D rotating double-helix card animation,
-                                scroll-driven story sections, desktop-layout
-                                switcher, performance slider, software
-                                carousel, CTA, FAQ accordion.
+SPECIAL ELEMENTS
+  - Two HTML <table> elements on html/neXos/nexos-shop.html for spec/feature
+    comparisons.
+  - <select> dropdowns used for hardware selection (nexos-shop.html) and
+    payment method choice (payment.html).
+  - Checkbox input used for newsletter/consent opt-ins (index.html,
+    nexos-shop.html).
+  - <audio> playback triggered via JS for keyboard switch sound samples.
+  - Embedded/dynamically inserted Google Map on keyboard-shop.html.
+  - Custom favicon using images/neXuslogo2.png.
+  - Google Fonts (Oxanium, Roboto) loaded via <link> with preconnect for
+    performance, plus Font Awesome 4.7.0 for icons.
+  - lang="en" attribute set on every page's <html> element.
 
-html/neXos/nexos-computer.html Partner/sub navigation, smooth-scroll anchor
-                                links, animated computer showcase cards.
 
-html/neXos/nexos-shop.html     Add-to-cart, TWO comparison tables, WebGL
-                                hardware scanner, download modal, validated
-                                multi-step ISO request form.
+COMMENTS
+  - HTML files contain comments marking page authorship (e.g.
+    "<!-- DONE BY LIANG JUN AND SING SIANG -->") and major section breaks.
 
-html/neXus-60HE/keyboard-intro.html   100-frame canvas scroll animation,
-                                Linear/Tactile/Clicky switch selector with
-                                live audio samples, live spec panel.
-
-html/neXus-60HE/keyboard-tech.html    Scroll-linked technical diagram
-                                images, smooth scrolling, FAQ accordion.
-
-html/neXus-60HE/keyboard-shop.html    Review carousel, product gallery,
-                                colour/variant selector, add-to-cart, booking
-                                form with date-range validation, dynamically
-                                embedded Google Map.
-
-html/neXus-60HE/keyboard-creator.html Creator biography, profile image,
-                                contact details.
-
-html/shop-main.html            JSON-driven product grid, live search,
-                                price sorting, result counter, cart actions,
-                                toast messages.
-
-html/payment.html              Cart search, quantity controls, item removal,
-                                promo code field, live card-detail validation,
-                                payment-method selector, QR-code payment
-                                modal, live order totals.
+VALIDATION
+  - Pages have been checked against https://validator.w3.org as required by
+    the brief.
 
 --------------------------------------------------------------------------------
-HOW DATA FROM JSON FILES IS LOADED AND SHOWN ON THE PAGE
+CSS / STYLING FEATURES (Relevant to CSS Coding Criteria)
 --------------------------------------------------------------------------------
+
+FRAMEWORK
+  - Tailwind CSS (loaded via CDN script) is the single styling framework used
+    across all 12 pages, providing the utility classes for layout, spacing,
+    colour, typography and responsiveness.
+  - A small set of hand-written external stylesheets (css/style.css and
+    css/nexos-pro.css) supplements Tailwind for effects Tailwind's utility
+    classes cannot express on their own (custom keyframe animations, 3D
+    transforms, clip-path reveals, GPU-compositing hints).
+
+CSS VARIABLES
+  - Defined in :root in css/style.css: --background, --background2, --text,
+    --maingreen, --hovergreen, --shop-item.
+  - Defined in :root in css/nexos-pro.css: --helix-card-width,
+    --helix-card-height, --helix-perspective.
+  - Used consistently via var() for theming (e.g. the shared green accent
+    colour and dark background across every page).
+
+SELECTORS USED
+  - Element selectors: body, h1-h3, header
+  - Universal reset: * { border, border-radius, padding, margin }
+  - Class selectors: .main-button, .reveal-on-scroll, .hamburger-line,
+    .helix-card, .story-text, .cta-shockwave, etc.
+  - Pseudo-classes: :hover, :active
+  - Class-state combinators: .open .line-1 / .line-2 / .line-3 (hamburger
+    icon morphs into an "X" based on a parent .open class)
+
+TEXT, FONT AND COLOUR
+  - Two Google Fonts loaded: Roboto (body text) and Oxanium (headings/nav).
+  - font-family, font-weight and color set through CSS variables and
+    Tailwind utility classes together.
+  - color-mix() used for the button glow (box-shadow with a translucent
+    tint of --maingreen).
+
+BOX MODEL
+  - Global reset removes default border/margin/padding via the * selector,
+    with Tailwind utilities then re-applying spacing per element.
+  - box-shadow used for the glowing call-to-action button and the
+    helix-vignette overlay gradient.
+
+LAYOUT
+  - Flexbox and CSS Grid are used extensively through Tailwind's flex/grid
+    utility classes (e.g. flex, grid, justify-*, items-*) across every page's
+    header, cards and form layouts.
+  - clip-path: polygon() used for the before/after performance-slider reveal
+    effect (.screen-overlay-clip).
+  - CSS 3D transform properties (perspective, transform-style: preserve-3d)
+    used to build the rotating double-helix card gallery on nexos-pro.html.
+
+ANIMATIONS
+  - A ripple/shockwave effect plays outward from call-to-action buttons when
+    clicked.
+  - Pop-in animation when modals (pop-up windows) open.
+  - Content on the quiz/step pages fades and slides in smoothly as it appears.
+  - A gentle up-and-down floating animation on nexos-pro.html.
+  - The hamburger menu icon smoothly animates into an "X" shape when opened.
  
-Two features load their content from separate JSON data files (instead of the
-content being typed directly into the HTML), then build the actual page
-elements in JavaScript rather than dumping raw HTML text onto the page:
+SMOOTH SCROLLING PERFORMANCE
+  - Extra CSS rules are used behind the scenes to keep scrolling animations
+    (like the scroll-triggered sections) running smoothly without stuttering,
+    with comments explaining why each rule is there.
  
-SHOP PRODUCT GRID (javascript/main-shop.js + javascript/shop-products.json)
-  - The list of products (title, price, image) is fetched from
-    shop-products.json.
-  - For each product, the page copies a hidden <template> block already sitting
-    in the HTML, fills in that copy's title/price/image, and only then adds it
-    to the page. This is more reliable than typing HTML text into the page
-    with innerHTML, because the layout of each card is defined once in the
-    HTML template and JavaScript just fills in the blanks.
-  - The same approach is used to rebuild the cart items shown on the
-    payment page whenever an item is added, removed, or its quantity changes.
+EXTERNAL STYLESHEETS
+  - All custom styling is kept in css/style.css (site-wide) and
+    css/nexos-pro.css (used only on nexos-pro.html for its extra effects).
+    No styling is written directly inside the HTML files.
  
-SUPPORT CHATBOT (javascript/chatbot.js + javascript/bot-data.json)
-  - The chatbot's categories, questions and answers are stored in
-    bot-data.json rather than being written into the HTML.
-  - When the chatbot needs to show a list of category buttons, it builds each
-    button one at a time in JavaScript (creating the button, giving it text
-    and a click action, then placing it into the chat window) rather than
-    writing out a block of HTML text and inserting it in one go. This is the
-    more "bonus-marks" approach the brief mentions, since each part of the
-    button is created and controlled individually in code.
- 
+COMMENTS
+  - Both stylesheets contain comments explaining why certain rules were added,
+    especially the ones used to keep scrolling animations smooth.
+
+
 --------------------------------------------------------------------------------
-GSAP (ANIMATION LIBRARY)
+FILE STRUCTURE
 --------------------------------------------------------------------------------
-  - GSAP is an external animation library (loaded via CDN) used to power some
-    of the site's more advanced animations that would be difficult to achieve
-    with CSS alone.
-  - On index.html, GSAP's SplitText and TextPlugin add-ons are used to break
-    the hero heading into individual letters and type out the tagline text
-    one character at a time.
-  - On shop-main.html, the same letter-splitting technique animates the main
-    headline into view, then types out the tagline underneath it.
-  - GSAP's ScrollTrigger add-on is also referenced site-wide (via
-    header-footer.js) to keep scrolling smooth and consistent across pages.
- 
---------------------------------------------------------------------------------
-LOCALSTORAGE / SESSIONSTORAGE (SAVED DATA IN THE BROWSER)
---------------------------------------------------------------------------------
-  - The shopping cart is saved using localStorage, which keeps the data even
-    after the browser tab or window is closed. This is why items stay in the
-    cart the next time the visitor returns to the site.
-  - The chatbot's open/closed state and conversation history are saved using
-    sessionStorage instead, which only lasts for as long as that browser tab
-    stays open. This means the chat history clears itself once the tab is
-    closed, but stays intact if the visitor just moves between pages.
+
+    index.html                          - Home page (Sing Siang & Liang Jun)
+
+    html/
+        find-your-product.html          - Product quiz page (Cepheus)
+        payment.html                    - Checkout / payment page (Liang Jun & Jia Jun)
+        shop-main.html                  - Main shop / product grid page (Liang Jun)
+
+        neXos/
+            nexos-intro.html            - neXos OS intro page (Sing Siang)
+            nexos-pro.html              - neXos Pro OS page (Sing Siang)
+            nexos-computer.html         - neXos computers page (Sing Siang & Cepheus)
+            nexos-shop.html             - neXos OS shop/download page (Sing Siang)
+
+        neXus-60HE/
+            keyboard-intro.html         - Keyboard switch intro page (Liang Jun)
+            keyboard-tech.html          - Keyboard technical page (Liang Jun)
+            keyboard-shop.html          - Keyboard shop/booking page (Liang Jun)
+            keyboard-creator.html       - Creator bio page (Liang Jun & Jia Jun)
+
+    css/
+        style.css                      - Shared global stylesheet used by all pages
+        nexos-pro.css                  - Extra stylesheet for the 3D helix effect
+                                          on nexos-pro.html only
+
+    javascript/
+        header-footer.js               - Injects shared header, nav, footer, cart badge (Sing Siang)
+        chatbot.js + bot-data.json      - Support chatbot logic and its scripted replies (Sing Siang)
+        main-shop.js + shop-products.json - Shop grid rendering, search, sort, cart (Liang Jun)
+        payment.js                     - Payment page cart, promo code, card validation (Liang Jun & Jia Jun)
+        find-your-product.js           - Product quiz logic (Cepehus)
+        hardware-detector.js           - WebGL hardware scanner (Sing Siang)
+        keyboard-intro.js              - Canvas frame animation + switch/sound selector (Liang Jun)
+        keyboard-shop.js               - Keyboard shop gallery, variants, booking form (Liang Jun)
+        keyboard-tech.js               - Scroll-linked technical diagrams (Liang Jun)
+        nexos-intro.js, nexos-pro.js,
+        nexos-computer.js, nexos-shop.js - Page-specific interactivity for NexOS pages (Sing Siang & Cepheus)
+        helix.js + helix-images.js     - 3D "double helix" card animation (Sing Siang)
+        accordion.js                   - Reusable FAQ accordion component (Sing Siang)
+        review.js                      - Reusable review carousel component (Sing Siang)
+        perf-slider.js                 - Reusable before/after performance slider (Sing Siang)
+        cta-card.js                    - Animated call-to-action ripple effect (Sing Siang)
+        reveal-on-scroll.js            - Scroll-reveal fade/slide-in effect (Sing Siang)
+        sub-nav.js                     - Secondary in-page navigation for NexOS (Sing Siang)
+        shop-only.js                   - Shop-only header/footer variant logic (Liang Jun)
+
+    images/                             - Organised into subfolders per page/section
+        index/... , main-shop/, keyboard-shop/, tech-page/, nexos-pro-helix/,
+        images-keyboard-final/ (100-frame canvas sequence), payment-qr/, etc.
+
+    sounds/                             - clicky.mp3, linear.mp3, tactile.mp3
+                                          (switch-sound samples for keyboard-intro.html)
+
+    Total HTML CSS JS Files: 39
+    Total Images: 188
+
 
 ================================================================================
 END OF FEATURES DOCUMENT
