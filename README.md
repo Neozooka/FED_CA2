@@ -1,6 +1,3 @@
-# neXus Gaming
-
-A high-performance landing page for **neXus**, a gaming technology brand crafting premium mechanical keyboards and a custom gaming operating system. Built with smooth scrolling, scroll-triggered animations, and modern typography.
 
 ---
 
