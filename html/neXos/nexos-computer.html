@@ -14,6 +14,7 @@
 
         <link rel="stylesheet" href="../../css/style.css">
 
+        <script src="../../javascript/nexos-computer.js"></script>
         <script src="../../javascript/header-footer.js"></script>
         <script src="../../javascript/chatbot.js"></script>
         <script src="../../javascript/reveal-on-scroll.js" defer></script>
@@ -188,27 +189,6 @@
         </article>
 
         <div id="footer-container"></div>
-        
-        <script>
-            document.addEventListener('DOMContentLoaded', () => {
-                document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                    anchor.addEventListener('click', function (e) {
-                        const targetId = this.getAttribute('href');
-                        if (targetId === '#') return;
-                        
-                        const targetElement = document.querySelector(targetId);
-                        if (targetElement) {
-                            e.preventDefault();
-                            targetElement.classList.add('is-visible');
-                            targetElement.scrollIntoView({
-                                behavior: 'smooth',
-                                block: 'start'
-                            });
-                        }
-                    });
-                });
-            });
-        </script>
 
     </body>
 </html>

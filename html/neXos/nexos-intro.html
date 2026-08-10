@@ -15,6 +15,7 @@
 
         <link rel="stylesheet" href="../../css/style.css">
 
+        <script src="../../javascript/nexos-intro.js"></script>
         <script src="../../javascript/header-footer.js"></script>
         <script src="../../javascript/chatbot.js"></script>
         <script src="../../javascript/sub-nav.js" defer></script>
@@ -61,7 +62,7 @@
             <section id="hero" class="w-full bg-[--background] py-20 flex flex-col items-center scroll-mt-24">
                 
                 <!-- Animated Main Headline -->
-                <div class="container mx-auto text-center" style="overflow: visible;">
+                <div class="container mx-auto text-center overflow-visible">
                     <h1 class="flex flex-col items-center justify-center text-4xl tracking-tight md:text-6xl text-white font-black">
                         <span class="mb-2">YOUR COMPUTER,</span>
                         <span class="text-[--maingreen] min-h-[1.2em] inline-flex items-center justify-center relative">
@@ -182,7 +183,7 @@
                                                 NexOS
                                             </span>
                                             <div class="grow bg-neutral-950 rounded-xl sm:rounded-2xl h-12 sm:h-16 p-1.5 sm:p-2 border border-neutral-800 relative">
-                                                <div class="perf-bar bg-[--maingreen] h-full rounded-lg sm:rounded-xl flex items-center justify-end pr-3 sm:pr-4 text-[--text] font-extrabold text-sm sm:text-base whitespace-nowrap overflow-hidden" style="width: 0%;" data-width="92%">
+                                                <div class="perf-bar bg-[--maingreen] h-full w-0 rounded-lg sm:rounded-xl flex items-center justify-end pr-3 sm:pr-4 text-[--text] font-extrabold text-sm sm:text-base whitespace-nowrap overflow-hidden" data-width="92%">
                                                     +45% FPS
                                                 </div>
                                             </div>
@@ -193,7 +194,7 @@
                                                 Windows 11
                                             </span>
                                             <div class="grow bg-neutral-950 rounded-xl sm:rounded-2xl h-12 sm:h-16 p-1.5 sm:p-2 border border-neutral-800 relative">
-                                                <div class="perf-bar bg-neutral-800 h-full rounded-xl border border-neutral-700/50 transition-all duration-1000 ease-out" style="width: 0%;" data-width="38%"></div>
+                                                <div class="perf-bar bg-neutral-800 h-full w-0 rounded-xl border border-neutral-700/50 transition-all duration-1000 ease-out"data-width="38%"></div>
                                             </div>
                                         </div>
 
@@ -212,7 +213,7 @@
                                                 NexOS
                                             </span>
                                             <div class="grow bg-neutral-950 rounded-xl sm:rounded-2xl h-12 sm:h-16 p-1.5 sm:p-2 border border-neutral-800 relative">
-                                                <div class="perf-bar bg-[--maingreen] h-full rounded-lg sm:rounded-xl flex items-center justify-end pr-3 sm:pr-4 text-[--text] font-extrabold text-sm sm:text-base whitespace-nowrap overflow-hidden" style="width: 0%;" data-width="35%">
+                                                <div class="perf-bar bg-[--maingreen] h-full w-0 rounded-lg sm:rounded-xl flex items-center justify-end pr-3 sm:pr-4 text-[--text] font-extrabold text-sm sm:text-base whitespace-nowrap overflow-hidden" data-width="35%">
                                                     1.8 GB
                                                 </div>
                                             </div>
@@ -223,7 +224,7 @@
                                                 Windows 11
                                             </span>
                                             <div class="grow bg-neutral-950 rounded-xl sm:rounded-2xl h-12 sm:h-16 p-1.5 sm:p-2 border border-neutral-800 relative">
-                                                <div class="perf-bar bg-neutral-800 h-full rounded-lg sm:rounded-xl border border-neutral-700/50 flex items-center justify-end pr-3 sm:pr-4 text-neutral-300 font-semibold text-xs sm:text-sm whitespace-nowrap overflow-hidden" style="width: 0%;" data-width="85%">
+                                                <div class="perf-bar bg-neutral-800 h-full w-0 rounded-lg sm:rounded-xl border border-neutral-700/50 flex items-center justify-end pr-3 sm:pr-4 text-neutral-300 font-semibold text-xs sm:text-sm whitespace-nowrap overflow-hidden" data-width="85%">
                                                     3.5 GB
                                                 </div>
                                             </div>
@@ -244,7 +245,7 @@
                                                 NexOS
                                             </span>
                                             <div class="grow bg-neutral-950 rounded-xl sm:rounded-2xl h-12 sm:h-16 p-1.5 sm:p-2 border border-neutral-800 relative">
-                                                <div class="perf-bar bg-[--maingreen] h-full rounded-lg sm:rounded-xl flex items-center justify-end pr-3 sm:pr-4 text-[--text] font-extrabold text-sm sm:text-base whitespace-nowrap overflow-hidden" style="width: 0%;" data-width="25%">
+                                                <div class="perf-bar bg-[--maingreen] h-full w-0 rounded-lg sm:rounded-xl flex items-center justify-end pr-3 sm:pr-4 text-[--text] font-extrabold text-sm sm:text-base whitespace-nowrap overflow-hidden" data-width="25%">
                                                     12µs
                                                 </div>
                                             </div>
@@ -255,7 +256,7 @@
                                                 Windows 11
                                             </span>
                                             <div class="grow bg-neutral-950 rounded-xl sm:rounded-2xl h-12 sm:h-16 p-1.5 sm:p-2 border border-neutral-800 relative">
-                                                <div class="perf-bar bg-neutral-800 h-full rounded-lg sm:rounded-xl border border-neutral-700/50 flex items-center justify-end pr-3 sm:pr-4 text-neutral-300 font-semibold text-xs sm:text-sm whitespace-nowrap overflow-hidden" style="width: 0%;" data-width="75%">
+                                                <div class="perf-bar bg-neutral-800 h-full w-0 rounded-lg sm:rounded-xl border border-neutral-700/50 flex items-center justify-end pr-3 sm:pr-4 text-neutral-300 font-semibold text-xs sm:text-sm whitespace-nowrap overflow-hidden" data-width="75%">
                                                     84µs
                                                 </div>
                                             </div>
@@ -647,107 +648,6 @@
         </article>
 
         <div id="footer-container"></div>
-        
-        <script>
-            // For the typing text at the top
-            document.addEventListener('DOMContentLoaded', () => {
-                const words = ["BETTER.", "FASTER.", "EASIER.", "FOR GAMING.", "FOR PRIVACY.", "MORE RELIABLE."];
-                let wordIdx = 0;
-                let charIdx = 0;
-                let isDeleting = false;
-                const typewriterElement = document.getElementById('typewriter');
-
-                function type() {
-                    const currentWord = words[wordIdx];
-
-                    if (isDeleting) {
-                        typewriterElement.textContent = currentWord.substring(0, charIdx - 1);
-                        charIdx --;
-                    } else {
-                        typewriterElement.textContent =  currentWord.substring(0, charIdx + 1);
-                        charIdx ++;
-                    }
-
-                    let typeSpeed = isDeleting ? 60 : 120;
-
-                    if (!isDeleting && charIdx === currentWord.length) {
-                        typeSpeed = 1800;
-                        isDeleting = true;
-                    } 
-                    
-                    else if (isDeleting && charIdx === 0) {
-                        isDeleting = false;
-                        wordIdx = (wordIdx + 1) % words.length;
-                        typeSpeed = 400;
-                    }
-                    
-                    setTimeout(type, typeSpeed);
-                }
-
-                setTimeout(type, 500);
-            })
-
-            // For the comparison 
-            document.addEventListener('DOMContentLoaded', () => {
-                const container = document.getElementById('screen-slider-container');
-                const handle = document.getElementById('screen-handle');
-
-                if (!container || !handle) return;
-
-                let isDragging = false;
-
-                function updateSliderPosition(clientX) {
-                    const rect = container.getBoundingClientRect();
-                    let x = clientX - rect.left;
-
-                    // Clamp inside container bounds (0% to 100%)
-                    if (x < 0) x = 0;
-                    if (x > rect.width) x = rect.width;
-
-                    const percentage = (x / rect.width) * 100;
-                    
-                    // Update CSS variable directly (instant GPU paint)
-                    container.style.setProperty('--pos', `${percentage}%`);
-                }
-
-                // Pointer Down (Mouse click or Touch start)
-                function onPointerDown(e) {
-                    isDragging = true;
-                    handle.setPointerCapture(e.pointerId); // Lock cursor to handle
-                    updateSliderPosition(e.clientX);
-                }
-
-                // Pointer Move (Dragging)
-                function onPointerMove(e) {
-                    if (!isDragging) return;
-                    updateSliderPosition(e.clientX);
-                }
-
-                // Pointer Up / Cancel (Release)
-                function onPointerUp(e) {
-                    if (!isDragging) return;
-                    isDragging = false;
-                    try {
-                        handle.releasePointerCapture(e.pointerId);
-                    } catch (err) {}
-                }
-
-                // Attach Unified Pointer Listeners
-                handle.addEventListener('pointerdown', onPointerDown);
-                handle.addEventListener('pointermove', onPointerMove);
-                handle.addEventListener('pointerup', onPointerUp);
-                handle.addEventListener('pointercancel', onPointerUp);
-
-                // Allow clicking anywhere inside screen container to move handle
-                container.addEventListener('pointerdown', (e) => {
-                    if (e.target !== handle && !handle.contains(e.target)) {
-                        updateSliderPosition(e.clientX);
-                        onPointerDown(e);
-                    }
-                });
-            });
-        </script>
 
     </body>
-
 </html>

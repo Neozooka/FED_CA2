@@ -34,7 +34,7 @@
 
     <article class="flex flex-col items-center gap-10">
 
-        <section class="flex max-w-5xl w-full h-[calc(100vh-80px)] min-h-[500px] flex flex-col items-center justify-center text-center px-4 relative  select-none gap-8" >
+        <section class="flex max-w-5xl w-full h-[calc(100vh-80px)] min-h-[500px] flex flex-col items-center justify-center text-center px-4 relative select-none gap-8">
         
             <div class="main-headline flex flex-col items-center justify-center gap-3">
                 <h1 class="text-5xl sm:text-7xl md:text-8xl font-black text-white tracking-wider uppercase">
@@ -143,20 +143,19 @@
                         <!-- Slide 1 -->
                         <div role="img" 
                             aria-label="Keyboard on display with monitor and keyboard"
-                            style="background-image: url('../../images/keyboard-shop/keyboardshop1.webp');" class="action w-full h-full bg-cover bg-center bg-no-repeat absolute left-1/2 top-1/2 z-20 -translate-x-1/2 -translate-y-1/2 opacity-100 transition-opacity duration-500 pointer-events-none">
+                            class="bg-[url('../../images/keyboard-shop/keyboardshop1.webp')] action w-full h-full bg-cover bg-center bg-no-repeat absolute left-1/2 top-1/2 z-20 -translate-x-1/2 -translate-y-1/2 opacity-100 transition-opacity duration-500 pointer-events-none">
                         </div>
 
                         <!-- Slide 2 -->
                         <div role="img" 
                             aria-label="Keyboard on display"
-                            style="background-image: url('../../images/keyboard-shop/keyboardshop2.webp');" class="action w-full h-full bg-cover bg-center bg-no-repeat absolute left-1/2 top-1/2 z-20 -translate-x-1/2 -translate-y-1/2 opacity-0 transition-opacity duration-500 pointer-events-none">
+                            class="bg-[url('../../images/keyboard-shop/keyboardshop2.webp')] action w-full h-full bg-cover bg-center bg-no-repeat absolute left-1/2 top-1/2 z-20 -translate-x-1/2 -translate-y-1/2 opacity-0 transition-opacity duration-500 pointer-events-none">
                         </div>
 
                         <!-- Slide 3 -->
                         <div role="img" 
                             aria-label="Keyboard on display with strap"
-                            style="background-image: url('../../images/keyboard-shop/keyboardshop3.webp');" 
-                            class="action w-full h-full bg-cover bg-center bg-no-repeat absolute left-1/2 top-1/2 z-20 -translate-x-1/2 -translate-y-1/2 opacity-0 transition-opacity duration-500 pointer-events-none">
+                            class="bg-[url('../../images/keyboard-shop/keyboardshop3.webp')] action w-full h-full bg-cover bg-center bg-no-repeat absolute left-1/2 top-1/2 z-20 -translate-x-1/2 -translate-y-1/2 opacity-0 transition-opacity duration-500 pointer-events-none">
                         </div>
 
                     </div>
@@ -176,9 +175,9 @@
                         </button>
 
                         <div class="flex items-center justify-center gap-2 py-1">
-                            <div class="thumb-card w-16 h-12 rounded-md bg-cover bg-center cursor-pointer transition-all duration-300 border-2 border-neutral-800 opacity-100" style="background-image: url('../../images/keyboard-shop/keyboardshop1.webp');"></div>
-                            <div class="thumb-card w-16 h-12 rounded-md bg-cover bg-center cursor-pointer transition-all duration-300 border-2 border-transparent opacity-50 hover:opacity-100" style="background-image: url('../../images/keyboard-shop/keyboardshop2.webp');"></div>
-                            <div class="thumb-card w-16 h-12 rounded-md bg-cover bg-center cursor-pointer transition-all duration-300 border-2 border-transparent opacity-50 hover:opacity-100" style="background-image: url('../../images/keyboard-shop/keyboardshop3.webp');"></div>
+                            <div class="bg-[url('../../images/keyboard-shop/keyboardshop1.webp')] thumb-card w-16 h-12 rounded-md bg-cover bg-center cursor-pointer transition-all duration-300 border-2 border-neutral-800 opacity-100"></div>
+                            <div class="bg-[url('../../images/keyboard-shop/keyboardshop2.webp')] thumb-card w-16 h-12 rounded-md bg-cover bg-center cursor-pointer transition-all duration-300 border-2 border-transparent opacity-50 hover:opacity-100"></div>
+                            <div class="bg-[url('../../images/keyboard-shop/keyboardshop3.webp')] thumb-card w-16 h-12 rounded-md bg-cover bg-center cursor-pointer transition-all duration-300 border-2 border-transparent opacity-50 hover:opacity-100"></div>
                         </div>
 
                         <button id="next" class="h-[45px] w-[35px] shrink-0 bg-neutral-800 text-white rounded-lg flex items-center justify-center font-bold text-xl hover:bg-neutral-900 transition-all duration-300" onclick="next(); resetInterval();">
@@ -511,7 +510,7 @@
                         <div class="w-full h-full min-h-[300px] rounded-lg overflow-hidden border border-neutral-200 shadow-inner">
                             <iframe 
                                 id="google-map-iframe"
-                                style="border:0; width: 100%; height: 100%" 
+                                class="border-0 w-full h-full"
                                 allowfullscreen="" 
                                 loading="lazy" 
                                 referrerpolicy="no-referrer-when-downgrade"
