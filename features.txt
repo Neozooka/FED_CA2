@@ -358,87 +358,58 @@ html/payment.html              Cart search, quantity controls, item removal,
                                 modal, live order totals.
 
 --------------------------------------------------------------------------------
-APPENDIX: JAVASCRIPT FUNCTIONS USED (for reference / code-checking)
+HOW DATA FROM JSON FILES IS LOADED AND SHOWN ON THE PAGE
 --------------------------------------------------------------------------------
-The plain-language descriptions above are backed by real functions in the
-code. Listed below by file, for anyone who wants to check the source directly.
  
-javascript/header-footer.js
-    `setScrollLock`, `closeAllMenus`, `getRootPrefix`, `getPageTitle`,
-    `updateCartCount`, `loadHeaderAndFooter`, `preventSamePageReloads`
+Two features load their content from separate JSON data files (instead of the
+content being typed directly into the HTML), then build the actual page
+elements in JavaScript rather than dumping raw HTML text onto the page:
  
-javascript/chatbot.js
-    `injectChatWidgetMarkup`, `buildSearchIndex`, `containsKeyword`,
-    `scoreEntry`, `findBestMatch`, `cleanTitle`, `saveChatState`,
-    `isPageReload`, `restoreChatState`, `initChatbot`, `appendUserMessage`,
-    `appendBotMessage`, `renderMainCategories`, `renderSubcategories`,
-    `handleSubcategoryClick`, `renderInlineEmailForm`, `bindFormSubmit`,
-    `rebindDynamicListeners`, `isClearHistoryCommand`, `clearChatHistory`,
-    `respondWithBreadcrumb`, `handleHybridInput`
+SHOP PRODUCT GRID (javascript/main-shop.js + javascript/shop-products.json)
+  - The list of products (title, price, image) is fetched from
+    shop-products.json.
+  - For each product, the page copies a hidden <template> block already sitting
+    in the HTML, fills in that copy's title/price/image, and only then adds it
+    to the page. This is more reliable than typing HTML text into the page
+    with innerHTML, because the layout of each card is defined once in the
+    HTML template and JavaScript just fills in the blanks.
+  - The same approach is used to rebuild the cart items shown on the
+    payment page whenever an item is added, removed, or its quantity changes.
  
-javascript/main-shop.js
-    `checkPromo`, `loadProductsFromList`, `saveCart`,
-    `showToastNotification`, `changeQuantity`, `remove`,
-    `updateResultCount`, `loadingProductShop`, `productSort`
+SUPPORT CHATBOT (javascript/chatbot.js + javascript/bot-data.json)
+  - The chatbot's categories, questions and answers are stored in
+    bot-data.json rather than being written into the HTML.
+  - When the chatbot needs to show a list of category buttons, it builds each
+    button one at a time in JavaScript (creating the button, giving it text
+    and a click action, then placing it into the chat window) rather than
+    writing out a block of HTML text and inserting it in one go. This is the
+    more "bonus-marks" approach the brief mentions, since each part of the
+    button is created and controlled individually in code.
  
-javascript/payment.js
-    `showAlert`, `checkFormValidity`, `choosePayment`, `showQR`, `closeQR`,
-    `closeOnOutsideClick`
+--------------------------------------------------------------------------------
+GSAP (ANIMATION LIBRARY)
+--------------------------------------------------------------------------------
+  - GSAP is an external animation library (loaded via CDN) used to power some
+    of the site's more advanced animations that would be difficult to achieve
+    with CSS alone.
+  - On index.html, GSAP's SplitText and TextPlugin add-ons are used to break
+    the hero heading into individual letters and type out the tagline text
+    one character at a time.
+  - On shop-main.html, the same letter-splitting technique animates the main
+    headline into view, then types out the tagline underneath it.
+  - GSAP's ScrollTrigger add-on is also referenced site-wide (via
+    header-footer.js) to keep scrolling smooth and consistent across pages.
  
-javascript/index.js
-    `showEmail`, `closeEmail`, `closeOnOutsideClick`, `handleSignup`,
-    `render`, `goTo`, `next`, `previous`, `startAutoplay`, `stopAutoplay`,
-    `restartAutoplay`, `makeGreen`
- 
-javascript/find-your-product.js
-    `fadeOut`, `fadeIn`
- 
-javascript/hardware-detector.js
-    `getCleanGpuName`, `checkNexosProCompatibility`
- 
-javascript/keyboard-intro.js
-    `getFramePath`, `preloadImages`, `resize`, `renderGlobalFrame`,
-    `updateFeelAndPlaySection`, `playSounds`
- 
-javascript/keyboard-shop.js
-    `updateCarousel`, `next`, `previous`, `goToSlide`, `resetInterval`,
-    `returnId`, `activeProduct`, `getHalfWidth`, `step`, `type`,
-    `updateMapLocation`
- 
-javascript/keyboard-tech.js
-    `raf`
- 
-javascript/nexos-intro.js
-    `type`, `updateSliderPosition`, `onPointerDown`, `onPointerMove`,
-    `onPointerUp`
- 
-javascript/nexos-pro.js
-    `switchLayout`, `getMinimumPosition`, `renderTrack`, `startDrag`,
-    `moveDrag`, `endDrag`
- 
-javascript/nexos-shop.js
-    `openDownloadModal`, `closeDownloadModal`, `handleHardwareChange`,
-    `handleGpuChange`, `resetDownloadModal`, `showNewsletterStep`,
-    `handleIsoDownload`
- 
-javascript/review.js
-    `getHalfWidth`, `step`, `getPointerX`, `onPointerDown`,
-    `onPointerMove`, `onPointerUp`
- 
-javascript/helix.js
-    `wrap`, `helixAngle`, `depthOf`, `helixTransform`, `depthFilter`,
-    `pickBreakpoint`, `applyViewport`, `imageUrl`, `placeholderColor`,
-    `frame`
- 
-javascript/perf-slider.js
-    `PerfSlider` (class) with methods `init`, `next`, `prev`,
-    `startAutoplay`, `stopAutoplay`, `animateSlideBars`
- 
-javascript/accordion.js, cta-card.js, nexos-computer.js, shop-only.js,
-sub-nav.js
-    These files don't declare separate named functions - they attach their
-    logic directly to click/scroll event listeners (e.g.
-    `addEventListener('click', ...)`, `addEventListener('scroll', ...)`).
+--------------------------------------------------------------------------------
+LOCALSTORAGE / SESSIONSTORAGE (SAVED DATA IN THE BROWSER)
+--------------------------------------------------------------------------------
+  - The shopping cart is saved using localStorage, which keeps the data even
+    after the browser tab or window is closed. This is why items stay in the
+    cart the next time the visitor returns to the site.
+  - The chatbot's open/closed state and conversation history are saved using
+    sessionStorage instead, which only lasts for as long as that browser tab
+    stays open. This means the chat history clears itself once the tab is
+    closed, but stays intact if the visitor just moves between pages.
 
 ================================================================================
 END OF FEATURES DOCUMENT
