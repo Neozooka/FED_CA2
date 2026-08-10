@@ -170,7 +170,7 @@
                     <!-- CONTROLS: PREV | THUMBNAILS | NEXT -->
                     <div class="flex items-center justify-between w-full gap-2 mt-2">
                         
-                        <button id="previous" class="h-[45px] w-[35px] shrink-0 bg-neutral-800 text-white rounded-lg flex items-center justify-center font-bold text-xl hover:bg-neutral-900 transition-all duration-300" onclick="previous(); resetInterval();">
+                        <button aria-label="Previous" id="previous" class="h-[45px] w-[35px] shrink-0 bg-neutral-800 text-white rounded-lg flex items-center justify-center font-bold text-xl hover:bg-neutral-900 transition-all duration-300" onclick="previous(); resetInterval();">
                             &#10094;
                         </button>
 
@@ -180,7 +180,7 @@
                             <div class="bg-[url('../../images/keyboard-shop/keyboardshop3.webp')] thumb-card w-16 h-12 rounded-md bg-cover bg-center cursor-pointer transition-all duration-300 border-2 border-transparent opacity-50 hover:opacity-100"></div>
                         </div>
 
-                        <button id="next" class="h-[45px] w-[35px] shrink-0 bg-neutral-800 text-white rounded-lg flex items-center justify-center font-bold text-xl hover:bg-neutral-900 transition-all duration-300" onclick="next(); resetInterval();">
+                        <button aria-label="Next" id="next" class="h-[45px] w-[35px] shrink-0 bg-neutral-800 text-white rounded-lg flex items-center justify-center font-bold text-xl hover:bg-neutral-900 transition-all duration-300" onclick="next(); resetInterval();">
                             &#10095;
                         </button>
 
@@ -246,7 +246,7 @@
 
                             <div class="flex flex-wrap gap-2">
 
-                                <button class="Product-Button text-neutral-900 bg-neutral-100 hover:bg-neutral-200 py-2 px-4 rounded-lg border border-neutral-300 font-medium transition" id="neXus-60HE-Magnetic-Keyboard-8000Hz-Polling-Adjustable" onclick="activeProduct('neXus-60HE-Magnetic-Keyboard-8000Hz-Polling-Adjustable')">
+                                <button aria-label="Flagship" class="Product-Button text-neutral-900 bg-neutral-100 hover:bg-neutral-200 py-2 px-4 rounded-lg border border-neutral-300 font-medium transition" id="neXus-60HE-Magnetic-Keyboard-8000Hz-Polling-Adjustable" onclick="activeProduct('neXus-60HE-Magnetic-Keyboard-8000Hz-Polling-Adjustable')">
                                     Flagship
                                 </button>
 
@@ -259,11 +259,11 @@
                     <!-- Action Buttons -->
                     <div class="flex justify-start gap-4 pt-4">
 
-                        <button class="flex-1 h-[50px] px-4 main-button flex items-center justify-center shadow-sm" onclick="addCart('nexus-60he-magnetic-keyboard-8000hz-polling-adjustable')">
+                        <button aria-label="Add to cart" class="flex-1 h-[50px] px-4 main-button flex items-center justify-center shadow-sm" onclick="addCart('nexus-60he-magnetic-keyboard-8000hz-polling-adjustable')">
                             Add to Cart
                         </button>
                         
-                        <a class="flex-1 h-[50px] px-4 main-button flex items-center justify-center shadow-sm" onclick="addCart('nexus-60he-magnetic-keyboard-8000hz-polling-adjustable')" href="../payment.html">
+                        <a aria-label="Buy Now" class="flex-1 h-[50px] px-4 main-button flex items-center justify-center shadow-sm" onclick="addCart('nexus-60he-magnetic-keyboard-8000hz-polling-adjustable')" href="../payment.html">
                             Buy Now
                         </a>
 
@@ -499,6 +499,7 @@
                         <button 
                             type="submit" 
                             class="mt-2 w-full h-[45px] main-button duration-300 shadow-sm"
+                            aria-label="Confirm Booking"
                         >
                             Confirm Booking
                         </button>
