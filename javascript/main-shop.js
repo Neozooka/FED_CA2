@@ -116,7 +116,8 @@ function loadProductsFromList(cartList) {
             price.textContent = "$" + itemTotalPrice.toFixed(2)
         }
         if (photo) {
-            photo.src = item.image
+            photo.src = item.image;
+            photo.alt = item.title;
         }
         if (quantityCount) {
             quantityCount.textContent = itemQuantity
