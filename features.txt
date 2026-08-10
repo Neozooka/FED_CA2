@@ -1,7 +1,7 @@
 ================================================================================
 CA2 - INTERACTIVE WEBSITE: GRADING ROADMAP AND FEATURE CHECKLIST
 ================================================================================
-Group: 4
+Group: 6
 Members: Sing Siang, Liang Jun, Cepheus, Jia Jun
 Project: neXus - premium mechanical keyboards & custom gaming OS
 Styling framework used (ONE framework, as required): Tailwind CSS (via CDN)
